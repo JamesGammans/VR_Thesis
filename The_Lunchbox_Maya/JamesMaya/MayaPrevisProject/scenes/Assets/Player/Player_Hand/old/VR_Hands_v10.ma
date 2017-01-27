@@ -1,0 +1,9723 @@
+//Maya ASCII 2016 scene
+//Name: VR_Hands_v10.ma
+//Last modified: Fri, Oct 21, 2016 09:39:31 AM
+//Codeset: 1252
+requires maya "2016";
+requires "stereoCamera" "10.0";
+requires -nodeType "mentalrayFramebuffer" -nodeType "mentalrayOptions" -nodeType "mentalrayGlobals"
+		 -nodeType "mentalrayItemsList" -dataType "byteArray" "Mayatomr" "2016R2.0 - 3.13.1.11 ";
+currentUnit -l centimeter -a degree -t film;
+fileInfo "application" "maya";
+fileInfo "product" "Maya 2016";
+fileInfo "version" "2016";
+fileInfo "cutIdentifier" "201502261600-953408";
+fileInfo "osv" "Microsoft Windows 8 Business Edition, 64-bit  (Build 9200)\n";
+fileInfo "license" "education";
+createNode transform -s -n "persp";
+	rename -uid "8EBB397C-472A-6E19-C719-59B7B01FC12D";
+	setAttr ".v" no;
+	setAttr ".t" -type "double3" 23.177154968139995 166.06751898240952 183.37572592148567 ;
+	setAttr ".r" -type "double3" 3926.6616472803876 1806.5999999994494 0 ;
+	setAttr ".rp" -type "double3" 1.1546319456101628e-014 -3.5527136788005009e-015 -7.1054273576010019e-015 ;
+	setAttr ".rpt" -type "double3" -13.81297196124822 24.033378103882775 12.142068449928388 ;
+createNode camera -s -n "perspShape" -p "persp";
+	rename -uid "764107E1-4029-2816-7964-18BF7A71F2A3";
+	setAttr -k off ".v" no;
+	setAttr ".fl" 34.999999999999993;
+	setAttr ".coi" 209.67573503527035;
+	setAttr ".imn" -type "string" "persp";
+	setAttr ".den" -type "string" "persp_depth";
+	setAttr ".man" -type "string" "persp_mask";
+	setAttr ".tp" -type "double3" 54.522554956743946 101.60938647129352 -3.7568446465035077 ;
+	setAttr ".hc" -type "string" "viewSet -p %camera";
+createNode transform -s -n "top";
+	rename -uid "3ED13BCC-4E75-F8BB-454F-4BB326BE7FF2";
+	setAttr ".v" no;
+	setAttr ".t" -type "double3" 55.170500369445442 112.74685303885947 9.0182578255799086 ;
+	setAttr ".r" -type "double3" -89.999999999999986 0 0 ;
+createNode camera -s -n "topShape" -p "top";
+	rename -uid "DA90B716-47AE-7FFC-B5B6-CD831DA68AAB";
+	setAttr -k off ".v" no;
+	setAttr ".rnd" no;
+	setAttr ".coi" 100.1;
+	setAttr ".ow" 70.644570370474312;
+	setAttr ".imn" -type "string" "top";
+	setAttr ".den" -type "string" "top_depth";
+	setAttr ".man" -type "string" "top_mask";
+	setAttr ".hc" -type "string" "viewSet -t %camera";
+	setAttr ".o" yes;
+createNode transform -s -n "front";
+	rename -uid "83C940FA-4D92-E1B7-C554-C28C995D6F09";
+	setAttr ".v" no;
+	setAttr ".t" -type "double3" 55.313536426890309 102.40036794143988 542.00947074088936 ;
+createNode camera -s -n "frontShape" -p "front";
+	rename -uid "689D651B-42F4-E5DC-4216-9A90883C0642";
+	setAttr -k off ".v" no;
+	setAttr ".rnd" no;
+	setAttr ".coi" 100.1;
+	setAttr ".ow" 31.231752777291948;
+	setAttr ".imn" -type "string" "front";
+	setAttr ".den" -type "string" "front_depth";
+	setAttr ".man" -type "string" "front_mask";
+	setAttr ".hc" -type "string" "viewSet -f %camera";
+	setAttr ".o" yes;
+createNode transform -s -n "side";
+	rename -uid "F31EE94C-42CD-4730-F010-058C750E4B53";
+	setAttr ".v" no;
+	setAttr ".t" -type "double3" 205.87418477013108 101.60938647129352 -3.7568446465034739 ;
+	setAttr ".r" -type "double3" 0 89.999999999999986 0 ;
+createNode camera -s -n "sideShape" -p "side";
+	rename -uid "131DC253-499A-E95B-C70A-22A06E85B1AF";
+	setAttr -k off ".v" no;
+	setAttr ".rnd" no;
+	setAttr ".coi" 100.1;
+	setAttr ".ow" 40.687476706548274;
+	setAttr ".imn" -type "string" "side";
+	setAttr ".den" -type "string" "side_depth";
+	setAttr ".man" -type "string" "side_mask";
+	setAttr ".hc" -type "string" "viewSet -s %camera";
+	setAttr ".o" yes;
+createNode transform -n "TSMG_Rig";
+	rename -uid "E4423679-47A8-41AA-6DDF-16A7EC4E832D";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	setAttr -l on ".t";
+	setAttr -l on ".r";
+	setAttr -l on ".s";
+	setAttr -l on ".sh";
+	setAttr -l on ".TSMGNodeId" -type "string" "TSMG_Rig";
+createNode transform -n "TSMG_Cruft" -p "TSMG_Rig";
+	rename -uid "575E711D-473E-7DD2-8993-F7B57023CF61";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	setAttr -l on ".t";
+	setAttr -l on ".r";
+	setAttr -l on ".s";
+	setAttr -l on ".sh";
+	setAttr -l on ".TSMGNodeId" -type "string" "TSMG_Cruft";
+createNode joint -n "leftArm1_HiResHand" -p "TSMG_Cruft";
+	rename -uid "19D78CAE-419B-1410-D805-56BC88B347C6";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" 54.522554956743946 101.60938647129352 -3.7568446465035077 ;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jo" -type "double3" 0 -15.923169456459396 -63.358227675045192 ;
+	setAttr ".bps" -type "matrix" 0.43120554026209329 -0.85953178967411892 0.27434810840769874 0
+		 0.8938275539278121 0.44841086498815375 0 0 -0.12302067259895996 0.24521989866277552 0.96163044638422179 0
+		 54.522554956743953 101.6093864712935 -3.7568446465035072 1;
+	setAttr ".radi" 0.55172413793103436;
+	setAttr -l on ".TSMGNodeId" -type "string" "HiResHand";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode joint -n "leftFinger1_MetaCarpel" -p "leftArm1_HiResHand";
+	rename -uid "A38F518F-4057-C924-C726-A48D104952AE";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" 2.5691200015619486 0.73003842649872297 -1.5723727824079976 ;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jo" -type "double3" 16.767305688960892 16.078351865001935 18.190452467613547 ;
+	setAttr ".bps" -type "matrix" 0.69581968103496539 -0.71804087918089188 -0.015882925093658462 0
+		 0.70508829133690942 0.67872485639176428 0.20538517652346883 0 -0.13669481666835978 -0.15410991253358997 0.97855232969672756 0
+		 56.476336553314418 99.342926226402071 -4.5640529744320064 1;
+	setAttr ".radi" 0.60344827586206895;
+	setAttr -l on ".TSMGNodeId" -type "string" "MetaCarpel";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+	setAttr ".liw" yes;
+createNode joint -n "leftFinger1_Joint1" -p "leftFinger1_MetaCarpel";
+	rename -uid "30485084-40B9-C5BB-D14E-8097E4A46906";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jo" -type "double3" -0.7620723567881641 3.0617049005939569 -27.94831827896315 ;
+	setAttr ".bps" -type "matrix" 0.29110488917727789 -0.94280692148265999 -0.1623978211106118 0
+		 0.95049723400569763 0.26573797269611266 0.16105383576580232 0 -0.10868740333913005 -0.20124223878636804 0.97349299416259183 0
+		 62.201507240122488 93.434920595831571 -4.6947369140292938 1;
+	setAttr ".radi" 0.55172413793103448;
+	setAttr -l on ".TSMGNodeId" -type "string" "Joint1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+	setAttr ".liw" yes;
+createNode joint -n "leftFinger1_Joint2" -p "leftFinger1_Joint1";
+	rename -uid "710DCAEF-45A3-29D1-37AD-83AF44DF1C07";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" 2.9081751278405505 -1.4210854715202004e-014 0 ;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jo" -type "double3" 0.042025386798768147 -1.2086676203971141 -3.9825979323675065 ;
+	setAttr ".bps" -type "matrix" 0.2220440383400559 -0.96301821717371527 -0.15261834237469279 0
+		 0.96833677968337706 0.19948224693785913 0.1501023459811654 0 -0.1141066437595389 -0.18111528524169943 0.97681980288165338 0
+		 63.048091238420618 90.693072956419769 -5.1670182181986766 1;
+	setAttr ".radi" 0.55172413793103448;
+	setAttr -l on ".TSMGNodeId" -type "string" "Joint2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+	setAttr ".liw" yes;
+createNode joint -n "leftFinger1_Joint3" -p "leftFinger1_Joint2";
+	rename -uid "AEE50C77-48B3-6D59-FF9E-9E93EDA70645";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" 2.4109403353072736 0 3.5527136788005009e-015 ;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jo" -type "double3" 0.0715137867233991 -0.77747621488961138 -10.510621067909806 ;
+	setAttr ".bps" -type "matrix" 0.040124367710641845 -0.98561600015785511 -0.16416800951663041 0
+		 0.99245005735461578 0.020254098626553776 0.12096551221586029 0 -0.1159004692511675 -0.16778221515302835 0.97898733878722999 0
+		 63.58342616666917 88.371293492999953 -5.5349719357375555 1;
+	setAttr ".radi" 0.55172413793103448;
+	setAttr -l on ".TSMGNodeId" -type "string" "Joint3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+	setAttr ".liw" yes;
+createNode orientConstraint -n "leftFinger1_Joint1_orientConstraint1" -p "leftFinger1_Joint1";
+	rename -uid "6C58122B-445F-945E-537A-589E83ED34F7";
+	addAttr -ci true -k true -sn "w0" -ln "ControlW0" -dv 1 -min 0 -at "double";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".lr" -type "double3" 3.1805546814635168e-015 2.9468647229734296e-015 6.4705577576842495e-015 ;
+	setAttr -k on ".w0";
+	setAttr -l on ".TSMGNodeId" -type "string" "Joint1_orientConstraint1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode pointConstraint -n "leftFinger1_Joint1_pointConstraint1" -p "leftFinger1_Joint1";
+	rename -uid "B2525D29-4B1D-4087-6AC4-46BDA4A36F91";
+	addAttr -ci true -k true -sn "w0" -ln "ControlW0" -dv 1 -min 0 -at "double";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".rst" -type "double3" 3 0 0 ;
+	setAttr -k on ".w0";
+	setAttr -l on ".TSMGNodeId" -type "string" "Joint1_pointConstraint1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode aimConstraint -n "leftFinger1_MetaCarpel_aimConstraint1" -p "leftFinger1_MetaCarpel";
+	rename -uid "44553084-4846-8E63-06AE-B28242EFF235";
+	addAttr -ci true -sn "w0" -ln "ControlW0" -dv 1 -at "double";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".u" -type "double3" 0 0 1 ;
+	setAttr ".wut" 1;
+	setAttr ".o" -type "double3" 90 0 0 ;
+	setAttr -k on ".w0";
+	setAttr -l on ".TSMGNodeId" -type "string" "MetaCarpel_aimConstraint1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode joint -n "leftFinger2_MetaCarpel" -p "leftArm1_HiResHand";
+	rename -uid "4C5B0711-4FD6-C161-B0F4-5E98D9E2CF10";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" 2.8343255393561435 0.57861225603225819 -0.69944429851040724 ;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jo" -type "double3" 10.282580752870579 4.4154089162532388 19.440895884946638 ;
+	setAttr ".bps" -type "matrix" 0.7114982111128052 -0.67819552228703617 0.18390521779735408 0
+		 0.67589622367292157 0.73209569982603118 0.084853881000916981 0 -0.19218374126851151 0.063927457684846423 0.97927457321529088 0
+		 56.347957517750892 99.261131930150853 -3.6518597291669805 1;
+	setAttr ".radi" 0.60344827586206895;
+	setAttr -l on ".TSMGNodeId" -type "string" "MetaCarpel";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+	setAttr ".liw" yes;
+createNode joint -n "leftFinger2_Joint1" -p "leftFinger2_MetaCarpel";
+	rename -uid "06ABCB8B-49E0-2C4F-E244-2A85DB6A4461";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jo" -type "double3" -1.3735538268674026 4.2906009569438073 -35.488987937012276 ;
+	setAttr ".bps" -type "matrix" 0.20078632650249856 -0.97926476196497192 0.026932825015563808 0
+		 0.96737262524146972 0.2025344286688972 0.15221698044958828 0 -0.15451554945395946 -0.0045090106953004638 0.98798006751122813 0
+		 62.338181508106601 93.551288919580628 -2.1035305409904987 1;
+	setAttr ".radi" 0.55172413793103448;
+	setAttr -l on ".TSMGNodeId" -type "string" "Joint1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+	setAttr ".liw" yes;
+createNode joint -n "leftFinger2_Joint2" -p "leftFinger2_Joint1";
+	rename -uid "E983CFE7-4831-3889-1036-A7B83628F895";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" 4.8202281809334835 1.4210854715202004e-014 1.7763568394002505e-015 ;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jo" -type "double3" -0.0015791732239758094 0.028013275658543731 -6.4529617273941948 ;
+	setAttr ".bps" -type "matrix" 0.090869199832206066 -0.99582059905807163 0.0091718598701664485 0
+		 0.98381392138507018 0.09119430171308654 0.15425228498791696 0 -0.15444402419901396 -0.0049933782838786911 0.98798892178127617 0
+		 63.306017417460069 88.831009317361946 -1.9737081788583239 1;
+	setAttr ".radi" 0.55172413793103448;
+	setAttr -l on ".TSMGNodeId" -type "string" "Joint2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+	setAttr ".liw" yes;
+createNode joint -n "leftFinger2_Joint3" -p "leftFinger2_Joint2";
+	rename -uid "D62CFD5C-438E-D504-BEB2-A8B39B9501C2";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" 2.3227337272236923 -1.4210854715202004e-014 0 ;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jo" -type "double3" -0.0034291677657064651 0.041203436669992342 -9.5149868445855272 ;
+	setAttr ".bps" -type "matrix" -0.072899791098664263 -0.99719157234777944 -0.017163580521980321 0
+		 0.98530943029206253 -0.074674675852003158 0.15358717187294429 0 -0.15443751822436858 -0.0057149650009121668 0.98798602831200832 0
+		 63.51708237267615 86.51798322566566 -1.9524043905965209 1;
+	setAttr ".radi" 0.55172413793103448;
+	setAttr -l on ".TSMGNodeId" -type "string" "Joint3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+	setAttr ".liw" yes;
+createNode orientConstraint -n "leftFinger2_Joint1_orientConstraint1" -p "leftFinger2_Joint1";
+	rename -uid "16EBB809-4C39-5594-9475-E78AB520725E";
+	addAttr -ci true -k true -sn "w0" -ln "ControlW0" -dv 1 -min 0 -at "double";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".lr" -type "double3" 7.9513867036587919e-016 5.4407153803742441e-016 2.5514749116547358e-014 ;
+	setAttr -k on ".w0";
+	setAttr -l on ".TSMGNodeId" -type "string" "Joint1_orientConstraint1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode pointConstraint -n "leftFinger2_Joint1_pointConstraint1" -p "leftFinger2_Joint1";
+	rename -uid "A6BF2BE6-402A-D871-6181-378552F823EB";
+	addAttr -ci true -k true -sn "w0" -ln "ControlW0" -dv 1 -min 0 -at "double";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".rst" -type "double3" 3 0 0 ;
+	setAttr -k on ".w0";
+	setAttr -l on ".TSMGNodeId" -type "string" "Joint1_pointConstraint1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode aimConstraint -n "leftFinger2_MetaCarpel_aimConstraint1" -p "leftFinger2_MetaCarpel";
+	rename -uid "BD55BB6C-4B7C-2C06-6A5A-08AB635D3AF0";
+	addAttr -ci true -sn "w0" -ln "ControlW0" -dv 1 -at "double";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".u" -type "double3" 0 0 1 ;
+	setAttr ".wut" 1;
+	setAttr ".o" -type "double3" 90 0 0 ;
+	setAttr -k on ".w0";
+	setAttr -l on ".TSMGNodeId" -type "string" "MetaCarpel_aimConstraint1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode joint -n "leftFinger3_MetaCarpel" -p "leftArm1_HiResHand";
+	rename -uid "D4773064-4459-66D5-EB65-71828BD94A53";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" 2.8483999675454541 0.29960628557418545 0.37915674926832743 ;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jo" -type "double3" 21.344636814951503 -4.4841124500515992 17.046312184095726 ;
+	setAttr ".bps" -type "matrix" 0.66260055466914403 -0.66903673979329292 0.33667543088099622 0
+		 0.61438137118764102 0.74261475805561339 0.26656866255356565 0 -0.42836437257285648 0.030218569204451817 0.90310066016225388 0
+		 55.971953038692668 99.388419642784555 -2.6107828293703692 1;
+	setAttr ".radi" 0.60344827586206895;
+	setAttr -l on ".TSMGNodeId" -type "string" "MetaCarpel";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+	setAttr ".liw" yes;
+createNode joint -n "leftFinger3_Joint1" -p "leftFinger3_MetaCarpel";
+	rename -uid "49DE6845-475D-B234-880A-6483A7A1EEE3";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jo" -type "double3" -0.36954364808505741 1.1554664068211551 -35.469834470308378 ;
+	setAttr ".bps" -type "matrix" 0.19172707698823896 -0.97620883532438329 0.10127703483098557 0
+		 0.88757525945685878 0.21650390881132967 0.40661556324064307 0 -0.418868579329646 0.011931777069078445 0.90796847189004204 0
+		 61.804411406861895 93.499307561421276 0.35276047037733083 1;
+	setAttr ".radi" 0.55172413793103448;
+	setAttr -l on ".TSMGNodeId" -type "string" "Joint1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+	setAttr ".liw" yes;
+createNode joint -n "leftFinger3_Joint2" -p "leftFinger3_Joint1";
+	rename -uid "4079F19A-4419-BDB1-F7C8-A4BD6FC792F7";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" 5.4191834878074161 -1.4210854715202004e-014 -3.5527136788005009e-015 ;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jo" -type "double3" -0.00018010562737122578 0.0065544818432452558 -3.1479822569709777 ;
+	setAttr ".bps" -type "matrix" 0.1427444731462166 -0.98662644170507963 0.078691040878755364 0
+		 0.89676594905713458 0.1625686495631298 0.41156076925634827 0 -0.41884943356517268 0.011819420780781801 0.90797877359250034 0
+		 62.843415616642133 88.209052760379663 0.90159930522749543 1;
+	setAttr ".radi" 0.55172413793103448;
+	setAttr -l on ".TSMGNodeId" -type "string" "Joint2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+	setAttr ".liw" yes;
+createNode joint -n "leftFinger3_Joint3" -p "leftFinger3_Joint2";
+	rename -uid "DE6361B8-4A8B-56D7-C6FF-D9ACEB430ABC";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" 2.2487709455989346 2.8421709430404007e-014 0 ;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jo" -type "double3" -0.00044881556162884443 0.010341032881845123 -4.9703176562492493 ;
+	setAttr ".bps" -type "matrix" 0.064587822398136915 -0.99700345346248975 0.042573782798051227 0
+		 0.90576446600610827 0.076476286647397196 0.41682383533249956 0 -0.41883068812891017 0.011640075794171192 0.90798973745134914 0
+		 63.164415240498201 85.990355884113626 1.0785574316345903 1;
+	setAttr ".radi" 0.55172413793103448;
+	setAttr -l on ".TSMGNodeId" -type "string" "Joint3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+	setAttr ".liw" yes;
+createNode orientConstraint -n "leftFinger3_Joint1_orientConstraint1" -p "leftFinger3_Joint1";
+	rename -uid "D30F11ED-4596-3019-8127-EAA64F47521B";
+	addAttr -ci true -k true -sn "w0" -ln "ControlW0" -dv 1 -min 0 -at "double";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".lr" -type "double3" 3.8763010180336641e-015 1.4042043504437739e-014 1.9170659807605644e-014 ;
+	setAttr -k on ".w0";
+	setAttr -l on ".TSMGNodeId" -type "string" "Joint1_orientConstraint1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode pointConstraint -n "leftFinger3_Joint1_pointConstraint1" -p "leftFinger3_Joint1";
+	rename -uid "1A39C9B8-41F2-5767-C31F-71BAB3785763";
+	addAttr -ci true -k true -sn "w0" -ln "ControlW0" -dv 1 -min 0 -at "double";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".rst" -type "double3" 3 0 0 ;
+	setAttr -k on ".w0";
+	setAttr -l on ".TSMGNodeId" -type "string" "Joint1_pointConstraint1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode aimConstraint -n "leftFinger3_MetaCarpel_aimConstraint1" -p "leftFinger3_MetaCarpel";
+	rename -uid "1EFAFF8F-4759-0F41-E94A-97B9EC19D562";
+	addAttr -ci true -sn "w0" -ln "ControlW0" -dv 1 -at "double";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".u" -type "double3" 0 0 1 ;
+	setAttr ".wut" 1;
+	setAttr ".o" -type "double3" 90 0 0 ;
+	setAttr -k on ".w0";
+	setAttr -l on ".TSMGNodeId" -type "string" "MetaCarpel_aimConstraint1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode joint -n "leftFinger4_MetaCarpel" -p "leftArm1_HiResHand";
+	rename -uid "386C0304-4AD2-8FBA-299D-A1B72E24273B";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" 2.8542283535218829 -0.21388933020831757 1.4735791538089771 ;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jo" -type "double3" 33.903345107844963 -12.524107686928104 13.457553784108796 ;
+	setAttr ".bps" -type "matrix" 0.58577600128562557 -0.66099092433972895 0.46899624119851263 0
+		 0.4953248744262273 0.74999459856642681 0.43836214582902366 0 -0.64149804761391505 -0.024476520620686004 0.76673408352951167 0
+		 55.380853160494993 99.421527097650397 -1.5567539172913478 1;
+	setAttr ".radi" 0.60344827586206895;
+	setAttr -l on ".TSMGNodeId" -type "string" "MetaCarpel";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+	setAttr ".liw" yes;
+createNode joint -n "leftFinger4_Joint1" -p "leftFinger4_MetaCarpel";
+	rename -uid "F463F5CE-4CE3-97D8-6546-E78CAB82A284";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jo" -type "double3" 1.1427819772457235 -4.4313287029914177 -28.908617816628997 ;
+	setAttr ".bps" -type "matrix" 0.22295459038322896 -0.9402616176712747 0.25729232588875323 0
+		 0.70345615018213059 0.33790343024742847 0.62527651211120749 0 -0.67486346426368526 0.041585600407099944 0.73676993861096052 0
+		 60.571300355059442 93.564615101696404 2.5989305406711591 1;
+	setAttr ".radi" 0.55172413793103448;
+	setAttr -l on ".TSMGNodeId" -type "string" "Joint1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+	setAttr ".liw" yes;
+createNode joint -n "leftFinger4_Joint2" -p "leftFinger4_Joint1";
+	rename -uid "86A83527-4CDD-A847-19C8-A889B54D8D23";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" 4.7181099868450787 0 -7.1054273576010019e-015 ;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jo" -type "double3" 7.6122431949557191e-005 -0.0025029282390543824 -3.4840392153526465 ;
+	setAttr ".bps" -type "matrix" 0.1797636630723792 -0.95905653303776806 0.21885061543522538 0
+		 0.71570416126997205 0.28013880306797734 0.63975761391052388 0 -0.67487226864025618 0.041627124008484312 0.73675952899649433 0
+		 61.623224634559513 89.128357373114454 3.812864032985479 1;
+	setAttr ".radi" 0.55172413793103448;
+	setAttr -l on ".TSMGNodeId" -type "string" "Joint2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+	setAttr ".liw" yes;
+createNode joint -n "leftFinger4_Joint3" -p "leftFinger4_Joint2";
+	rename -uid "9B566F41-442A-6A46-2E19-669D0FAD3370";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" 2.394604665200788 -1.4210854715202004e-014 7.1054273576010019e-015 ;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jo" -type "double3" -0.038226670471988251 0.73837214178241251 -5.9272091486544953 ;
+	setAttr ".bps" -type "matrix" 0.11358365382143028 -0.9833126381758085 0.14210914533662203 0
+		 0.73089036477180036 0.179584914175907 0.6584440244122326 0 -0.67297698940477768 0.029077726942863865 0.73909164352434553 0
+		 62.0536875407862 86.831796124910923 4.3369247376887294 1;
+	setAttr ".radi" 0.55172413793103448;
+	setAttr -l on ".TSMGNodeId" -type "string" "Joint3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+	setAttr ".liw" yes;
+createNode orientConstraint -n "leftFinger4_Joint1_orientConstraint1" -p "leftFinger4_Joint1";
+	rename -uid "A0E3BBD0-42F5-AF4A-EE4B-1B9F09A41B08";
+	addAttr -ci true -k true -sn "w0" -ln "ControlW0" -dv 1 -min 0 -at "double";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".lr" -type "double3" 3.5781240166464568e-014 2.0884316243507882e-014 1.7519929943581637e-014 ;
+	setAttr -k on ".w0";
+	setAttr -l on ".TSMGNodeId" -type "string" "Joint1_orientConstraint1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode pointConstraint -n "leftFinger4_Joint1_pointConstraint1" -p "leftFinger4_Joint1";
+	rename -uid "66BD5665-4EBA-C4F5-0B5D-C58BD37727D1";
+	addAttr -ci true -k true -sn "w0" -ln "ControlW0" -dv 1 -min 0 -at "double";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".rst" -type "double3" 3 0 0 ;
+	setAttr -k on ".w0";
+	setAttr -l on ".TSMGNodeId" -type "string" "Joint1_pointConstraint1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode aimConstraint -n "leftFinger4_MetaCarpel_aimConstraint1" -p "leftFinger4_MetaCarpel";
+	rename -uid "3AF62E28-40BE-EE94-B1FB-A0B095F29286";
+	addAttr -ci true -sn "w0" -ln "ControlW0" -dv 1 -at "double";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".u" -type "double3" 0 0 1 ;
+	setAttr ".wut" 1;
+	setAttr ".o" -type "double3" 90 0 0 ;
+	setAttr -k on ".w0";
+	setAttr -l on ".TSMGNodeId" -type "string" "MetaCarpel_aimConstraint1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode joint -n "leftThumb1_Joint1" -p "leftArm1_HiResHand";
+	rename -uid "92ED8EF3-41AC-26A4-F707-ABAB9D305945";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jo" -type "double3" 76.417597914322016 -40.732176693721136 -7.1554476419512776 ;
+	setAttr ".bps" -type "matrix" 0.15956760670747788 -0.52856619851566289 0.83376012897976159 0
+		 -0.070480060376859013 0.83632674862637024 0.5436820124128795 0 -0.98466783230636823 -0.14551750176093983 0.096197280119205392 0
+		 54.573817093963989 98.057269033127582 0.10008228038179023 1;
+	setAttr ".radi" 0.55172413793103448;
+	setAttr -l on ".TSMGNodeId" -type "string" "Joint1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode joint -n "leftThumb1_Joint2" -p "leftThumb1_Joint1";
+	rename -uid "AAFC44ED-4282-A0C0-1DD3-0C95B96F1DD0";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" 4.0733213668352235 1.4210854715202004e-014 1.4210854715202004e-014 ;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jo" -type "double3" 3.2722958663590198 -12.344603030533438 -29.590707810156829 ;
+	setAttr ".bps" -type "matrix" -0.040966708632082266 -0.88354198452104971 0.4665568458103036 0
+		 -0.03954624464531703 0.46801676922561364 0.88283429830182258 0 -0.99837759556107175 0.017716244303577822 -0.054113874094072756 0
+		 55.223787235820303 95.904249042926878 3.4962552285703539 1;
+	setAttr ".radi" 0.55172413793103448;
+	setAttr -l on ".TSMGNodeId" -type "string" "Joint2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode joint -n "leftThumb1_Joint3" -p "leftThumb1_Joint2";
+	rename -uid "112A5856-4B12-FF52-8CDF-66B7C53092C4";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" 3.0319778764769154 -2.8421709430404007e-014 -1.4210854715202004e-014 ;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jo" -type "double3" -0.70146633389275126 -5.1083004500220461 15.627748862207955 ;
+	setAttr ".bps" -type "matrix" -0.13880060082335149 -0.72034589200883303 0.67958530669598449 0
+		 -0.014926847909010629 0.68767156671052787 0.7258684492037033 0 -0.9902078480917923 0.090606910353939127 -0.10620172020045336 0
+		 55.099577081575767 93.225369292920533 4.9108452631860215 1;
+	setAttr ".radi" 0.55172413793103448;
+	setAttr -l on ".TSMGNodeId" -type "string" "Joint3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode orientConstraint -n "leftThumb1_Joint1_orientConstraint1" -p "leftThumb1_Joint1";
+	rename -uid "54A84626-4AB7-DEA5-A519-BBB7558E9132";
+	addAttr -ci true -k true -sn "w0" -ln "ControlW0" -dv 1 -min 0 -at "double";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".lr" -type "double3" 2.5444437451708134e-014 1.749305074804935e-014 -9.5416640443905471e-015 ;
+	setAttr -k on ".w0";
+	setAttr -l on ".TSMGNodeId" -type "string" "Joint1_orientConstraint1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode pointConstraint -n "leftThumb1_Joint1_pointConstraint1" -p "leftThumb1_Joint1";
+	rename -uid "57245076-42DC-EACF-43F2-17B5C90D5E9F";
+	addAttr -ci true -k true -sn "w0" -ln "ControlW0" -dv 1 -min 0 -at "double";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".rst" -type "double3" 3 0 0 ;
+	setAttr -k on ".w0";
+	setAttr -l on ".TSMGNodeId" -type "string" "Joint1_pointConstraint1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode transform -n "leftFinger1_AttributesConnectToUpperBody" -p "TSMG_Cruft";
+	rename -uid "38F15101-4E60-1537-DA2B-D499EF659D97";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "bodyPartType" -ln "bodyPartType" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "AttributesConnectToUpperBody";
+	setAttr -l on -cb on ".bodyPartType" -type "string" "finger";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode transform -n "leftFinger1_ParentConstrain" -p "TSMG_Cruft";
+	rename -uid "23539E31-441A-52E2-7F8E-22914A20DA6F";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "ParentConstrain";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode transform -n "leftFinger1_rig" -p "leftFinger1_ParentConstrain";
+	rename -uid "DC96DF7D-4B0D-5ED7-146A-B584A0D70942";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "rig";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode transform -n "leftFinger1_upVector" -p "leftFinger1_rig";
+	rename -uid "42F3CD05-4640-96BA-97EE-65B70A74B098";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".v" no;
+	setAttr ".t" -type "double3" 57.656425087255592 100.48028308185192 -4.2200857270016066 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "upVector";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode locator -n "leftFinger1_upVectorShape" -p "leftFinger1_upVector";
+	rename -uid "7067D2A4-4B77-19C5-94E2-4B8B8F0ED606";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k off ".v";
+	setAttr -l on ".TSMGNodeId" -type "string" "upVectorShape";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode transform -n "leftFinger1_ControlBuffer" -p "leftFinger1_rig";
+	rename -uid "7F0ABEDA-43FF-366B-125A-46B7F1C6C39F";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".t" -type "double3" 62.201507240122496 93.434920595831571 -4.6947369140292921 ;
+	setAttr ".r" -type "double3" 9.3938769289007915 9.3461018270821086 -72.84119212942494 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "ControlBuffer";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode transform -n "leftFinger1_Control" -p "leftFinger1_ControlBuffer";
+	rename -uid "CE878893-4F10-208A-6960-1BA47E5709BD";
+	addAttr -ci true -sn "MiddleJoint" -ln "MiddleJoint" -at "double";
+	addAttr -ci true -sn "EndJoint" -ln "EndJoint" -at "double";
+	addAttr -ci true -sn "SideToSide" -ln "SideToSide" -at "double";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on -k off ".v";
+	setAttr -l on -k off ".sx";
+	setAttr -l on -k off ".sy";
+	setAttr -l on -k off ".sz";
+	setAttr -k on ".MiddleJoint";
+	setAttr -k on ".EndJoint";
+	setAttr -k on ".SideToSide";
+	setAttr -l on ".TSMGNodeId" -type "string" "Control";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode nurbsCurve -n "leftFinger1_ControlShape" -p "leftFinger1_Control";
+	rename -uid "9F154544-4BBC-C664-1647-12BCD992B22F";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k off ".v";
+	setAttr -s 4 ".iog[0].og";
+	setAttr ".tw" yes;
+	setAttr -l on ".TSMGNodeId" -type "string" "ControlShape";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode nurbsCurve -n "leftFinger1_ControlShapeOrig" -p "leftFinger1_Control";
+	rename -uid "7F0CF8D5-4D34-291C-FD06-09AA717887A1";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr ".cc" -type "nurbsCurve" 
+		3 16 0 no 3
+		21 0 0 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 16 16
+		19
+		0 2.5173317775797326 -0.023755581410627939
+		0 2.5621702432499545 -0.20825551927931926
+		0 2.6828421681797878 -0.37175374209413531
+		0 2.8410919533083172 -0.4652164441740626
+		0 3.0174460713308626 -0.49514536689105171
+		0 3.2245123623022582 -0.44471693324236422
+		0 3.3831605977936619 -0.32204437144399273
+		0 3.4733734368614417 -0.16260225888669272
+		0 3.5003990752415195 0.029511262140563099
+		0 3.4529543210577369 0.22769323151171247
+		0 3.3052957353906649 0.39830872602592787
+		0 3.1160883969140496 0.48131613027330239
+		0 2.909011733530698 0.47774067908220774
+		0 2.7311507550862175 0.40215069307522217
+		0 2.5877679663883995 0.25005864281960666
+		0 2.5353333761004837 0.1282205888361212
+		0 2.5169437316247256 -0.010439187108662382
+		0 2.5169437316247256 -0.010439187108662382
+		0 -0.0057600021369639265 -0.014447684640817367
+		;
+	setAttr -l on ".TSMGNodeId" -type "string" "ControlShapeOrig";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode parentConstraint -n "leftFinger1_ParentConstrain_parentConstraint1" -p
+		 "leftFinger1_ParentConstrain";
+	rename -uid "50299967-4879-8973-EE96-E4B29AB1C7C3";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "leftArm1_HiResHandW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 64.856753257117504 -94.296514809389492 -14.596545876671653 ;
+	setAttr ".tg[0].tor" -type "double3" 14.305783166172844 7.0664664476184926 64.246135890307855 ;
+	setAttr ".lr" -type "double3" 3.9756933518293952e-015 3.9756933518293967e-015 -2.6438360789665484e-014 ;
+	setAttr ".rst" -type "double3" -7.1054273576010019e-015 -1.4210854715202004e-014 
+		2.2204460492503131e-015 ;
+	setAttr ".rsrr" -type "double3" 3.975693351829396e-015 2.3854160110976376e-015 -1.987846675914697e-016 ;
+	setAttr -k on ".w0";
+createNode transform -n "leftFinger1_ParentToWorld" -p "TSMG_Cruft";
+	rename -uid "C677018E-4C74-3BE2-B36C-899209017AA6";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "ParentToWorld";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode transform -n "leftFinger1_controlScale" -p "leftFinger1_ParentToWorld";
+	rename -uid "B05AA750-4D86-1756-5702-21A08C2B595D";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".v" no;
+	setAttr -l on ".TSMGNodeId" -type "string" "controlScale";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode transform -n "leftFinger1_cluster1Handle" -p "leftFinger1_controlScale";
+	rename -uid "3CF45565-451F-D96C-FA0A-ECA7B41970C5";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".rp" -type "double3" 0 1.7473195365522778 -0.0069146183088746593 ;
+	setAttr ".sp" -type "double3" 0 1.7473195365522778 -0.0069146183088746593 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1Handle";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode clusterHandle -n "leftFinger1_cluster1HandleShape" -p "leftFinger1_cluster1Handle";
+	rename -uid "03DD8E8F-4E56-F309-4D38-C1A6B9C6E481";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr -k off ".v";
+	setAttr ".or" -type "double3" 0 1.7473195365522778 -0.0069146183088746593 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1HandleShape";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode transform -n "leftFinger2_AttributesConnectToUpperBody" -p "TSMG_Cruft";
+	rename -uid "A48680F3-40FE-721A-6829-39B788F90484";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "bodyPartType" -ln "bodyPartType" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "AttributesConnectToUpperBody";
+	setAttr -l on -cb on ".bodyPartType" -type "string" "finger";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode transform -n "leftFinger2_ParentConstrain" -p "TSMG_Cruft";
+	rename -uid "56F65AA2-45CE-8BD1-A807-7684A97CD6C3";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "ParentConstrain";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode transform -n "leftFinger2_rig" -p "leftFinger2_ParentConstrain";
+	rename -uid "63FB6905-4F59-CDB4-7869-28A6EC0D454E";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "rig";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode transform -n "leftFinger2_upVector" -p "leftFinger2_rig";
+	rename -uid "415902B1-4959-372B-86B9-88A9DA539250";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".v" no;
+	setAttr ".t" -type "double3" 57.479143397930812 100.48782708710516 -3.5099424001706918 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "upVector";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode locator -n "leftFinger2_upVectorShape" -p "leftFinger2_upVector";
+	rename -uid "A5B63BCB-4855-42C2-62C7-76BB36F30306";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k off ".v";
+	setAttr -l on ".TSMGNodeId" -type "string" "upVectorShape";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode transform -n "leftFinger2_ControlBuffer" -p "leftFinger2_rig";
+	rename -uid "DC3D89D7-45BB-3674-95BD-3F8C79A8B697";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".t" -type "double3" 62.338181508106622 93.551288919580642 -2.1035305409904979 ;
+	setAttr ".r" -type "double3" 8.7586279413560764 -1.543323824067997 -78.412793442140995 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "ControlBuffer";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode transform -n "leftFinger2_Control" -p "leftFinger2_ControlBuffer";
+	rename -uid "BBD1D93B-4BC5-02C0-BE5F-338A92C8131B";
+	addAttr -ci true -sn "MiddleJoint" -ln "MiddleJoint" -at "double";
+	addAttr -ci true -sn "EndJoint" -ln "EndJoint" -at "double";
+	addAttr -ci true -sn "SideToSide" -ln "SideToSide" -at "double";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on -k off ".v";
+	setAttr -l on -k off ".sx";
+	setAttr -l on -k off ".sy";
+	setAttr -l on -k off ".sz";
+	setAttr -k on ".MiddleJoint";
+	setAttr -k on ".EndJoint";
+	setAttr -k on ".SideToSide";
+	setAttr -l on ".TSMGNodeId" -type "string" "Control";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode nurbsCurve -n "leftFinger2_ControlShape" -p "leftFinger2_Control";
+	rename -uid "61BC574E-4C06-C5F7-9301-34904B818D76";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k off ".v";
+	setAttr -s 4 ".iog[0].og";
+	setAttr ".tw" yes;
+	setAttr -l on ".TSMGNodeId" -type "string" "ControlShape";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode nurbsCurve -n "leftFinger2_ControlShapeOrig" -p "leftFinger2_Control";
+	rename -uid "875EA376-407D-376B-6512-728C9EF8AB5B";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr ".cc" -type "nurbsCurve" 
+		3 16 0 no 3
+		21 0 0 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 16 16
+		19
+		0 2.5173317775797326 -0.023755581410627939
+		0 2.5621702432499545 -0.20825551927931926
+		0 2.6828421681797878 -0.37175374209413531
+		0 2.8410919533083172 -0.4652164441740626
+		0 3.0174460713308626 -0.49514536689105171
+		0 3.2245123623022582 -0.44471693324236422
+		0 3.3831605977936619 -0.32204437144399273
+		0 3.4733734368614417 -0.16260225888669272
+		0 3.5003990752415195 0.029511262140563099
+		0 3.4529543210577369 0.22769323151171247
+		0 3.3052957353906649 0.39830872602592787
+		0 3.1160883969140496 0.48131613027330239
+		0 2.909011733530698 0.47774067908220774
+		0 2.7311507550862175 0.40215069307522217
+		0 2.5877679663883995 0.25005864281960666
+		0 2.5353333761004837 0.1282205888361212
+		0 2.5169437316247256 -0.010439187108662382
+		0 2.5169437316247256 -0.010439187108662382
+		0 -0.0057600021369639265 -0.014447684640817367
+		;
+	setAttr -l on ".TSMGNodeId" -type "string" "ControlShapeOrig";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode parentConstraint -n "leftFinger2_ParentConstrain_parentConstraint1" -p
+		 "leftFinger2_ParentConstrain";
+	rename -uid "E33D556C-45BC-79D8-ED79-728946EB5CBA";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "leftArm1_HiResHandW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 64.856753257117504 -94.296514809389492 -14.596545876671653 ;
+	setAttr ".tg[0].tor" -type "double3" 14.305783166172844 7.0664664476184926 64.246135890307855 ;
+	setAttr ".lr" -type "double3" 3.9756933518293952e-015 3.9756933518293967e-015 -2.6438360789665484e-014 ;
+	setAttr ".rst" -type "double3" -7.1054273576010019e-015 -1.4210854715202004e-014 
+		2.2204460492503131e-015 ;
+	setAttr ".rsrr" -type "double3" 3.975693351829396e-015 2.3854160110976376e-015 -1.987846675914697e-016 ;
+	setAttr -k on ".w0";
+createNode transform -n "leftFinger2_ParentToWorld" -p "TSMG_Cruft";
+	rename -uid "EC07280F-4724-8B06-E53A-CE9834B398E1";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "ParentToWorld";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode transform -n "leftFinger2_controlScale" -p "leftFinger2_ParentToWorld";
+	rename -uid "4391A6FD-4621-2AD1-2A1C-DDAEB350DCA0";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".v" no;
+	setAttr -l on ".TSMGNodeId" -type "string" "controlScale";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode transform -n "leftFinger2_cluster1Handle" -p "leftFinger2_controlScale";
+	rename -uid "38160357-446D-0670-23C6-C999805367D7";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".rp" -type "double3" 0 1.7473195365522778 -0.0069146183088746593 ;
+	setAttr ".sp" -type "double3" 0 1.7473195365522778 -0.0069146183088746593 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1Handle";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode clusterHandle -n "leftFinger2_cluster1HandleShape" -p "leftFinger2_cluster1Handle";
+	rename -uid "8B8B0526-414C-183C-CB29-76A089251F09";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr -k off ".v";
+	setAttr ".or" -type "double3" 0 1.7473195365522778 -0.0069146183088746593 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1HandleShape";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode transform -n "leftFinger3_AttributesConnectToUpperBody" -p "TSMG_Cruft";
+	rename -uid "E0F0F1A8-4CA7-36EF-A96D-19AF6AEC2108";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "bodyPartType" -ln "bodyPartType" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "AttributesConnectToUpperBody";
+	setAttr -l on -cb on ".bodyPartType" -type "string" "finger";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode transform -n "leftFinger3_ParentConstrain" -p "TSMG_Cruft";
+	rename -uid "F10EB7F1-40CD-6BE3-3202-4DA7E94AB4E1";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "ParentConstrain";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode transform -n "leftFinger3_rig" -p "leftFinger3_ParentConstrain";
+	rename -uid "1FFC0232-4EA7-DF20-0EA0-AEAA06C6A507";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "rig";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode transform -n "leftFinger3_upVector" -p "leftFinger3_rig";
+	rename -uid "95247E0E-4070-03F1-3CAC-4082EE3179E2";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".v" no;
+	setAttr ".t" -type "double3" 57.000171212802769 100.63272150863111 -2.1647074041746897 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "upVector";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode locator -n "leftFinger3_upVectorShape" -p "leftFinger3_upVector";
+	rename -uid "952BC322-48C3-FE63-D9B8-AD83650318C1";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k off ".v";
+	setAttr -l on ".TSMGNodeId" -type "string" "upVectorShape";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode transform -n "leftFinger3_ControlBuffer" -p "leftFinger3_rig";
+	rename -uid "BEB48639-469E-4DE7-A64F-3F8DEEC75875";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".t" -type "double3" 61.804411406861902 93.49930756142129 0.35276047037733349 ;
+	setAttr ".r" -type "double3" 24.124269169600161 -5.8127125575198031 -78.888554794614564 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "ControlBuffer";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode transform -n "leftFinger3_Control" -p "leftFinger3_ControlBuffer";
+	rename -uid "06C435CA-4931-2548-53C1-DB99D1665034";
+	addAttr -ci true -sn "MiddleJoint" -ln "MiddleJoint" -at "double";
+	addAttr -ci true -sn "EndJoint" -ln "EndJoint" -at "double";
+	addAttr -ci true -sn "SideToSide" -ln "SideToSide" -at "double";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on -k off ".v";
+	setAttr -l on -k off ".sx";
+	setAttr -l on -k off ".sy";
+	setAttr -l on -k off ".sz";
+	setAttr -k on ".MiddleJoint";
+	setAttr -k on ".EndJoint";
+	setAttr -k on ".SideToSide";
+	setAttr -l on ".TSMGNodeId" -type "string" "Control";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode nurbsCurve -n "leftFinger3_ControlShape" -p "leftFinger3_Control";
+	rename -uid "DE55EE70-491A-DFCF-2070-23A40DDD9583";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k off ".v";
+	setAttr -s 4 ".iog[0].og";
+	setAttr ".tw" yes;
+	setAttr -l on ".TSMGNodeId" -type "string" "ControlShape";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode nurbsCurve -n "leftFinger3_ControlShapeOrig" -p "leftFinger3_Control";
+	rename -uid "DF11AB77-407C-880D-8D57-F69C5323F0B0";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr ".cc" -type "nurbsCurve" 
+		3 16 0 no 3
+		21 0 0 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 16 16
+		19
+		0 2.5173317775797326 -0.023755581410627939
+		0 2.5621702432499545 -0.20825551927931926
+		0 2.6828421681797878 -0.37175374209413531
+		0 2.8410919533083172 -0.4652164441740626
+		0 3.0174460713308626 -0.49514536689105171
+		0 3.2245123623022582 -0.44471693324236422
+		0 3.3831605977936619 -0.32204437144399273
+		0 3.4733734368614417 -0.16260225888669272
+		0 3.5003990752415195 0.029511262140563099
+		0 3.4529543210577369 0.22769323151171247
+		0 3.3052957353906649 0.39830872602592787
+		0 3.1160883969140496 0.48131613027330239
+		0 2.909011733530698 0.47774067908220774
+		0 2.7311507550862175 0.40215069307522217
+		0 2.5877679663883995 0.25005864281960666
+		0 2.5353333761004837 0.1282205888361212
+		0 2.5169437316247256 -0.010439187108662382
+		0 2.5169437316247256 -0.010439187108662382
+		0 -0.0057600021369639265 -0.014447684640817367
+		;
+	setAttr -l on ".TSMGNodeId" -type "string" "ControlShapeOrig";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode parentConstraint -n "leftFinger3_ParentConstrain_parentConstraint1" -p
+		 "leftFinger3_ParentConstrain";
+	rename -uid "6C66DB85-46AD-A6FF-6450-3A988831A30E";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "leftArm1_HiResHandW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 64.856753257117504 -94.296514809389492 -14.596545876671653 ;
+	setAttr ".tg[0].tor" -type "double3" 14.305783166172844 7.0664664476184926 64.246135890307855 ;
+	setAttr ".lr" -type "double3" 3.9756933518293952e-015 3.9756933518293967e-015 -2.6438360789665484e-014 ;
+	setAttr ".rst" -type "double3" -7.1054273576010019e-015 -1.4210854715202004e-014 
+		2.2204460492503131e-015 ;
+	setAttr ".rsrr" -type "double3" 3.975693351829396e-015 2.3854160110976376e-015 -1.987846675914697e-016 ;
+	setAttr -k on ".w0";
+createNode transform -n "leftFinger3_ParentToWorld" -p "TSMG_Cruft";
+	rename -uid "BCBAE73D-44F4-8C0D-8598-819EF31DDFD5";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "ParentToWorld";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode transform -n "leftFinger3_controlScale" -p "leftFinger3_ParentToWorld";
+	rename -uid "1B5713D0-473F-9EEC-B200-7CAB48C49DBB";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".v" no;
+	setAttr -l on ".TSMGNodeId" -type "string" "controlScale";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode transform -n "leftFinger3_cluster1Handle" -p "leftFinger3_controlScale";
+	rename -uid "35E02DD3-4D6B-15AA-FF29-0180BB9DE7B2";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".rp" -type "double3" 0 1.7473195365522778 -0.0069146183088746593 ;
+	setAttr ".sp" -type "double3" 0 1.7473195365522778 -0.0069146183088746593 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1Handle";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode clusterHandle -n "leftFinger3_cluster1HandleShape" -p "leftFinger3_cluster1Handle";
+	rename -uid "DE2C5401-4C72-5D14-4706-4C86F60406D3";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr -k off ".v";
+	setAttr ".or" -type "double3" 0 1.7473195365522778 -0.0069146183088746593 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1HandleShape";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode transform -n "leftFinger4_AttributesConnectToUpperBody" -p "TSMG_Cruft";
+	rename -uid "D6364B3A-458C-FC19-9255-249FD9BDDC43";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "bodyPartType" -ln "bodyPartType" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "AttributesConnectToUpperBody";
+	setAttr -l on -cb on ".bodyPartType" -type "string" "finger";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode transform -n "leftFinger4_ParentConstrain" -p "TSMG_Cruft";
+	rename -uid "9807DD9F-4A85-11F7-1B92-6586CD3C6FDE";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "ParentConstrain";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode transform -n "leftFinger4_rig" -p "leftFinger4_ParentConstrain";
+	rename -uid "30F07B03-4E2F-0AFD-387B-FF8B92655E7A";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "rig";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode transform -n "leftFinger4_upVector" -p "leftFinger4_rig";
+	rename -uid "FF0A18AB-4232-8E1A-141C-6AAB91B7531D";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".v" no;
+	setAttr ".t" -type "double3" 56.209768678531013 100.67817965154411 -0.82311473170040872 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "upVector";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode locator -n "leftFinger4_upVectorShape" -p "leftFinger4_upVector";
+	rename -uid "362D827C-4DAB-59F5-29DC-04A8E3FC384E";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k off ".v";
+	setAttr -l on ".TSMGNodeId" -type "string" "upVectorShape";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode transform -n "leftFinger4_ControlBuffer" -p "leftFinger4_rig";
+	rename -uid "AB1B3CF2-4CF8-0FEF-422E-4E8B469715E3";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".t" -type "double3" 60.571300355059464 93.564615101696432 2.598930540671168 ;
+	setAttr ".r" -type "double3" 40.320356515650232 -14.909458794927184 -76.660407285834069 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "ControlBuffer";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode transform -n "leftFinger4_Control" -p "leftFinger4_ControlBuffer";
+	rename -uid "01C55B4C-4BF6-26ED-1C2A-6EB735021611";
+	addAttr -ci true -sn "MiddleJoint" -ln "MiddleJoint" -at "double";
+	addAttr -ci true -sn "EndJoint" -ln "EndJoint" -at "double";
+	addAttr -ci true -sn "SideToSide" -ln "SideToSide" -at "double";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on -k off ".v";
+	setAttr -l on -k off ".sx";
+	setAttr -l on -k off ".sy";
+	setAttr -l on -k off ".sz";
+	setAttr -k on ".MiddleJoint";
+	setAttr -k on ".EndJoint";
+	setAttr -k on ".SideToSide";
+	setAttr -l on ".TSMGNodeId" -type "string" "Control";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode nurbsCurve -n "leftFinger4_ControlShape" -p "leftFinger4_Control";
+	rename -uid "7A701A63-4E4A-422C-6F88-F78CAEB81E5B";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k off ".v";
+	setAttr -s 4 ".iog[0].og";
+	setAttr ".tw" yes;
+	setAttr -l on ".TSMGNodeId" -type "string" "ControlShape";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode nurbsCurve -n "leftFinger4_ControlShapeOrig" -p "leftFinger4_Control";
+	rename -uid "739BFA8C-43A4-7E47-B5C3-158520D38665";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr ".cc" -type "nurbsCurve" 
+		3 16 0 no 3
+		21 0 0 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 16 16
+		19
+		0 2.5173317775797326 -0.023755581410627939
+		0 2.5621702432499545 -0.20825551927931926
+		0 2.6828421681797878 -0.37175374209413531
+		0 2.8410919533083172 -0.4652164441740626
+		0 3.0174460713308626 -0.49514536689105171
+		0 3.2245123623022582 -0.44471693324236422
+		0 3.3831605977936619 -0.32204437144399273
+		0 3.4733734368614417 -0.16260225888669272
+		0 3.5003990752415195 0.029511262140563099
+		0 3.4529543210577369 0.22769323151171247
+		0 3.3052957353906649 0.39830872602592787
+		0 3.1160883969140496 0.48131613027330239
+		0 2.909011733530698 0.47774067908220774
+		0 2.7311507550862175 0.40215069307522217
+		0 2.5877679663883995 0.25005864281960666
+		0 2.5353333761004837 0.1282205888361212
+		0 2.5169437316247256 -0.010439187108662382
+		0 2.5169437316247256 -0.010439187108662382
+		0 -0.0057600021369639265 -0.014447684640817367
+		;
+	setAttr -l on ".TSMGNodeId" -type "string" "ControlShapeOrig";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode parentConstraint -n "leftFinger4_ParentConstrain_parentConstraint1" -p
+		 "leftFinger4_ParentConstrain";
+	rename -uid "A9363BC1-4452-F149-3079-22A8367D7F74";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "leftArm1_HiResHandW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 64.856753257117504 -94.296514809389492 -14.596545876671653 ;
+	setAttr ".tg[0].tor" -type "double3" 14.305783166172844 7.0664664476184926 64.246135890307855 ;
+	setAttr ".lr" -type "double3" 3.9756933518293952e-015 3.9756933518293967e-015 -2.6438360789665484e-014 ;
+	setAttr ".rst" -type "double3" -7.1054273576010019e-015 -1.4210854715202004e-014 
+		2.2204460492503131e-015 ;
+	setAttr ".rsrr" -type "double3" 3.975693351829396e-015 2.3854160110976376e-015 -1.987846675914697e-016 ;
+	setAttr -k on ".w0";
+createNode transform -n "leftFinger4_ParentToWorld" -p "TSMG_Cruft";
+	rename -uid "7B2541A0-4F8A-35BC-E9C0-7AB06CA49FF5";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "ParentToWorld";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode transform -n "leftFinger4_controlScale" -p "leftFinger4_ParentToWorld";
+	rename -uid "14C2EC27-4058-2CFA-24A0-ED8A216E1C9C";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".v" no;
+	setAttr -l on ".TSMGNodeId" -type "string" "controlScale";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode transform -n "leftFinger4_cluster1Handle" -p "leftFinger4_controlScale";
+	rename -uid "1BCE1F79-48BE-BBA0-D438-05A5D4CA1C47";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".rp" -type "double3" 0 1.7473195365522778 -0.0069146183088746593 ;
+	setAttr ".sp" -type "double3" 0 1.7473195365522778 -0.0069146183088746593 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1Handle";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode clusterHandle -n "leftFinger4_cluster1HandleShape" -p "leftFinger4_cluster1Handle";
+	rename -uid "61D69930-435D-B37B-4778-B7AB118BF137";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr -k off ".v";
+	setAttr ".or" -type "double3" 0 1.7473195365522778 -0.0069146183088746593 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1HandleShape";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode transform -n "leftThumb1_AttributesConnectToUpperBody" -p "TSMG_Cruft";
+	rename -uid "3325E32B-46DF-8EFD-ADDA-2FB44DA1DD4C";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "bodyPartType" -ln "bodyPartType" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "AttributesConnectToUpperBody";
+	setAttr -l on -cb on ".bodyPartType" -type "string" "thumb";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode transform -n "leftThumb1_ParentConstrain" -p "TSMG_Cruft";
+	rename -uid "0762B7E2-4A71-C7A4-AC74-7BB54B4D06CF";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "ParentConstrain";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode transform -n "leftThumb1_rig" -p "leftThumb1_ParentConstrain";
+	rename -uid "92801C0C-446C-C2FF-EE20-1884357DAAF6";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "rig";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode transform -n "leftThumb1_upVector" -p "leftThumb1_rig";
+	rename -uid "C1959F97-4639-9CC3-B138-328771D73D49";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".v" no;
+	setAttr ".t" -type "double3" -3.0010030951752675 1.674664750236043 0 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "upVector";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode locator -n "leftThumb1_upVectorShape" -p "leftThumb1_upVector";
+	rename -uid "0D82044B-46BA-0368-2958-6CBE21B4F0D0";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k off ".v";
+	setAttr -l on ".TSMGNodeId" -type "string" "upVectorShape";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode transform -n "leftThumb1_ControlBuffer" -p "leftThumb1_rig";
+	rename -uid "3E75A5FE-4838-4F11-9A2C-C992AB9780EE";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".t" -type "double3" 54.573817093964003 98.057269033127582 0.10008228038179467 ;
+	setAttr ".r" -type "double3" 79.966124740059357 -56.486954226328429 -73.201583271348866 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "ControlBuffer";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode transform -n "leftThumb1_Control" -p "leftThumb1_ControlBuffer";
+	rename -uid "5009CBF7-4231-1830-B05B-63BFB2E55B1A";
+	addAttr -ci true -sn "MiddleJoint" -ln "MiddleJoint" -at "double";
+	addAttr -ci true -sn "EndJoint" -ln "EndJoint" -at "double";
+	addAttr -ci true -sn "SideToSide" -ln "SideToSide" -at "double";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on -k off ".v";
+	setAttr -l on -k off ".sx";
+	setAttr -l on -k off ".sy";
+	setAttr -l on -k off ".sz";
+	setAttr -k on ".MiddleJoint";
+	setAttr -k on ".EndJoint";
+	setAttr -k on ".SideToSide";
+	setAttr -l on ".TSMGNodeId" -type "string" "Control";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode nurbsCurve -n "leftThumb1_ControlShape" -p "leftThumb1_Control";
+	rename -uid "7481A603-468F-3F01-5F2B-1E86B59DAF17";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k off ".v";
+	setAttr -s 4 ".iog[0].og";
+	setAttr ".tw" yes;
+	setAttr -l on ".TSMGNodeId" -type "string" "ControlShape";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode nurbsCurve -n "leftThumb1_ControlShapeOrig" -p "leftThumb1_Control";
+	rename -uid "A38B7E55-4BD9-4E22-754A-1482663ED855";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr ".cc" -type "nurbsCurve" 
+		3 16 0 no 3
+		21 0 0 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 16 16
+		19
+		0 2.5173317775797326 -0.023755581410627939
+		0 2.5621702432499545 -0.20825551927931926
+		0 2.6828421681797878 -0.37175374209413531
+		0 2.8410919533083172 -0.4652164441740626
+		0 3.0174460713308626 -0.49514536689105171
+		0 3.2245123623022582 -0.44471693324236422
+		0 3.3831605977936619 -0.32204437144399273
+		0 3.4733734368614417 -0.16260225888669272
+		0 3.5003990752415195 0.029511262140563099
+		0 3.4529543210577369 0.22769323151171247
+		0 3.3052957353906649 0.39830872602592787
+		0 3.1160883969140496 0.48131613027330239
+		0 2.909011733530698 0.47774067908220774
+		0 2.7311507550862175 0.40215069307522217
+		0 2.5877679663883995 0.25005864281960666
+		0 2.5353333761004837 0.1282205888361212
+		0 2.5169437316247256 -0.010439187108662382
+		0 2.5169437316247256 -0.010439187108662382
+		0 -0.0057600021369639265 -0.014447684640817367
+		;
+	setAttr -l on ".TSMGNodeId" -type "string" "ControlShapeOrig";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode parentConstraint -n "leftThumb1_ParentConstrain_parentConstraint1" -p "leftThumb1_ParentConstrain";
+	rename -uid "3EE04389-46A7-9134-4B6C-869227CA118F";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "leftArm1_HiResHandW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 64.856753257117504 -94.296514809389492 -14.596545876671653 ;
+	setAttr ".tg[0].tor" -type "double3" 14.305783166172844 7.0664664476184926 64.246135890307855 ;
+	setAttr ".lr" -type "double3" 3.9756933518293952e-015 3.9756933518293967e-015 -2.6438360789665484e-014 ;
+	setAttr ".rst" -type "double3" -7.1054273576010019e-015 -1.4210854715202004e-014 
+		2.2204460492503131e-015 ;
+	setAttr ".rsrr" -type "double3" 3.975693351829396e-015 2.3854160110976376e-015 -1.987846675914697e-016 ;
+	setAttr -k on ".w0";
+createNode transform -n "leftThumb1_ParentToWorld" -p "TSMG_Cruft";
+	rename -uid "4171AE32-4BE8-0D54-53D7-D59D75EC605B";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "ParentToWorld";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode transform -n "leftThumb1_controlScale" -p "leftThumb1_ParentToWorld";
+	rename -uid "89367DD1-44DE-03DC-8DEE-4D9283B5661F";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".v" no;
+	setAttr -l on ".TSMGNodeId" -type "string" "controlScale";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode transform -n "leftThumb1_cluster1Handle" -p "leftThumb1_controlScale";
+	rename -uid "1D2E4743-4C98-6D8A-CF18-4997C6A5247D";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".rp" -type "double3" 0 1.7473195365522778 -0.0069146183088746593 ;
+	setAttr ".sp" -type "double3" 0 1.7473195365522778 -0.0069146183088746593 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1Handle";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode clusterHandle -n "leftThumb1_cluster1HandleShape" -p "leftThumb1_cluster1Handle";
+	rename -uid "9E8C0995-4FD2-CB28-416F-CBA881C5BCDB";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr -k off ".v";
+	setAttr ".or" -type "double3" 0 1.7473195365522778 -0.0069146183088746593 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1HandleShape";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode transform -n "TSMGSceneData" -p "TSMG_Cruft";
+	rename -uid "37B83955-4695-F42D-329D-D0A30BA31D6A";
+	addAttr -ci true -sn "parentMode" -ln "parentMode" -min 0 -max 1 -at "bool";
+	addAttr -ci true -sn "lastRestore" -ln "lastRestore" -dt "string";
+	addAttr -ci true -sn "tailJointNodes" -ln "tailJointNodes" -dt "string";
+	addAttr -ci true -sn "tailJointNodeNames" -ln "tailJointNodeNames" -dt "string";
+	addAttr -ci true -sn "bindMethod" -ln "bindMethod" -dv 1 -at "short";
+	addAttr -ci true -sn "heatmapFalloff" -ln "heatmapFalloff" -at "double";
+	setAttr ".lastRestore" -type "string" (
+		"{\"upperBody\": {\"scale\": [1.0, 1.0, 1.0], \"name\": \"TSMG_upper_body\", \"nodeId\": \"TSMG_upper_body\", \"translation\": [0.0, 95.0, 0.0], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": null}, \"bodyParts\": {\"361570994b8a431899a892cf4958a1e1\": {\"localWidgets\": [{\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightArm1_Widget1\", \"nodeId\": \"Widget1\", \"translation\": [0.0, 0.0, 0.0], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"361570994b8a431899a892cf4958a1e1\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightArm1_Widget2\", \"nodeId\": \"Widget2\", \"translation\": [0.0, 0.0, 0.0], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"361570994b8a431899a892cf4958a1e1\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightArm1_Widget3\", \"nodeId\": \"Widget3\", \"translation\": [0.0, 0.0, 0.0], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"361570994b8a431899a892cf4958a1e1\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightArm1_Widget4\", \"nodeId\": \"Widget4\", \"translation\": [2.1774948873107193e-14, -1.0923945694396657e-14, 0.7882117337229504], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"361570994b8a431899a892cf4958a1e1\"}], \"partType\": 0, \"globalWidget\": {\"scale\": [-7.0, 7.0, 7.0], \"name\": \"rightArm1_Widget\", \"nodeId\": \"Widget\", \"translation\": [-20.0904755577433, 170.24363177815073, -9.274326142449102], \"resolution\": 0, \"rotation\": [0.0, 0.0, 63.358227675045164], \"bodyPartId\": \"361570994b8a431899a892cf4958a1e1\", \"attachmentBodyPartId\": null}, \"prefix\": \"rightArm1\", \"bodyPartId\": \"361570994b8a431899a892cf4958a1e1\", \"isTail\": false, \"widgetBuffer\": {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightArm1_WidgetBuffer\", \"nodeId\": \"WidgetBuffer\", \"translation\": [0.0, 0.0, 0.0], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"361570994b8a431899a892cf4958a1e1\"}}, \"8d1b254d820241288a4eaeaae8bf2df5\": {\"localWidgets\": [{\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightFinger1_Widget1\", \"nodeId\": \"Widget1\", \"translation\": [-4.492139637055376, -3.390805368069339, -0.2635731980752961], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"8d1b254d820241288a4eaeaae8bf2df5\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightFinger1_Widget2\", \"nodeId\": \"Widget2\", \"translation\": [0.0, 0.0, 0.0], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"8d1b254d820241288a4eaeaae8bf2df5\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightFinger1_Widget3\", \"nodeId\": \"Widget3\", \"translation\": [0.9019278176972532, -0.1829010017254948, -0.053336091280380984], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"8d1b254d820241288a4eaeaae8bf2df5\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightFinger1_Widget4\", \"nodeId\": \"Widget4\", \"translation\": [1.2918158482251125, -0.5006974060871869, -0.044736828172154595], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"8d1b254d820241288a4eaeaae8bf2df5\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightFinger1_Widget5\", \"nodeId\": \"Widget5\", \"translation\": [1.507594479935678, -1.2239072319128312, 7.10542735760104e-15], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"8d1b254d820241288a4eaeaae8bf2df5\"}], \"partType\": 4, \"globalWidget\": {\"scale\": [-1.0, 1.0, 1.0], \"name\": \"rightFinger1_Widget\", \"nodeId\": \"Widget\", \"translation\": [-108.53678657867933, 3.1981398221485495, 4.5795892284198105], \"resolution\": 0, \"rotation\": [10.498984856598904, -7.669304315502291, 6.084238648054201], \"bodyPartId\": \"8d1b254d820241288a4eaeaae8bf2df5\", \"attachmentBodyPartId\": \"361570994b8a431899a892cf4958a1e1\"}, \"prefix\": \"rightFinger1\", \"bodyPartId\": \"8d1b254d820241288a4eaeaae8bf2df5\", \"isTail\": false, \"widgetBuffer\": {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightFinger1_WidgetBuffer\", \"nodeId\": \"WidgetBuffer\", \"translation\": [-10.673847392992073, 189.0140104106348, -9.274326142449102], \"rotation\": [0.0, 0.0, 63.358227675045164], \"bodyPartId\": \"8d1b254d820241288a4eaeaae8bf2df5\"}}, \"787c17d7f5e14a978057ea740bb46bc5\": {\"localWidgets\": [{\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightFinger4_Widget1\", \"nodeId\": \"Widget1\", \"translation\": [-5.239027389702774, -1.9724261998213586, 0.6815529099469517], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"787c17d7f5e14a978057ea740bb46bc5\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightFinger4_Widget2\", \"nodeId\": \"Widget2\", \"translation\": [0.29534798606824153, 0.31094764132658875, 1.3095091026668796e-28], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"787c17d7f5e14a978057ea740bb46bc5\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightFinger4_Widget3\", \"nodeId\": \"Widget3\", \"translation\": [2.874646765530062, -0.8250913264851344, 1.4210854715202572e-14], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"787c17d7f5e14a978057ea740bb46bc5\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightFinger4_Widget4\", \"nodeId\": \"Widget4\", \"translation\": [3.159465330723611, -1.5418448592621257, 2.842170943040375e-14], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"787c17d7f5e14a978057ea740bb46bc5\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightFinger4_Widget5\", \"nodeId\": \"Widget5\", \"translation\": [3.591836574666898, -2.591577164936354, -0.03433913580750041], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"787c17d7f5e14a978057ea740bb46bc5\"}], \"partType\": 4, \"globalWidget\": {\"scale\": [-1.0, 1.0, 1.0], \"name\": \"rightFinger4_Widget\", \"nodeId\": \"Widget\", \"translation\": [-107.4856010120932, 1.5551245108971652, 11.585788549484617], \"resolution\": 0, \"rotation\": [36.44477020539533, 23.587600466357333, 1.7394389418578697], \"bodyPartId\": \"787c17d7f5e14a978057ea740bb46bc5\", \"attachmentBodyPartId\": \"361570994b8a431899a892cf4958a1e1\"}, \"prefix\": \"rightFinger4\", \"bodyPartId\": \"787c17d7f5e14a978057ea740bb46bc5\", \"isTail\": false, \"widgetBuffer\": {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightFinger4_WidgetBuffer\", \"nodeId\": \"WidgetBuffer\", \"translation\": [-10.673847392992073, 189.0140104106348, -9.274326142449102], \"rotation\": [0.0, 0.0, 63.358227675045164], \"bodyPartId\": \"787c17d7f5e14a978057ea740bb46bc5\"}}, \"0c5a699a7f65458e906f0fc1133bea8d\": {\"localWidgets\": [{\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightFinger3_Widget1\", \"nodeId\": \"Widget1\", \"translation\": [-4.559139583433973, -3.213891762697657, -0.1668641642470554], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"0c5a699a7f65458e906f0fc1133bea8d\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightFinger3_Widget2\", \"nodeId\": \"Widget2\", \"translation\": [0.5265860828943121, 0.26101793574570326, -3.5527136788005514e-15], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"0c5a699a7f65458e906f0fc1133bea8d\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightFinger3_Widget3\", \"nodeId\": \"Widget3\", \"translation\": [3.8230679924018824, -0.8856420211654623, 1.0658141036401515e-14], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"0c5a699a7f65458e906f0fc1133bea8d\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightFinger3_Widget4\", \"nodeId\": \"Widget4\", \"translation\": [3.991475664100581, -1.4814431080125476, 7.105427357600336e-15], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"0c5a699a7f65458e906f0fc1133bea8d\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightFinger3_Widget5\", \"nodeId\": \"Widget5\", \"translation\": [4.592013119887266, -2.4451671752948414, 3.552713678800583e-15], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"0c5a699a7f65458e906f0fc1133bea8d\"}], \"partType\": 4, \"globalWidget\": {\"scale\": [-1.0, 1.0, 1.0], \"name\": \"rightFinger3_Widget\", \"nodeId\": \"Widget\", \"translation\": [-107.78599381519179, 2.6683729108270895, 9.430826894647579], \"resolution\": 0, \"rotation\": [22.61237162898945, 10.685669794194087, 4.207515958150482], \"bodyPartId\": \"0c5a699a7f65458e906f0fc1133bea8d\", \"attachmentBodyPartId\": \"361570994b8a431899a892cf4958a1e1\"}, \"prefix\": \"rightFinger3\", \"bodyPartId\": \"0c5a699a7f65458e906f0fc1133bea8d\", \"isTail\": false, \"widgetBuffer\": {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightFinger3_WidgetBuffer\", \"nodeId\": \"WidgetBuffer\", \"translation\": [-10.673847392992073, 189.0140104106348, -9.274326142449102], \"rotation\": [0.0, 0.0, 63.358227675045164], \"bodyPartId\": \"0c5a699a7f65458e906f0fc1133bea8d\"}}, \"94963bcf08724b02a7830a80fc538b60\": {\"localWidgets\": [{\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger2_Widget1\", \"nodeId\": \"Widget1\", \"translation\": [-4.847380074817785, -2.9884039805525027, -0.6086719521388322], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"94963bcf08724b02a7830a80fc538b60\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger2_Widget2\", \"nodeId\": \"Widget2\", \"translation\": [0.0, 0.0, 0.0], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"94963bcf08724b02a7830a80fc538b60\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger2_Widget3\", \"nodeId\": \"Widget3\", \"translation\": [2.6633818648055114, -1.219618505627244, -2.1316282072802425e-14], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"94963bcf08724b02a7830a80fc538b60\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger2_Widget4\", \"nodeId\": \"Widget4\", \"translation\": [2.830247753572613, -2.0561495496895565, -1.5987211554601658e-14], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"94963bcf08724b02a7830a80fc538b60\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger2_Widget5\", \"nodeId\": \"Widget5\", \"translation\": [3.151305359899398, -3.4301560752244917, -8.881784197001085e-15], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"94963bcf08724b02a7830a80fc538b60\"}], \"partType\": 4, \"globalWidget\": {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger2_Widget\", \"nodeId\": \"Widget\", \"translation\": [108.4940595912364, 3.372483869495242, 7.170795601458607], \"resolution\": 0, \"rotation\": [8.332580762269298, -3.764614558969148, -0.5509706956982763], \"bodyPartId\": \"94963bcf08724b02a7830a80fc538b60\", \"attachmentBodyPartId\": \"bb2211df8eff4778a1ced6c7811e3db7\"}, \"prefix\": \"leftFinger2\", \"bodyPartId\": \"94963bcf08724b02a7830a80fc538b60\", \"isTail\": false, \"widgetBuffer\": {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger2_WidgetBuffer\", \"nodeId\": \"WidgetBuffer\", \"translation\": [10.673847392992073, 189.0140104106348, -9.274326142449102], \"rotation\": [0.0, 0.0, -63.358227675045164], \"bodyPartId\": \"94963bcf08724b02a7830a80fc538b60\"}}, \"e681e59250904970928ffd469c751fbf\": {\"localWidgets\": [{\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger1_Widget1\", \"nodeId\": \"Widget1\", \"translation\": [-4.492139637055376, -3.390805368069339, -0.2635731980752961], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"e681e59250904970928ffd469c751fbf\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger1_Widget2\", \"nodeId\": \"Widget2\", \"translation\": [0.0, 0.0, 0.0], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"e681e59250904970928ffd469c751fbf\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger1_Widget3\", \"nodeId\": \"Widget3\", \"translation\": [0.9019278176972532, -0.1829010017254948, -0.053336091280380984], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"e681e59250904970928ffd469c751fbf\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger1_Widget4\", \"nodeId\": \"Widget4\", \"translation\": [1.2918158482251125, -0.5006974060871869, -0.044736828172154595], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"e681e59250904970928ffd469c751fbf\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger1_Widget5\", \"nodeId\": \"Widget5\", \"translation\": [1.507594479935678, -1.2239072319128312, 7.10542735760104e-15], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"e681e59250904970928ffd469c751fbf\"}], \"partType\": 4, \"globalWidget\": {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger1_Widget\", \"nodeId\": \"Widget\", \"translation\": [108.53678657867933, 3.1981398221485646, 4.57958922841981], \"resolution\": 0, \"rotation\": [10.498984856598904, 7.669304315502291, -6.084238648054201], \"bodyPartId\": \"e681e59250904970928ffd469c751fbf\", \"attachmentBodyPartId\": \"bb2211df8eff4778a1ced6c7811e3db7\"}, \"prefix\": \"leftFinger1\", \"bodyPartId\": \"e681e59250904970928ffd469c751fbf\", \"isTail\": false, \"widgetBuffer\": {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger1_WidgetBuffer\", \"nodeId\": \"WidgetBuffer\", \"translation\": [10.673847392992073, 189.0140104106348, -9.274326142449102], \"rotation\": [0.0, 0.0, -63.358227675045164], \"bodyPartId\": \"e681e59250904970928ffd469c751fbf\"}}, \"1fb3403a7d78496280e42d9bb63155a9\": {\"localWidgets\": [{\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightThumb1_Widget2\", \"nodeId\": \"Widget2\", \"translation\": [0.0, 0.0, 0.0], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"1fb3403a7d78496280e42d9bb63155a9\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightThumb1_Widget3\", \"nodeId\": \"Widget3\", \"translation\": [0.6604167126712075, 0.8391298138752145, -0.37881017305502257], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"1fb3403a7d78496280e42d9bb63155a9\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightThumb1_Widget4\", \"nodeId\": \"Widget4\", \"translation\": [1.5308788130548674, -0.06149170789117862, -0.0016920904366919676], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"1fb3403a7d78496280e42d9bb63155a9\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightThumb1_Widget5\", \"nodeId\": \"Widget5\", \"translation\": [2.8279020787724534, -0.1553718115089697, 0.724678429351204], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"1fb3403a7d78496280e42d9bb63155a9\"}], \"partType\": 6, \"globalWidget\": {\"scale\": [-1.0, 1.0, 1.0], \"name\": \"rightThumb1_Widget\", \"nodeId\": \"Widget\", \"translation\": [-100.98486504526844, -1.5469885422669944, 9.374408422830896], \"resolution\": 0, \"rotation\": [87.65111312579866, 45.221165081890284, 20.42205924129138], \"bodyPartId\": \"1fb3403a7d78496280e42d9bb63155a9\", \"attachmentBodyPartId\": \"361570994b8a431899a892cf4958a1e1\"}, \"prefix\": \"rightThumb1\", \"bodyPartId\": \"1fb3403a7d78496280e42d9bb63155a9\", \"isTail\": false, \"widgetBuffer\": {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightThumb1_WidgetBuffer\", \"nodeId\": \"WidgetBuffer\", \"translation\": [-10.673847392992073, 189.0140104106348, -9.274326142449102], \"rotation\": [0.0, 0.0, 63.358227675045164], \"bodyPartId\": \"1fb3403a7d78496280e42d9bb63155a9\"}}, \"bb2211df8eff4778a1ced6c7811e3db7\": {\"localWidgets\": [{\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftArm1_Widget1\", \"nodeId\": \"Widget1\", \"translation\": [0.0, 0.0, 0.0], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"bb2211df8eff4778a1ced6c7811e3db7\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftArm1_Widget2\", \"nodeId\": \"Widget2\", \"translation\": [0.0, 0.0, 0.0], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"bb2211df8eff4778a1ced6c7811e3db7\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftArm1_Widget3\", \"nodeId\": \"Widget3\", \"translation\": [0.0, 0.0, 0.0], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"bb2211df8eff4778a1ced6c7811e3db7\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftArm1_Widget4\", \"nodeId\": \"Widget4\", \"translation\": [2.1774948873107193e-14, -1.0923945694396657e-14, 0.7882117337229504], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"bb2211df8eff4778a1ced6c7811e3db7\"}], \"partType\": 0, \"globalWidget\": {\"scale\": [7.0, 7.0, 7.0], \"name\": \"leftArm1_Widget\", \"nodeId\": \"Widget\", \"translation\": [20.0904755577433, 170.24363177815073, -9.274326142449102], \"resolution\": 0, \"rotation\": [0.0, 0.0, -63.358227675045164], \"bodyPartId\": \"bb2211df8eff4778a1ced6c7811e3db7\", \"attachmentBodyPartId\": null}, \"prefix\": \"leftArm1\", \"bodyPartId\": \"bb2211df8eff4778a1ced6c7811e3db7\", \"isTail\": false, \"widgetBuffer\": {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftArm1_WidgetBuffer\", \"nodeId\": \"WidgetBuffer\", \"translation\": [0.0, 0.0, 0.0], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"bb2211df8eff4778a1ced6c7811e3db7\"}}, \"4c7d8962e7094185b37873e87e3f5d7a\": {\"localWidgets\": [{\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger3_Widget1\", \"nodeId\": \"Widget1\", \"translation\": [-4.559139583433973, -3.213891762697657, -0.1668641642470554], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"4c7d8962e7094185b37873e87e3f5d7a\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger3_Widget2\", \"nodeId\": \"Widget2\", \"translation\": [0.5265860828943121, 0.26101793574570326, -3.5527136788005514e-15], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"4c7d8962e7094185b37873e87e3f5d7a\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger3_Widget3\", \"nodeId\": \"Widget3\", \"translation\": [3.8230679924018824, -0.8856420211654623, 1.0658141036401515e-14], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"4c7d8962e7094185b37873e87e3f5d7a\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger3_Widget4\", \"nodeId\": \"Widget4\", \"translation\": [3.991475664100586, -1.4814431080125496, 7.105427357600762e-15], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"4c7d8962e7094185b37873e87e3f5d7a\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger3_Widget5\", \"nodeId\": \"Widget5\", \"translation\": [4.592013119887266, -2.4451671752948414, 3.552713678800583e-15], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"4c7d8962e7094185b37873e87e3f5d7a\"}], \"partType\": 4, \"globalWidget\": {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger3_Widget\", \"nodeId\": \"Widget\", \"translation\": [107.78599381519179, 2.6683729108270895, 9.430826894647579], \"resolution\": 0, \"rotation\": [22.61237162898945, -10.685669794194087, -4.207515958150482], \"bodyPartId\": \"4c7d8962e7094185b37873e87e3f5d7a\", \"attachmentBodyPartId\": \"bb2211df8eff4778a1ced6c7811e3db7\"}, \"prefix\": \"leftFinger3\", \"bodyPartId\": \"4c7d8962e7094185b37873e87e3f5d7a\", \"isTail\": false, \"widgetBuffer\": {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger3_WidgetBuffer\", \"nodeId\": \"WidgetBuffer\", \"translation\": [10.673847392992073, 189.0140104106348, -9.274326142449102], \"rotation\": [0.0, 0.0, -63.358227675045164], \"bodyPartId\": \"4c7d8962e7094185b37873e87e3f5d7a\"}}, \"5938af8eb6814c1ba6a7b6d86d8dc613\": {\"localWidgets\": [{\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightFinger2_Widget1\", \"nodeId\": \"Widget1\", \"translation\": [-4.84738007481778, -2.9884039805525027, -0.6086719521388393], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"5938af8eb6814c1ba6a7b6d86d8dc613\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightFinger2_Widget2\", \"nodeId\": \"Widget2\", \"translation\": [0.0, 0.0, 0.0], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"5938af8eb6814c1ba6a7b6d86d8dc613\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightFinger2_Widget3\", \"nodeId\": \"Widget3\", \"translation\": [2.663381864805501, -1.2196185056272557, -1.9539925233402225e-14], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"5938af8eb6814c1ba6a7b6d86d8dc613\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightFinger2_Widget4\", \"nodeId\": \"Widget4\", \"translation\": [2.830247753572616, -2.056149549689553, -1.4210854715201431e-14], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"5938af8eb6814c1ba6a7b6d86d8dc613\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightFinger2_Widget5\", \"nodeId\": \"Widget5\", \"translation\": [3.1513053598994043, -3.430156075224489, -8.881784197001095e-15], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"5938af8eb6814c1ba6a7b6d86d8dc613\"}], \"partType\": 4, \"globalWidget\": {\"scale\": [-1.0, 1.0, 1.0], \"name\": \"rightFinger2_Widget\", \"nodeId\": \"Widget\", \"translation\": [-108.4940595912364, 3.372483869495242, 7.170795601458607], \"resolution\": 0, \"rotation\": [8.332580762269298, 3.764614558969148, 0.5509706956982763], \"bodyPartId\": \"5938af8eb6814c1ba6a7b6d86d8dc613\", \"attachmentBodyPartId\": \"361570994b8a431899a892cf4958a1e1\"}, \"prefix\": \"rightFinger2\", \"bodyPartId\": \"5938af8eb6814c1ba6a7b6d86d8dc613\", \"isTail\": false, \"widgetBuffer\": {\"scale\": [1.0, 1.0, 1.0], \"name\": \"rightFinger2_WidgetBuffer\", \"nodeId\": \"WidgetBuffer\", \"translation\": [-10.673847392992073, 189.0140104106348, -9.274326142449102], \"rotation\": [0.0, 0.0, 63.358227675045164], \"bodyPartId\": \"5938af8eb6814c1ba6a7b6d86d8dc613\"}}, \"d0c601be31fb4d198ca5eea17607d083\": {\"localWidgets\": [{\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftThumb1_Widget2\", \"nodeId\": \"Widget2\", \"translation\": [0.0, 0.0, 0.0], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"d0c601be31fb4d198ca5eea17607d083\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftThumb1_Widget3\", \"nodeId\": \"Widget3\", \"translation\": [0.6604167126712075, 0.8391298138752145, -0.37881017305502257], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"d0c601be31fb4d198ca5eea17607d083\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftThumb1_Widget4\", \"nodeId\": \"Widget4\", \"translation\": [1.5308788130548603, -0.061491707891179886, -0.0016920904367061784], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"d0c601be31fb4d198ca5eea17607d083\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftThumb1_Widget5\", \"nodeId\": \"Widget5\", \"translation\": [2.8279020787724534, -0.1553718115089697, 0.724678429351204], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"d0c601be31fb4d198ca5eea17607d083\"}], \"partType\": 6, \"globalWidget\": {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftThumb1_Widget\", \"nodeId\": \"Widget\", \"translation\": [100.98486504526844, -1.5469885422669944, 9.374408422830896], \"resolution\": 0, \"rotation\": [87.65111312579866, -45.221165081890284, -20.42205924129138], \"bodyPartId\": \"d0c601be31fb4d198ca5eea17607d083\", \"attachmentBodyPartId\": \"bb2211df8eff4778a1ced6c7811e3db7\"}, \"prefix\": \"leftThumb1\", \"bodyPartId\": \"d0c601be31fb4d198ca5eea17607d083\", \"isTail\": false, \"widgetBuffer\": {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftThumb1_WidgetBuffer\", \"nodeId\": \"WidgetBuffer\", \"translation\": [10.673847392992073, 189.0140104106348, -9.274326142449102], \"rotation\": [0.0, 0.0, -63.358227675045164], \"bodyPartId\": \"d0c601be31fb4d198ca5eea17607d083\"}}, \"9d77c2e8f5f0481ea78e9ddf449fc53a\": {\"localWidgets\": [{\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger4_Widget1\", \"nodeId\": \"Widget1\", \"translation\": [-5.239027389702773, -1.9724261998213586, 0.6815529099469517], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"9d77c2e8f5f0481ea78e9ddf449fc53a\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger4_Widget2\", \"nodeId\": \"Widget2\", \"translation\": [0.29534798606824153, 0.31094764132658875, 1.3095091026668796e-28], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"9d77c2e8f5f0481ea78e9ddf449fc53a\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger4_Widget3\", \"nodeId\": \"Widget3\", \"translation\": [2.874646765530062, -0.8250913264851344, 1.4210854715202572e-14], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"9d77c2e8f5f0481ea78e9ddf449fc53a\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger4_Widget4\", \"nodeId\": \"Widget4\", \"translation\": [3.159465330723611, -1.5418448592621257, 2.842170943040375e-14], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"9d77c2e8f5f0481ea78e9ddf449fc53a\"}, {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger4_Widget5\", \"nodeId\": \"Widget5\", \"translation\": [3.591836574666898, -2.591577164936354, -0.03433913580750041], \"rotation\": [0.0, 0.0, 0.0], \"bodyPartId\": \"9d77c2e8f5f0481ea78e9ddf449fc53a\"}], \"partType\": 4, \"globalWidget\": {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger4_Widget\", \"nodeId\": \"Widget\", \"translation\": [107.4856010120932, 1.5551245108971652, 11.585788549484617], \"resolution\": 0, \"rotation\": [36.44477020539533, -23.587600466357333, -1.7394389418578697], \"bodyPartId\": \"9d77c2e8f5f0481ea78e9ddf449fc53a\", \"attachmentBodyPartId\": \"bb2211df8eff4778a1ced6c7811e3db7\"}, \"prefix\": \"leftFinger4\", \"bodyPartId\": \"9d77c2e8f5f0481ea78e9ddf449fc53a\", \"isTail\": false, \"widgetBuffer\": {\"scale\": [1.0, 1.0, 1.0], \"name\": \"leftFinger4_WidgetBuffer\", \"nodeId\": \"WidgetBuffer\", \"translation\": [10.673847392992073, 189.0140104106348, -9.274326142449102], \"rotation\": [0.0, 0.0, -63.358227675045164], \"bodyPartId\": \"9d77c2e8f5f0481ea78e9ddf449fc53a\"}}}, \"characterGeometry\": [\"a32e5c8f1444409f82a70238362b409d\", \"5ea66f25f89e46769e1c251abbfa22a8\"], \"mode\": \"Restore\", \"mirrors\": [{\"subTransformNode\": \"rightFinger1_Widget\", \"domTransformNode\": \"leftFinger1_Widget\", \"axis\": \"X\"}, {\"subTransformNode\": \"rightFinger1_Widget1\", \"domTransformNode\": \"leftFinger1_Widget1\", \"axis\": null}, {\"subTransformNode\": \"rightFinger1_Widget2\", \"domTransformNode\": \"leftFinger1_Widget2\", \"axis\": null}, {\"subTransformNode\": \"rightFinger1_Widget3\", \"domTransformNode\": \"leftFinger1_Widget3\", \"axis\": null}, {\"subTransformNode\": \"rightFinger1_Widget4\", \"domTransformNode\": \"leftFinger1_Widget4\", \"axis\": null}, {\"subTransformNode\": \"rightFinger1_Widget5\", \"domTransformNode\": \"leftFinger1_Widget5\", \"axis\": null}, {\"subTransformNode\": \"rightFinger2_Widget\", \"domTransformNode\": \"leftFinger2_Widget\", \"axis\": \"X\"}, {\"subTransformNode\": \"rightFinger2_Widget1\", \"domTransformNode\": \"leftFinger2_Widget1\", \"axis\": null}, {\"subTransformNode\": \"rightFinger2_Widget2\", \"domTransformNode\": \"leftFinger2_Widget2\", \"axis\": null}, {\"subTransformNode\": \"rightFinger2_Widget3\", \"domTransformNode\": \"leftFinger2_Widget3\", \"axis\": null}, {\"subTransformNode\": \"rightFinger2_Widget4\", \"domTransformNode\": \"leftFinger2_Widget4\", \"axis\": null}, {\"subTransformNode\": \"rightFinger2_Widget5\", \"domTransformNode\": \"leftFinger2_Widget5\", \"axis\": null}, {\"subTransformNode\": \"rightFinger3_Widget\", \"domTransformNode\": \"leftFinger3_Widget\", \"axis\": \"X\"}, {\"subTransformNode\": \"rightFinger3_Widget1\", \"domTransformNode\": \"leftFinger3_Widget1\", \"axis\": null}, {\"subTransformNode\": \"rightFinger3_Widget2\", \"domTransformNode\": \"leftFinger3_Widget2\", \"axis\": null}, {\"subTransformNode\": \"rightFinger3_Widget3\", \"domTransformNode\": \"leftFinger3_Widget3\", \"axis\": null}, {\"subTransformNode\": \"rightFinger3_Widget4\", \"domTransformNode\": \"leftFinger3_Widget4\", \"axis\": null}, {\"subTransformNode\": \"rightFinger3_Widget5\", \"domTransformNode\": \"leftFinger3_Widget5\", \"axis\": null}, {\"subTransformNode\": \"rightFinger4_Widget\", \"domTransformNode\": \"leftFinger4_Widget\", \"axis\": \"X\"}, {\"subTransformNode\": \"rightFinger4_Widget1\", \"domTransformNode\": \"leftFinger4_Widget1\", \"axis\": null}, {\"subTransformNode\": \"rightFinger4_Widget2\", \"domTransformNode\": \"leftFinger4_Widget2\", \"axis\": null}, {\"subTransformNode\": \"rightFinger4_Widget3\", \"domTransformNode\": \"leftFinger4_Widget3\", \"axis\": null}, {\"subTransformNode\": \"rightFinger4_Widget4\", \"domTransformNode\": \"leftFinger4_Widget4\", \"axis\": null}, {\"subTransformNode\": \"rightFinger4_Widget5\", \"domTransformNode\": \"leftFinger4_Widget5\", \"axis\": null}, {\"subTransformNode\": \"rightThumb1_Widget\", \"domTransformNode\": \"leftThumb1_Widget\", \"axis\": \"X\"}, {\"subTransformNode\": \"rightThumb1_Widget2\", \"domTransformNode\": \"leftThumb1_Widget2\", \"axis\": null}, {\"subTransformNode\": \"rightThumb1_Widget3\", \"domTransformNode\": \"leftThumb1_Widget3\", \"axis\": null}, {\"subTransformNode\": \"rightThumb1_Widget4\", \"domTransformNode\": \"leftThumb1_Widget4\", \"axis\": null}, {\"subTransformNode\": \"rightThumb1_Widget5\", \"domTransformNode\": \"leftThumb1_Widget5\", \"axis\": null}, {\"subTransformNode\": \"rightArm1_Widget\", \"domTransformNode\": \"leftArm1_Widget\", \"axis\": \"X\"}, {\"subTransformNode\": \"rightArm1_Widget1\", \"domTransformNode\": \"leftArm1_Widget1\", \"axis\": null}, {\"subTransformNode\": \"rightArm1_Widget2\", \"domTransformNode\": \"leftArm1_Widget2\", \"axis\": null}, {\"subTransformNode\": \"rightArm1_Widget3\", \"domTransformNode\": \"leftArm1_Widget3\", \"axis\": null}, {\"subTransformNode\": \"rightArm1_Widget4\", \"domTransformNode\": \"leftArm1_Widget4\", \"axis\": null}]}");
+	setAttr ".tailJointNodes" -type "string" "{}";
+	setAttr ".bindMethod" 3;
+	setAttr ".heatmapFalloff" 0.2;
+createNode transform -n "geo";
+	rename -uid "B06B9EE1-4436-A8B7-26C3-8EA820F69363";
+createNode transform -n "l_hand" -p "geo";
+	rename -uid "C76FBB08-4299-C938-F108-64B49DAF77C7";
+	addAttr -is true -ci true -k true -sn "UDP3DSMAX" -ln "UDP3DSMAX" -dt "string";
+	addAttr -is true -ci true -h true -k true -sn "MaxHandle" -ln "MaxHandle" -smn 0 
+		-smx 0 -at "long";
+	addAttr -ci true -sn "TSMGMeshId" -ln "TSMGMeshId" -dt "string";
+	setAttr -l on ".tx";
+	setAttr -l on ".ty";
+	setAttr -l on ".tz";
+	setAttr -l on ".rx";
+	setAttr -l on ".ry";
+	setAttr -l on ".rz";
+	setAttr -l on ".sx";
+	setAttr -l on ".sy";
+	setAttr -l on ".sz";
+	setAttr ".rp" -type "double3" 56.927490565011631 95 6.971606910393264e-015 ;
+	setAttr ".sp" -type "double3" 56.927490565011631 95 6.5275177005432014e-015 ;
+	setAttr -k on ".UDP3DSMAX" -type "string" "MapChannel:1 = UVChannel_1\r\n";
+	setAttr -k on ".MaxHandle" 1;
+	setAttr ".TSMGMeshId" -type "string" "a32e5c8f1444409f82a70238362b409d";
+createNode mesh -n "l_handShape" -p "l_hand";
+	rename -uid "78104E56-463B-ED85-84F7-2581A0CD6CD7";
+	setAttr -k off ".v";
+	setAttr -s 4 ".iog[0].og";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".pv" -type "double2" 1 1 ;
+	setAttr ".uvst[0].uvsn" -type "string" "UVChannel_1";
+	setAttr ".cuvs" -type "string" "UVChannel_1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".dr" 1;
+	setAttr ".vcs" 2;
+createNode mesh -n "l_handShapeOrig" -p "l_hand";
+	rename -uid "EEF30D81-4122-B64A-3512-EA8334A947F5";
+	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "UVChannel_1";
+	setAttr -s 773 ".uvst[0].uvsp";
+	setAttr ".uvst[0].uvsp[0:249]" -type "float2" 1 0 0 1 1 1 0 1 0 0 0 1 0 0
+		 0 1 0 1 0 1 0 0 0 1 1 0 0 0 0 0 0 0 1 0 1 0 1 0 1 0 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1
+		 1 1 1 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+		 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 0
+		 0 0 0 0 0 1 0 1 0 0 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+		 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 0 1 0 1
+		 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 1 1 1 1 1 0.61967599 1 1 1 1 1 0.62267423 1 0.21599542
+		 1 0.39664406 1 0 1 0 1 0 1 0 1 0 1 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+		 1 1 1 1 0.49275732 0 0.53394264 0 0.52357632 0 0.52905899 0 0.52483928 0 1 0 0.53394264
+		 0 1 0 0 0 0 1 1 1 1 1 1 1 0 1 0.3789736 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+		 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1
+		 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+		 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+		 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1;
+	setAttr ".uvst[0].uvsp[250:499]" 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+		 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+		 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+		 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+		 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+		 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+		 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+		 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+		 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+		 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+		 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+		 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+		 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1;
+	setAttr ".uvst[0].uvsp[500:749]" 1 1 1 1 1 1 1 0 1 1 1 1 1 0 1 0 1 0 1 0 1
+		 0 1 1 1 0 1 0 1 1 1 1 1 0 1 1 1 1 1 0 1 0 1 1 1 1 1 0 1 1 1 0.021253824 0 0 0 0 1
+		 1 0 0 0 0 0 0 0 0 0 1 1 0 1 0 0.53624964 0 1 0 0 1 0 0 0 0 1 1.52868211 0 1 0 1 0
+		 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0.53624964 0 1 0 1 1 1 0.39793849 1 0 1 1 1 0.55694038
+		 1 -0.57852 1 0.19306585 1 1 1 0 1 0.25102329 1 0 1 1 1 1 1 0 1 1 1 0.48902392 1 1
+		 1 0 1 0 1 0 1 0 1 0 1 0.20448275 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+		 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+		 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+		 1 0 1 0 0.39487845 0 0.43359369 0 1 0 1 0 1 0 1 0.75123179 1 0.56147796 0 0 1 1.29058135
+		 0 0 0 0 0 0 0 0 0 0 1 0.70043898 1 1 1 1 1 0.83779669 1 0 1 1 1 0 1 1 1 0 1 0.092771441
+		 1 0.49710774 1 1 1 1 1 0 1 1 1 0.39793849 1 1 1 0 1 0 1 0.53613073 1 0 1 0 1 -0.20976377
+		 0.39487803 0 0 0 1 -0.72023845 1 1 1 0.25868678 1 0.58926702 1 1 1 1 0 0.21728067
+		 1 0 1 0 1 0 1 0 1 0.049707353 1 0.027625047 1 0.58878016 1 -0.23864488 1 1 1 0 1
+		 0 1 1 1 0 1 1 1 0 1 0 1 1 1 0 1 1 0 0 1 1.50329769 1 1.52961814 1 0.042507648 1 0
+		 0.53624964 0 1 1.87218451 0 0 0.63020289 0.36979711 1 0.53582871 1 0.53582871 1 0.99999964
+		 0.60862839 0.39137158 0.46663985 0.53336012 0.11278521 0.88721484 1 0 1 0 1 0 1 0
+		 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+		 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1;
+	setAttr ".uvst[0].uvsp[750:772]" 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 0 1 1 1 1 1
+		 1 1 0 1 0 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1;
+	setAttr ".cuvs" -type "string" "UVChannel_1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 398 ".pt";
+	setAttr ".pt[0:165]" -type "float3"  265.53452 94.362083 -17.022133 282.87552 
+		106.4478 -14.20976 277.13043 106.58879 -20.858713 269.4718 94.0923 -11.164267 271.41803 
+		93.928879 -4.4849319 283.78278 106.00945 -7.7216673 281.88849 104.26024 0.83996677 
+		269.33456 94.314201 2.3937035 259.81064 101.66607 -22.010889 261.12933 86.786072 
+		-9.9378271 263.20117 86.546043 -3.3023586 263.29608 88.74958 3.5298281 249.8027 99.529572 
+		-25.800488 258.3222 106.40527 -21.17907 269.47446 107.61963 -22.766729 267.60675 
+		113.57003 -21.942085 282.65894 119.40066 -25.03591 277.20923 119.47243 -26.978161 
+		274.10083 120.78358 -24.32991 256.01608 102.69482 -24.398663 256.4267 106.64551 -22.873972 
+		251.30089 107.22499 -20.617929 255.13722 104.34689 -26.030993 255.40562 107.29709 
+		-23.919594 250.99876 108.18941 -21.855988 280.59064 114.32594 -18.928432 283.69745 
+		120.11607 -22.228294 283.73657 121.67192 -25.91995 278.59296 121.76089 -27.810802 
+		275.271 122.58008 -25.286324 284.75388 122.33293 -22.879749 284.21271 123.76971 -26.459145 
+		279.29449 123.96095 -28.147247 276.23276 124.74953 -25.457041 284.95172 124.61605 
+		-23.398806 280.89087 125.23112 -22.544193 285.08795 127.90419 -27.132481 280.88568 
+		128.14154 -28.619688 278.52301 128.6864 -26.210867 285.91946 128.46056 -24.14366 
+		281.28516 128.82635 -23.335112 285.64664 129.06544 -27.307144 280.97693 129.28891 
+		-28.884207 278.72052 129.79498 -26.347511 286.41156 129.68723 -24.418051 281.85693 
+		130.02411 -23.513578 285.8161 130.0332 -27.355551 281.35071 130.2291 -29.09787 279.0022 
+		130.80023 -26.691353 286.27191 130.69055 -24.346052 282.27399 131.07465 -23.752947 
+		285.83038 131.67444 -27.515522 281.65219 133.01915 -29.165321 279.93665 133.64743 
+		-27.408134 286.90445 133.07886 -24.876017 283.46707 133.65149 -24.190414 282.48029 
+		136.52817 -29.293648 282.26337 137.32608 -27.525049 284.79498 137.2348 -25.593807 
+		249.77814 101.16901 -27.042244 242.01515 102.36057 -24.588522 243.0705 105.47881 
+		-21.399685 249.03821 107.33334 -29.233032 254.70959 109.5887 -27.991173 253.45181 
+		110.67332 -25.675922 249.44733 112.06062 -24.783943 243.26668 108.33067 -27.609499 
+		245.18112 111.14052 -25.180182 279.68542 110.00895 -22.439739 271.6532 111.24583 
+		-24.184645 279.93439 109.48245 -18.374268 281.10327 109.25474 -16.934027 284.94168 
+		109.00024 -11.527381 285.3627 108.55663 -10.138679 284.7493 107.26688 -4.5220861 
+		284.98654 107.12749 -3.1615372 279.3595 104.89392 4.5246611 268.29895 95.616768 6.0529661 
+		276.3573 115.42189 -18.265299 287.45438 136.59428 -25.662632 286.74109 138.19659 
+		-28.382885 264.43253 110.40709 -21.049887 283.85858 134.08508 -28.768478 285.89075 
+		133.38687 -27.579441 287.07617 134.02371 -26.173588 287.49939 137.89169 -26.91227 
+		284.18042 137.66766 -29.246517 272.47876 101.34433 -19.374262 273.79523 100.86674 
+		4.8835049 276.1698 99.938766 1.4813156 277.69287 99.749252 -5.7448254 276.98926 100.53516 
+		-12.79578 275.81097 106.40678 4.9076357 270.6738 114.52735 -19.450222 278.95422 113.96265 
+		-5.7247076 281.0116 115.43242 -20.081358 279.91797 113.42716 -23.052773 273.77255 
+		113.3086 -25.061255 270.02765 115.67934 -23.093763 282.84753 137.8914 -26.385643 
+		280.01563 134.03264 -25.401419 279.81396 131.08153 -24.814186 279.38229 130.08954 
+		-24.625727 279.37253 128.89992 -24.260475 277.43536 125.51661 -23.342937 276.85553 
+		123.36533 -22.844452 276.02942 121.5554 -21.883272 285.92679 137.90948 -27.659838 
+		279.39795 121.04355 -20.955267 280.16202 122.83578 -21.734776 272.45209 116.79578 
+		-20.556116 276.47955 116.60574 -19.531208 282.6142 116.47582 -17.603657 286.10764 
+		123.56033 -18.769567 290.50916 122.95531 -16.531357 287.2959 115.50372 -15.4099 279.19147 
+		117.60151 -16.336643 281.03632 124.63761 -16.729525 290.88501 123.5184 -13.361596 
+		287.13843 115.92996 -11.970558 286.63214 113.80196 -11.453097 282.41278 117.0031 
+		-11.394794 280.8389 115.46964 -10.729695 287.07974 125.72491 -19.266518 291.35309 
+		125.0005 -17.000755 283.12384 126.67908 -17.204502 291.69379 125.55637 -13.8409 285.14877 
+		124.40777 -12.741583 287.39105 127.83159 -19.218159 291.60535 127.06516 -17.056644 
+		283.43958 128.73466 -17.269117 291.77414 127.84612 -13.825627 287.34601 131.19267 
+		-19.362164 291.35907 130.87279 -17.178707 284.16656 131.59256 -17.289722 291.09534 
+		131.28595 -14.132225 286.26447 128.64044 -13.352569 286.26785 131.56577 -13.918966 
+		287.90588 132.30423 -19.356323 291.92084 132.04668 -17.23044 284.78662 132.66013 
+		-17.147083 291.62473 132.52962 -14.287121 286.84235 132.77646 -13.97128 288.30939 
+		133.25751 -19.47876 292.0654 133.01736 -17.216455 285.14362 133.68414 -17.405659 
+		291.4234 133.52664 -14.193576 287.29285 133.84177 -14.108727 288.05243 136.07343 
+		-19.372227 291.66022 134.77612 -17.266855 286.32135 136.79388 -17.877024 291.74396 
+		136.14156 -14.532565 288.69199 136.79617 -14.296847 287.93512 140.32927 -17.352764 
+		289.38321 139.70718 -19.030579 292.26538 139.82242 -14.96308 289.76697 140.24509 
+		-15.155042 288.09149 140.88016 -16.15835 285.70099 137.13509 -15.897356 285.26343 
+		133.87833 -15.458147 284.81433 132.8739 -15.369836 284.30029 131.71576 -15.268693 
+		284.42877 129.25926 -14.580526 284.0766 127.15417 -14.57981 285.97165 126.42902 -13.164733 
+		282.10468 125.00011 -14.022323;
+	setAttr ".pt[166:331]" 278.67578 117.06311 -13.299498 292.09229 140.75095 
+		-17.239555 292.366 137.17519 -15.705164 291.71484 136.54672 -17.234619 290.08795 
+		137.23056 -18.63657 292.80765 141.01361 -16.0541 292.70853 141.45782 -17.421873 291.11359 
+		140.92703 -18.550274 286.72223 112.11626 -14.853675 281.99017 114.12745 -17.686501 
+		277.83508 115.84512 -16.384609 276.25879 115.16875 -13.068228 288.06363 115.11576 
+		-10.185847 289.5484 121.81499 -10.233759 292.00067 121.30724 -7.6109128 290.51447 
+		113.91505 -7.7913141 282.73615 116.19656 -8.6308784 284.22137 122.41061 -8.489398 
+		292.01443 121.72026 -4.7067184 289.58398 113.67559 -4.7299309 287.97043 111.63078 
+		-4.2807636 284.18311 114.87859 -4.261178 282.71185 113.99305 -3.6688623 289.90546 
+		123.61492 -10.25585 292.9884 123.40188 -7.8316488 285.17929 124.27401 -8.589076 292.62509 
+		123.82623 -4.7620497 286.98706 122.2374 -4.4261456 290.56812 125.70235 -10.282305 
+		293.90387 125.36536 -8.009654 286.1568 126.2231 -8.6408749 293.33502 126.04489 -4.9698896 
+		287.87094 124.20871 -4.6638947 291.16949 129.53812 -10.208768 294.05713 129.79892 
+		-7.9672136 287.37122 129.29068 -8.3277321 293.47858 129.9241 -4.9823856 288.86734 
+		126.40923 -5.0236778 288.94995 129.44749 -5.1278915 291.00684 130.60454 -10.167046 
+		294.0899 130.93861 -7.9630508 287.41269 130.3036 -8.2673645 293.46359 131.12575 -5.0731421 
+		289.03796 130.58008 -5.0226507 290.79666 131.54602 -10.16652 293.82687 131.82695 
+		-7.9193707 287.41046 131.31848 -8.343236 292.82883 132.09254 -5.0540857 288.96429 
+		131.65115 -5.2050896 289.70435 134.22916 -9.8424511 293.23859 133.46683 -7.8090148 
+		287.28998 134.2515 -8.5091562 292.52997 134.4899 -5.2085829 289.07745 134.34567 -5.0993357 
+		287.90765 137.70117 -7.9409227 289.59702 137.49759 -9.4604044 291.8418 137.77222 
+		-5.4290409 289.46387 137.77887 -5.6925268 287.7229 138.12596 -6.8021612 286.42148 
+		134.30905 -6.6896181 287.26355 131.42038 -6.5310907 287.25964 130.4483 -6.4926682 
+		287.25858 129.32813 -6.4488401 286.32117 126.65399 -6.4045315 285.28131 124.58067 
+		-6.2377472 284.10498 122.47445 -6.2491531 281.64273 115.38284 -6.2783833 290.8338 
+		138.82074 -7.4534574 292.78973 135.59827 -6.2109466 292.59369 135.05368 -7.6846409 
+		291.00296 135.52014 -9.0144854 292.02203 139.01846 -6.3245487 291.80115 139.49071 
+		-7.7221365 290.6973 138.80789 -8.9212084 289.71716 110.64492 -7.8025336 286.62717 
+		113.52643 -10.375224 281.34875 114.9368 -8.8855114 287.94043 114.00177 -1.7261515 
+		288.74664 117.3992 -0.8721199 290.89575 116.41011 1.4731035 289.02176 112.8656 0.88938904 
+		283.26019 115.55331 0.089272499 284.35004 117.85262 0.62578773 290.35995 115.88393 
+		4.4352236 288.03656 112.46382 3.917345 285.64191 110.43993 3.9833851 284.51367 114.24766 
+		4.0683355 282.39429 112.45233 4.0309296 289.19766 118.97329 -0.40113449 291.73828 
+		117.80288 1.7275333 284.90341 119.50404 1.1748085 291.25604 117.3675 4.6948442 290.06577 
+		120.6195 -0.070430756 292.69232 119.39896 1.9140663 286.18088 121.14925 1.7452393 
+		291.82568 118.93596 4.8741093 290.47217 124.31818 0.88043499 293.54276 123.72359 
+		2.7199726 287.21512 123.91073 2.4445047 293.26154 123.09676 5.4319162 287.84521 119.48106 
+		5.0229244 289.08484 122.96375 5.5593748 290.35229 125.44545 1.1072598 293.79755 124.91319 
+		2.8900976 287.36603 124.88572 2.6893082 293.47836 124.36913 5.5330763 289.34436 124.18424 
+		5.7381258 290.53909 126.28261 1.2437477 293.70221 125.76353 3.0380106 287.6767 125.85178 
+		2.8917112 293.02203 125.10515 5.6675997 289.55286 125.11982 5.8901453 290.09198 128.30853 
+		1.8045902 293.43777 127.09074 3.3946877 287.96692 128.2543 3.0607872 293.24457 127.67307 
+		5.9383869 290.05722 127.73461 6.1884804 289.03448 131.25244 3.9382391 290.62955 131.22757 
+		2.6162357 293.07953 130.72391 6.0974627 290.86484 130.91408 5.9733858 289.30438 131.51184 
+		5.2193556 287.43353 128.10332 4.8588924 287.77432 125.51075 4.6271505 287.55765 124.63832 
+		4.4493036 287.31094 123.63275 4.2437792 285.87958 120.6618 3.7494946 285.06598 119.32254 
+		3.5127296 287.95731 117.77084 5.011179 284.18167 117.26178 2.9098692 286.67548 116.4265 
+		4.7014132 281.53287 115.39896 2.3600178 292.21039 132.05545 4.5604048 293.55951 128.82001 
+		5.1503181 293.12537 128.55841 3.7424259 291.5946 129.28188 2.6632633 293.35303 131.92862 
+		5.3813124 293.1391 132.65207 4.3283577 291.89636 132.23738 3.2707701 288.37482 109.53294 
+		0.73653603 287.56476 111.92208 -2.9613991 282.03293 114.34827 -0.96534348 278.09769 
+		113.93256 2.4226828 270.47217 109.91195 -5.1678028 273.42383 108.92096 2.794632 270.16068 
+		102.06036 5.2776871 262.84918 105.33422 -4.9680929 266.97693 104.35774 3.1247511 
+		241.34061 100.61671 -22.979677 241.96317 95.271385 -18.747023 241.19278 103.58147 
+		-18.61907 263.81152 97.304863 6.1380053 252.54524 101.7925 -7.2206197 247.55074 105.61515 
+		-13.899853 249.31355 96.967651 -0.88527966 240.85556 93.109985 -5.7992249 254.38576 
+		82.589752 4.3061008 247.20883 92.164909 0.75027657 236.22838 85.495659 -10.271282 
+		248.08517 78.932907 -7.4999876 253.21579 79.630562 -1.1826248 241.69965 71.454903 
+		8.1357355 243.43132 69.713684 2.4608784 239.05983 69.626961 -5.7377276 232.54353 
+		72.08403 -9.7489748 223.02483 76.348534 -7.316637;
+	setAttr ".pt[332:397]" 221.43468 78.745636 0.030039787 227.64516 78.114609 
+		6.609107 239.07018 100.67599 -14.514805 267.16583 110.29398 -11.785041 264.45563 
+		110.77055 -16.459763 257.58185 104.72743 -11.818809 258.2215 106.69689 -16.706066 
+		242.28131 81.344841 -11.145312 252.83559 89.1371 -17.591362 252.91074 94.914307 -20.845152 
+		264.45294 103.33615 -21.911737 248.48236 108.77594 -30.375526 242.61497 109.46524 
+		-28.736256 244.99539 112.1812 -26.30831 254.76361 110.59496 -29.268673 253.74051 
+		112.69312 -27.072731 248.16666 110.24609 -31.010742 242.39613 110.58301 -29.459404 
+		244.28746 113.42677 -27.262119 254.54933 111.7867 -29.961727 252.91104 114.00287 
+		-27.691641 248.01671 112.01448 -31.881628 242.08244 113.62146 -31.357212 243.71651 
+		115.91291 -29.682926 253.28125 114.27428 -32.557529 251.68182 116.31297 -30.530045 
+		242.37752 116.53146 -34.090717 243.57391 118.03936 -33.562767 250.33627 118.00377 
+		-34.043827 251.04591 117.16345 -35.070068 247.65793 118.00487 -29.865847 246.84402 
+		118.80371 -34.31337 248.66078 115.15089 -27.017538 249.09505 113.55005 -25.986586 
+		246.84525 117.28254 -35.693523 251.0331 114.29955 -33.709808 247.30568 113.6232 -33.285931 
+		243.93906 114.12354 -32.920177 249.49974 116.97469 -36.395962 246.29456 116.68954 
+		-36.8009 243.45737 116.48122 -35.852463 248.56773 84.431175 -13.015741 256.14337 
+		87.456192 -14.781869 236.83926 88.22979 -4.6090755 259.18555 85.804054 4.3254623 
+		257.77075 83.398392 -1.9613323 253.60344 82.846947 -8.5431595 261.29132 91.197655 
+		6.2068787 261.0282 107.88218 -20.297581 252.68974 107.27541 -18.111744 244.81007 
+		103.1974 -9.8738337 247.12941 97.427933 -4.5078478 241.55377 99.041412 -8.149766 
+		258.92889 94.354805 -20.047668 254.5742 93.641861 4.8295803 255.79948 101.33007 -2.7404108 
+		241.19171 91.917557 -15.337183 238.80424 96.311493 -10.487088 248.85529 91.765991 
+		-18.588205 240.68883 88.909821 -12.832798 242.3821 88.552238 2.5421391 255.29881 
+		88.714127 5.7584505 254.49681 97.388153 2.2142525 260.71579 100.57048 3.7425575 249.95869 
+		86.039162 6.2081127 234.72885 75.67189 10.113426;
+	setAttr -s 398 ".vt";
+	setAttr ".vt[0:165]"  -207.052581787 4.33413696 18.27132034 -220.92538452 -11.78015137 14.5214901
+		 -216.32931519 -11.96813965 23.38676071 -210.20239258 4.69384766 10.4608326 -211.75939941 4.91174316 1.55505371
+		 -221.65118408 -11.19567871 5.87069988 -220.13577271 -8.86340332 -5.54481316 -210.09262085 4.39797974 -7.6164608
+		 -202.47348022 -5.4045105 24.92299652 -203.52844238 14.43548584 8.8255806 -205.18591309 14.75552368 -0.021709442
+		 -205.26184082 11.81747437 -9.13129234 -194.46713257 -2.55584717 29.97579193 -201.28274536 -11.72344971 23.81390381
+		 -210.20452881 -13.34259033 25.93078232 -208.71035767 -21.27645874 24.83125496 -220.75210571 -29.050628662 28.95635605
+		 -216.39233398 -29.14633179 31.54602242 -213.90563965 -30.89453125 28.015022278 -199.43783569 -6.77618408 28.10669327
+		 -199.7663269 -12.043762207 26.07377243 -195.66567993 -12.81640625 23.06571579 -198.73474121 -8.97894287 30.28313255
+		 -198.94946289 -12.91253662 27.46793556 -195.42398071 -14.10229492 24.71646118 -219.097473145 -22.28433228 20.81305313
+		 -221.58291626 -30.0045166016 25.21286964 -221.61422729 -32.078979492 30.13507652
+		 -217.49932861 -32.19760132 32.65621185 -214.84176636 -33.28985596 29.29023933 -222.42807007 -32.96032715 26.081474304
+		 -221.99514771 -34.8760376 30.85400391 -218.060546875 -35.13101196 33.10480499 -215.61117554 -36.1824646 29.51786232
+		 -222.58633423 -36.004486084 26.77355003 -219.33764648 -36.82458496 25.63406754 -222.69534302 -40.38867188 31.75178337
+		 -219.33352661 -40.70513916 33.73472595 -217.44338989 -41.43161011 30.52296448 -223.36053467 -41.13049316 27.76668739
+		 -219.65307617 -41.6182251 26.68862343 -223.14227295 -41.93701172 31.98466682 -219.40652466 -42.23495483 34.087417603
+		 -217.60137939 -42.909729 30.70515633 -223.75421143 -42.76605225 28.13254356 -220.11050415 -43.21524048 26.92658043
+		 -223.27786255 -43.22735596 32.049209595 -219.70553589 -43.48855591 34.37230301 -217.82672119 -44.25006104 31.16361427
+		 -223.64248657 -44.1038208 28.0365448 -220.44415283 -44.61593628 27.24573708 -223.28927612 -45.41567993 32.26250458
+		 -219.94671631 -47.20861816 34.4622345 -218.57427979 -48.046325684 32.11931992 -224.14852905 -47.28823853 28.74316406
+		 -221.39862061 -48.051727295 27.82902908 -220.60919189 -51.88729858 34.63333893 -220.43566895 -52.95120239 32.27520752
+		 -222.4609375 -52.82949829 29.7002182 -194.44747925 -4.74176025 31.63146973 -188.23709106 -6.33050537 28.35984039
+		 -189.081359863 -10.48815918 24.10805511 -193.85552979 -12.96087646 34.55252075 -198.39263916 -15.96801758 32.89670563
+		 -197.38641357 -17.41418457 29.80970764 -194.18283081 -19.26391602 28.62040138 -189.23831177 -14.29064941 32.38780975
+		 -190.76986694 -18.037109375 29.14871788 -218.37332153 -16.52835083 25.49479675 -211.94754028 -18.17752075 27.82133675
+		 -218.57247925 -15.82635498 20.074167252 -219.50759888 -15.5227356 18.15384483 -222.57830811 -15.18341064 10.94498444
+		 -222.91513062 -14.59191895 9.093381882 -222.42440796 -12.87225342 1.60459137 -222.61419678 -12.68640137 -0.20947361
+		 -218.11257935 -9.70831299 -10.45773888 -209.26412964 2.66122437 -12.49547768 -215.71081543 -23.74560547 19.92887497
+		 -224.58847046 -51.97546387 29.79198456 -224.074737549 -53.9286499 33.34202194 -206.17098999 -17.059204102 23.64165878
+		 -221.71182251 -48.62985229 33.9331131 -223.33755493 -47.69891357 32.34772873 -224.28591919 -48.54803467 30.47326088
+		 -224.68139648 -53.52209473 31.3812027 -222.0262146 -53.22338867 34.49353027 -212.60797119 -4.9755249 21.40749359
+		 -213.66113281 -4.33874512 -10.93619728 -215.56079102 -3.10144043 -6.39994431 -216.77926636 -2.84875488 3.23491096
+		 -216.21636963 -3.89663696 12.63618469 -215.27374268 -11.72546387 -10.96837044 -211.16400146 -22.55288696 21.5087738
+		 -217.78833008 -21.79995728 3.20808601 -219.43423462 -23.75964355 22.35028648 -218.55935669 -21.085968018 26.31217194
+		 -213.64300537 -20.92788696 28.99014854 -210.64709473 -24.088867188 26.36682701 -220.90298462 -53.70495605 30.75599861
+		 -218.63745117 -48.55993652 29.44369888 -218.47613525 -44.62512207 28.66072273 -218.13079834 -43.30245972 28.40944481
+		 -218.12298584 -41.71630859 27.92244148 -216.57324219 -37.20523071 26.69906044 -216.109375 -34.33685303 26.034410477
+		 -215.44848633 -31.9236145 24.75283813 -223.36639404 -53.72906494 32.45492554 -218.14334106 -31.2411499 23.51549911
+		 -218.75457764 -33.63079834 24.554842 -212.5866394 -25.57745361 22.98329735 -215.80862427 -25.32406616 21.61675262
+		 -220.71630859 -25.15084839 19.046686172 -223.51107788 -34.59686279 20.60123253 -227.032287598 -33.79016113 17.61695099
+		 -224.46170044 -23.85470581 16.12167549 -217.97814941 -26.65176392 17.35733223 -219.45401001 -36.033233643 17.88117599
+		 -227.33297729 -34.54095459 13.39060402 -224.33569336 -24.42303467 11.53588772 -223.93069458 -21.58569336 10.84593964
+		 -220.55517578 -25.85388184 10.76820183 -219.29608154 -23.80926514 9.88140297 -224.28875732 -37.48297119 21.26383209
+		 -227.70742798 -36.51708984 18.24281502 -221.12405396 -38.75518799 18.51447678 -227.97998047 -37.25823975 14.029676437
+		 -222.74398804 -35.72677612 12.56391907 -224.53781128 -40.29187012 21.19935226 -227.90924072 -39.2699585 18.31733322
+		 -221.37661743 -41.49597168 18.60063171 -228.044281006 -40.31124878 14.009311676 -224.50177002 -44.77331543 21.39135933
+		 -227.71221924 -44.34680176 18.48008347 -221.95822144 -45.30648804 18.62810516 -227.50125122 -44.89767456 14.41810799
+		 -223.63653564 -41.37033081 13.37856674 -223.63925171 -45.27078247 14.13376331 -224.94967651 -46.25540161 21.38357162
+		 -228.16165161 -45.9119873 18.54906273 -222.45425415 -46.72991943 18.43791962 -227.92474365 -46.5559082 14.6246357
+		 -224.098846436 -46.88504028 14.20351505 -225.27249146 -47.52642822 21.54681969 -228.27728271 -47.20623779 18.53041458
+		 -222.73986816 -48.095275879 18.78268623 -227.76367188 -47.88528442 14.4999094 -224.45925903 -48.30545044 14.38677692
+		 -225.066925049 -51.28097534 21.40477753 -227.953125 -49.55123901 18.5976162 -223.68203735 -52.24160767 19.41117287
+		 -228.020141602 -51.37182617 14.95189476 -225.57855225 -52.24465942 14.63760471 -224.97305298 -56.95544434 18.7121582
+		 -226.13153076 -56.12600708 20.94924736 -228.43725586 -56.27963257 15.52591515 -226.4385376 -56.84320068 15.78186321
+		 -225.098175049 -57.68997192 17.11960793 -223.1857605 -52.6965332 16.77161598 -222.83572388 -48.35418701 16.18600464
+		 -222.47644043 -47.014953613 16.068256378 -222.065185547 -45.47076416 15.9333992 -222.16799927 -42.19543457 15.015844345
+		 -221.88626099 -39.38864136 15.014888763 -223.40228271 -38.42178345 13.12811947 -220.30871582 -36.51657104 14.27157211;
+	setAttr ".vt[166:331]" -217.56558228 -25.93389893 13.30780602 -228.29879761 -57.51766968 18.56121445
+		 -228.51776123 -52.75 16.51535988 -227.99685669 -51.91204834 18.55463409 -226.6953125 -52.82382202 20.4239006
+		 -228.92861938 -57.6473999 16.96792984 -228.85684204 -58.21578979 18.7523098 -227.55795288 -57.55505371 20.25691414
+		 -224.002746582 -19.33810425 15.38004303 -220.21710205 -22.019683838 19.15714264 -216.89303589 -24.30990601 17.42128754
+		 -215.63198853 -23.40808105 12.99944687 -225.075866699 -23.33743286 9.15627289 -226.26370239 -32.26974487 9.22015476
+		 -228.22549438 -31.59274292 5.72302628 -227.036529541 -21.73648071 5.96356201 -220.81387329 -24.77850342 7.082980156
+		 -222.0020751953 -33.063903809 6.89433956 -228.23651123 -32.14343262 1.85076714 -226.29214478 -21.41720581 1.88171768
+		 -225.0013122559 -18.6907959 1.28282738 -221.97146606 -23.021209717 1.25671387 -220.79446411 -21.84048462 0.466959
+		 -226.54934692 -34.66964722 9.24960804 -229.015686035 -34.3855896 6.01734066 -222.7684021 -35.5484314 7.027243614
+		 -228.72503662 -34.9513855 1.92454147 -224.21459961 -32.83294678 1.47666931 -227.079467773 -37.45288086 9.28488255
+		 -229.74807739 -37.0035705566 6.25468063 -223.55041504 -38.1472168 7.096308708 -229.29299927 -37.90960693 2.20166206
+		 -224.92172241 -35.46136475 1.79366875 -227.56054688 -42.56723022 9.18683243 -229.8706665 -42.91497803 6.19809341
+		 -224.52194214 -42.23733521 6.67878437 -229.40783691 -43.081878662 2.21832275 -225.71884155 -38.39538574 2.27337837
+		 -225.78491211 -42.44641113 2.41233063 -227.43045044 -43.98913574 9.1312027 -229.8968811 -44.43457031 6.19254303
+		 -224.55511475 -43.58789063 6.59829426 -229.39584351 -44.68408203 2.33933067 -225.85534668 -43.95651245 2.2720089
+		 -227.26229858 -45.2444458 9.13050175 -229.6864624 -45.61901855 6.13430262 -224.55334473 -44.94107056 6.69945621
+		 -228.88803101 -45.97314453 2.31392288 -225.79638672 -45.38461304 2.5152607 -226.38842773 -48.82196045 8.69840908
+		 -229.21582031 -47.80551147 5.98716116 -224.4569397 -48.85174561 6.92068291 -228.64892578 -49.1696167 2.51991844
+		 -225.88693237 -48.97732544 2.37425613 -224.95108032 -53.45132446 6.16303825 -226.30258179 -53.17987061 8.18901348
+		 -228.098419189 -53.54605103 2.8138628 -226.19604492 -53.55490112 3.16517735 -224.80328369 -54.017700195 4.64468956
+		 -223.762146 -48.92849731 4.49463272 -224.43582153 -45.076934814 4.28326225 -224.43267822 -43.78082275 4.23203278
+		 -224.43182373 -42.28726196 4.17359543 -223.68188477 -38.72174072 4.11451721 -222.8500061 -35.95730591 3.89213848
+		 -221.90896606 -33.14901733 3.90734673 -219.93914795 -23.69354248 3.94632053 -227.29202271 -54.94406128 5.51308441
+		 -228.85675049 -50.64743042 3.85640335 -228.69992065 -49.92132568 5.82132912 -227.42733765 -50.54327393 7.59445477
+		 -228.2963562 -55.0040588379 4.039144516 -228.12594604 -55.57879639 5.85413361 -227.20358276 -54.76983643 7.3721056
+		 -226.39871216 -17.37631226 5.97852135 -223.92669678 -21.21832275 9.40877533 -219.70397949 -23.098815918 7.42249107
+		 -224.97732544 -21.85211182 -2.12332153 -225.62228394 -26.38201904 -3.26203156 -227.34158325 -25.063232422 -6.38899612
+		 -225.84237671 -20.33721924 -5.61070824 -221.23312378 -23.9208374 -4.54388809 -222.10501099 -26.98657227 -5.2592411
+		 -226.91293335 -24.36166382 -10.33848763 -225.054199219 -19.80151367 -9.64798355 -223.13848877 -17.10299683 -9.7360363
+		 -222.23590088 -22.17996216 -9.84930229 -220.54040527 -19.78619385 -9.79943085 -225.98309326 -28.48080444 -3.89001083
+		 -228.015594482 -26.92025757 -6.72823524 -222.54769897 -29.18847656 -5.99126816 -227.62979126 -26.3397522 -10.68464851
+		 -226.67758179 -30.67575073 -4.33094978 -228.77880859 -29.048370361 -6.97694588 -223.56967163 -31.38208008 -6.7518425
+		 -228.085510254 -28.43103027 -10.92366982 -227.0027160645 -35.60733032 -5.59877014
+		 -229.45916748 -34.81454468 -8.051486969 -224.39706421 -35.064056396 -7.68419647 -229.23419189 -33.97875977 -11.66741371
+		 -224.90115356 -29.15783691 -11.12209129 -225.89282227 -33.80142212 -11.83735847 -226.90679932 -37.11035156 -5.90120316
+		 -229.66299438 -36.40066528 -8.27832031 -224.51779175 -36.36404419 -8.010601044 -229.40765381 -35.67526245 -11.80229187
+		 -226.10046387 -35.42874146 -12.07569313 -227.056243896 -38.2265625 -6.083189011 -229.58673096 -37.53445435 -8.47553825
+		 -224.7663269 -37.65213013 -8.28047371 -229.042602539 -36.65661621 -11.98165512 -226.26724243 -36.67617798 -12.27838516
+		 -226.69854736 -40.92779541 -6.83097839 -229.37518311 -39.30407715 -8.95110703 -224.99850464 -40.85549927 -8.50590897
+		 -229.22061157 -40.080505371 -12.34270668 -226.67074585 -40.16256714 -12.67616463
+		 -225.85253906 -44.85299683 -9.6758461 -227.12860107 -44.81985474 -7.91317368 -229.088592529 -44.14828491 -12.55480766
+		 -227.3168335 -44.40185547 -12.38937378 -226.068481445 -45.19888306 -11.38399696 -224.57177734 -40.6541748 -10.90338135
+		 -224.84442139 -37.19741821 -10.59439087 -224.67108154 -36.034179688 -10.35726166
+		 -224.47372437 -34.69342041 -10.083229065 -223.32861328 -30.73214722 -9.4241848 -222.67776489 -28.94647217 -9.10849762
+		 -224.99081421 -26.87753296 -11.10642815 -221.9703064 -26.1987915 -8.30468178 -223.96536255 -25.085083008 -10.69340897
+		 -219.85125732 -23.71502686 -7.57154655 -228.39328003 -45.92367554 -10.5053978 -229.4725647 -41.60977173 -11.29194832
+		 -229.12527466 -41.26095581 -9.41475868 -227.90063477 -42.22558594 -7.97587585 -229.33691406 -45.64349365 -11.60400772
+		 -229.20172119 -46.46990967 -10.20660019 -228.17156982 -46.055175781 -8.78994942 -225.3248291 -15.89367676 -5.40690422
+		 -224.67678833 -19.079193115 -0.47632408 -220.25131226 -22.31411743 -3.13773346 -217.1031189 -21.75982666 -7.65510178
+		 -211.0026855469 -16.39901733 2.46554756 -213.36401367 -15.077697754 -8.1510334 -210.75350952 -5.93023682 -11.46177292
+		 -204.90432739 -10.29537964 2.19926739 -208.20651245 -8.9934082 -8.59119034 -187.69744873 -4.0053710938 26.21471405
+		 -188.19549561 3.12173462 20.57117462 -187.57919312 -7.95837402 20.40056992 -205.67419434 0.41043091 -12.60886383
+		 -196.66116333 -5.5730896 5.20263672 -192.66555786 -10.66995239 14.10828114 -194.075805664 0.86004639 -3.24448395
+		 -187.30941772 6.0036010742 3.30744457 -198.13357544 20.030578613 -10.16632271 -192.39202881 7.26370239 -5.4252243
+		 -183.60766602 16.15603638 9.27018738 -193.093109131 24.90637207 5.57512856 -197.19760132 23.97616577 -2.84802246
+		 -187.98468018 34.87704468 -15.27249908 -189.37002563 37.19866943 -7.70602417 -185.87283325 37.31430054 3.22544956
+		 -180.65979004 34.038208008 8.57377911 -173.044830322 28.35220337 5.33066177;
+	setAttr ".vt[332:397]" -171.77270508 25.15606689 -4.4649086 -176.74108887 25.99743652 -13.2369976
+		 -185.88110352 -4.084411621 14.92821693 -208.3576355 -16.90838623 11.2885313 -206.18945313 -17.54382324 17.521492
+		 -200.69046021 -9.48632813 11.33355522 -201.20214844 -12.11227417 17.84989929 -188.45001221 21.69046021 10.43556213
+		 -196.89343262 11.30078125 19.030294418 -196.95355225 3.59783936 23.36868095 -206.18731689 -7.63128662 24.79079437
+		 -193.41085815 -14.88433838 36.075843811 -188.71694946 -15.80340576 33.89015198 -190.62127686 -19.42468262 30.65288925
+		 -198.43585205 -17.30969238 34.60004044 -197.61737061 -20.10723877 31.67211723 -193.15829468 -16.84454346 36.92279816
+		 -188.54187012 -17.29376221 34.85434723 -190.054931641 -21.085449219 31.92463493 -198.26443481 -18.89868164 35.5241127
+		 -196.95379639 -21.85357666 32.49732971 -193.038330078 -19.20239258 38.08398056 -188.29092407 -21.34503174 37.384758
+		 -189.59817505 -24.40029907 35.15237808 -197.24996948 -22.2154541 38.98518372 -195.97042847 -24.93371582 36.28186798
+		 -188.52697754 -25.22503662 41.029434204 -189.48410034 -27.23556519 40.32549667 -194.89398193 -27.18811035 40.96691132
+		 -195.46170044 -26.067687988 42.33523178 -192.75131226 -27.1895752 35.39627075 -192.10018921 -28.25469971 41.32630157
+		 -193.55358887 -23.38427734 31.59852791 -193.90100098 -21.24981689 30.22392273 -192.10116577 -26.22647095 43.16650772
+		 -195.45144653 -22.24914551 40.52155304 -192.46951294 -21.34735107 39.95638275 -189.7762146 -22.014465332 39.46871185
+		 -194.23092651 -25.88165283 43.91864395 -191.66677856 -25.50146484 44.45856094 -189.39703369 -25.22369385 43.19398117
+		 -193.47915649 17.5753479 12.92946625 -199.53967285 13.54199219 15.28430367 -184.096374512 12.51052856 1.72057915
+		 -201.97338867 15.74484253 -10.19213867 -200.84158325 18.95239258 -1.80974579 -197.50772095 19.68765259 6.96602488
+		 -203.65802002 8.55337524 -12.70069504 -203.44754028 -13.69265747 22.63858414 -196.77676392 -12.88363647 19.72413635
+		 -190.47302246 -7.44628906 8.74025536 -192.32849121 0.24633789 1.58560848 -187.86798096 -1.90496826 6.44149876
+		 -201.76809692 4.34384155 22.30537033 -198.28433228 5.29443359 -10.86429596 -199.26455688 -4.95651245 -0.77097511
+		 -187.57833862 7.59350586 16.024721146 -185.66836548 1.73492432 9.55792809 -193.709198 7.79559326 20.35941887
+		 -187.17602539 11.6038208 12.68554211 -188.53063965 12.080596924 -7.81437492 -198.86401367 11.86474609 -12.10278893
+		 -198.22241211 0.29937744 -7.37719345 -203.19760132 -3.94372559 -9.41493225 -194.59191895 15.43136597 -12.70233727
+		 -182.40805054 29.25439453 -17.90942192;
+	setAttr -s 790 ".ed";
+	setAttr ".ed[0:165]"  1 2 0 2 87 0 87 91 0 91 1 0 91 90 0 90 5 0 5 1 0 90 89 0
+		 89 6 0 6 5 0 6 75 0 75 74 0 74 5 0 8 342 0 342 380 0 380 13 0 13 8 0 0 374 0 374 9 0
+		 9 3 0 3 0 0 9 10 0 10 4 0 4 3 0 10 11 0 11 7 0 7 4 0 8 19 0 19 12 0 12 341 0 341 8 0
+		 17 97 0 97 96 0 96 16 0 16 17 0 18 98 0 98 97 0 17 18 0 13 20 0 20 19 0 19 22 0 22 59 0
+		 59 12 0 20 23 0 23 22 0 21 24 0 24 23 0 20 21 0 59 60 0 60 314 0 314 12 0 60 61 0
+		 61 316 0 316 314 0 96 95 0 95 26 0 26 16 0 95 25 0 25 78 0 78 111 0 111 95 0 16 27 0
+		 27 28 0 28 17 0 28 29 0 29 18 0 26 30 0 30 27 0 108 109 0 109 30 0 26 108 0 27 31 0
+		 31 32 0 32 28 0 32 33 0 33 29 0 30 34 0 34 31 0 109 35 0 35 34 0 31 36 0 36 37 0
+		 37 32 0 37 38 0 38 33 0 34 39 0 39 36 0 35 40 0 40 39 0 373 374 0 374 340 0 340 391 0
+		 391 373 0 378 325 0 325 326 0 326 377 0 377 378 0 326 322 0 322 376 0 376 377 0 314 315 0
+		 315 341 0 36 41 0 41 42 0 42 37 0 42 43 0 43 38 0 39 44 0 44 41 0 40 45 0 45 44 0
+		 41 46 0 46 47 0 47 42 0 47 48 0 48 43 0 44 49 0 49 46 0 45 50 0 50 49 0 46 51 0 51 52 0
+		 52 47 0 52 53 0 53 48 0 49 54 0 54 51 0 50 55 0 55 54 0 52 56 0 56 57 0 57 53 0 55 58 0
+		 58 79 0 79 54 0 61 24 0 21 316 0 22 63 0 63 62 0 62 59 0 23 64 0 64 63 0 24 65 0
+		 65 64 0 62 66 0 66 60 0 66 67 0 67 61 0 67 65 0 2 70 0 70 25 0 25 68 0 68 2 0 68 69 0
+		 69 14 0 14 2 0 1 71 0 71 70 0 71 175 0 175 25 0 174 175 0 1 174 0 1 72 0 72 120 0
+		 120 174 0 73 72 0;
+	setAttr ".ed[166:331]" 5 73 0 240 241 0 241 73 0 5 240 0 241 120 0 74 186 0
+		 186 240 0 75 306 0 306 186 0 6 305 0 305 306 0 89 88 0 88 76 0 76 6 0 76 251 0 251 305 0
+		 176 78 0 175 176 0 55 100 0 100 99 0 99 58 0 50 101 0 101 100 0 45 102 0 102 101 0
+		 40 103 0 103 102 0 35 104 0 104 103 0 109 105 0 105 104 0 108 106 0 106 105 0 108 111 0
+		 111 110 0 110 106 0 56 107 0 107 99 0 99 57 0 84 83 0 83 51 0 54 84 0 82 52 0 83 82 0
+		 85 79 0 79 107 0 107 80 0 80 85 0 86 82 0 83 80 0 80 86 0 84 85 0 86 56 0 176 177 0
+		 177 93 0 93 78 0 241 242 0 242 122 0 122 120 0 89 7 0 7 77 0 77 88 0 90 4 0 91 3 0
+		 88 311 0 311 92 0 92 76 0 92 253 0 253 251 0 77 317 0 317 311 0 307 188 0 188 186 0
+		 306 307 0 69 15 0 15 81 0 81 14 0 15 93 0 93 336 0 336 81 0 177 335 0 335 336 0 177 122 0
+		 242 94 0 94 177 0 96 68 0 97 69 0 98 15 0 100 53 0 101 48 0 102 43 0 103 38 0 104 33 0
+		 105 29 0 106 18 0 110 98 0 110 93 0 113 112 0 112 115 0 115 114 0 114 113 0 117 116 0
+		 116 112 0 113 117 0 115 119 0 119 118 0 118 114 0 119 120 0 122 121 0 121 119 0 114 124 0
+		 124 123 0 123 113 0 123 125 0 125 117 0 118 126 0 126 124 0 127 164 0 164 126 0 118 127 0
+		 124 129 0 129 128 0 128 123 0 128 130 0 130 125 0 126 131 0 131 129 0 164 136 0 136 131 0
+		 129 133 0 133 132 0 132 128 0 132 134 0 134 130 0 131 135 0 135 133 0 136 137 0 137 135 0
+		 133 139 0 139 138 0 138 132 0 138 140 0 140 134 0 135 141 0 141 139 0 137 142 0 142 141 0
+		 139 144 0 144 143 0 143 138 0 143 145 0 145 140 0 141 146 0 146 144 0 142 147 0 147 146 0
+		 144 149 0 149 148 0 148 143 0 148 150 0 150 145 0 146 151 0 151 149 0 147 152 0 152 151 0
+		 148 154 0;
+	setAttr ".ed[332:497]" 154 153 0 153 150 0 152 156 0 156 155 0 155 151 0 152 158 0
+		 158 157 0 157 156 0 147 159 0 159 158 0 142 160 0 160 159 0 137 161 0 161 160 0 136 162 0
+		 162 161 0 164 163 0 163 162 0 127 165 0 165 163 0 127 121 0 121 166 0 166 165 0 154 167 0
+		 167 157 0 157 153 0 168 169 0 169 149 0 151 168 0 170 148 0 169 170 0 171 155 0 155 167 0
+		 167 172 0 172 171 0 173 170 0 169 172 0 172 173 0 168 171 0 173 154 0 115 174 0 112 175 0
+		 116 176 0 158 150 0 159 145 0 160 140 0 161 134 0 162 130 0 163 125 0 165 117 0 166 116 0
+		 166 177 0 179 178 0 178 181 0 181 180 0 180 179 0 183 182 0 182 178 0 179 183 0 181 185 0
+		 185 184 0 184 180 0 185 186 0 188 187 0 187 185 0 180 190 0 190 189 0 189 179 0 189 191 0
+		 191 183 0 184 192 0 192 190 0 193 198 0 198 192 0 184 193 0 190 195 0 195 194 0 194 189 0
+		 194 196 0 196 191 0 192 197 0 197 195 0 198 203 0 203 197 0 195 200 0 200 199 0 199 194 0
+		 199 201 0 201 196 0 197 202 0 202 200 0 203 204 0 204 202 0 200 206 0 206 205 0 205 199 0
+		 205 207 0 207 201 0 202 208 0 208 206 0 204 209 0 209 208 0 206 211 0 211 210 0 210 205 0
+		 210 212 0 212 207 0 208 213 0 213 211 0 209 214 0 214 213 0 211 216 0 216 215 0 215 210 0
+		 215 217 0 217 212 0 213 218 0 218 216 0 214 219 0 219 218 0 215 221 0 221 220 0 220 217 0
+		 219 223 0 223 222 0 222 218 0 219 225 0 225 224 0 224 223 0 214 226 0 226 225 0 209 227 0
+		 227 226 0 204 228 0 228 227 0 203 229 0 229 228 0 198 230 0 230 229 0 193 231 0 231 230 0
+		 193 187 0 187 232 0 232 231 0 221 233 0 233 224 0 224 220 0 234 235 0 235 216 0 218 234 0
+		 236 215 0 235 236 0 237 222 0 222 233 0 233 238 0 238 237 0 239 236 0 235 238 0 238 239 0
+		 234 237 0 239 221 0 181 240 0 178 241 0 182 242 0 225 217 0 226 212 0;
+	setAttr ".ed[498:663]" 227 207 0 228 201 0 229 196 0 230 191 0 231 183 0 232 182 0
+		 232 94 0 188 94 0 244 243 0 243 246 0 246 245 0 245 244 0 248 247 0 247 243 0 244 248 0
+		 246 250 0 250 249 0 249 245 0 250 251 0 253 252 0 252 250 0 245 255 0 255 254 0 254 244 0
+		 254 256 0 256 248 0 249 257 0 257 255 0 296 294 0 294 257 0 249 296 0 255 259 0 259 258 0
+		 258 254 0 258 260 0 260 256 0 257 261 0 261 259 0 294 266 0 266 261 0 259 263 0 263 262 0
+		 262 258 0 262 264 0 264 260 0 261 265 0 265 263 0 266 267 0 267 265 0 263 269 0 269 268 0
+		 268 262 0 268 270 0 270 264 0 265 271 0 271 269 0 267 272 0 272 271 0 269 274 0 274 273 0
+		 273 268 0 273 275 0 275 270 0 271 276 0 276 274 0 272 277 0 277 276 0 274 279 0 279 278 0
+		 278 273 0 278 280 0 280 275 0 276 281 0 281 279 0 277 282 0 282 281 0 278 284 0 284 283 0
+		 283 280 0 282 286 0 286 285 0 285 281 0 282 288 0 288 287 0 287 286 0 277 289 0 289 288 0
+		 272 290 0 290 289 0 267 291 0 291 290 0 266 292 0 292 291 0 294 293 0 293 292 0 296 295 0
+		 295 293 0 296 252 0 252 297 0 297 295 0 284 298 0 298 287 0 287 283 0 299 300 0 300 279 0
+		 281 299 0 301 278 0 300 301 0 302 285 0 285 298 0 298 303 0 303 302 0 304 301 0 300 303 0
+		 303 304 0 299 302 0 304 284 0 246 305 0 243 306 0 247 307 0 288 280 0 289 275 0 290 270 0
+		 291 264 0 292 260 0 293 256 0 295 248 0 297 247 0 297 308 0 308 307 0 253 308 0 308 94 0
+		 94 309 0 309 335 0 308 310 0 310 309 0 92 310 0 338 381 0 381 13 0 380 338 0 310 313 0
+		 313 312 0 312 309 0 311 313 0 381 319 0 319 316 0 21 381 0 338 337 0 337 319 0 320 383 0
+		 383 318 0 318 387 0 387 320 0 334 389 0 389 388 0 388 315 0 315 334 0 318 382 0 382 319 0
+		 337 318 0 322 396 0 396 393 0 393 376 0 333 392 0 392 396 0 396 397 0;
+	setAttr ".ed[664:789]" 397 333 0 326 328 0 328 327 0 327 322 0 325 329 0 329 328 0
+		 325 339 0 339 330 0 330 329 0 339 324 0 324 331 0 331 330 0 324 375 0 375 332 0 332 331 0
+		 375 392 0 333 332 0 335 337 0 338 336 0 312 337 0 380 81 0 87 0 0 385 0 0 87 342 0
+		 342 385 0 14 342 0 339 373 0 391 324 0 62 343 0 343 344 0 344 66 0 344 345 0 345 67 0
+		 63 346 0 346 343 0 64 347 0 347 346 0 343 348 0 348 349 0 349 344 0 349 350 0 350 345 0
+		 346 351 0 351 348 0 347 352 0 352 351 0 348 353 0 353 354 0 354 349 0 354 355 0 355 350 0
+		 351 356 0 356 353 0 352 357 0 357 356 0 354 358 0 358 359 0 359 355 0 357 360 0 360 361 0
+		 361 356 0 357 362 0 362 363 0 363 360 0 352 364 0 364 362 0 347 365 0 365 364 0 65 365 0
+		 358 366 0 366 363 0 363 359 0 367 368 0 368 353 0 356 367 0 369 354 0 368 369 0 370 361 0
+		 361 366 0 366 371 0 371 370 0 372 369 0 368 371 0 371 372 0 367 370 0 372 358 0 362 355 0
+		 364 350 0 365 345 0 378 373 0 385 340 0 391 321 0 321 375 0 323 386 0 386 379 0 379 393 0
+		 393 323 0 376 11 0 10 377 0 9 378 0 11 379 0 379 77 0 383 384 0 384 382 0 341 385 0
+		 317 386 0 386 394 0 394 395 0 395 317 0 383 321 0 321 389 0 389 384 0 341 390 0 390 340 0
+		 312 387 0 313 395 0 395 387 0 382 334 0 334 316 0 391 388 0 388 390 0 323 321 0 320 323 0
+		 323 392 0 320 394 0 327 397 0;
+	setAttr -s 1572 ".n";
+	setAttr ".n[0:165]" -type "float3"  3.017989397 2.11449027 1.5558511 3.017989397
+		 2.11449027 1.5558511 3.017989397 2.11449027 1.5558511 3.017989397 2.11449027 1.55585122
+		 3.37075281 2.10995293 0.43142301 3.37075281 2.10995317 0.43142301 3.37075233 2.10995269
+		 0.43142295 3.37075257 2.10995293 0.43142301 3.34355474 2.18470526 -0.21841443 3.3435545
+		 2.18470502 -0.2184144 3.34355474 2.18470526 -0.21841443 3.34355474 2.18470526 -0.21841443
+		 3.43922162 2.042012215 0.044059545 3.43922162 2.042012215 0.044059545 3.43922162
+		 2.042012215 0.044059545 3.43922162 2.042012215 0.044059545 0.10817649 -1.050653934
+		 3.8580339 0.10817648 -1.050653934 3.8580339 0.10817649 -1.050653934 3.85803366 0.10817648
+		 -1.050653934 3.8580339 2.7431767 2.44076157 1.58671486 2.7431767 2.44076157 1.58671474
+		 2.7431767 2.4407618 1.58671486 2.7431767 2.44076157 1.58671486 3.21850491 2.28389335
+		 0.65196347 3.21850514 2.28389359 0.65196359 3.21850514 2.28389359 0.65196353 3.21850491
+		 2.28389311 0.65196347 3.34351873 2.086109877 -0.68485463 3.34351897 2.086109877 -0.68485469
+		 3.34351873 2.086109877 -0.68485457 3.34351897 2.086109877 -0.68485463 2.3426609 1.79433799
+		 2.70042396 2.34266114 1.79433811 2.70042443 2.34266067 1.79433787 2.70042396 2.34266067
+		 1.79433787 2.70042419 1.82229388 1.58161271 3.19025779 1.822294 1.58161294 3.19025779
+		 1.822294 1.58161294 3.19025803 1.822294 1.58161283 3.19025779 -2.83309937 -0.34881294
+		 2.80211997 -2.8330996 -0.34881297 2.80212021 -2.83309937 -0.34881291 2.80212021 -2.83309937
+		 -0.34881294 2.80212021 3.1239624 -0.86775106 2.34261918 3.12396264 -0.86775112 2.34261918
+		 3.12396264 -0.86775112 2.34261942 3.12396264 -0.86775112 2.34261918 2.5213697 1.79643524
+		 2.53288698 2.5213697 1.79643524 2.53288698 2.5213697 1.79643536 2.53288698 2.5213697
+		 1.79643524 2.53288674 3.77892447 -0.42972305 1.23897862 3.77892447 -0.42972308 1.23897862
+		 3.77892447 -0.42972305 1.23897862 3.77892423 -0.42972305 1.23897851 1.96294236 -3.13018107
+		 -1.53258657 1.96294248 -3.13018155 -1.53258669 1.96294248 -3.13018107 -1.53258657
+		 1.96294272 -3.13018155 -1.53258681 -1.98875606 2.099295378 2.76365852 -1.98875594
+		 2.099295139 2.76365829 -1.98875606 2.099295616 2.76365852 -1.98875606 2.099295378
+		 2.76365852 -3.8408525 -0.98881215 0.519714 -3.8408525 -0.98881209 0.51971394 -3.84085274
+		 -0.98881215 0.519714 -3.84085274 -0.98881221 0.519714 3.79012036 1.25428748 0.24849658
+		 3.79012036 1.25428748 0.24849658 3.79012036 1.25428736 0.24849658 3.79012036 1.25428736
+		 0.24849658 1.68824518 -2.51684427 -2.6106174 1.6882453 -2.51684427 -2.61061764 1.6882453
+		 -2.51684427 -2.6106174 1.6882453 -2.51684427 -2.61061764 1.82321763 1.75645828 3.096890688
+		 1.82321763 1.75645828 3.096890688 1.82321751 1.75645828 3.096890688 1.82321775 1.7564584
+		 3.096890688 -3.17869854 -0.1304727 2.42463493 -3.1786983 -0.13047269 2.4246347 -3.17869854
+		 -0.13047269 2.4246347 -3.1786983 -0.13047269 2.42463446 3.7676332 1.24643278 0.50134242
+		 3.76763368 1.24643278 0.50134248 3.76763344 1.24643278 0.50134248 3.7676332 1.24643266
+		 0.50134242 1.78852701 -0.76056647 -3.49609923 1.78852701 -0.76056653 -3.49609947
+		 1.78852713 -0.76056653 -3.49609947 1.78852689 -0.76056647 -3.49609947 1.94027472
+		 1.0018075705 3.35137534 1.94027495 1.0018076897 3.35137534 1.94027472 1.0018075705
+		 3.3513751 1.94027472 1.0018075705 3.3513751 -3.13979125 -0.43390772 2.43996644 -3.13979125
+		 -0.43390775 2.43996644 -3.13979101 -0.43390772 2.43996644 -3.13979101 -0.43390772
+		 2.43996644 3.9298563 0.4970724 0.55600911 3.92985678 0.49707246 0.55600917 3.92985654
+		 0.49707246 0.55600917 3.92985654 0.49707246 0.55600917 1.56107461 -0.83311784 -3.58733344
+		 1.5610745 -0.83311784 -3.58733344 1.56107461 -0.8331179 -3.58733368 1.5610745 -0.83311784
+		 -3.58733344 1.91795552 0.81191915 3.41500139 1.9179554 0.81191909 3.41500139 1.91795564
+		 0.81191909 3.41500139 1.91795564 0.81191915 3.41500163 -3.26115131 -0.5975675 2.23781323
+		 -3.26115108 -0.59756744 2.23781323 -3.26115084 -0.59756738 2.23781323 -3.26115131
+		 -0.59756744 2.23781323 3.92307448 0.62649024 0.46582812 3.92307425 0.62649024 0.46582812
+		 3.92307472 0.62649035 0.46582818 3.92307472 0.62649035 0.46582818 1.30632114 -0.62616521
+		 -3.72846389 1.30632126 -0.62616515 -3.72846365 1.30632114 -0.62616515 -3.72846365
+		 1.30632114 -0.62616515 -3.72846365 -1.014182925 2.399508 3.035423279 -1.014182925
+		 2.399508 3.035423279 -1.014182806 2.399508 3.03542304 -1.014182925 2.399508 3.03542304
+		 2.91951513 2.53818917 1.016870737 2.91951513 2.53818893 1.016870856 2.91951537 2.53818917
+		 1.016870856 2.91951513 2.53818893 1.016870737 3.10676169 2.42198443 -0.69427723 3.10676193
+		 2.42198467 -0.69427729 3.10676169 2.42198467 -0.69427729 3.10676193 2.42198467 -0.69427729
+		 -1.42564607 2.70204759 2.58195114 -1.42564607 2.70204782 2.58195114 -1.42564607 2.70204782
+		 2.58195114 -1.42564607 2.70204782 2.58195114 1.87385619 0.96333915 3.40009427 1.87385631
+		 0.96333921 3.40009427 1.87385631 0.96333921 3.40009427 1.87385631 0.96333921 3.40009451
+		 -3.49573708 0.076967448 1.94265199 -3.49573731 0.076967455 1.94265223 -3.49573708
+		 0.076967448 1.94265199 -3.49573731 0.076967448 1.94265187 3.82800937 1.08699882 0.40592739
+		 3.82800961 1.08699882 0.40592739 3.82800937 1.08699882 0.40592739 3.82800937 1.08699882
+		 0.40592739 1.22597909 -0.38477769 -3.78799677 1.22597909 -0.38477772 -3.78799677
+		 1.22597909 -0.38477769 -3.78799677 1.22597909 -0.38477769 -3.78799677 1.98474133
+		 0.80313438 3.37872434 1.98474145 0.80313438 3.37872434 1.98474133 0.80313438 3.37872434
+		 1.98474121 0.80313432 3.37872434 -3.47672367 -0.13732266 1.97320461 -3.47672391 -0.13732266
+		 1.97320461 -3.47672367 -0.13732266 1.97320461 -3.47672343 -0.13732265 1.97320449
+		 3.97019815 0.030182993 0.48643017 3.97019839 0.030182993 0.48643017;
+	setAttr ".n[166:331]" -type "float3"  3.97019815 0.030182993 0.48643011 3.97019839
+		 0.030182997 0.48643017 1.14722538 -0.21879239 -3.82570338 1.14722514 -0.21879236
+		 -3.82570291 1.14722526 -0.21879239 -3.82570314 1.14722526 -0.21879239 -3.82570314
+		 2.12945485 0.26429126 3.37573314 2.12945485 0.26429126 3.3757329 2.12945461 0.26429123
+		 3.3757329 2.12945485 0.26429126 3.37573314 -3.42779684 -0.16502349 2.054987907 -3.42779684
+		 -0.16502349 2.054988146 -3.4277966 -0.16502349 2.054988146 -3.42779684 -0.16502349
+		 2.054988146 3.94512391 0.46092498 0.4728083 3.94512343 0.46092495 0.47280824 3.94512367
+		 0.46092495 0.4728083 3.94512367 0.46092495 0.4728083 1.18833745 -0.4762184 -3.78960037
+		 1.18833733 -0.47621837 -3.78960037 1.18833733 -0.47621834 -3.78960013 1.18833733
+		 -0.47621837 -3.78960037 -3.58303833 -0.89110398 1.53875637 -3.58303785 -0.8911038
+		 1.53875613 -3.58303809 -0.8911038 1.53875625 -3.58303833 -0.89110392 1.53875637 1.091177344
+		 -0.97527325 -3.72265697 1.091177344 -0.97527331 -3.72265697 1.091177344 -0.97527319
+		 -3.72265673 1.091177344 -0.97527319 -3.72265673 -1.43535066 -3.19255352 -1.93581283
+		 -1.43535054 -3.19255328 -1.93581259 -1.43535078 -3.19255352 -1.93581283 -1.43535066
+		 -3.19255328 -1.93581295 2.0028691292 1.074804902 3.29139972 2.0028691292 1.074804902
+		 3.29139972 2.0028691292 1.074804902 3.29139972 2.0028688908 1.074804783 3.29139924
+		 3.9491477 -0.6339584 0.048259713 3.94914794 -0.63395846 0.048259713 3.94914746 -0.6339584
+		 0.048259713 3.9491477 -0.6339584 0.048259713 2.37125373 -2.20561695 -2.34785247 2.37125349
+		 -2.20561647 -2.34785247 2.37125349 -2.20561671 -2.34785247 2.37125373 -2.20561695
+		 -2.34785271 -1.97293317 1.33093333 3.21498895 -1.97293305 1.33093333 3.21498871 -1.97293293
+		 1.33093321 3.21498871 -1.97293305 1.33093345 3.21498871 -3.89222813 -0.86386806 -0.32294425
+		 -3.89222836 -0.86386818 -0.32294428 -3.89222765 -0.86386812 -0.32294425 -3.89222789
+		 -0.86386806 -0.32294422 -1.086323142 -2.24097443 -3.13016558 -1.086323023 -2.24097419
+		 -3.13016558 -1.086323142 -2.24097443 -3.13016558 -1.086323142 -2.24097443 -3.13016558
+		 3.87088203 0.97180283 0.26808277 3.87088251 0.97180295 0.2680828 3.87088251 0.97180295
+		 0.2680828 3.87088227 0.97180277 0.26808277 0.89628214 1.8269186 3.4436965 0.8962822
+		 1.82691872 3.4436965 0.89628214 1.8269186 3.44369674 0.89628214 1.8269186 3.4436965
+		 3.52708983 0.45998707 1.82976794 3.5270896 0.45998701 1.82976782 3.52708936 0.45998698
+		 1.82976794 3.52708983 0.4599871 1.82976818 3.3876698 0.59733057 2.041296005 3.3876698
+		 0.59733063 2.041296005 3.3876698 0.59733057 2.041296005 3.3876698 0.59733063 2.041296005
+		 2.64581561 1.083450675 2.79746199 2.64581561 1.083450556 2.79746222 2.64581561 1.083450556
+		 2.79746199 2.64581561 1.083450556 2.79746175 3.81306386 1.20470071 -0.096123002 3.81306386
+		 1.20470071 -0.096122995 3.81306386 1.20470083 -0.096123002 3.81306434 1.20470083
+		 -0.09612301 3.65228987 1.53857636 0.54181153 3.65228987 1.53857636 0.54181153 3.65229011
+		 1.53857648 0.54181153 3.65229011 1.53857648 0.54181153 3.061002731 1.44686413 2.12998772
+		 3.061002493 1.44686413 2.12998772 3.061002731 1.44686413 2.12998772 3.061002493 1.44686413
+		 2.12998748 3.88910842 0.71564835 0.60223162 3.88910866 0.71564841 0.60223162 3.88910818
+		 0.71564841 0.60223162 3.88910818 0.71564835 0.60223156 3.31696558 2.040978193 -0.91222185
+		 3.31696534 2.040977955 -0.91222173 3.31696558 2.040978193 -0.91222185 3.31696558
+		 2.040978193 -0.91222185 3.72991729 1.4278053 -0.22156176 3.72991729 1.4278053 -0.22156176
+		 3.72991705 1.4278053 -0.22156176 3.72991705 1.42780519 -0.22156176 3.47402906 1.87048948
+		 0.65756387 3.47402906 1.87048936 0.65756387 3.4740293 1.87048936 0.65756387 3.47402954
+		 1.87048948 0.65756392 2.91368198 2.16071677 -1.6857518 2.91368222 2.16071677 -1.68575191
+		 2.91368222 2.16071677 -1.68575191 2.91368198 2.16071677 -1.6857518 2.9669745 1.994102
+		 -1.79460835 2.9669745 1.99410188 -1.79460835 2.96697426 1.99410176 -1.79460824 2.96697474
+		 1.99410212 -1.79460835 1.53854012 -3.52330899 1.10416889 1.53854036 -3.52330899 1.10416901
+		 1.53854012 -3.52330899 1.10416889 1.53854024 -3.52330875 1.10416889 -1.54941332 -1.58751416
+		 -3.32853055 -1.54941332 -1.58751416 -3.32853031 -1.54941332 -1.5875144 -3.32853079
+		 -1.54941344 -1.5875144 -3.32853055 -2.027436972 -0.92277271 -3.32234693 -2.027436972
+		 -0.92277277 -3.32234716 -2.027436733 -0.92277265 -3.32234693 -2.027436972 -0.92277282
+		 -3.32234716 -2.23786569 -1.20490479 -3.088715315 -2.23786569 -1.20490456 -3.088715315
+		 -2.23786592 -1.20490468 -3.088715553 -2.23786569 -1.20490468 -3.088715076 -2.32928777
+		 -1.041967869 -3.080376863 -2.32928777 -1.041967869 -3.080376625 -2.32928777 -1.041967869
+		 -3.080376863 -2.32928777 -1.041967869 -3.080376625 -1.7008847 -1.17895913 -3.42301702
+		 -1.70088458 -1.17895913 -3.42301726 -1.7008847 -1.17895913 -3.42301726 -1.70088458
+		 -1.17895901 -3.42301702 -1.4064604 -1.2575233 -3.52711034 -1.40646017 -1.25752318
+		 -3.5271101 -1.40646029 -1.25752318 -3.5271101 -1.40646017 -1.25752306 -3.5271101
+		 -1.1854744 -1.91218674 -3.30729342 -1.18547451 -1.91218686 -3.30729389 -1.1854744
+		 -1.91218674 -3.30729365 -1.1854744 -1.91218674 -3.30729365 -1.27070081 -1.57108295
+		 -3.45210314 -1.27070081 -1.57108307 -3.45210338 -1.27070081 -1.57108307 -3.45210338
+		 -1.27070081 -1.57108295 -3.45210314 -1.033116579 -3.52839327 1.57578886 -1.033116698
+		 -3.52839351 1.57578909 -1.033116579 -3.52839327 1.57578886 -1.033116579 -3.52839327
+		 1.57578886 3.82802391 0.68166941 0.93891335 3.82802415 0.68166947 0.9389134 3.82802415
+		 0.68166941 0.93891329 3.82802391 0.68166941 0.93891329 2.15581656 0.65936625 3.30419302
+		 2.15581656 0.65936625 3.30419302 2.15581632 0.65936619 3.30419278 2.15581656 0.65936625
+		 3.30419302 -1.092884541 -3.30225945 -1.97501588 -1.09288466 -3.30225921 -1.97501576
+		 -1.09288466 -3.30225945 -1.97501576 -1.092884541 -3.30225945 -1.97501576;
+	setAttr ".n[332:497]" -type "float3"  2.32733655 0.68301606 3.18072176 2.32733679
+		 0.68301612 3.18072176 2.32733679 0.68301612 3.180722 2.32733655 0.68301612 3.180722
+		 3.68706584 0.61452872 1.42404366 3.68706584 0.61452866 1.42404377 3.6870656 0.61452872
+		 1.42404354 3.68706584 0.61452872 1.42404366 3.98477721 0.3481833 0.017856389 3.98477745
+		 0.34818333 0.017856391 3.98477721 0.3481833 0.017856391 3.98477721 0.34818333 0.017856389
+		 1.16581535 0.422849 3.80290341 1.16581511 0.42284894 3.80290294 1.16581523 0.42284894
+		 3.80290318 1.16581535 0.422849 3.80290341 -1.2820034 -3.78518724 -0.16978621 -1.2820034
+		 -3.78518724 -0.1697862 -1.28200328 -3.78518701 -0.1697862 -1.28200316 -3.78518677
+		 -0.16978619 1.85745013 -3.45913029 -0.76439118 1.85745013 -3.45913053 -0.76439118
+		 1.85745013 -3.45913053 -0.76439118 1.85745001 -3.45913053 -0.76439118 3.18856764
+		 1.8789525 -1.51742375 3.1885674 1.87895238 -1.51742375 3.18856764 1.8789525 -1.51742375
+		 3.18856764 1.8789525 -1.51742375 3.31157756 2.16286612 -0.59620821 3.31157732 2.16286588
+		 -0.59620821 3.31157756 2.16286588 -0.59620821 3.3115778 2.16286612 -0.59620827 3.22673464
+		 2.30308914 0.53288597 3.22673464 2.3030889 0.53288591 3.2267344 2.3030889 0.53288585
+		 3.22673416 2.3030889 0.53288591 0.61677194 0.15185049 -3.94924498 0.61677188 0.15185049
+		 -3.94924498 0.61677182 0.15185049 -3.94924474 0.61677188 0.15185049 -3.94924474 0.53142971
+		 -0.13080633 -3.96238208 0.53142977 -0.13080634 -3.96238208 0.53142977 -0.13080634
+		 -3.96238232 0.53142971 -0.13080633 -3.96238208 0.6051873 -0.36874488 -3.93672156
+		 0.6051873 -0.36874488 -3.93672132 0.60518736 -0.36874488 -3.93672156 0.6051873 -0.36874488
+		 -3.93672132 2.33983111 -3.24112868 0.14239201 2.33983088 -3.24112844 0.14239201 2.33983111
+		 -3.24112868 0.14239201 2.33983111 -3.24112868 0.14239202 -2.34572291 -0.0072537349
+		 3.23998976 -2.34572291 -0.0072537344 3.23998952 -2.34572291 -0.0072537353 3.23998952
+		 -2.34572291 -0.0072537344 3.23998952 -3.0089597702 -2.6184957 -0.29940051 -3.0089597702
+		 -2.6184957 -0.29940051 -3.0089600086 -2.61849618 -0.29940057 -3.0089597702 -2.61849594
+		 -0.29940051 -2.38259673 -3.044376373 -1.027133346 -2.38259673 -3.044376612 -1.027133465
+		 -2.38259697 -3.04437685 -1.027133584 -2.38259673 -3.044376373 -1.027133465 -0.96888983
+		 -3.77109814 -0.91655427 -0.96888983 -3.77109814 -0.91655427 -0.96888977 -3.77109814
+		 -0.91655433 -0.96888971 -3.77109766 -0.91655421 3.96343374 0.45605356 0.28845909
+		 3.96343374 0.4560535 0.28845909 3.96343374 0.45605356 0.28845912 3.96343374 0.45605356
+		 0.28845909 1.37985277 1.31138778 3.51799226 1.37985253 1.31138766 3.51799202 1.37985265
+		 1.31138766 3.51799202 1.37985277 1.31138778 3.5179925 -2.56773949 -0.18835194 3.061248064
+		 -2.56773925 -0.18835193 3.061248064 -2.56773925 -0.18835194 3.061247826 -2.56773925
+		 -0.18835194 3.061247826 -3.6997242 -1.52051485 -0.0085025877 -3.69972467 -1.52051485
+		 -0.0085025877 -3.69972444 -1.52051485 -0.0085025877 -3.69972444 -1.52051473 -0.0085025877
+		 -3.9351542 -0.5626744 -0.44492334 -3.93515468 -0.56267452 -0.44492337 -3.93515468
+		 -0.56267446 -0.44492334 -3.93515491 -0.56267452 -0.4449234 -3.79134727 -1.017327189
+		 -0.76858944 -3.7913475 -1.01732707 -0.76858938 -3.79134727 -1.01732707 -0.76858938
+		 -3.7913475 -1.017327189 -0.76858938 -3.87598515 -0.40645602 -0.90085119 -3.87598515
+		 -0.40645602 -0.90085125 -3.87598515 -0.40645602 -0.90085131 -3.87598491 -0.40645602
+		 -0.90085119 -3.65387988 -1.43951821 -0.75957352 -3.65387964 -1.43951821 -0.75957346
+		 -3.65387964 -1.43951833 -0.75957352 -3.65387964 -1.43951809 -0.75957346 -3.73934603
+		 -0.96228403 -1.044653535 -3.73934579 -0.96228409 -1.044653535 -3.73934603 -0.96228397
+		 -1.044653535 -3.73934603 -0.96228403 -1.044653535 -3.4976058 -1.6791302 -0.97328097
+		 -3.4976058 -1.6791302 -0.97328097 -3.49760556 -1.67913008 -0.97328097 -3.49760556
+		 -1.67913008 -0.97328097 -3.38051128 -1.85124469 -1.070063949 -3.38051128 -1.85124481
+		 -1.070063949 -3.38051105 -1.85124457 -1.070063949 -3.38051128 -1.85124481 -1.070064068
+		 1.23016119 -3.48029232 -1.54086685 1.23016107 -3.48029208 -1.54086661 1.23016107
+		 -3.48029208 -1.54086661 1.23016107 -3.48029208 -1.54086649 -2.17246819 -3.30297637
+		 -0.60887682 -2.17246842 -3.30297661 -0.60887682 -2.17246819 -3.30297589 -0.60887676
+		 -2.17246819 -3.30297613 -0.60887676 1.56283522 -0.82842004 -3.58765483 1.5628351
+		 -0.82842004 -3.58765459 1.56283522 -0.82842016 -3.58765507 1.56283498 -0.82842004
+		 -3.58765483 -3.080534697 -2.32029772 -1.061378956 -3.08053422 -2.32029772 -1.061378956
+		 -3.080534697 -2.32029796 -1.061378956 -3.080534458 -2.32029772 -1.061378956 -1.38021183
+		 -2.42498326 -2.86609006 -1.38021183 -2.42498326 -2.86609006 -1.38021195 -2.42498326
+		 -2.86609006 -1.38021171 -2.42498302 -2.86608982 2.22639942 1.10925627 3.13252234
+		 2.22639966 1.10925627 3.13252258 2.22639942 1.10925639 3.13252258 2.22639942 1.10925627
+		 3.13252211 -2.14195728 -0.11314866 3.37627268 -2.14195752 -0.11314867 3.37627268
+		 -2.14195728 -0.11314865 3.37627244 -2.14195728 -0.11314866 3.37627268 3.85689306
+		 1.057204962 -0.081801876 3.85689306 1.057204962 -0.081801869 3.85689306 1.057204962
+		 -0.081801876 3.85689354 1.057205081 -0.081801884 1.12974179 -0.82521415 -3.74735975
+		 1.12974179 -0.82521415 -3.74735999 1.12974179 -0.82521415 -3.74735999 1.12974191
+		 -0.82521409 -3.74735975 2.28567576 1.28499663 3.020673513 2.285676 1.28499675 3.020673752
+		 2.28567576 1.28499675 3.020673752 2.285676 1.28499675 3.020673752 -2.3428793 -0.27614033
+		 3.23027253 -2.3428793 -0.27614033 3.23027277 -2.3428793 -0.27614036 3.23027301 -2.34287953
+		 -0.27614036 3.23027301 3.8809433 0.96415728 0.093170725 3.8809433 0.96415728 0.093170717
+		 3.88094306 0.96415728 0.093170725 3.88094306 0.96415716 0.093170717 0.88947982 -0.64071774
+		 -3.84685659 0.88947982 -0.64071769 -3.84685659 0.88947976 -0.64071769 -3.84685659
+		 0.88947982 -0.64071769 -3.84685659 2.58453393 0.21501929 3.045316458 2.58453369 0.21501927
+		 3.045316458;
+	setAttr ".n[498:663]" -type "float3"  2.58453393 0.21501929 3.045316458 2.58453393
+		 0.2150193 3.045316458 -2.52891731 -0.21651366 3.091552973 -2.52891755 -0.21651366
+		 3.091552973 -2.52891731 -0.21651365 3.091552734 -2.52891755 -0.21651366 3.091552973
+		 3.99283814 0.18443389 0.15240999 3.99283814 0.18443389 0.15240999 3.99283814 0.18443391
+		 0.15241 3.99283791 0.18443389 0.15240999 0.70002502 -0.11609534 -3.93655753 0.70002508
+		 -0.11609536 -3.93655777 0.70002508 -0.11609535 -3.93655753 0.70002502 -0.11609535
+		 -3.93655753 2.63676882 0.047326744 3.0075256824 2.63676906 0.04732674 3.0075259209
+		 2.63676882 0.04732674 3.0075256824 2.63676858 0.047326736 3.007525444 -2.72216392
+		 -0.1015683 2.92907977 -2.72216392 -0.1015683 2.92907977 -2.72216392 -0.1015683 2.92907977
+		 -2.72216392 -0.1015683 2.92907953 3.98836064 -0.30415639 0.021670038 3.9883604 -0.30415636
+		 0.021670036 3.9883604 -0.30415639 0.021670036 3.9883604 -0.30415636 0.021670038 0.53313708
+		 -0.5719642 -3.9228332 0.53313708 -0.5719642 -3.9228332 0.53313714 -0.57196426 -3.92283368
+		 0.53313714 -0.57196426 -3.92283344 2.55687428 0.8125062 2.96685481 2.55687428 0.81250626
+		 2.96685481 2.55687428 0.8125062 2.96685481 2.55687451 0.81250626 2.96685505 -2.78889132
+		 -1.086848736 2.65345907 -2.78889132 -1.086848617 2.65345907 -2.78889132 -1.086848736
+		 2.65345907 -2.78889132 -1.086848736 2.65345907 3.85242963 1.011825562 -0.36741599
+		 3.85242963 1.011825562 -0.36741599 3.85242987 1.011825562 -0.36741602 3.85242963
+		 1.011825562 -0.36741599 0.38586324 -0.23143095 -3.97461319 0.38586324 -0.23143095
+		 -3.97461295 0.38586324 -0.23143096 -3.97461319 0.3858633 -0.23143096 -3.97461319
+		 2.67284489 0.620902 2.91039133 2.67284513 0.620902 2.91039133 2.67284513 0.620902
+		 2.91039133 2.67284536 0.620902 2.91039133 -2.98303151 -0.17604609 2.65904737 -2.98303103
+		 -0.17604607 2.65904689 -2.98303151 -0.17604609 2.65904737 -2.98303127 -0.17604609
+		 2.65904713 3.98276949 -0.048867028 -0.36764041 3.98276949 -0.048867032 -0.36764038
+		 3.98276949 -0.048867032 -0.36764041 3.98276949 -0.048867028 -0.36764041 0.30539197
+		 -0.062751085 -3.98783135 0.305392 -0.062751092 -3.98783135 0.30539197 -0.062751085
+		 -3.98783112 0.305392 -0.062751085 -3.98783135 2.85431814 -0.28211147 2.78806067 2.8543179
+		 -0.28211144 2.78806067 2.85431838 -0.28211147 2.78806067 2.8543179 -0.28211144 2.78806043
+		 -3.066071272 -0.12788555 2.56570721 -3.066071272 -0.12788555 2.56570721 -3.066071033
+		 -0.12788554 2.56570697 -3.066071272 -0.12788555 2.56570721 3.99389195 -0.065156169
+		 -0.21114309 3.99389172 -0.065156169 -0.21114306 3.99389219 -0.065156177 -0.21114309
+		 3.99389195 -0.065156177 -0.21114311 0.36478832 -0.30828848 -3.97138357 0.36478835
+		 -0.30828851 -3.97138357 0.36478832 -0.30828846 -3.97138357 0.36478832 -0.30828848
+		 -3.97138381 -3.099259615 -1.042051673 2.3040657 -3.099259377 -1.042051554 2.3040657
+		 -3.099259377 -1.042051554 2.3040657 -3.099259377 -1.042051673 2.3040657 0.26994342
+		 -0.67470622 -3.93343401 0.26994342 -0.67470616 -3.93343353 0.26994342 -0.67470622
+		 -3.93343353 0.26994342 -0.67470622 -3.93343377 -2.38466263 -1.15540469 -2.99640179
+		 -2.38466287 -1.15540469 -2.99640203 -2.38466287 -1.15540469 -2.99640155 -2.38466287
+		 -1.15540469 -2.99640179 -2.69762039 -0.76668441 -2.85219884 -2.69762063 -0.76668459
+		 -2.85219932 -2.69762063 -0.76668447 -2.85219908 -2.69762063 -0.76668453 -2.85219932
+		 -2.86790156 -1.030540466 -2.59097052 -2.86790133 -1.030540347 -2.59097028 -2.86790133
+		 -1.030540466 -2.59097052 -2.86790133 -1.030540347 -2.59097028 -2.88224554 -0.96318752
+		 -2.60094833 -2.8822453 -0.9631874 -2.6009481 -2.8822453 -0.96318746 -2.60094833 -2.8822453
+		 -0.96318746 -2.60094833 -2.87220979 -0.5939678 -2.71985507 -2.87221003 -0.59396791
+		 -2.71985507 -2.87221003 -0.59396791 -2.71985531 -2.87220979 -0.59396791 -2.71985507
+		 -2.94090557 -0.38091496 -2.68439531 -2.94090557 -0.38091496 -2.68439507 -2.94090557
+		 -0.38091496 -2.68439531 -2.94090557 -0.38091499 -2.68439555 -2.080191135 -1.5504849
+		 -3.044470787 -2.080191135 -1.55048513 -3.044470787 -2.080190897 -1.5504849 -3.044470549
+		 -2.080190897 -1.5504849 -3.044470549 -2.29335046 -0.9750278 -3.12887621 -2.29335046
+		 -0.97502786 -3.12887621 -2.29335046 -0.9750278 -3.12887621 -2.29335022 -0.97502774
+		 -3.12887597 -0.53777605 -3.61658692 1.6220659 -0.53777599 -3.61658692 1.62206578
+		 -0.53777593 -3.61658645 1.62206566 -0.53777593 -3.61658669 1.62206566 3.94986677
+		 0.62008333 0.11852527 3.94986677 0.62008333 0.11852527 3.94986701 0.62008333 0.11852528
+		 3.94986677 0.62008333 0.11852528 2.82148838 0.47545481 2.79520035 2.82148838 0.47545481
+		 2.79520011 2.82148862 0.47545487 2.79520035 2.82148838 0.47545484 2.79520035 -3.063535452
+		 -2.36154342 -1.018754363 -3.063535929 -2.36154342 -1.018754363 -3.06353569 -2.36154342
+		 -1.018754363 -3.06353569 -2.36154366 -1.018754363 3.1259551 0.49478301 2.44613838
+		 3.12595534 0.49478304 2.44613838 3.1259551 0.49478304 2.44613838 3.1259551 0.49478301
+		 2.44613814 3.92929888 0.47920236 0.57530564 3.92929888 0.4792023 0.57530564 3.92929864
+		 0.4792023 0.57530558 3.9292984 0.47920227 0.57530558 3.84783959 0.21269108 -1.071865439
+		 3.84783936 0.21269108 -1.071865439 3.84783912 0.21269104 -1.07186532 3.84783936 0.21269105
+		 -1.07186532 2.061717272 0.19245248 3.42232132 2.061717272 0.19245248 3.42232156 2.061717272
+		 0.19245248 3.4223218 2.061717272 0.19245248 3.42232132 3.97149634 0.42428488 -0.21725495
+		 3.97149634 0.42428488 -0.21725497 3.97149634 0.42428491 -0.21725497 3.97149634 0.42428488
+		 -0.21725497 2.46205091 0.56443614 3.10156679 2.46205115 0.56443614 3.10156703 2.46205115
+		 0.56443608 3.10156655 2.46205115 0.56443614 3.10156703 -1.65759957 -0.59429789 3.59154201
+		 -1.65759969 -0.59429789 3.59154224 -1.65759957 -0.59429789 3.59154201 -1.65759957
+		 -0.59429789 3.59154224 -3.73565459 -1.25740457 0.68104237 -3.73565435 -1.25740457
+		 0.68104237 -3.73565483 -1.25740457 0.68104237 -3.73565435 -1.25740445 0.68104237;
+	setAttr ".n[664:829]" -type "float3"  -3.9445703 -0.54667336 0.37618312 -3.9445703
+		 -0.54667336 0.37618306 -3.94457054 -0.54667342 0.37618312 -3.94457006 -0.5466733
+		 0.37618303 -3.89125371 -0.92631871 0.0089672785 -3.89125371 -0.92631865 0.0089672785
+		 -3.89125347 -0.92631865 0.0089672785 -3.89125347 -0.92631865 0.0089672785 -3.82518959
+		 -1.16956747 0.0062261289 -3.82518935 -1.16956735 0.0062261284 -3.82518935 -1.16956747
+		 0.006226128 -3.82518911 -1.16956735 0.0062261275 -3.95189524 -0.33625925 -0.51908785
+		 -3.95189548 -0.33625925 -0.51908785 -3.95189524 -0.33625925 -0.51908785 -3.95189548
+		 -0.33625928 -0.51908791 -3.90336585 -0.38824806 -0.78294325 -3.90336561 -0.38824806
+		 -0.78294325 -3.90336537 -0.38824803 -0.78294313 -3.90336585 -0.388248 -0.78294319
+		 -3.38939929 -2.077091932 -0.4445917 -3.38939929 -2.077091932 -0.44459173 -3.38939953
+		 -2.077092171 -0.44459176 -3.38939905 -2.077091932 -0.4445917 -3.90202236 -0.84331733
+		 -0.25107512 -3.90202188 -0.84331727 -0.25107509 -3.90202236 -0.84331739 -0.25107512
+		 -3.90202212 -0.84331739 -0.25107512 0.84396201 -3.63258243 -1.44640017 0.84396201
+		 -3.63258243 -1.44640005 0.84396195 -3.63258243 -1.44640017 0.84396207 -3.63258219
+		 -1.44640017 -2.91044497 -2.40311551 -1.32451713 -2.91044521 -2.40311527 -1.32451725
+		 -2.91044497 -2.40311527 -1.32451713 -2.91044497 -2.40311527 -1.32451713 0.8865658
+		 -0.47691476 -3.87124681 0.88656598 -0.47691482 -3.87124705 0.88656586 -0.47691476
+		 -3.87124681 0.88656592 -0.47691476 -3.87124681 -3.39763761 -2.093473196 0.27097812
+		 -3.39763737 -2.093473196 0.27097812 -3.39763737 -2.093472958 0.27097809 -3.39763761
+		 -2.093473196 0.27097812 -2.22335076 -2.20416546 -2.48965192 -2.22335076 -2.20416546
+		 -2.48965216 -2.22335052 -2.20416522 -2.48965192 -2.22335052 -2.20416522 -2.48965192
+		 3.37078905 0.40653145 2.11483145 3.37078953 0.40653145 2.11483145 3.37078929 0.40653145
+		 2.11483145 3.37078929 0.40653145 2.11483169 -1.77401721 -0.27071738 3.57485318 -1.77401721
+		 -0.27071738 3.57485318 -1.77401721 -0.27071738 3.57485318 -1.77401721 -0.27071738
+		 3.57485318 3.93576336 0.60417086 -0.38045472 3.93576312 0.6041708 -0.38045472 3.93576312
+		 0.6041708 -0.38045466 3.93576336 0.6041708 -0.38045469 1.031920433 -0.69907969 -3.80084562
+		 1.031920433 -0.69907969 -3.80084538 1.031920552 -0.69907975 -3.80084586 1.031920552
+		 -0.69907975 -3.80084538 3.21904492 0.80615348 2.23335314 3.21904516 0.80615354 2.23335314
+		 3.21904516 0.80615348 2.23335314 3.21904492 0.80615336 2.2333529 -1.91668129 -0.2965166
+		 3.49834442 -1.91668105 -0.29651654 3.49834418 -1.91668105 -0.29651657 3.49834418
+		 -1.91668105 -0.29651657 3.49834418 3.89513588 0.87225366 -0.25901434 3.89513612 0.87225372
+		 -0.25901434 3.89513588 0.8722536 -0.25901434 3.89513612 0.87225372 -0.25901434 0.29111359
+		 -0.22229157 -3.98319459 0.29111359 -0.22229157 -3.98319459 0.29111359 -0.22229157
+		 -3.98319435 0.29111362 -0.22229159 -3.98319483 2.97883749 0.82445246 2.53905582 2.97883749
+		 0.82445252 2.53905606 2.97883749 0.82445252 2.53905606 2.97883749 0.82445252 2.53905606
+		 -1.98890269 -0.41810286 3.44520783 -1.98890269 -0.41810289 3.44520783 -1.98890257
+		 -0.41810286 3.4452076 -1.98890245 -0.41810286 3.4452076 3.87390232 0.85639805 -0.5093767
+		 3.87390208 0.85639799 -0.50937665 3.87390184 0.85639805 -0.50937665 3.87390232 0.85639811
+		 -0.5093767 0.09758354 -0.48719269 -3.96901989 0.09758354 -0.48719275 -3.96901989
+		 0.097583525 -0.48719269 -3.96901989 0.097583532 -0.48719269 -3.96901989 3.079402924
+		 0.13284303 2.54943705 3.079403162 0.13284303 2.54943705 3.0794034 0.13284303 2.54943705
+		 3.079402924 0.13284302 2.54943681 -2.28532481 -0.54202169 3.23782396 -2.28532481
+		 -0.54202169 3.23782396 -2.28532457 -0.54202169 3.23782396 -2.28532481 -0.54202169
+		 3.23782372 3.9718802 0.086754084 -0.46544737 3.9718802 0.086754084 -0.46544737 3.9718802
+		 0.086754084 -0.46544731 3.97188044 0.086754091 -0.4654474 -0.14902253 -0.070351683
+		 -3.99660397 -0.14902255 -0.070351683 -3.99660397 -0.14902253 -0.070351683 -3.99660373
+		 -0.14902253 -0.070351683 -3.99660397 3.10141015 -0.1619786 2.52091599 3.10141015
+		 -0.16197859 2.52091575 3.10141015 -0.16197859 2.52091575 3.10141039 -0.1619786 2.52091599
+		 -2.59870601 -0.058406446 3.040282249 -2.59870601 -0.058406446 3.040282249 -2.59870601
+		 -0.058406442 3.040282011 -2.59870601 -0.058406442 3.040282011 3.97005558 1.7676661e-005
+		 -0.48852569 3.97005606 1.7676663e-005 -0.48852575 3.97005582 1.7676661e-005 -0.48852572
+		 3.97005582 1.7676661e-005 -0.48852572 -0.066243954 0.023575768 -3.99938178 -0.066243954
+		 0.023575768 -3.99938202 -0.066243954 0.02357577 -3.99938202 -0.066243954 0.02357577
+		 -3.99938202 3.023285389 -0.53105575 2.56470776 3.023285151 -0.53105569 2.56470799
+		 3.023285389 -0.53105569 2.56470776 3.023285389 -0.53105575 2.56470799 -2.63037229
+		 0.28687924 2.99980688 -2.63037252 0.28687927 2.99980688 -2.63037252 0.28687927 2.99980688
+		 -2.63037252 0.28687927 2.99980712 3.80861092 -1.08695972 -0.55946434 3.80861139 -1.086959839
+		 -0.5594644 3.80861115 -1.086959839 -0.5594644 3.80861092 -1.086959839 -0.5594644
+		 -0.138275 -0.29080907 -3.98701763 -0.13827498 -0.29080904 -3.98701739 -0.138275 -0.29080909
+		 -3.98701787 -0.13827498 -0.29080904 -3.98701739 2.91341329 -0.93836617 2.57516861
+		 2.91341329 -0.93836606 2.57516837 2.91341329 -0.93836617 2.57516837 2.91341329 -0.93836617
+		 2.57516861 -2.67293096 0.26286626 2.96417594 -2.67293119 0.26286629 2.96417594 -2.67293143
+		 0.26286626 2.96417594 -2.67293143 0.26286626 2.96417594 3.9183116 -0.52332008 -0.6107133
+		 3.9183116 -0.52332008 -0.6107133 3.91831183 -0.52332014 -0.61071336 3.9183116 -0.52332014
+		 -0.61071336 -0.043022901 -0.037345048 -3.99959445 -0.043022901 -0.037345048 -3.99959445
+		 -0.043022897 -0.037345044 -3.99959421 -0.043022893 -0.037345044 -3.99959421 -2.98385358
+		 -0.505961 2.61545777 -2.98385406 -0.505961 2.61545777 -2.98385382 -0.50596094 2.61545753
+		 -2.98385406 -0.505961 2.61545777 -0.19359978 -0.47541207 -3.96692586 -0.19359979
+		 -0.47541213 -3.9669261;
+	setAttr ".n[830:995]" -type "float3"  -0.19359978 -0.4754121 -3.96692586 -0.19359975
+		 -0.47541201 -3.96692562 -2.7833631 -0.66091794 -2.79572487 -2.7833631 -0.66091788
+		 -2.79572487 -2.78336287 -0.66091788 -2.79572463 -2.7833631 -0.66091794 -2.79572487
+		 -2.96513009 0.20695896 -2.6767838 -2.96513009 0.20695896 -2.6767838 -2.96513009 0.20695896
+		 -2.6767838 -2.96513009 0.20695898 -2.6767838 -3.21344614 -0.19079885 -2.37431216
+		 -3.21344614 -0.19079883 -2.3743124 -3.21344614 -0.19079885 -2.3743124 -3.21344614
+		 -0.19079883 -2.37431216 -3.20674419 -0.010911239 -2.39095664 -3.20674396 -0.010911238
+		 -2.39095664 -3.20674419 -0.010911238 -2.3909564 -3.20674419 -0.010911238 -2.3909564
+		 -2.89090538 -0.38091329 -2.73816919 -2.89090538 -0.38091329 -2.73816943 -2.89090514
+		 -0.38091326 -2.73816943 -2.89090538 -0.38091326 -2.73816919 -2.54948044 -1.084301829
+		 -2.88521075 -2.54948044 -1.084301591 -2.88521028 -2.54948068 -1.084301829 -2.88521075
+		 -2.54948068 -1.084301829 -2.88521075 -2.70107341 -0.9734416 -2.78506994 -2.70107365
+		 -0.9734416 -2.78506994 -2.70107341 -0.9734416 -2.78506994 -2.70107317 -0.9734416
+		 -2.7850697 -2.94445443 -0.66847563 -2.6236093 -2.94445467 -0.66847563 -2.6236093
+		 -2.94445467 -0.66847563 -2.6236093 -2.94445467 -0.66847557 -2.6236093 -1.69047701
+		 -3.30229259 1.49571121 -1.69047689 -3.30229235 1.49571121 -1.69047689 -3.30229235
+		 1.49571121 -1.69047701 -3.30229259 1.49571133 3.97810769 -0.38997847 -0.15024294
+		 3.97810793 -0.3899785 -0.15024295 3.97810769 -0.38997847 -0.15024294 3.97810793 -0.38997847
+		 -0.15024295 3.013617277 -0.44698676 2.59197164 3.013617039 -0.44698673 2.5919714
+		 3.013617039 -0.44698673 2.5919714 3.013617039 -0.44698676 2.5919714 -2.60412407 -2.53484821
+		 -1.67125201 -2.60412407 -2.53484845 -1.67125201 -2.60412407 -2.53484821 -1.67125189
+		 -2.60412383 -2.53484797 -1.67125177 3.30965424 -0.3097806 2.22491002 3.30965447 -0.30978063
+		 2.22491002 3.30965424 -0.30978063 2.22491002 3.30965424 -0.30978063 2.22490978 3.95927405
+		 -0.44073775 0.36041707 3.95927382 -0.44073775 0.36041704 3.95927382 -0.44073775 0.36041707
+		 3.95927382 -0.44073775 0.36041704 3.76910138 -0.54619884 -1.22292292 3.76910138 -0.54619884
+		 -1.22292292 3.76910114 -0.54619884 -1.22292292 3.76910162 -0.5461989 -1.22292304
+		 2.48072076 -0.35521963 3.11766624 2.48072076 -0.35521966 3.11766624 2.48072076 -0.35521969
+		 3.11766624 2.48072076 -0.35521963 3.11766601 3.75207639 0.93696189 -1.021775007 3.75207686
+		 0.93696195 -1.021775007 3.75207639 0.93696183 -1.021775007 3.75207663 0.93696195
+		 -1.021774888 2.97438669 0.71393269 2.57746458 2.97438645 0.71393263 2.57746434 2.97438669
+		 0.71393269 2.57746458 2.97438669 0.71393275 2.57746482 -1.21524394 -1.28197289 3.58883357
+		 -1.21524382 -1.28197277 3.58883381 -1.21524394 -1.28197289 3.58883357 -1.21524405
+		 -1.281973 3.58883405 -3.8336339 -0.66563678 0.92745978 -3.83363366 -0.66563678 0.92745978
+		 -3.83363342 -0.66563678 0.92745972 -3.83363366 -0.66563678 0.92745984 -3.92553854
+		 0.42510742 0.63986796 -3.92553854 0.42510739 0.63986796 -3.92553854 0.42510742 0.63986796
+		 -3.92553878 0.42510742 0.63986802 -3.99499655 0.0094441874 0.19978695 -3.99499607
+		 0.0094441865 0.1997869 -3.99499655 0.0094441883 0.19978695 -3.99499631 0.0094441874
+		 0.19978693 -3.99578977 -0.049176466 0.17677401 -3.99578905 -0.049176458 0.17677398
+		 -3.99578929 -0.049176462 0.176774 -3.99578929 -0.049176458 0.17677398 -3.901232 -0.88055515
+		 0.070789829 -3.901232 -0.88055515 0.070789821 -3.901232 -0.88055515 0.070789821 -3.901232
+		 -0.88055521 0.070789829 -3.83078933 -1.1499598 0.051435724 -3.83078909 -1.14995968
+		 0.051435724 -3.83078957 -1.14995992 0.051435735 -3.83078933 -1.14995992 0.051435731
+		 -3.80618 -1.22545791 0.10604355 -3.80618024 -1.22545803 0.10604357 -3.80618024 -1.22545803
+		 0.10604355 -3.80618024 -1.22545803 0.10604356 -3.90574837 -0.7017017 0.50273633 -3.90574813
+		 -0.7017017 0.50273627 -3.90574861 -0.70170182 0.50273633 -3.90574813 -0.7017017 0.50273633
+		 -0.51800668 -3.51485038 -1.83779657 -0.51800668 -3.51485014 -1.83779669 -0.51800668
+		 -3.51485038 -1.83779669 -0.51800668 -3.51485038 -1.83779669 -3.14505792 -2.47020221
+		 0.081908256 -3.14505792 -2.47020245 0.081908263 -3.14505792 -2.47020245 0.081908263
+		 -3.14505816 -2.47020268 0.081908271 0.46006989 0.057241876 -3.97304153 0.46006992
+		 0.057241879 -3.97304177 0.46006989 0.057241868 -3.9730413 0.46006989 0.057241876
+		 -3.97304177 -2.96283412 -2.67496824 0.25721067 -2.96283436 -2.67496824 0.25721067
+		 -2.96283436 -2.67496848 0.25721067 -2.96283412 -2.67496824 0.25721064 -1.80063891
+		 -2.94999075 -2.01376605 -1.80063891 -2.94999075 -2.013766289 -1.80063903 -2.94999075
+		 -2.013766289 -1.80063879 -2.94999051 -2.013766289 3.61891961 0.50102496 1.62861729
+		 3.61891937 0.50102496 1.62861729 3.61891985 0.50102502 1.62861741 3.61891985 0.50102502
+		 1.62861741 -1.66328919 -1.17271984 3.44357324 -1.66328931 -1.17271996 3.44357347
+		 -1.66328907 -1.17271984 3.44357324 -1.66328907 -1.17271996 3.44357347 3.72907925
+		 1.40392888 -0.35064778 3.72907901 1.40392876 -0.35064778 3.72907877 1.40392876 -0.35064772
+		 3.72907925 1.40392888 -0.35064778 0.13433643 0.065295473 -3.99721003 0.13433646 0.06529548
+		 -3.9972105 0.13433644 0.065295473 -3.99721026 0.13433643 0.065295473 -3.99721026
+		 3.30409312 0.31864414 2.23191285 3.30409312 0.31864414 2.23191285 3.30409312 0.31864414
+		 2.23191285 3.30409312 0.31864411 2.23191285 -1.71089494 -1.37687039 3.34321189 -1.71089494
+		 -1.37687051 3.34321213 -1.71089506 -1.37687051 3.34321237 -1.71089494 -1.37687039
+		 3.34321213 3.74798584 1.3880471 -0.16101606 3.74798632 1.38804746 -0.16101609 3.74798608
+		 1.3880471 -0.16101608 3.74798584 1.38804722 -0.16101606 0.32843521 0.93217236 -3.87597537
+		 0.32843515 0.93217224 -3.87597513 0.32843521 0.93217236 -3.87597561 0.32843518 0.9321723
+		 -3.87597513 2.98570442 0.59275413 2.59503603 2.98570418 0.59275407 2.59503555 2.98570466
+		 0.59275413 2.59503603 2.98570466 0.59275413 2.59503579;
+	setAttr ".n[996:1161]" -type "float3"  -1.84772038 -1.59084892 3.17098236 -1.84772038
+		 -1.59084892 3.17098236 -1.84772027 -1.5908488 3.17098236 -1.84772038 -1.59084892
+		 3.17098212 3.81738186 1.14302218 -0.34798551 3.81738186 1.14302206 -0.34798551 3.81738186
+		 1.14302218 -0.34798551 3.81738186 1.14302206 -0.34798551 0.36635396 0.26223367 -3.97454643
+		 0.36635396 0.26223367 -3.97454643 0.36635396 0.2622337 -3.97454643 0.36635396 0.26223367
+		 -3.97454643 3.040053129 -0.28014952 2.58449078 3.040053368 -0.28014952 2.58449054
+		 3.040053368 -0.28014952 2.58449078 3.040053129 -0.28014952 2.58449078 -2.36375785
+		 -1.091905117 3.036509514 -2.36375809 -1.091905236 3.036509752 -2.36375809 -1.091905236
+		 3.036509514 -2.36375785 -1.091905117 3.036509514 3.92502046 0.68982625 -0.34403011
+		 3.92501998 0.68982625 -0.34403011 3.92502022 0.68982625 -0.34403011 3.92501998 0.68982619
+		 -0.34403011 0.17234008 0.60178787 -3.9507153 0.17234008 0.60178787 -3.9507153 0.17234008
+		 0.60178787 -3.95071554 0.17234008 0.60178787 -3.9507153 2.76591349 -0.39383808 2.86262393
+		 2.76591325 -0.39383808 2.86262393 2.76591325 -0.39383808 2.86262393 2.76591349 -0.39383811
+		 2.86262417 -2.63657594 -0.68067479 2.93004251 -2.63657618 -0.68067485 2.93004274
+		 -2.63657618 -0.68067485 2.93004274 -2.63657594 -0.68067479 2.93004274 3.96844482
+		 0.47410768 -0.16329877 3.96844506 0.47410771 -0.16329879 3.96844482 0.47410768 -0.16329877
+		 3.96844506 0.47410768 -0.16329877 0.29458967 0.47846285 -3.96033978 0.2945897 0.47846285
+		 -3.96033978 0.29458964 0.47846285 -3.96033931 0.29458967 0.47846285 -3.96034002 2.72396111
+		 -0.40045473 2.90166712 2.72396135 -0.40045476 2.90166712 2.72396111 -0.40045473 2.90166736
+		 2.72396111 -0.40045476 2.90166712 -2.77277946 -0.96924412 2.71519041 -2.7727797 -0.96924424
+		 2.71519041 -2.77277946 -0.96924412 2.71519017 -2.7727797 -0.96924418 2.71519041 3.89100337
+		 -0.70448124 -0.60315746 3.89100337 -0.7044813 -0.6031574 3.89100337 -0.70448124 -0.6031574
+		 3.89100361 -0.70448124 -0.60315746 0.39211988 0.6386438 -3.92916989 0.39211991 0.6386438
+		 -3.92917013 0.39211985 0.63864374 -3.92916989 0.39211985 0.6386438 -3.92916989 2.78550053
+		 -1.082207203 2.65891218 2.78550053 -1.082207203 2.65891218 2.78550076 -1.082207203
+		 2.65891218 2.78550053 -1.082207322 2.65891242 -2.80505896 -0.40560707 2.82261014
+		 -2.80505896 -0.40560713 2.82261038 -2.80505848 -0.40560707 2.8226099 -2.80505872
+		 -0.40560707 2.82261014 3.97950077 0.039146613 -0.40254316 3.97950053 0.039146613
+		 -0.40254316 3.97950101 0.039146613 -0.40254316 3.97950077 0.03914661 -0.40254313
+		 0.45791969 0.47180969 -3.94559336 0.45791963 0.47180966 -3.94559336 0.45791969 0.47180969
+		 -3.94559312 0.45791963 0.47180969 -3.94559312 -2.89549685 -1.18299508 2.49331498
+		 -2.89549685 -1.1829952 2.49331522 -2.89549685 -1.18299508 2.49331522 -2.89549708
+		 -1.1829952 2.49331522 0.15743031 -0.026192605 -3.99681449 0.15743034 -0.026192613
+		 -3.9968152 0.15743032 -0.026192609 -3.9968152 0.15743032 -0.026192611 -3.9968152
+		 -2.41276622 -0.51911211 -3.14786935 -2.41276622 -0.51911211 -3.14786959 -2.41276622
+		 -0.51911211 -3.14786935 -2.41276622 -0.51911205 -3.14786935 -2.83116317 0.23329043
+		 -2.81604171 -2.83116341 0.23329046 -2.81604171 -2.83116317 0.23329045 -2.81604147
+		 -2.83116317 0.23329045 -2.81604171 -3.070883274 0.034330077 -2.56290817 -3.070883274
+		 0.034330081 -2.56290793 -3.070883274 0.034330081 -2.56290793 -3.070883274 0.034330077
+		 -2.56290793 -3.095747948 0.014827711 -2.53300714 -3.095747948 0.01482771 -2.53300714
+		 -3.095747948 0.014827712 -2.53300738 -3.095747948 0.014827711 -2.53300738 -2.9111836
+		 -0.28718719 -2.72810054 -2.9111836 -0.28718719 -2.7281003 -2.91118383 -0.28718722
+		 -2.72810078 -2.9111836 -0.28718719 -2.72810078 -2.69045281 -0.13037245 -2.95710444
+		 -2.69045281 -0.13037245 -2.95710444 -2.69045305 -0.13037246 -2.95710468 -2.69045281
+		 -0.13037245 -2.95710444 -2.74665761 -0.27240467 -2.89511108 -2.74665737 -0.27240464
+		 -2.89511085 -2.74665761 -0.27240467 -2.89511108 -2.74665785 -0.2724047 -2.89511132
+		 -2.54504943 -0.95911205 -2.93305779 -2.54504943 -0.95911205 -2.93305779 -2.54504943
+		 -0.95911211 -2.93305779 -2.54504943 -0.95911199 -2.93305779 -1.29722333 -3.69825315
+		 0.80008471 -1.29722333 -3.69825292 0.80008465 -1.29722333 -3.69825339 0.80008465
+		 -1.29722333 -3.69825315 0.80008465 3.99744177 0.026013883 0.14064863 3.99744201 0.026013885
+		 0.14064863 3.99744153 0.026013881 0.1406486 3.99744177 0.026013885 0.14064863 2.85664701
+		 -0.52367485 2.75051498 2.85664701 -0.52367485 2.75051498 2.85664701 -0.52367485 2.75051498
+		 2.85664701 -0.52367485 2.75051498 -2.023490906 -2.50191045 -2.37611699 -2.023490667
+		 -2.50191021 -2.37611699 -2.023490667 -2.50190997 -2.37611651 -2.023490667 -2.50191021
+		 -2.37611675 3.15872478 -0.31110159 2.4342711 3.15872455 -0.31110159 2.4342711 3.15872455
+		 -0.31110159 2.4342711 3.15872455 -0.31110162 2.43427134 3.95813608 -0.093377247 0.56959581
+		 3.95813632 -0.093377247 0.56959581 3.95813608 -0.093377247 0.56959575 3.95813608
+		 -0.09337724 0.56959575 3.85821104 -0.059272531 -1.05389595 3.85821056 -0.05927252
+		 -1.053895831 3.85821056 -0.059272517 -1.053895712 3.85821056 -0.059272524 -1.053895831
+		 2.25661421 -0.59302419 3.24900222 2.25661397 -0.59302419 3.24900222 2.25661421 -0.59302419
+		 3.24900222 2.25661397 -0.59302413 3.24900198 3.55308008 1.23259556 -1.3624717 3.55308032
+		 1.23259568 -1.36247182 3.55308032 1.23259544 -1.3624717 3.55307984 1.23259544 -1.3624717
+		 3.90609479 0.22983141 0.83042192 3.90609503 0.22983143 0.83042204 3.90609503 0.22983143
+		 0.83042192 3.90609479 0.22983141 0.83042192 -0.45520693 -2.361485 3.196275 -0.45520693
+		 -2.361485 3.196275 -0.45520693 -2.361485 3.196275 -0.45520693 -2.361485 3.196275
+		 -3.83803701 -1.10175371 0.23582597 -3.83803654 -1.10175359 0.23582593 -3.83803678
+		 -1.10175371 0.23582597 -3.83803654 -1.10175347 0.23582594 -3.98908854 0.00055492844
+		 0.29524839 -3.9890883 0.00055492838 0.29524836;
+	setAttr ".n[1162:1327]" -type "float3"  -3.98908854 0.00055492838 0.29524839
+		 -3.98908901 0.00055492844 0.29524842 -3.94087577 -0.61632931 -0.2993952 -3.94087529
+		 -0.61632931 -0.29939514 -3.94087553 -0.61632937 -0.2993952 -3.94087577 -0.61632931
+		 -0.2993952 -3.96971321 -0.42032537 -0.25436801 -3.96971321 -0.42032537 -0.25436801
+		 -3.96971345 -0.42032537 -0.25436801 -3.96971297 -0.42032534 -0.25436801 -3.87609792
+		 -0.98518652 -0.072597429 -3.87609816 -0.98518664 -0.072597437 -3.87609792 -0.98518652
+		 -0.072597429 -3.87609816 -0.98518658 -0.072597437 -3.69985032 -1.51158237 -0.16194338
+		 -3.69985032 -1.51158226 -0.16194338 -3.69985032 -1.51158226 -0.16194336 -3.69985032
+		 -1.51158226 -0.16194336 -3.90320897 -0.86313123 -0.14129181 -3.90320921 -0.86313134
+		 -0.14129183 -3.90320897 -0.86313123 -0.14129181 -3.90320921 -0.86313128 -0.14129183
+		 -3.43034291 -1.98753822 0.53145117 -3.43034267 -1.9875381 0.53145117 -3.43034291
+		 -1.98753834 0.53145117 -3.43034244 -1.98753822 0.53145117 0.087717853 -3.086250067
+		 -2.54310155 0.087717861 -3.086250305 -2.54310179 0.087717853 -3.086250067 -2.54310155
+		 0.087717853 -3.086250067 -2.54310179 -2.83664036 -2.76028013 -0.57821059 -2.83664036
+		 -2.76027989 -0.57821065 -2.83664036 -2.76027966 -0.57821053 -2.83664036 -2.76027989
+		 -0.57821059 -0.043993179 0.78507793 -3.92195296 -0.043993179 0.78507787 -3.92195296
+		 -0.043993182 0.78507793 -3.92195296 -0.043993179 0.78507793 -3.92195296 -2.42244673
+		 -2.96583891 1.15566015 -2.42244673 -2.96583915 1.15566027 -2.42244673 -2.96583891
+		 1.15566015 -2.42244673 -2.96583891 1.15566003 -1.55000997 -1.60945082 -3.31770062
+		 -1.55000985 -1.6094507 -3.31770039 -1.55000997 -1.60945082 -3.31770086 -1.55000997
+		 -1.60945082 -3.31770062 -0.42895633 -3.97389197 0.15548943 -0.42895624 -3.97389197
+		 0.15548941 -0.42895633 -3.97389245 0.15548944 -0.42895627 -3.97389245 0.15548943
+		 -2.40780091 -3.044126987 -0.96736109 -2.40780067 -3.044126987 -0.96736109 -2.40780067
+		 -3.044126987 -0.96736115 -2.40780044 -3.044126987 -0.96736109 -2.98074722 -2.63729811
+		 -0.39975256 -2.9807477 -2.63729858 -0.39975262 -2.98074746 -2.63729835 -0.39975262
+		 -2.98074722 -2.63729835 -0.39975259 -1.69250941 -1.41087306 -3.33838964 -1.69250965
+		 -1.41087329 -3.33839011 -1.69250953 -1.41087317 -3.33839011 -1.69250977 -1.41087341
+		 -3.33839035 -0.59456813 -3.94665504 0.26533726 -0.59456807 -3.94665504 0.26533726
+		 -0.59456813 -3.94665504 0.26533729 -0.59456807 -3.94665504 0.26533726 -2.80135012
+		 -2.64889336 -1.065740705 -2.80135036 -2.64889312 -1.065740705 -2.80135012 -2.64889312
+		 -1.065740705 -2.80135012 -2.64889288 -1.065740585 -1.71915293 -1.6528827 -3.21130705
+		 -1.71915293 -1.65288258 -3.21130729 -1.71915293 -1.6528827 -3.21130705 -1.71915293
+		 -1.6528827 -3.21130729 -1.89757061 -3.51517677 -0.2067809 -1.89757061 -3.51517653
+		 -0.20678087 -1.89757061 -3.51517677 -0.2067809 -1.89757049 -3.51517653 -0.20678088
+		 0.02622401 -3.71177554 -1.49064958 0.026224008 -3.7117753 -1.49064958 0.02622401
+		 -3.71177554 -1.4906497 0.02622401 -3.71177554 -1.49064958 -2.54229879 -2.7819984
+		 -1.34059739 -2.54229879 -2.7819984 -1.34059739 -2.54229879 -2.7819984 -1.34059727
+		 -2.54229879 -2.7819984 -1.34059751 -3.88266158 0.48639724 0.82967287 -3.88266134
+		 0.48639724 0.82967281 -3.88266158 0.48639724 0.82967281 -3.88266134 0.48639724 0.82967275
+		 -0.16779822 -3.43566585 -2.041579247 -0.16779821 -3.43566585 -2.041579008 -0.16779822
+		 -3.43566585 -2.041579247 -0.16779824 -3.43566608 -2.041579247 1.21099746 0.98187691
+		 -3.68366671 1.21099734 0.98187691 -3.68366671 1.21099746 0.98187697 -3.68366694 1.21099746
+		 0.98187697 -3.68366694 -1.23733962 -2.24577427 -3.070096016 -1.2373395 -2.24577427
+		 -3.070096016 -1.23733938 -2.24577403 -3.070096016 -1.2373395 -2.24577427 -3.070096016
+		 3.41971231 1.87345088 -0.89204746 3.41971207 1.87345088 -0.89204746 3.41971231 1.87345088
+		 -0.89204746 3.41971207 1.87345088 -0.89204746 3.16366148 2.17380476 1.12508595 3.16366124
+		 2.17380476 1.12508595 3.16366148 2.173805 1.12508607 3.16366148 2.173805 1.12508607
+		 1.98966205 1.71920633 3.014228821 1.98966193 1.71920621 3.014228582 1.98966205 1.71920621
+		 3.014228582 1.98966193 1.71920633 3.014228821 -1.28295755 -0.063970193 3.78812981
+		 -1.28295767 -0.063970201 3.78812981 -1.28295767 -0.063970201 3.78812981 -1.28295767
+		 -0.063970201 3.78812981 -3.042098522 -2.36625051 1.07074523 -3.042098761 -2.36625075
+		 1.070745349 -3.042098522 -2.36625051 1.07074523 -3.042098522 -2.36625051 1.07074523
+		 -2.48145866 -2.83749962 -1.33826709 -2.48145866 -2.83749962 -1.33826709 -2.4814589
+		 -2.83749938 -1.33826697 -2.4814589 -2.83749962 -1.33826709 -2.76599264 -2.69268894
+		 -1.048194289 -2.76599264 -2.69268918 -1.048194289 -2.7659924 -2.6926887 -1.04819417
+		 -2.76599264 -2.69268894 -1.048194289 -2.70845938 -2.77265477 -0.98824775 -2.70845914
+		 -2.77265453 -0.98824769 -2.70845914 -2.77265477 -0.98824763 -2.70845938 -2.77265477
+		 -0.98824769 -3.0098690987 -2.61087275 0.35218227 -3.0098690987 -2.61087275 0.3521823
+		 -3.0098693371 -2.61087275 0.3521823 -3.0098690987 -2.61087275 0.35218227 2.94348741
+		 2.31811833 1.40078878 2.94348741 2.31811833 1.40078878 2.94348741 2.31811833 1.4007889
+		 2.94348764 2.31811857 1.40078902 1.68012989 1.64235532 3.237257 1.68013 1.64235544
+		 3.23725677 1.68013 1.64235532 3.23725677 1.68012989 1.64235532 3.23725677 1.15158713
+		 1.56046438 3.4983995 1.15158701 1.56046426 3.4983995 1.15158701 1.56046414 3.49839902
+		 1.15158701 1.56046438 3.49839926 -1.47125757 0.98586255 3.58656907 -1.47125745 0.98586255
+		 3.58656907 -1.47125745 0.98586249 3.58656907 -1.47125745 0.98586249 3.58656883 -1.77218282
+		 2.63752294 2.42957592 -1.77218282 2.63752317 2.42957616 -1.77218282 2.63752294 2.42957616
+		 -1.77218294 2.63752294 2.42957616 -3.72365093 -0.54497194 -1.35551739 -3.72365093
+		 -0.54497194 -1.35551751 -3.72365093 -0.54497194 -1.35551751 -3.72365093 -0.54497188
+		 -1.35551739 2.11240172 2.25263453 2.54232121 2.11240172 2.25263453 2.54232121 2.11240172
+		 2.25263453 2.54232097 2.11240196 2.25263453 2.54232121;
+	setAttr ".n[1328:1493]" -type "float3"  3.88144946 -0.4784964 -0.83987576 3.8814497
+		 -0.4784964 -0.83987576 3.88144946 -0.47849637 -0.8398757 3.88144946 -0.47849634 -0.8398757
+		 -1.69561446 1.84625351 3.11708832 -1.69561434 1.84625351 3.11708856 -1.69561446 1.84625351
+		 3.11708856 -1.69561458 1.84625363 3.11708856 -3.63441658 -0.30973861 -1.6416688 -3.63441682
+		 -0.30973864 -1.64166903 -3.63441682 -0.30973858 -1.6416688 -3.63441658 -0.30973858
+		 -1.6416688 1.60543013 1.48046899 3.35123944 1.60543001 1.48046899 3.35123944 1.60543001
+		 1.48046899 3.35123944 1.60543013 1.48046911 3.35123944 3.83067346 -1.11327863 -0.29419342
+		 3.83067346 -1.11327863 -0.29419339 3.83067369 -1.11327875 -0.29419345 3.83067369
+		 -1.11327863 -0.29419342 -1.47282565 1.91983569 3.18512392 -1.47282553 1.91983557
+		 3.18512392 -1.47282565 1.91983557 3.18512392 -1.47282577 1.91983581 3.18512392 -3.75320315
+		 -0.60993773 -1.24154818 -3.75320339 -0.60993779 -1.2415483 -3.75320315 -0.60993773
+		 -1.24154818 -3.75320315 -0.60993773 -1.24154806 1.36301076 2.20745778 3.044558287
+		 1.36301064 2.20745754 3.044558287 1.36301064 2.20745754 3.04455781 1.36301064 2.20745754
+		 3.044558048 3.72110081 -1.44590914 -0.25051051 3.72110081 -1.44590902 -0.25051051
+		 3.72110057 -1.44590902 -0.25051051 3.72110081 -1.44590902 -0.25051051 -3.7284348
+		 -1.17694879 -0.84472728 -3.72843504 -1.1769489 -0.84472746 -3.7284348 -1.17694879
+		 -0.8447274 -3.7284348 -1.17694879 -0.84472734 3.61192799 -1.71861494 -0.018407816
+		 3.61192799 -1.7186147 -0.018407814 3.61192822 -1.71861494 -0.018407816 3.61192822
+		 -1.71861494 -0.018407818 1.95032132 -3.41098881 -0.74926758 1.95032132 -3.41098881
+		 -0.74926758 1.9503212 -3.41098857 -0.74926752 1.95032132 -3.41098881 -0.74926758
+		 2.11069107 -2.74799728 -1.99837315 2.11069107 -2.74799705 -1.99837315 2.11069131
+		 -2.74799752 -1.99837315 2.11069107 -2.74799728 -1.99837315 1.75247872 -2.10780144
+		 -2.91307211 1.75247896 -2.10780168 -2.91307235 1.75247872 -2.10780144 -2.91307211
+		 1.75247872 -2.10780144 -2.91307235 1.96566236 -2.0873878 -2.78908277 1.96566224 -2.0873878
+		 -2.78908253 1.96566236 -2.0873878 -2.78908277 1.96566248 -2.087388039 -2.789083 -2.056063414
+		 -2.16402674 2.66262889 -2.056063414 -2.16402674 2.66262913 -2.056063414 -2.1640265
+		 2.66262889 -2.056063414 -2.16402674 2.66262889 1.045300126 2.88279366 2.56843352
+		 1.045300126 2.88279343 2.56843328 1.045300126 2.88279343 2.56843328 1.045300126 2.88279343
+		 2.56843328 -1.46140075 2.86587811 2.37719393 -1.46140075 2.86587787 2.37719393 -1.46140063
+		 2.86587811 2.37719393 -1.46140075 2.86587811 2.37719393 0.15708353 -3.78315639 1.28959346
+		 0.15708354 -3.78315663 1.28959358 0.15708354 -3.78315663 1.28959358 0.15708353 -3.78315639
+		 1.28959358 -1.10447645 2.94222975 2.47455335 -1.10447657 2.94222999 2.47455335 -1.10447645
+		 2.94222975 2.47455311 -1.10447657 2.94222999 2.47455335 0.61895806 2.7339468 2.85349393
+		 0.61895788 2.73394632 2.85349345 0.61895806 2.73394704 2.85349393 0.61895794 2.73394656
+		 2.85349369 2.75641179 1.24965847 2.61544347 2.75641227 1.24965858 2.61544371 2.75641203
+		 1.24965835 2.61544371 2.75641203 1.24965847 2.61544347 -2.86241531 2.041213512 1.90788496
+		 -2.86241508 2.041213512 1.90788484 -2.86241555 2.041213751 1.90788507 -2.86241555
+		 2.041213751 1.90788519 -1.89034569 -3.28313327 -1.2835995 -1.89034557 -3.28313327
+		 -1.2835995 -1.89034569 -3.28313327 -1.2835995 -1.89034569 -3.28313327 -1.28359938
+		 -1.81869102 -2.33413053 -2.69150472 -1.81869102 -2.33413053 -2.69150472 -1.81869102
+		 -2.33413053 -2.69150472 -1.81869102 -2.33413053 -2.69150472 -1.4960736 -1.87270939
+		 -3.20229959 -1.4960736 -1.87270927 -3.20229959 -1.49607372 -1.87270951 -3.20229959
+		 -1.4960736 -1.87270939 -3.20229959 -1.50091386 -2.40672374 -2.82045007 -1.5009141
+		 -2.40672374 -2.82045031 -1.50091398 -2.40672374 -2.82045054 -1.50091386 -2.4067235
+		 -2.82045007 1.069561601 -2.8440659 2.60140848 1.069561601 -2.84406638 2.60140848
+		 1.069561601 -2.84406614 2.60140848 1.069561601 -2.84406614 2.60140848 -1.34377551
+		 -3.64935327 0.93620896 -1.34377539 -3.6493535 0.9362089 -1.34377539 -3.6493535 0.9362089
+		 -1.34377551 -3.6493535 0.93620902 1.5650363 2.64782405 2.55728173 1.5650363 2.64782405
+		 2.55728173 1.5650363 2.64782381 2.55728173 1.56503618 2.64782381 2.55728149 1.85494602
+		 2.42326069 2.58591986 1.85494614 2.42326069 2.58591986 1.85494602 2.42326069 2.5859201
+		 1.85494614 2.42326093 2.5859201 -3.49183249 -1.7635349 0.83489668 -3.49183202 -1.76353467
+		 0.83489662 -3.49183249 -1.76353478 0.83489674 -3.49183226 -1.76353478 0.83489668
+		 -2.12021208 -0.44672868 -3.36231041 -2.12021208 -0.44672871 -3.36231065 -2.12021232
+		 -0.44672874 -3.36231089 -2.12021232 -0.44672874 -3.36231065 2.9895823 2.56508374
+		 -0.69479579 2.9895823 2.56508374 -0.69479573 2.9895823 2.56508374 -0.69479579 2.98958254
+		 2.56508374 -0.69479573 2.53284216 3.02776432 0.64603043 2.53284216 3.027764082 0.64603043
+		 2.53284192 3.027764082 0.64603037 2.53284216 3.02776432 0.64603043 1.72611415 3.090899467
+		 1.86195302 1.72611427 3.090899706 1.86195314 1.72611415 3.090899467 1.86195302 1.72611427
+		 3.090899467 1.86195314 2.85037088 1.97752714 -1.99117351 2.85037112 1.97752726 -1.99117374
+		 2.85037088 1.97752702 -1.99117362 2.85037088 1.97752702 -1.99117351 0.74141765 -3.92699385
+		 0.17034845 0.74141765 -3.92699409 0.17034847 0.74141765 -3.92699409 0.17034847 0.74141765
+		 -3.92699385 0.17034845 -1.72350276 -0.43379149 3.58348513 -1.72350276 -0.43379149
+		 3.58348513 -1.72350264 -0.43379149 3.58348465 -1.72350264 -0.43379149 3.58348489
+		 -1.39672136 -2.36651015 -2.90668178 -1.39672136 -2.36651039 -2.90668178 -1.39672124
+		 -2.36651015 -2.90668178 -1.39672148 -2.36651039 -2.90668201 0.71649492 1.068830609
+		 3.78737855 0.71649492 1.068830729 3.78737879 0.71649486 1.068830609 3.78737855 0.71649492
+		 1.068830609 3.78737855 -2.093921423 -1.58685124 -3.016189098 -2.093921661 -1.58685124
+		 -3.016189098;
+	setAttr ".n[1494:1571]" -type "float3"  -2.093921661 -1.58685124 -3.016189098
+		 -2.093921423 -1.58685112 -3.01618886 -3.044678926 -1.13875306 -2.33091664 -3.044678926
+		 -1.13875306 -2.33091664 -3.044678688 -1.13875306 -2.33091664 -3.044678688 -1.13875294
+		 -2.33091664 -0.00081781513 1.96292329 3.48524475 -0.00081781513 1.96292329 3.48524475
+		 -0.00081781513 1.96292317 3.48524451 -0.00081781519 1.96292341 3.48524475 -0.6342963
+		 -0.20153163 -3.94424295 -0.63429618 -0.20153162 -3.94424295 -0.6342963 -0.20153163
+		 -3.94424319 -0.6342963 -0.20153163 -3.94424319 -2.18560839 -3.21396184 -0.94528472
+		 -2.18560863 -3.21396184 -0.94528472 -2.18560863 -3.21396184 -0.94528484 -2.18560863
+		 -3.21396184 -0.94528472 -2.41628623 -2.93289018 -1.24888587 -2.41628623 -2.93289065
+		 -1.24888599 -2.41628599 -2.93288994 -1.24888575 -2.41628623 -2.93289042 -1.24888587
+		 -1.36534202 -1.78207707 -3.31059551 -1.36534214 -1.78207719 -3.31059551 -1.36534202
+		 -1.78207707 -3.31059551 -1.3653419 -1.78207695 -3.31059527 -2.77821612 -2.76119351
+		 -0.8107546 -2.77821636 -2.76119375 -0.81075466 -2.77821612 -2.76119375 -0.8107546
+		 -2.77821636 -2.76119375 -0.81075466 -3.41606331 -1.67806244 -1.23069918 -3.41606331
+		 -1.67806232 -1.23069918 -3.41606307 -1.6780622 -1.23069906 -3.41606307 -1.67806232
+		 -1.23069906 -3.94399071 0.20962408 0.63324171 -3.94399047 0.20962407 0.63324165 -3.94399071
+		 0.20962407 0.63324171 -3.94399095 0.20962408 0.63324177 -3.95451427 0.60145372 0.0084341206
+		 -3.95451427 0.60145378 0.0084341196 -3.95451403 0.60145366 0.0084341187 -3.95451403
+		 0.60145372 0.0084341206 -1.57151675 1.99394941 3.091035604 -1.57151663 1.99394929
+		 3.091035128 -1.57151675 1.99394953 3.091035604 -1.57151687 1.99394953 3.091035604
+		 -1.80191672 2.3417387 2.69617462 -1.80191672 2.3417387 2.69617486 -1.80191672 2.3417387
+		 2.69617438 -1.80191672 2.34173846 2.69617462 1.56544924 1.53391504 -3.34611273 1.56544936
+		 1.53391504 -3.34611297 1.56544936 1.53391516 -3.3461132 1.56544924 1.53391504 -3.34611297
+		 -3.097015381 -1.77511871 -1.80484056 -3.097015381 -1.77511883 -1.80484056 -3.097015381
+		 -1.77511883 -1.80484056 -3.097015381 -1.77511883 -1.80484056 -2.83887386 -2.3300283
+		 -1.5848552 -2.83887362 -2.3300283 -1.58485508 -2.83887362 -2.33002806 -1.58485484
+		 -2.83887386 -2.3300283 -1.58485508 -2.73245835 -1.60307646 -2.4420929 -2.73245835
+		 -1.60307634 -2.4420929 -2.73245835 -1.60307646 -2.4420929 -2.73245859 -1.60307646
+		 -2.4420929 -2.51575899 -2.61476851 -1.68343163 -2.51575899 -2.61476851 -1.68343163
+		 -2.51575899 -2.61476851 -1.68343163 -2.51575899 -2.61476851 -1.68343174 -1.29048991
+		 -2.31894302 -2.99284768 -1.29048991 -2.31894326 -2.99284792 -1.29048979 -2.31894302
+		 -2.99284768 -1.29048991 -2.31894326 -2.99284768 1.83877552 0.15571609 -3.54889536
+		 1.83877563 0.15571609 -3.54889512 1.83877552 0.15571609 -3.54889512 1.83877575 0.15571611
+		 -3.54889536;
+	setAttr -s 393 -ch 1572 ".fc[0:392]" -type "polyFaces" 
+		f 4 -4 -3 -2 -1
+		mu 0 4 1 149 145 2
+		f 4 3 -7 -6 -5
+		mu 0 4 149 1 5 148
+		f 4 5 -10 -9 -8
+		mu 0 4 148 5 8 147
+		f 4 -13 -12 -11 9
+		mu 0 4 5 129 130 8
+		f 4 -17 -16 -15 -14
+		mu 0 4 12 19 656 577
+		f 4 -21 -20 -19 -18
+		mu 0 4 0 4 13 634
+		f 4 -24 -23 -22 19
+		mu 0 4 4 6 14 13
+		f 4 -27 -26 -25 22
+		mu 0 4 6 10 15 14
+		f 4 -31 -30 -29 -28
+		mu 0 4 12 576 17 18
+		f 4 -35 -34 -33 -32
+		mu 0 4 26 27 161 163
+		f 4 -38 31 -37 -36
+		mu 0 4 28 26 163 164
+		f 4 16 27 -40 -39
+		mu 0 4 19 12 29 30
+		f 4 28 -43 -42 -41
+		mu 0 4 18 17 104 32
+		f 4 39 40 -45 -44
+		mu 0 4 30 29 33 34
+		f 4 -48 43 -47 -46
+		mu 0 4 31 30 34 35
+		f 4 42 -51 -50 -49
+		mu 0 4 104 17 36 105
+		f 4 49 -54 -53 -52
+		mu 0 4 105 36 37 106
+		f 4 33 -57 -56 -55
+		mu 0 4 162 21 38 160
+		f 4 -61 -60 -59 -58
+		mu 0 4 160 190 188 39
+		f 4 34 -64 -63 -62
+		mu 0 4 27 26 43 44
+		f 4 37 -66 -65 63
+		mu 0 4 26 28 45 43
+		f 4 56 61 -68 -67
+		mu 0 4 38 21 41 46
+		f 4 -71 66 -70 -69
+		mu 0 4 178 38 46 47
+		f 4 62 -74 -73 -72
+		mu 0 4 44 43 50 51
+		f 4 64 -76 -75 73
+		mu 0 4 43 45 52 50
+		f 4 67 71 -78 -77
+		mu 0 4 46 41 49 53
+		f 4 69 76 -80 -79
+		mu 0 4 180 46 53 54
+		f 4 72 -83 -82 -81
+		mu 0 4 51 50 58 59
+		f 4 74 -85 -84 82
+		mu 0 4 50 52 60 58
+		f 4 77 80 -87 -86
+		mu 0 4 53 49 56 61
+		f 4 79 85 -89 -88
+		mu 0 4 183 53 61 62
+		f 4 -93 -92 -91 -90
+		mu 0 4 633 631 574 634
+		f 4 -97 -96 -95 -94
+		mu 0 4 645 644 69 68
+		f 4 -100 -99 -98 95
+		mu 0 4 644 642 70 69
+		f 4 29 -102 -101 50
+		mu 0 4 17 576 71 72
+		f 4 81 -105 -104 -103
+		mu 0 4 59 58 76 77
+		f 4 83 -107 -106 104
+		mu 0 4 58 60 78 76
+		f 4 86 102 -109 -108
+		mu 0 4 61 56 75 79
+		f 4 88 107 -111 -110
+		mu 0 4 62 61 79 80
+		f 4 103 -114 -113 -112
+		mu 0 4 77 76 84 85
+		f 4 105 -116 -115 113
+		mu 0 4 76 78 86 84
+		f 4 108 111 -118 -117
+		mu 0 4 79 75 83 87
+		f 4 110 116 -120 -119
+		mu 0 4 80 79 87 88
+		f 4 112 -123 -122 -121
+		mu 0 4 85 84 92 93
+		f 4 114 -125 -124 122
+		mu 0 4 84 86 94 92
+		f 4 117 120 -127 -126
+		mu 0 4 87 83 91 95
+		f 4 119 125 -129 -128
+		mu 0 4 88 87 95 96
+		f 4 123 -132 -131 -130
+		mu 0 4 92 94 100 99
+		f 4 128 -135 -134 -133
+		mu 0 4 96 95 134 101
+		f 4 52 -137 45 -136
+		mu 0 4 107 715 714 713
+		f 4 41 -140 -139 -138
+		mu 0 4 32 104 108 109
+		f 4 44 137 -142 -141
+		mu 0 4 34 33 110 111
+		f 4 46 140 -144 -143
+		mu 0 4 35 34 111 112
+		f 4 48 -146 -145 139
+		mu 0 4 104 105 113 108
+		f 4 51 -148 -147 145
+		mu 0 4 105 106 114 113
+		f 4 135 142 -149 147
+		mu 0 4 107 716 115 116
+		f 4 -153 -152 -151 -150
+		mu 0 4 2 122 121 124
+		f 4 -156 -155 -154 152
+		mu 0 4 2 20 123 122
+		f 4 0 149 -158 -157
+		mu 0 4 1 2 124 125
+		f 4 150 -160 -159 157
+		mu 0 4 124 121 126 125
+		f 4 -162 156 158 -161
+		mu 0 4 3 1 125 126
+		f 4 161 -165 -164 -163
+		mu 0 4 1 3 57 127
+		f 4 -167 6 162 -166
+		mu 0 4 128 5 1 127
+		f 4 -170 166 -169 -168
+		mu 0 4 7 5 128 73
+		f 4 163 -171 168 165
+		mu 0 4 127 57 73 128
+		f 4 169 -173 -172 12
+		mu 0 4 5 7 74 129
+		f 4 171 -175 -174 11
+		mu 0 4 129 74 9 130
+		f 4 173 -177 -176 10
+		mu 0 4 130 9 11 8
+		f 4 8 -180 -179 -178
+		mu 0 4 147 8 131 146
+		f 4 175 -182 -181 179
+		mu 0 4 8 11 133 131
+		f 4 -184 159 58 -183
+		mu 0 4 717 718 22 187
+		f 4 -187 -186 -185 132
+		mu 0 4 102 166 168 97
+		f 4 -189 -188 127 184
+		mu 0 4 168 169 89 97
+		f 4 -191 -190 118 187
+		mu 0 4 169 170 81 89
+		f 4 -193 -192 109 189
+		mu 0 4 170 171 63 81
+		f 4 -195 -194 87 191
+		mu 0 4 171 172 184 63
+		f 4 -197 -196 78 193
+		mu 0 4 172 173 181 185
+		f 4 -199 -198 68 195
+		mu 0 4 173 174 179 182
+		f 4 197 -202 -201 -200
+		mu 0 4 719 174 191 192
+		f 4 -205 -204 -203 130
+		mu 0 4 720 167 176 721
+		f 4 -208 126 -207 -206
+		mu 0 4 142 95 91 140
+		f 4 -210 206 121 -209
+		mu 0 4 139 141 93 92
+		f 4 -214 -213 -212 -211
+		mu 0 4 143 136 176 134
+		f 4 -217 -216 209 -215
+		mu 0 4 144 136 141 139
+		f 4 213 -218 205 215
+		mu 0 4 135 143 142 140
+		f 4 217 210 134 207
+		mu 0 4 142 143 134 95
+		f 4 208 129 -219 214
+		mu 0 4 139 92 99 144
+		f 4 -222 -221 -220 182
+		mu 0 4 186 158 159 42
+		f 4 170 -225 -224 -223
+		mu 0 4 64 722 40 65
+		f 4 -228 -227 -226 177
+		mu 0 4 146 132 10 147
+		f 4 225 26 -229 7
+		mu 0 4 147 10 6 148
+		f 4 228 23 -230 4
+		mu 0 4 148 6 4 149
+		f 4 178 -233 -232 -231
+		mu 0 4 146 131 150 151
+		f 4 180 -235 -234 232
+		mu 0 4 131 133 152 150
+		f 4 227 230 -237 -236
+		mu 0 4 132 146 151 153
+		f 4 -240 174 -239 -238
+		mu 0 4 118 723 66 67
+		f 4 154 -243 -242 -241
+		mu 0 4 123 20 24 156
+		f 4 241 -246 -245 -244
+		mu 0 4 155 137 138 157
+		f 4 244 -248 -247 220
+		mu 0 4 158 563 561 159
+		f 4 -251 -250 223 -249
+		mu 0 4 119 120 65 40
+		f 4 57 151 -252 54
+		mu 0 4 160 39 122 162
+		f 4 251 153 -253 32
+		mu 0 4 161 122 123 163
+		f 4 240 -254 36 252
+		mu 0 4 123 25 164 163
+		f 4 131 -255 185 204
+		mu 0 4 103 98 168 166
+		f 4 124 -256 188 254
+		mu 0 4 98 90 169 168
+		f 4 115 -257 190 255
+		mu 0 4 90 82 170 169
+		f 4 106 -258 192 256
+		mu 0 4 82 724 171 170
+		f 4 84 -259 194 257
+		mu 0 4 725 55 172 171
+		f 4 75 -260 196 258
+		mu 0 4 55 48 173 172
+		f 4 65 -261 198 259
+		mu 0 4 48 726 174 173
+		f 4 260 35 -262 201
+		mu 0 4 174 727 165 191
+		f 4 133 211 203 186
+		mu 0 4 728 134 176 167
+		f 4 218 202 212 216
+		mu 0 4 144 729 176 136
+		f 4 55 70 199 60
+		mu 0 4 160 38 177 190
+		f 4 243 -263 261 253
+		mu 0 4 730 175 191 165
+		f 4 221 59 200 262
+		mu 0 4 175 189 192 191
+		f 4 -267 -266 -265 -264
+		mu 0 4 194 195 196 193
+		f 4 -270 263 -269 -268
+		mu 0 4 198 194 193 197
+		f 4 265 -273 -272 -271
+		mu 0 4 199 200 201 202
+		f 4 -276 -275 224 -274
+		mu 0 4 202 204 205 203
+		f 4 266 -279 -278 -277
+		mu 0 4 195 194 206 207
+		f 4 269 -281 -280 278
+		mu 0 4 194 198 208 206
+		f 4 272 276 -283 -282
+		mu 0 4 201 200 209 210
+		f 4 -286 281 -285 -284
+		mu 0 4 211 201 210 212
+		f 4 277 -289 -288 -287
+		mu 0 4 207 206 213 214
+		f 4 279 -291 -290 288
+		mu 0 4 206 208 215 213
+		f 4 282 286 -293 -292
+		mu 0 4 210 209 216 217
+		f 4 284 291 -295 -294
+		mu 0 4 218 210 217 219
+		f 4 287 -298 -297 -296
+		mu 0 4 214 213 220 221
+		f 4 289 -300 -299 297
+		mu 0 4 213 215 222 220
+		f 4 292 295 -302 -301
+		mu 0 4 217 216 223 224
+		f 4 294 300 -304 -303
+		mu 0 4 225 217 224 226
+		f 4 296 -307 -306 -305
+		mu 0 4 221 220 227 228
+		f 4 298 -309 -308 306
+		mu 0 4 220 222 229 227
+		f 4 301 304 -311 -310
+		mu 0 4 224 223 230 231
+		f 4 303 309 -313 -312
+		mu 0 4 226 224 231 232
+		f 4 305 -316 -315 -314
+		mu 0 4 228 227 233 234
+		f 4 307 -318 -317 315
+		mu 0 4 227 229 235 233
+		f 4 310 313 -320 -319
+		mu 0 4 231 230 236 237
+		f 4 312 318 -322 -321
+		mu 0 4 232 231 237 238
+		f 4 314 -325 -324 -323
+		mu 0 4 234 233 239 240
+		f 4 316 -327 -326 324
+		mu 0 4 233 235 241 239
+		f 4 319 322 -329 -328
+		mu 0 4 237 236 242 243
+		f 4 321 327 -331 -330
+		mu 0 4 238 237 243 244
+		f 4 325 -334 -333 -332
+		mu 0 4 239 241 245 246
+		f 4 330 -337 -336 -335
+		mu 0 4 244 243 247 248
+		f 4 -340 -339 -338 334
+		mu 0 4 249 250 251 252
+		f 4 -342 -341 329 337
+		mu 0 4 251 253 254 252
+		f 4 -344 -343 320 340
+		mu 0 4 253 255 256 254
+		f 4 -346 -345 311 342
+		mu 0 4 255 257 258 256
+		f 4 -348 -347 302 344
+		mu 0 4 257 259 260 258
+		f 4 -350 -349 293 346
+		mu 0 4 259 262 263 261
+		f 4 -352 -351 283 348
+		mu 0 4 262 265 266 264
+		f 4 350 -355 -354 -353
+		mu 0 4 731 265 267 268
+		f 4 -358 -357 -356 332
+		mu 0 4 732 269 270 733
+		f 4 -361 328 -360 -359
+		mu 0 4 271 243 242 272
+		f 4 -363 359 323 -362
+		mu 0 4 273 274 240 239
+		f 4 -367 -366 -365 -364
+		mu 0 4 275 276 270 247
+		f 4 -370 -369 362 -368
+		mu 0 4 277 276 274 273
+		f 4 366 -371 358 368
+		mu 0 4 278 275 271 272
+		f 4 370 363 336 360
+		mu 0 4 271 275 247 243
+		f 4 361 331 -372 367
+		mu 0 4 273 239 246 277
+		f 4 273 164 -373 270
+		mu 0 4 202 203 279 199
+		f 4 372 160 -374 264
+		mu 0 4 196 279 280 193
+		f 4 183 -375 268 373
+		mu 0 4 280 281 197 193
+		f 4 333 -376 338 357
+		mu 0 4 282 283 251 250
+		f 4 326 -377 341 375
+		mu 0 4 283 284 253 251
+		f 4 317 -378 343 376
+		mu 0 4 284 285 255 253
+		f 4 308 -379 345 377
+		mu 0 4 285 286 257 255
+		f 4 299 -380 347 378
+		mu 0 4 286 287 259 257
+		f 4 290 -381 349 379
+		mu 0 4 287 288 262 259
+		f 4 280 -382 351 380
+		mu 0 4 288 734 265 262
+		f 4 381 267 -383 354
+		mu 0 4 265 735 289 267
+		f 4 335 364 356 339
+		mu 0 4 736 247 270 269
+		f 4 371 355 365 369
+		mu 0 4 277 737 270 276
+		f 4 271 285 352 275
+		mu 0 4 202 201 290 204
+		f 4 219 -384 382 374
+		mu 0 4 291 292 267 289
+		f 4 248 274 353 383
+		mu 0 4 292 293 268 267
+		f 4 -388 -387 -386 -385
+		mu 0 4 295 296 297 294
+		f 4 -391 384 -390 -389
+		mu 0 4 299 295 294 298
+		f 4 386 -394 -393 -392
+		mu 0 4 300 301 302 303
+		f 4 -397 -396 238 -395
+		mu 0 4 303 305 306 304
+		f 4 387 -400 -399 -398
+		mu 0 4 296 295 307 308
+		f 4 390 -402 -401 399
+		mu 0 4 295 299 309 307
+		f 4 393 397 -404 -403
+		mu 0 4 302 301 310 311
+		f 4 -407 402 -406 -405
+		mu 0 4 312 302 311 313
+		f 4 398 -410 -409 -408
+		mu 0 4 308 307 314 315
+		f 4 400 -412 -411 409
+		mu 0 4 307 309 316 314
+		f 4 403 407 -414 -413
+		mu 0 4 311 310 317 318
+		f 4 405 412 -416 -415
+		mu 0 4 319 311 318 320
+		f 4 408 -419 -418 -417
+		mu 0 4 315 314 321 322
+		f 4 410 -421 -420 418
+		mu 0 4 314 316 323 321
+		f 4 413 416 -423 -422
+		mu 0 4 318 317 324 325
+		f 4 415 421 -425 -424
+		mu 0 4 326 318 325 327
+		f 4 417 -428 -427 -426
+		mu 0 4 322 321 328 329
+		f 4 419 -430 -429 427
+		mu 0 4 321 323 330 328
+		f 4 422 425 -432 -431
+		mu 0 4 325 324 331 332
+		f 4 424 430 -434 -433
+		mu 0 4 327 325 332 333
+		f 4 426 -437 -436 -435
+		mu 0 4 329 328 334 335
+		f 4 428 -439 -438 436
+		mu 0 4 328 330 336 334
+		f 4 431 434 -441 -440
+		mu 0 4 332 331 337 338
+		f 4 433 439 -443 -442
+		mu 0 4 333 332 338 339
+		f 4 435 -446 -445 -444
+		mu 0 4 335 334 340 341
+		f 4 437 -448 -447 445
+		mu 0 4 334 336 342 340
+		f 4 440 443 -450 -449
+		mu 0 4 338 337 343 344
+		f 4 442 448 -452 -451
+		mu 0 4 339 338 344 345
+		f 4 446 -455 -454 -453
+		mu 0 4 340 342 346 347
+		f 4 451 -458 -457 -456
+		mu 0 4 345 344 348 349
+		f 4 -461 -460 -459 455
+		mu 0 4 350 351 352 353
+		f 4 -463 -462 450 458
+		mu 0 4 352 354 355 353
+		f 4 -465 -464 441 461
+		mu 0 4 354 356 357 355
+		f 4 -467 -466 432 463
+		mu 0 4 356 358 359 357
+		f 4 -469 -468 423 465
+		mu 0 4 358 360 361 359
+		f 4 -471 -470 414 467
+		mu 0 4 360 363 364 362
+		f 4 -473 -472 404 469
+		mu 0 4 363 366 367 365
+		f 4 471 -476 -475 -474
+		mu 0 4 738 366 368 369
+		f 4 -479 -478 -477 453
+		mu 0 4 739 370 371 740
+		f 4 -482 449 -481 -480
+		mu 0 4 372 344 343 373
+		f 4 -484 480 444 -483
+		mu 0 4 374 375 341 340
+		f 4 -488 -487 -486 -485
+		mu 0 4 376 377 371 348
+		f 4 -491 -490 483 -489
+		mu 0 4 378 377 375 374
+		f 4 487 -492 479 489
+		mu 0 4 379 376 372 373
+		f 4 491 484 457 481
+		mu 0 4 372 376 348 344
+		f 4 482 452 -493 488
+		mu 0 4 374 340 347 378
+		f 4 394 172 -494 391
+		mu 0 4 303 304 380 300
+		f 4 493 167 -495 385
+		mu 0 4 297 380 381 294
+		f 4 222 -496 389 494
+		mu 0 4 381 382 298 294
+		f 4 454 -497 459 478
+		mu 0 4 383 384 352 351
+		f 4 447 -498 462 496
+		mu 0 4 384 385 354 352
+		f 4 438 -499 464 497
+		mu 0 4 385 386 356 354
+		f 4 429 -500 466 498
+		mu 0 4 386 387 358 356
+		f 4 420 -501 468 499
+		mu 0 4 387 388 360 358
+		f 4 411 -502 470 500
+		mu 0 4 388 389 363 360
+		f 4 401 -503 472 501
+		mu 0 4 389 741 366 363
+		f 4 502 388 -504 475
+		mu 0 4 366 742 390 368
+		f 4 456 485 477 460
+		mu 0 4 743 348 371 370
+		f 4 492 476 486 490
+		mu 0 4 378 744 371 377
+		f 4 392 406 473 396
+		mu 0 4 303 302 391 305
+		f 4 249 -505 503 495
+		mu 0 4 392 393 368 390
+		f 4 -506 395 474 504
+		mu 0 4 393 394 369 368
+		f 4 -510 -509 -508 -507
+		mu 0 4 396 397 398 395
+		f 4 -513 506 -512 -511
+		mu 0 4 400 396 395 399
+		f 4 508 -516 -515 -514
+		mu 0 4 401 402 403 404
+		f 4 -519 -518 234 -517
+		mu 0 4 404 406 407 405
+		f 4 509 -522 -521 -520
+		mu 0 4 397 396 408 409
+		f 4 512 -524 -523 521
+		mu 0 4 396 400 410 408
+		f 4 515 519 -526 -525
+		mu 0 4 403 402 411 412
+		f 4 -529 524 -528 -527
+		mu 0 4 413 403 412 414
+		f 4 520 -532 -531 -530
+		mu 0 4 409 408 415 416
+		f 4 522 -534 -533 531
+		mu 0 4 408 410 417 415
+		f 4 525 529 -536 -535
+		mu 0 4 412 411 418 419
+		f 4 527 534 -538 -537
+		mu 0 4 420 412 419 421
+		f 4 530 -541 -540 -539
+		mu 0 4 416 415 422 423
+		f 4 532 -543 -542 540
+		mu 0 4 415 417 424 422
+		f 4 535 538 -545 -544
+		mu 0 4 419 418 425 426
+		f 4 537 543 -547 -546
+		mu 0 4 427 419 426 428
+		f 4 539 -550 -549 -548
+		mu 0 4 423 422 429 430
+		f 4 541 -552 -551 549
+		mu 0 4 422 424 431 429
+		f 4 544 547 -554 -553
+		mu 0 4 426 425 432 433
+		f 4 546 552 -556 -555
+		mu 0 4 428 426 433 434
+		f 4 548 -559 -558 -557
+		mu 0 4 430 429 435 436
+		f 4 550 -561 -560 558
+		mu 0 4 429 431 437 435
+		f 4 553 556 -563 -562
+		mu 0 4 433 432 438 439
+		f 4 555 561 -565 -564
+		mu 0 4 434 433 439 440
+		f 4 557 -568 -567 -566
+		mu 0 4 436 435 441 442
+		f 4 559 -570 -569 567
+		mu 0 4 435 437 443 441
+		f 4 562 565 -572 -571
+		mu 0 4 439 438 444 445
+		f 4 564 570 -574 -573
+		mu 0 4 440 439 445 446
+		f 4 568 -577 -576 -575
+		mu 0 4 441 443 447 448
+		f 4 573 -580 -579 -578
+		mu 0 4 446 445 449 450
+		f 4 -583 -582 -581 577
+		mu 0 4 451 452 453 454
+		f 4 -585 -584 572 580
+		mu 0 4 453 455 456 454
+		f 4 -587 -586 563 583
+		mu 0 4 455 457 458 456
+		f 4 -589 -588 554 585
+		mu 0 4 457 459 460 458
+		f 4 -591 -590 545 587
+		mu 0 4 459 461 462 460
+		f 4 -593 -592 536 589
+		mu 0 4 461 464 465 463
+		f 4 -595 -594 526 591
+		mu 0 4 464 467 468 466
+		f 4 593 -598 -597 -596
+		mu 0 4 745 467 469 470
+		f 4 -601 -600 -599 575
+		mu 0 4 746 471 472 747
+		f 4 -604 571 -603 -602
+		mu 0 4 473 445 444 474
+		f 4 -606 602 566 -605
+		mu 0 4 475 476 442 441
+		f 4 -610 -609 -608 -607
+		mu 0 4 477 478 472 449
+		f 4 -613 -612 605 -611
+		mu 0 4 479 478 476 475
+		f 4 609 -614 601 611
+		mu 0 4 480 477 473 474
+		f 4 613 606 579 603
+		mu 0 4 473 477 449 445
+		f 4 604 574 -615 610
+		mu 0 4 475 441 448 479
+		f 4 516 181 -616 513
+		mu 0 4 404 405 481 401
+		f 4 615 176 -617 507
+		mu 0 4 398 481 482 395
+		f 4 239 -618 511 616
+		mu 0 4 482 483 399 395
+		f 4 576 -619 581 600
+		mu 0 4 484 485 453 452
+		f 4 569 -620 584 618
+		mu 0 4 485 486 455 453
+		f 4 560 -621 586 619
+		mu 0 4 486 487 457 455
+		f 4 551 -622 588 620
+		mu 0 4 487 488 459 457
+		f 4 542 -623 590 621
+		mu 0 4 488 489 461 459
+		f 4 533 -624 592 622
+		mu 0 4 489 490 464 461
+		f 4 523 -625 594 623
+		mu 0 4 490 748 467 464
+		f 4 624 510 -626 597
+		mu 0 4 467 749 491 469
+		f 4 578 607 599 582
+		mu 0 4 750 449 472 471
+		f 4 614 598 608 612
+		mu 0 4 479 751 472 478
+		f 4 514 528 595 518
+		mu 0 4 404 403 492 406
+		f 4 -628 -627 625 617
+		mu 0 4 493 494 469 491
+		f 4 -629 517 596 626
+		mu 0 4 494 495 470 469
+		f 4 237 505 -630 627
+		mu 0 4 752 755 754 753
+		f 4 250 246 -632 -631
+		mu 0 4 120 119 562 496
+		f 4 629 630 -634 -633
+		mu 0 4 756 757 497 498
+		f 4 -635 233 628 632
+		mu 0 4 758 761 760 759
+		f 4 -638 15 -637 -636
+		mu 0 4 567 648 571 650
+		f 4 633 -641 -640 -639
+		mu 0 4 498 497 503 504
+		f 4 634 638 -642 231
+		mu 0 4 762 763 505 506
+		f 4 -645 136 -644 -643
+		mu 0 4 23 31 508 513
+		f 4 -647 -646 635 642
+		mu 0 4 514 566 569 652
+		f 4 -651 -650 -649 -648
+		mu 0 4 517 675 516 660
+		f 4 -655 -654 -653 -652
+		mu 0 4 556 510 669 686
+		f 4 -658 646 -657 -656
+		mu 0 4 515 566 514 654
+		f 4 -661 -660 -659 98
+		mu 0 4 712 706 710 538
+		f 4 -665 -664 -663 -662
+		mu 0 4 552 711 710 702
+		f 4 -668 -667 -666 97
+		mu 0 4 533 542 545 534
+		f 4 665 -670 -669 94
+		mu 0 4 532 544 546 531
+		f 4 668 -673 -672 -671
+		mu 0 4 531 546 547 529
+		f 4 671 -676 -675 -674
+		mu 0 4 529 547 548 530
+		f 4 674 -679 -678 -677
+		mu 0 4 539 549 551 540
+		f 4 677 -681 661 -680
+		mu 0 4 535 550 553 703
+		f 4 247 -683 645 -682
+		mu 0 4 561 563 568 565
+		f 4 681 -684 640 631
+		mu 0 4 561 565 764 564
+		f 4 637 682 245 -685
+		mu 0 4 648 567 138 137
+		f 4 2 229 20 -686
+		mu 0 4 145 149 4 0
+		f 4 -689 -688 685 -687
+		mu 0 4 667 577 145 0
+		f 4 -690 155 1 687
+		mu 0 4 577 20 2 145
+		f 4 -692 92 -691 673
+		mu 0 4 117 632 633 572
+		f 4 144 -695 -694 -693
+		mu 0 4 578 581 580 579
+		f 4 146 -697 -696 694
+		mu 0 4 581 583 582 580
+		f 4 138 692 -699 -698
+		mu 0 4 584 587 586 585
+		f 4 141 697 -701 -700
+		mu 0 4 588 584 585 589
+		f 4 693 -704 -703 -702
+		mu 0 4 579 580 591 590
+		f 4 695 -706 -705 703
+		mu 0 4 580 582 592 591
+		f 4 698 701 -708 -707
+		mu 0 4 585 586 594 593
+		f 4 700 706 -710 -709
+		mu 0 4 589 585 593 595
+		f 4 702 -713 -712 -711
+		mu 0 4 590 591 597 596
+		f 4 704 -715 -714 712
+		mu 0 4 591 592 598 597
+		f 4 707 710 -717 -716
+		mu 0 4 593 594 600 599
+		f 4 709 715 -719 -718
+		mu 0 4 595 593 599 601
+		f 4 713 -722 -721 -720
+		mu 0 4 597 598 603 602
+		f 4 718 -725 -724 -723
+		mu 0 4 601 599 605 604
+		f 4 -728 -727 -726 722
+		mu 0 4 606 609 608 607
+		f 4 -730 -729 717 725
+		mu 0 4 608 611 610 607
+		f 4 -732 -731 708 728
+		mu 0 4 611 613 612 610
+		f 4 -733 143 699 730
+		mu 0 4 613 615 614 612
+		f 4 -736 -735 -734 720
+		mu 0 4 765 617 616 766
+		f 4 -739 716 -738 -737
+		mu 0 4 618 599 600 619
+		f 4 -741 737 711 -740
+		mu 0 4 620 621 596 597
+		f 4 -745 -744 -743 -742
+		mu 0 4 622 623 616 605
+		f 4 -748 -747 740 -746
+		mu 0 4 624 623 621 620
+		f 4 744 -749 736 746
+		mu 0 4 625 622 618 619
+		f 4 748 741 724 738
+		mu 0 4 618 622 605 599
+		f 4 739 719 -750 745
+		mu 0 4 620 597 602 624
+		f 4 721 -751 726 735
+		mu 0 4 626 627 608 609
+		f 4 714 -752 729 750
+		mu 0 4 627 628 611 608
+		f 4 705 -753 731 751
+		mu 0 4 628 629 613 611
+		f 4 696 148 732 752
+		mu 0 4 629 630 615 613
+		f 4 723 742 734 727
+		mu 0 4 767 605 616 617
+		f 4 749 733 743 747
+		mu 0 4 624 768 616 623
+		f 4 670 690 -754 93
+		mu 0 4 68 573 633 645
+		f 4 17 90 -755 686
+		mu 0 4 0 634 574 667
+		f 4 676 -757 -756 691
+		mu 0 4 117 638 522 696
+		f 4 -761 -760 -759 -758
+		mu 0 4 526 705 646 671
+		f 4 99 -763 24 -762
+		mu 0 4 642 644 14 15
+		f 4 96 -764 21 762
+		mu 0 4 644 645 13 14
+		f 4 753 89 18 763
+		mu 0 4 645 633 634 13
+		f 4 -766 -765 25 226
+		mu 0 4 132 646 15 10
+		f 4 38 47 644 636
+		mu 0 4 769 772 771 770
+		f 4 14 684 242 689
+		mu 0 4 577 647 24 20
+		f 4 655 -768 -767 648
+		mu 0 4 515 654 661 659
+		f 4 13 688 -769 30
+		mu 0 4 12 577 667 576
+		f 4 -773 -772 -771 -770
+		mu 0 4 519 709 707 672
+		f 4 766 -776 -775 -774
+		mu 0 4 659 661 692 522
+		f 4 754 -778 -777 768
+		mu 0 4 667 574 693 576
+		f 4 769 758 765 235
+		mu 0 4 153 671 646 132
+		f 4 649 -779 683 657
+		mu 0 4 515 673 502 566
+		f 4 -781 -780 639 778
+		mu 0 4 674 709 504 503
+		f 4 772 236 641 779
+		mu 0 4 677 519 506 505
+		f 4 643 -783 -782 656
+		mu 0 4 513 655 557 653
+		f 4 781 651 775 767
+		mu 0 4 653 557 688 664
+		f 4 654 782 53 100
+		mu 0 4 510 556 511 685
+		f 4 652 -784 755 774
+		mu 0 4 692 695 521 522
+		f 4 -785 653 101 776
+		mu 0 4 693 691 71 576
+		f 4 777 91 783 784
+		mu 0 4 693 575 635 691
+		f 4 759 660 761 764
+		mu 0 4 646 705 643 15
+		f 4 -787 647 773 -786
+		mu 0 4 541 517 660 523
+		f 4 679 -788 785 756
+		mu 0 4 639 704 541 523
+		f 4 770 -789 786 757
+		mu 0 4 672 708 518 525
+		f 4 771 780 650 788
+		mu 0 4 707 709 674 517
+		f 4 662 659 760 787
+		mu 0 4 702 710 706 537
+		f 4 663 -790 667 658
+		mu 0 4 710 711 543 538;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode lightLinker -s -n "lightLinker1";
+	rename -uid "085E8B68-4DC2-7DF6-B4C1-FDADF34FBCC2";
+	setAttr -s 3 ".lnk";
+	setAttr -s 3 ".slnk";
+createNode displayLayerManager -n "layerManager";
+	rename -uid "B5F4B280-4955-C5A8-6A09-CFB0539FCAC2";
+createNode displayLayer -n "defaultLayer";
+	rename -uid "D07AA8CE-471F-FCE0-613E-17AEDD31F8EC";
+createNode renderLayerManager -n "renderLayerManager";
+	rename -uid "EAE0D344-4719-BF1F-6316-B09E5EA032A3";
+createNode renderLayer -n "defaultRenderLayer";
+	rename -uid "FEC78939-47EB-2D38-C9D9-52A7725DF1D7";
+	setAttr ".g" yes;
+createNode phong -n "MaterialFBXASC032FBXASC03546";
+	rename -uid "12E5B7C1-4CB1-B5CE-81AB-C7B6A133A494";
+	setAttr ".dc" 1;
+	setAttr ".c" -type "float3" 0.588 0.588 0.588 ;
+	setAttr ".ambc" -type "float3" 0.588 0.588 0.588 ;
+	setAttr ".sc" -type "float3" 0 0 0 ;
+	setAttr ".rfl" 1;
+	setAttr ".cp" 2;
+createNode shadingEngine -n "Plane005SG";
+	rename -uid "DD7E739D-4598-A3C2-1A12-73A7967D1CFD";
+	setAttr ".ihi" 0;
+	setAttr ".ro" yes;
+createNode materialInfo -n "materialInfo1";
+	rename -uid "AA28DA87-4F31-892C-24E6-E3870D70B823";
+createNode script -n "uiConfigurationScriptNode";
+	rename -uid "F88348C8-42A1-D40A-AA91-48980939DA10";
+	setAttr ".b" -type "string" (
+		"// Maya Mel UI Configuration File.\n//\n//  This script is machine generated.  Edit at your own risk.\n//\n//\n\nglobal string $gMainPane;\nif (`paneLayout -exists $gMainPane`) {\n\n\tglobal int $gUseScenePanelConfig;\n\tint    $useSceneConfig = $gUseScenePanelConfig;\n\tint    $menusOkayInPanels = `optionVar -q allowMenusInPanels`;\tint    $nVisPanes = `paneLayout -q -nvp $gMainPane`;\n\tint    $nPanes = 0;\n\tstring $editorName;\n\tstring $panelName;\n\tstring $itemFilterName;\n\tstring $panelConfig;\n\n\t//\n\t//  get current state of the UI\n\t//\n\tsceneUIReplacement -update $gMainPane;\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Top View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"top\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n"
+		+ "                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 1\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n"
+		+ "                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n"
+		+ "                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 472\n                -height 342\n                -sceneRenderFilter 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n"
+		+ "                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"top\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 1\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n"
+		+ "            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n"
+		+ "            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 472\n            -height 342\n            -sceneRenderFilter 0\n            $editorName;\n"
+		+ "        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"side\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n"
+		+ "                -xray 1\n                -jointXray 1\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n"
+		+ "                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n"
+		+ "                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 472\n                -height 342\n                -sceneRenderFilter 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"side\" \n            -useInteractiveMode 0\n"
+		+ "            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 1\n            -jointXray 1\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n"
+		+ "            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n"
+		+ "            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 472\n            -height 342\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" == $panelName) {\n"
+		+ "\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"front\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 1\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n"
+		+ "                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n"
+		+ "                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n"
+		+ "                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 472\n                -height 342\n                -sceneRenderFilter 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n"
+		+ "            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 1\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n"
+		+ "            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n"
+		+ "            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 472\n            -height 342\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n"
+		+ "                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 1\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n"
+		+ "                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 256 256 \n                -bumpResolution 512 512 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n"
+		+ "                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 950\n                -height 729\n                -sceneRenderFilter 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n"
+		+ "                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 1\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n"
+		+ "            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n"
+		+ "            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 950\n            -height 729\n            -sceneRenderFilter 0\n            $editorName;\n"
+		+ "        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            outlinerEditor -e \n                -docTag \"isolOutln_fromSeln\" \n                -showShapes 0\n                -showReferenceNodes 1\n                -showReferenceMembers 1\n                -showAttributes 0\n                -showConnected 0\n                -showAnimCurvesOnly 0\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 1\n                -showAssets 1\n"
+		+ "                -showContainedOnly 1\n                -showPublishedAsConnected 0\n                -showContainerContents 1\n                -ignoreDagHierarchy 0\n                -expandConnections 0\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 0\n                -highlightActive 1\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"defaultSetFilter\" \n                -showSetMembers 1\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n"
+		+ "                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 0\n                -ignoreHiddenAttribute 0\n                -ignoreOutlinerColor 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n"
+		+ "            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n"
+		+ "            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            -ignoreOutlinerColor 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\tif ($useSceneConfig) {\n\t\toutlinerPanel -e -to $panelName;\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"graphEditor\" (localizedPanelLabel(\"Graph Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"graphEditor\" -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n"
+		+ "                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 1\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n"
+		+ "                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 1\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                -ignoreOutlinerColor 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"GraphEd\");\n            animCurveEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 1\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showResults \"off\" \n"
+		+ "                -showBufferCurves \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -clipTime \"off\" \n                -stackedCurves 0\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.2\n                -displayNormalized 0\n                -preSelectionHighlight 0\n                -constrainDrag 0\n                -classicMode 1\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n"
+		+ "                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 1\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n"
+		+ "                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 1\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                -ignoreOutlinerColor 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"GraphEd\");\n            animCurveEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 1\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showResults \"off\" \n                -showBufferCurves \"off\" \n"
+		+ "                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -clipTime \"off\" \n                -stackedCurves 0\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.2\n                -displayNormalized 0\n                -preSelectionHighlight 0\n                -constrainDrag 0\n                -classicMode 1\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\tif ($useSceneConfig) {\n\t\tscriptedPanel -e -to $panelName;\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dopeSheetPanel\" (localizedPanelLabel(\"Dope Sheet\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dopeSheetPanel\" -l (localizedPanelLabel(\"Dope Sheet\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n"
+		+ "                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 0\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 1\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"0\" \n"
+		+ "                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                -ignoreOutlinerColor 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"DopeSheetEd\");\n            dopeSheetEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n"
+		+ "                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -outliner \"dopeSheetPanel1OutlineEd\" \n                -showSummary 1\n                -showScene 0\n                -hierarchyBelow 0\n                -showTicks 1\n                -selectionWindow 0 0 0 0 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dope Sheet\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n"
+		+ "                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 0\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 1\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n"
+		+ "                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                -ignoreOutlinerColor 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"DopeSheetEd\");\n            dopeSheetEditor -e \n                -displayKeys 1\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -outliner \"dopeSheetPanel1OutlineEd\" \n                -showSummary 1\n                -showScene 0\n                -hierarchyBelow 0\n                -showTicks 1\n                -selectionWindow 0 0 0 0 \n"
+		+ "                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"clipEditorPanel\" (localizedPanelLabel(\"Trax Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"clipEditorPanel\" -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 0 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n"
+		+ "            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 0 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"sequenceEditorPanel\" (localizedPanelLabel(\"Camera Sequencer\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"sequenceEditorPanel\" -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n"
+		+ "                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayKeys 0\n                -displayTangents 0\n                -displayActiveKeys 0\n                -displayActiveKeyTangents 0\n                -displayInfinities 0\n                -autoFit 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -manageSequencer 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph Hierarchy\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels `;\n"
+		+ "\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n"
+		+ "                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n"
+		+ "                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"visorPanel\" (localizedPanelLabel(\"Visor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"visorPanel\" -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"createNodePanel\" (localizedPanelLabel(\"Create Node\")) `;\n"
+		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"createNodePanel\" -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"polyTexturePlacementPanel\" (localizedPanelLabel(\"UV Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"polyTexturePlacementPanel\" -l (localizedPanelLabel(\"UV Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"UV Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"renderWindowPanel\" (localizedPanelLabel(\"Render View\")) `;\n"
+		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"renderWindowPanel\" -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"blendShapePanel\" (localizedPanelLabel(\"Blend Shape\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\tblendShapePanel -unParent -l (localizedPanelLabel(\"Blend Shape\")) -mbv $menusOkayInPanels ;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tblendShapePanel -edit -l (localizedPanelLabel(\"Blend Shape\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynRelEdPanel\" (localizedPanelLabel(\"Dynamic Relationships\")) `;\n\tif (\"\" == $panelName) {\n"
+		+ "\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynRelEdPanel\" -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"relationshipPanel\" (localizedPanelLabel(\"Relationship Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"relationshipPanel\" -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"referenceEditorPanel\" (localizedPanelLabel(\"Reference Editor\")) `;\n"
+		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"referenceEditorPanel\" -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"componentEditorPanel\" (localizedPanelLabel(\"Component Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"componentEditorPanel\" -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynPaintScriptedPanelType\" (localizedPanelLabel(\"Paint Effects\")) `;\n"
+		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynPaintScriptedPanelType\" -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"scriptEditorPanel\" (localizedPanelLabel(\"Script Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"scriptEditorPanel\" -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"profilerPanel\" (localizedPanelLabel(\"Profiler Tool\")) `;\n"
+		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"profilerPanel\" -l (localizedPanelLabel(\"Profiler Tool\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Profiler Tool\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"Stereo\" (localizedPanelLabel(\"Stereo\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"Stereo\" -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels `;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n"
+		+ "                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n"
+		+ "                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n"
+		+ "                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n"
+		+ "                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels  $panelName;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n"
+		+ "                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n"
+		+ "                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n"
+		+ "                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperShadePanel\" (localizedPanelLabel(\"Hypershade\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperShadePanel\" -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"nodeEditorPanel\" (localizedPanelLabel(\"Node Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"nodeEditorPanel\" -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -consistentNameSize 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -defaultPinnedState 0\n                -additiveGraphingMode 1\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n"
+		+ "                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                -activeTab -1\n                -editorMode \"default\" \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -consistentNameSize 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -defaultPinnedState 0\n                -additiveGraphingMode 1\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -nodeTitleMode \"name\" \n"
+		+ "                -gridSnap 0\n                -gridVisibility 1\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                -activeTab -1\n                -editorMode \"default\" \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 950\\n    -height 729\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 950\\n    -height 729\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        setFocus `paneLayout -q -p1 $gMainPane`;\n        sceneUIReplacement -deleteRemaining;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels yes -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
+	setAttr ".st" 3;
+createNode script -n "sceneConfigurationScriptNode";
+	rename -uid "78D152DF-41EE-3C46-486B-AAAEE7C670ED";
+	setAttr ".b" -type "string" "playbackOptions -min 1 -max 10 -ast 1 -aet 10 ";
+	setAttr ".st" 6;
+createNode multiplyDivide -n "leftArm1_multiplyDivide1";
+	rename -uid "DD48A24C-4F33-6E90-4FE4-2DBBAE5B73B9";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 14 -1.4210855e-014 -1.7763568e-015 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide3";
+	rename -uid "8A420D11-4A3B-3559-BBF4-CAB8BD6ED556";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i1" -type "float3" 0 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide6";
+	rename -uid "C9EA301B-4890-2AC1-FFE6-8580C8ACB825";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide6";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide8";
+	rename -uid "C7F28728-4F2C-8A05-5ACB-078839B88173";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 28 1.4210855e-014 0 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide8";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode animCurveUU -n "leftArm1_scale_slope4";
+	rename -uid "F87A7C2B-445D-ED9F-04D4-EA9C8A0BDB13";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".tan" 2;
+	setAttr -s 3 ".ktv[0:2]"  -10 0.10000000149011612 0 1 10 2;
+	setAttr -s 3 ".kit[0:2]"  9 2 2;
+	setAttr -s 3 ".kot[0:2]"  10 2 2;
+	setAttr ".pre" 1;
+	setAttr ".pst" 1;
+	setAttr -l on ".TSMGNodeId" -type "string" "scale_slope4";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide9";
+	rename -uid "9F09F9FF-45C3-C34C-1EA0-B5B1E946BE37";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 29.006411 -1.4210855e-014 8.8817842e-015 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide9";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode blendColors -n "leftArm1_blendColors3";
+	rename -uid "03D49F48-40D5-A774-78D3-E7A52B7DF968";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".c2" -type "float3" 0 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "blendColors3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide10";
+	rename -uid "70C8292B-4F17-D577-F3AE-9A8C2F888FEC";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 29.006411 -1.4210855e-014 8.8817842e-015 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide10";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide11";
+	rename -uid "216C5A2C-4E6E-9B2F-1420-9F9C6691937E";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i1" -type "float3" 1 0 0 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide11";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide12";
+	rename -uid "5C165546-4ACB-7375-F7B8-F484F05E5B7C";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide12";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide13";
+	rename -uid "EA5A6D69-4482-1F20-7D1B-1DA452D5EB92";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide13";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide14";
+	rename -uid "2B53B078-438C-E03D-DAF8-E6B09D2D4196";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" -1 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide14";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide15";
+	rename -uid "16110A39-4A40-860A-D56E-F981416335F2";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide15";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide16";
+	rename -uid "A65AE0E4-45CE-278C-52E1-B4A5A27B71BB";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide16";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide17";
+	rename -uid "5827A643-41FF-85BB-41F1-F3ADAEC9146B";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" -1 -1 -1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide17";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode hyperGraphInfo -n "leftArm1_nodeEditorPanel2Info";
+	rename -uid "7AE9B3D5-4964-5E53-04AA-16B6AF0980B4";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeEditorPanel2Info";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode hyperGraphInfo -n "leftArm1_nodeEditorPanel3Info";
+	rename -uid "A8968CBF-4138-F05F-FEEC-01A0C16757F4";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeEditorPanel3Info";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode hyperGraphInfo -n "leftArm1_nodeEditorPanel4Info";
+	rename -uid "A7927782-4393-CA84-A546-9187CC8CD8C8";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeEditorPanel4Info";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode hyperGraphInfo -n "leftArm1_nodeEditorPanel5Info";
+	rename -uid "D746BBF4-40B5-F001-935C-59ACBB842AAD";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeEditorPanel5Info";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode hyperGraphInfo -n "leftArm1_nodeEditorPanel6Info";
+	rename -uid "29EF28C3-45EA-DC6D-2736-ACBFF8606BE9";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeEditorPanel6Info";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode hyperGraphInfo -n "leftArm1_nodeEditorPanel7Info";
+	rename -uid "BFADE8D6-4631-3D98-3E64-4B95D9520CE8";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeEditorPanel7Info";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode hyperGraphInfo -n "leftArm1_nodeEditorPanel8Info";
+	rename -uid "4C59FF26-4BCD-7450-1182-2DA201116319";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeEditorPanel8Info";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode hyperGraphInfo -n "leftArm1_nodeEditorPanel9Info";
+	rename -uid "D181AC62-4510-219A-8D57-188C7D8D742B";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeEditorPanel9Info";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode hyperGraphInfo -n "leftArm1_nodeEditorPanel10Info";
+	rename -uid "1D75D81F-4D28-15C0-3248-708433C47CE9";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeEditorPanel10Info";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode hyperGraphInfo -n "leftArm1_nodeEditorPanel11Info";
+	rename -uid "54D7BCA6-4BE3-81DA-8862-48B4FA773590";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeEditorPanel11Info";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode plusMinusAverage -n "leftArm1_plusMinusAverage1";
+	rename -uid "D682371F-4F77-26E5-B435-1B9125A701CA";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -s 2 ".i3[0:1]" -type "float3"  29.0064105988 -1.4210855e-014
+		 8.8817842e-015 28 1.4210855e-014 0;
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode hyperGraphInfo -n "leftArm1_nodeView1";
+	rename -uid "06D4D0A1-4E04-BD80-F1D9-23B26FA7C56E";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeView1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode hyperGraphInfo -n "leftArm1_nodeEditorPanel12Info";
+	rename -uid "E9E7332C-41D2-4D8A-47FA-E388EABE4BBB";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeEditorPanel12Info";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode plusMinusAverage -n "leftArm1_plusMinusAverage3";
+	rename -uid "655A6A5E-4F44-7435-0340-3CB9FDBDD91C";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -s 3 ".i1[0:2]"  29.0064105988 14 28;
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide18";
+	rename -uid "859C3B69-4224-5216-E886-B2AC2271A741";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i2" -type "float3" 10 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide18";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide19";
+	rename -uid "7CABF68F-42F1-CAF2-DF4E-CFB8B4522337";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide19";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide20";
+	rename -uid "955A9CFC-4202-6A26-3132-679172A5A881";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide20";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode condition -n "leftArm1_negetive";
+	rename -uid "2E3B8040-4CB9-A8A2-E24F-199AEA124DAD";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ft" 1;
+	setAttr ".ct" -type "float3" -1 0 0 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "negetive";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode condition -n "leftArm1_oneEighty";
+	rename -uid "13A1EDED-4A70-5D5F-9182-1DA66BEAD380";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ft" 1;
+	setAttr ".ct" -type "float3" 180 0 0 ;
+	setAttr ".cf" -type "float3" 0 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "oneEighty";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode condition -n "leftArm1_negetiveOneEighty";
+	rename -uid "8958AA70-4548-4F72-47E8-00BC966B8372";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ft" 1;
+	setAttr ".ct" -type "float3" -180 0 0 ;
+	setAttr ".cf" -type "float3" 0 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "negetiveOneEighty";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide21";
+	rename -uid "2B41F1B7-41F0-1A34-DEA4-C6BE62AA4C2A";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i1" -type "float3" 1 0 0 ;
+	setAttr ".i2" -type "float3" -1.5 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide21";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode unitConversion -n "leftArm1_unitConversion12";
+	rename -uid "33882FC2-48E9-F4B5-A381-B9BBD3521631";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i" 0;
+	setAttr ".cf" 0.017453292519943295;
+	setAttr -l on ".TSMGNodeId" -type "string" "unitConversion12";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide22";
+	rename -uid "6350F7BD-458D-1CB9-DEDD-049ED6A210C0";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i1" -type "float3" 1 0 0 ;
+	setAttr ".i2" -type "float3" -1 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide22";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode condition -n "leftArm1_arrowLook";
+	rename -uid "41080903-4322-DFE5-4B71-DAAD14AF5ABC";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ft" 1;
+	setAttr ".ct" -type "float3" -3 0 0 ;
+	setAttr ".cf" -type "float3" -4 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "arrowLook";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide23";
+	rename -uid "71269AEA-4251-E97F-23CB-E0A7AE5F4473";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide23";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide24";
+	rename -uid "7C4F238C-4612-3480-A065-FD90C93405AF";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide24";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode hyperGraphInfo -n "leftArm1_nodeEditorPanel1Info";
+	rename -uid "A6D5AF75-43EF-0FEE-4845-0BB135DC97B5";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeEditorPanel1Info";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide25";
+	rename -uid "BCDB0A6F-426C-8ECD-57E1-A39A5408B880";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i2" -type "float3" 28 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide25";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide26";
+	rename -uid "664B2F03-4BE9-64AD-BF83-98BD7CC47520";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i2" -type "float3" 29.006411 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide26";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide32";
+	rename -uid "472E2218-48FB-154B-C153-10B7FFD3F4C7";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide32";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide33";
+	rename -uid "9A2B6D3A-44B6-EE18-842A-B2A5A9B2A598";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i1" -type "float3" 28 1.4210855e-014 0 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide33";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide34";
+	rename -uid "EF364113-4255-754F-A94C-8FBCD0479907";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i1" -type "float3" 29.006411 -1.4210855e-014 8.8817842e-015 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide34";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide35";
+	rename -uid "5A5FA5C2-4139-FC8C-1883-D580A4C76630";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i1" -type "float3" 28 1.4210855e-014 0 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide35";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide36";
+	rename -uid "94983F34-4AC2-2AD6-3CBF-85AC860C5DBC";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i1" -type "float3" 29.006411 -1.4210855e-014 8.8817842e-015 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide36";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode blendColors -n "leftArm1_blendColors4";
+	rename -uid "95566DCB-424D-203D-C86E-38A050019B99";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "blendColors4";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode blendColors -n "leftArm1_blendColors5";
+	rename -uid "3FD6F560-4F8F-6A55-1409-52B1E52DD432";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "blendColors5";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode hyperGraphInfo -n "leftArm1_nodeView2";
+	rename -uid "B2C47545-47DD-D6D5-423C-B096323F6384";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeView2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode plusMinusAverage -n "leftArm1_plusMinusAverage7";
+	rename -uid "C535B485-4CC0-2927-3EE4-0CB39A279BC8";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -s 2 ".i1";
+	setAttr -s 2 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage7";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide37";
+	rename -uid "EDCD31F1-423D-5FD5-A879-97A5DF8DDF48";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide37";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode hyperGraphInfo -n "leftArm1_nodeView3";
+	rename -uid "04363025-4FEB-D155-01F5-7E9FEA4A2199";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeView3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide39";
+	rename -uid "3DB10517-4386-9D1F-FA31-0E864E17E54C";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide39";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode animCurveUU -n "leftArm1_pasted__arms_RightArm_multiplyDivide11_input1X1";
+	rename -uid "46254EF1-4F65-11D6-9FB2-EB8E0DC03126";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".tan" 1;
+	setAttr -s 3 ".ktv[0:2]"  0.89934319257736206 1 1.5 1.5 3 3;
+	setAttr -s 3 ".kit[2]"  2;
+	setAttr -s 3 ".kot[2]"  2;
+	setAttr -s 3 ".kix[0:2]"  0.30609345436096191 1.4915778636932373 
+		1.5;
+	setAttr -s 3 ".kiy[0:2]"  0 1.4919474124908447 1.5;
+	setAttr -s 3 ".kox[0:2]"  0.30609345436096191 2.2436473369598389 
+		1;
+	setAttr -s 3 ".koy[0:2]"  0 2.2442035675048828 0;
+	setAttr ".pst" 1;
+	setAttr -l on ".TSMGNodeId" -type "string" "pasted__arms_RightArm_multiplyDivide11_input1X1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode distanceBetween -n "leftArm1_distanceBetween1";
+	rename -uid "37FBCB50-4C19-15A4-F880-E7A51F59D6DA";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide40";
+	rename -uid "FEF4D7BE-47FE-AAF1-C49D-C9BA35C87D40";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide40";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode animCurveUU -n "leftArm1_pasted__arms_RightArm_multiplyDivide11_input1X2";
+	rename -uid "DFA2D76C-465E-AA10-5BDF-6B80B42B992C";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".tan" 2;
+	setAttr -s 2 ".ktv[0:1]"  1 1 3 5;
+	setAttr -s 2 ".ktl[3:4]" no yes;
+	setAttr ".pst" 1;
+	setAttr -l on ".TSMGNodeId" -type "string" "pasted__arms_RightArm_multiplyDivide11_input1X2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode animCurveUU -n "leftArm1_pasted__arms_RightArm_multiplyDivide11_input1X";
+	rename -uid "32ADB716-420C-E511-32FD-E9BEE3CE3491";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".tan" 1;
+	setAttr -s 5 ".ktv[0:4]"  0.96112209558486938 0 1.0655899047851562 
+		0.069374027504430544 1.234656810760498 0.23354430009030053 1.5 0.5 3 2;
+	setAttr -s 5 ".kit[4]"  2;
+	setAttr -s 5 ".kot[3:4]"  2 2;
+	setAttr -s 5 ".ktl[3:4]" no yes;
+	setAttr -s 5 ".kwl[2:4]" no no yes;
+	setAttr -s 5 ".kix[0:4]"  0.24468967318534851 0.13085101544857025 
+		0.18670172989368439 0.54905027151107788 1.5;
+	setAttr -s 5 ".kiy[0:4]"  0 0.12201535701751709 0.18547263741493225 
+		0.58828926086425781 1.5;
+	setAttr -s 5 ".kox[0:4]"  0.11126142740249634 0.15727986395359039 
+		0.27595901489257813 1.5 1;
+	setAttr -s 5 ".koy[0:4]"  0 0.14665962755680084 0.27414232492446899 
+		1.5 0;
+	setAttr ".pst" 1;
+	setAttr -l on ".TSMGNodeId" -type "string" "pasted__arms_RightArm_multiplyDivide11_input1X";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode animCurveUU -n "leftArm1_pasted__arms_RightArm_multiplyDivide11_input1X3";
+	rename -uid "4E3E4A15-4165-A011-5398-71B6289EB5EA";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".tan" 2;
+	setAttr -s 2 ".ktv[0:1]"  1 1 3 3;
+	setAttr -s 2 ".ktl[3:4]" no yes;
+	setAttr ".pst" 1;
+	setAttr -l on ".TSMGNodeId" -type "string" "pasted__arms_RightArm_multiplyDivide11_input1X3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode blendColors -n "leftArm1_blendColors7";
+	rename -uid "14753332-44E0-27B2-0D52-EE8AEF30FE65";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "blendColors7";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide41";
+	rename -uid "A6CD7247-4437-80CA-4BD9-4AA19C97F1EC";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide41";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode condition -n "leftArm1_condition1";
+	rename -uid "D10F58DA-43BF-12D8-1670-8189930B3355";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".st" 1;
+	setAttr ".ct" -type "float3" 0 -180 0 ;
+	setAttr ".cf" -type "float3" 0 0 0 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "condition1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode blendColors -n "leftArm1_blendColors8";
+	rename -uid "16AB4B28-47B1-1244-A078-BD881CE81077";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".c2" -type "float3" 1 0 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "blendColors8";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode plusMinusAverage -n "leftArm1_plusMinusAverage8";
+	rename -uid "C09052A9-4A07-6067-89BA-D58D818D741E";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr -s 3 ".i1";
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage8";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide42";
+	rename -uid "B9EDA928-4DB6-B6B2-3BBB-999AB93BB7F9";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i1" -type "float3" 7 7 7 ;
+	setAttr ".i2" -type "float3" 2 2 2 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide42";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide43";
+	rename -uid "CE7116A6-484D-21D0-97B3-179598137497";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide43";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide44";
+	rename -uid "8E48C456-4AB8-C75A-08AE-2D9665851144";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr ".i2" -type "float3" 2 2 2 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide44";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode multiplyDivide -n "leftArm1_multiplyDivide45";
+	rename -uid "CA134F6C-42EC-5952-A087-4EA04B90DC47";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide45";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode plusMinusAverage -n "leftArm1_plusMinusAverage9";
+	rename -uid "9672C589-49D7-376F-D496-389BEB2F2E7E";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr -s 3 ".i1";
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage9";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "bb2211df8eff4778a1ced6c7811e3db7";
+createNode nodeGraphEditorBookmarks -n "MayaNodeEditorBookmarks";
+	rename -uid "80AA10A3-4758-EEEE-8DA5-36A99887C59F";
+createNode nodeGraphEditorBookmarkInfo -n "nodeView1";
+	rename -uid "5DC25987-482E-A160-3B8F-958D0334FB67";
+	setAttr ".nm" -type "string" "nodeView1";
+	setAttr ".vl" -type "double2" 127.04408841533174 -1162.8039544751748 ;
+	setAttr ".vh" -type "double2" 2157.428992818192 50.434238401616405 ;
+createNode nodeGraphEditorBookmarkInfo -n "nodeView2";
+	rename -uid "04F3B045-44D4-F594-E0CF-8F8BF6650D5F";
+	setAttr ".nm" -type "string" "nodeView2";
+	setAttr ".vl" -type "double2" -4095.1082230070724 -3713.8774473664116 ;
+	setAttr ".vh" -type "double2" 554.92840644871978 -950.81220377673799 ;
+createNode nodeGraphEditorBookmarkInfo -n "nodeView3";
+	rename -uid "A40504AB-4E84-3B6E-1384-C39200E7F352";
+	setAttr ".nm" -type "string" "nodeView3";
+	setAttr ".vl" -type "double2" -2674.1625116735095 -3039.8149130796401 ;
+	setAttr ".vh" -type "double2" -294.79946996665245 -1625.9904969929569 ;
+createNode unitConversion -n "leftFinger1_unitConversion1";
+	rename -uid "000A0C81-4951-1F7C-BB10-49AB97C5E792";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".cf" -0.02;
+	setAttr -l on ".TSMGNodeId" -type "string" "unitConversion1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode unitConversion -n "leftFinger1_unitConversion2";
+	rename -uid "9B8706A1-4FDC-9438-CBC1-4C9E15DDD309";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".cf" -0.02;
+	setAttr -l on ".TSMGNodeId" -type "string" "unitConversion2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode unitConversion -n "leftFinger1_unitConversion3";
+	rename -uid "B27B2E56-446B-4FBC-25EB-B7B1B4ADDCB6";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".cf" 0.017453292519943295;
+	setAttr -l on ".TSMGNodeId" -type "string" "unitConversion3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode distanceBetween -n "leftFinger1_distanceBetween1";
+	rename -uid "0F9732BE-4F0B-C82F-03F0-E594992E084C";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" 63.676965945868645 86.07357995156606 -5.9176879818206078 ;
+	setAttr ".p2" -type "double3" 63.58342616666917 88.371293492999953 -5.5349719357375582 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode distanceBetween -n "leftFinger1_distanceBetween2";
+	rename -uid "33BEECB5-4476-C2B4-A8FF-F098DD074C74";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" 63.58342616666917 88.371293492999953 -5.5349719357375582 ;
+	setAttr ".p2" -type "double3" 63.048091238420618 90.693072956419755 -5.1670182181986757 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode distanceBetween -n "leftFinger1_distanceBetween3";
+	rename -uid "4F8978EC-4218-6500-AC13-DF87268E3CDF";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" 63.048091238420618 90.693072956419755 -5.1670182181986757 ;
+	setAttr ".p2" -type "double3" 62.201507240122488 93.434920595831557 -4.6947369140292921 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode distanceBetween -n "leftFinger1_distanceBetween4";
+	rename -uid "4790A80A-4A21-B61D-C57F-5999AC8B0022";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" 62.201507240122488 93.434920595831557 -4.6947369140292921 ;
+	setAttr ".p2" -type "double3" 56.476336553314418 99.342926226402056 -4.5640529744319975 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween4";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode plusMinusAverage -n "leftFinger1_plusMinusAverage1";
+	rename -uid "0B1E0ECD-4FD7-ACEB-82BE-AD83CA691E01";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -s 4 ".i1";
+	setAttr -s 4 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode multiplyDivide -n "leftFinger1_multiplyDivide1";
+	rename -uid "B1E4686D-4D87-F972-8C43-329B6875D376";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i2" -type "float3" 9 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode cluster -n "leftFinger1_cluster1";
+	rename -uid "F606A800-4C7E-394D-F440-42AE84D15A65";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".gm[0]" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode tweak -n "leftFinger1_tweak1";
+	rename -uid "90E606A3-4F14-7773-6D50-6AAAD67118D8";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "tweak1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode objectSet -n "leftFinger1_cluster1Set";
+	rename -uid "62838044-4F56-F11C-1A50-E3A54646348D";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1Set";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode groupId -n "leftFinger1_cluster1GroupId";
+	rename -uid "681D9D77-4EF5-1CDD-FFDF-9289A619B89C";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1GroupId";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode groupParts -n "leftFinger1_cluster1GroupParts";
+	rename -uid "0C2A759D-48A5-C20D-BD5F-408EAFF06FA1";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "cv[0:18]";
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1GroupParts";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode objectSet -n "leftFinger1_tweakSet1";
+	rename -uid "9BC06345-41E5-C0C2-61A2-43845D03B298";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+	setAttr -l on ".TSMGNodeId" -type "string" "tweakSet1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode groupId -n "leftFinger1_groupId2";
+	rename -uid "610B5226-47E5-A3FA-A51E-6AAFF639DF91";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr -l on ".TSMGNodeId" -type "string" "groupId2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode groupParts -n "leftFinger1_groupParts2";
+	rename -uid "BF85F2A4-4ED6-3FA1-DD89-EC81E27DF53B";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "cv[*]";
+	setAttr -l on ".TSMGNodeId" -type "string" "groupParts2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode multiplyDivide -n "leftFinger1_multiplyDivide2";
+	rename -uid "4922041B-4AB3-0C32-2041-FB93AE0D2409";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode multiplyDivide -n "leftFinger1_multiplyDivide3";
+	rename -uid "6D9A7CD9-49B3-88DF-32B0-958A605315C1";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode multiplyDivide -n "leftFinger1_multiplyDivide4";
+	rename -uid "5AA24671-43C6-1769-2566-5188F539AA53";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide4";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode multiplyDivide -n "leftFinger1_multiplyDivide5";
+	rename -uid "60724ED7-4330-0614-ECFA-858805BAF465";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide5";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode multiplyDivide -n "leftFinger1_multiplyDivide6";
+	rename -uid "A685F1B9-4B7E-D8D4-56FA-C6B14AEFE329";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide6";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode multiplyDivide -n "leftFinger1_multiplyDivide7";
+	rename -uid "77A0B178-4EE1-FD76-0E79-149BE7AEC839";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr ".i2" -type "float3" 2 2 2 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide7";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode multiplyDivide -n "leftFinger1_multiplyDivide8";
+	rename -uid "FDC7F4E8-4CB8-9259-88F4-FCBE713E6A07";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide8";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode plusMinusAverage -n "leftFinger1_plusMinusAverage2";
+	rename -uid "858312CF-46A2-8E24-5099-B2BDD49A47A8";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr -s 3 ".i1";
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode multiplyDivide -n "leftFinger1_multiplyDivide9";
+	rename -uid "6C16D8B2-4BBC-62AA-CEDA-948B2674B270";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr ".i2" -type "float3" 2 2 2 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide9";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode multiplyDivide -n "leftFinger1_multiplyDivide10";
+	rename -uid "020B4D65-41A6-BDFF-D10A-508345039A09";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide10";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode plusMinusAverage -n "leftFinger1_plusMinusAverage3";
+	rename -uid "17315D0F-4D0A-B6DE-128B-B397D792AC2F";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr -s 3 ".i1";
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "e681e59250904970928ffd469c751fbf";
+createNode unitConversion -n "leftFinger2_unitConversion1";
+	rename -uid "A6CCD70A-4CF0-3EA1-1D80-EB9B1A1FCF6E";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".cf" -0.02;
+	setAttr -l on ".TSMGNodeId" -type "string" "unitConversion1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode unitConversion -n "leftFinger2_unitConversion2";
+	rename -uid "5C9AE2C7-4606-755E-E9FD-B5800086E14B";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".cf" -0.02;
+	setAttr -l on ".TSMGNodeId" -type "string" "unitConversion2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode unitConversion -n "leftFinger2_unitConversion3";
+	rename -uid "A932949B-4528-8A94-C5E6-DDBD1AAADEEF";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".cf" 0.017453292519943295;
+	setAttr -l on ".TSMGNodeId" -type "string" "unitConversion3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode distanceBetween -n "leftFinger2_distanceBetween1";
+	rename -uid "DDE8409E-419D-CB70-634E-F5877D6C8CF7";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" 63.320452805969985 83.828299979133135 -1.9986990006399949 ;
+	setAttr ".p2" -type "double3" 63.517082372676171 86.517983225665674 -1.9524043905965183 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode distanceBetween -n "leftFinger2_distanceBetween2";
+	rename -uid "D17F81D3-4352-7F36-62CA-EBB0E56048DC";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" 63.517082372676171 86.517983225665674 -1.9524043905965183 ;
+	setAttr ".p2" -type "double3" 63.306017417460083 88.831009317361961 -1.9737081788583244 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode distanceBetween -n "leftFinger2_distanceBetween3";
+	rename -uid "AAF0AD10-472E-AAB2-8609-4CBB9F5CDE8A";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" 63.306017417460083 88.831009317361961 -1.9737081788583244 ;
+	setAttr ".p2" -type "double3" 62.338181508106622 93.551288919580642 -2.1035305409904943 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode distanceBetween -n "leftFinger2_distanceBetween4";
+	rename -uid "63714D7D-4D10-62CA-52F5-CC962BB22A0E";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" 62.338181508106622 93.551288919580642 -2.1035305409904943 ;
+	setAttr ".p2" -type "double3" 56.347957517750885 99.261131930150825 -3.6518597291669721 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween4";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode plusMinusAverage -n "leftFinger2_plusMinusAverage1";
+	rename -uid "D9CCADEB-4767-B586-1644-6DB83C5DE1D3";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -s 4 ".i1";
+	setAttr -s 4 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode multiplyDivide -n "leftFinger2_multiplyDivide1";
+	rename -uid "1DC43838-442A-47FD-9ABF-CDB2959694B8";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i2" -type "float3" 9 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode cluster -n "leftFinger2_cluster1";
+	rename -uid "AB8E9270-47DF-00C1-927B-10AF2E933212";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".gm[0]" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode tweak -n "leftFinger2_tweak1";
+	rename -uid "19D62E59-41E3-F38E-DDA5-A5BF644DC09F";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "tweak1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode objectSet -n "leftFinger2_cluster1Set";
+	rename -uid "B8ADA9A5-41E5-E0DF-6634-22ABABF3B7AC";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1Set";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode groupId -n "leftFinger2_cluster1GroupId";
+	rename -uid "F0B7AA36-43B4-7003-5ECF-7A8F1620A7A4";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1GroupId";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode groupParts -n "leftFinger2_cluster1GroupParts";
+	rename -uid "86D76618-4D6D-7F79-C632-8ABE5F82CDC1";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "cv[0:18]";
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1GroupParts";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode objectSet -n "leftFinger2_tweakSet1";
+	rename -uid "832F7F89-4BB4-2B2E-D1F8-3EA6880115C2";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+	setAttr -l on ".TSMGNodeId" -type "string" "tweakSet1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode groupId -n "leftFinger2_groupId2";
+	rename -uid "DE178B46-4737-7BBE-E2EF-D19ECDF3B9B1";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr -l on ".TSMGNodeId" -type "string" "groupId2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode groupParts -n "leftFinger2_groupParts2";
+	rename -uid "3C025FE3-4832-4960-6C58-DE83FA5E5A0E";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "cv[*]";
+	setAttr -l on ".TSMGNodeId" -type "string" "groupParts2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode multiplyDivide -n "leftFinger2_multiplyDivide2";
+	rename -uid "74A940A8-4E8B-93B8-8593-DFB646C0689D";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode multiplyDivide -n "leftFinger2_multiplyDivide3";
+	rename -uid "95CE914F-44A6-ED39-AF58-D8A5A90A73E7";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode multiplyDivide -n "leftFinger2_multiplyDivide4";
+	rename -uid "06826470-44F6-F694-2315-AFBCD34EB1A3";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide4";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode multiplyDivide -n "leftFinger2_multiplyDivide5";
+	rename -uid "CB07C79F-4BE5-DFD5-C914-D498C06E8E3E";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide5";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode multiplyDivide -n "leftFinger2_multiplyDivide6";
+	rename -uid "DA24A895-4772-DFAB-EAE9-418DA5C69856";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide6";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode multiplyDivide -n "leftFinger2_multiplyDivide7";
+	rename -uid "ABB8E1CD-4B7D-B38C-D6B0-18BB8D7679F2";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr ".i2" -type "float3" 2 2 2 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide7";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode multiplyDivide -n "leftFinger2_multiplyDivide8";
+	rename -uid "02815AD3-4D2F-88A5-54BC-27826FFE84D3";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide8";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode plusMinusAverage -n "leftFinger2_plusMinusAverage2";
+	rename -uid "5D472D5C-437B-1B9C-B86B-D7B9B704DEBB";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr -s 3 ".i1";
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode multiplyDivide -n "leftFinger2_multiplyDivide9";
+	rename -uid "C6D8D2A9-4CBF-185F-9A5F-C1926E3E9C6D";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr ".i2" -type "float3" 2 2 2 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide9";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode multiplyDivide -n "leftFinger2_multiplyDivide10";
+	rename -uid "877EE5C4-4825-9DCB-A477-E3A8D068A63D";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide10";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode plusMinusAverage -n "leftFinger2_plusMinusAverage3";
+	rename -uid "B03F90F0-4181-D7CB-812D-419D7136F3BE";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr -s 3 ".i1";
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "94963bcf08724b02a7830a80fc538b60";
+createNode unitConversion -n "leftFinger3_unitConversion1";
+	rename -uid "4CFE1765-488A-4C10-2DFB-2B8F6AF0DDB8";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".cf" -0.02;
+	setAttr -l on ".TSMGNodeId" -type "string" "unitConversion1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode unitConversion -n "leftFinger3_unitConversion2";
+	rename -uid "325DDC98-4859-3750-3518-ACB9D14D1463";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".cf" -0.02;
+	setAttr -l on ".TSMGNodeId" -type "string" "unitConversion2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode unitConversion -n "leftFinger3_unitConversion3";
+	rename -uid "771E014A-4A25-0702-E737-EEAA33D75C33";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".cf" 0.017453292519943295;
+	setAttr -l on ".TSMGNodeId" -type "string" "unitConversion3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode distanceBetween -n "leftFinger3_distanceBetween1";
+	rename -uid "2B54F242-48B8-6D3A-F330-409C41641D6A";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" 63.343540913094103 83.225300374407055 1.1966301146187588 ;
+	setAttr ".p2" -type "double3" 63.16441524049818 85.990355884113626 1.0785574316345863 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode distanceBetween -n "leftFinger3_distanceBetween2";
+	rename -uid "B6B5A305-4162-0D49-5117-2CA3B3A09DF8";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" 63.16441524049818 85.990355884113626 1.0785574316345863 ;
+	setAttr ".p2" -type "double3" 62.84341561664214 88.209052760379677 0.90159930522750487 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode distanceBetween -n "leftFinger3_distanceBetween3";
+	rename -uid "780BD34F-4C35-9990-05C0-53886F1AEF31";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" 62.84341561664214 88.209052760379677 0.90159930522750487 ;
+	setAttr ".p2" -type "double3" 61.804411406861895 93.499307561421276 0.3527604703773316 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode distanceBetween -n "leftFinger3_distanceBetween4";
+	rename -uid "2663D561-464B-EF49-7F4B-E9B76F450802";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" 61.804411406861895 93.499307561421276 0.3527604703773316 ;
+	setAttr ".p2" -type "double3" 55.971953038692661 99.388419642784541 -2.6107828293703648 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween4";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode plusMinusAverage -n "leftFinger3_plusMinusAverage1";
+	rename -uid "0819F5C5-4A56-EF0B-7633-3F9B229E5F8F";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -s 4 ".i1";
+	setAttr -s 4 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode multiplyDivide -n "leftFinger3_multiplyDivide1";
+	rename -uid "E0FAEB9D-416C-D5FF-F355-04B3C21D00B2";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i2" -type "float3" 9 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode cluster -n "leftFinger3_cluster1";
+	rename -uid "60A753D5-436B-A9D0-2C3C-1CA58D8BC1BA";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".gm[0]" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode tweak -n "leftFinger3_tweak1";
+	rename -uid "723E288F-4575-ED05-291D-9EB8D40A6EFE";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "tweak1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode objectSet -n "leftFinger3_cluster1Set";
+	rename -uid "6A4307D4-4A49-EBCB-DFA6-B2B8B1C68E59";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1Set";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode groupId -n "leftFinger3_cluster1GroupId";
+	rename -uid "349BE592-40E6-B00C-63E5-72A9061229B5";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1GroupId";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode groupParts -n "leftFinger3_cluster1GroupParts";
+	rename -uid "FFF1658E-43C8-3E0B-88AF-82A5F1F9341D";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "cv[0:18]";
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1GroupParts";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode objectSet -n "leftFinger3_tweakSet1";
+	rename -uid "05A469AF-4CA7-5881-751D-6E8579B9BDF7";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+	setAttr -l on ".TSMGNodeId" -type "string" "tweakSet1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode groupId -n "leftFinger3_groupId2";
+	rename -uid "2B08DB85-432C-497D-F315-22964CA54180";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr -l on ".TSMGNodeId" -type "string" "groupId2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode groupParts -n "leftFinger3_groupParts2";
+	rename -uid "55DEC586-4E37-D0FB-39A7-94B8C2ADB24E";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "cv[*]";
+	setAttr -l on ".TSMGNodeId" -type "string" "groupParts2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode multiplyDivide -n "leftFinger3_multiplyDivide2";
+	rename -uid "3D21B80B-4EF2-56E7-5E01-938EE44404AF";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode multiplyDivide -n "leftFinger3_multiplyDivide3";
+	rename -uid "D938AAED-4026-0105-DCF8-00BD918127BD";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode multiplyDivide -n "leftFinger3_multiplyDivide4";
+	rename -uid "934C7CC9-4988-7DDD-F3AD-8D94C92095AF";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide4";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode multiplyDivide -n "leftFinger3_multiplyDivide5";
+	rename -uid "A2326EC3-4763-097E-23D2-9C9F4F2C4AB7";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide5";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode multiplyDivide -n "leftFinger3_multiplyDivide6";
+	rename -uid "9410A9C5-41AB-8A7C-07B5-EFBB5C1EFDF5";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide6";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode multiplyDivide -n "leftFinger3_multiplyDivide7";
+	rename -uid "FFDB83CD-4A95-2F28-1C06-708265B1B5D5";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr ".i2" -type "float3" 2 2 2 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide7";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode multiplyDivide -n "leftFinger3_multiplyDivide8";
+	rename -uid "A55CE8CA-4B8C-33FA-831A-CAB835C6B066";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide8";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode plusMinusAverage -n "leftFinger3_plusMinusAverage2";
+	rename -uid "BE43E795-4754-0675-2CE1-0E83A540BDD0";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr -s 3 ".i1";
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode multiplyDivide -n "leftFinger3_multiplyDivide9";
+	rename -uid "436DE0D0-4CF9-EB2C-0C89-5EA4F5E3AD6B";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr ".i2" -type "float3" 2 2 2 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide9";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode multiplyDivide -n "leftFinger3_multiplyDivide10";
+	rename -uid "97204F3E-4FC2-4D18-2534-1680C32C2FC1";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide10";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode plusMinusAverage -n "leftFinger3_plusMinusAverage3";
+	rename -uid "581F104F-4B41-EE0A-38A5-EFB0D0BD60DD";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr -s 3 ".i1";
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "4c7d8962e7094185b37873e87e3f5d7a";
+createNode unitConversion -n "leftFinger4_unitConversion1";
+	rename -uid "45137D3D-49A8-237B-5244-0885EF3B7D49";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".cf" -0.02;
+	setAttr -l on ".TSMGNodeId" -type "string" "unitConversion1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode unitConversion -n "leftFinger4_unitConversion2";
+	rename -uid "83316BE9-4553-812F-B39F-6089D5F22FF4";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".cf" -0.02;
+	setAttr -l on ".TSMGNodeId" -type "string" "unitConversion2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode unitConversion -n "leftFinger4_unitConversion3";
+	rename -uid "2011E4B3-47EA-58BF-0E2E-72A189770F49";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".cf" 0.017453292519943295;
+	setAttr -l on ".TSMGNodeId" -type "string" "unitConversion3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode distanceBetween -n "leftFinger4_distanceBetween1";
+	rename -uid "42CA571A-436A-1122-E756-00ACC9973733";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" 62.354620930479406 84.226565571229415 4.713434784458169 ;
+	setAttr ".p2" -type "double3" 62.053687540786228 86.831796124910937 4.3369247376887419 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode distanceBetween -n "leftFinger4_distanceBetween2";
+	rename -uid "C3140A3B-4A1A-B557-1E0F-2B88542D859A";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" 62.053687540786228 86.831796124910937 4.3369247376887419 ;
+	setAttr ".p2" -type "double3" 61.623224634559527 89.128357373114497 3.8128640329854893 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode distanceBetween -n "leftFinger4_distanceBetween3";
+	rename -uid "70C58125-4D4F-F2F4-D9F6-D79949524EF9";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" 61.623224634559527 89.128357373114497 3.8128640329854893 ;
+	setAttr ".p2" -type "double3" 60.571300355059456 93.564615101696432 2.5989305406711649 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode distanceBetween -n "leftFinger4_distanceBetween4";
+	rename -uid "8462B7ED-4426-A48E-A51E-32BE98DD1A82";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" 60.571300355059456 93.564615101696432 2.5989305406711649 ;
+	setAttr ".p2" -type "double3" 55.380853160494993 99.421527097650397 -1.5567539172913407 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween4";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode plusMinusAverage -n "leftFinger4_plusMinusAverage1";
+	rename -uid "A16D11B2-49EA-2A81-2511-A7803EC2A671";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -s 4 ".i1";
+	setAttr -s 4 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode multiplyDivide -n "leftFinger4_multiplyDivide1";
+	rename -uid "038D7CCD-40B4-6898-B0F9-EFA2093927CC";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i2" -type "float3" 9 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode cluster -n "leftFinger4_cluster1";
+	rename -uid "E97D9BD4-4E0D-2AB8-0F71-B98CBAD0083D";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".gm[0]" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode tweak -n "leftFinger4_tweak1";
+	rename -uid "9FFB2F13-479B-ED0A-7233-679CCB394523";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "tweak1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode objectSet -n "leftFinger4_cluster1Set";
+	rename -uid "2D6A5AC1-40A5-1AA5-2EF7-79AA3CD44DB0";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1Set";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode groupId -n "leftFinger4_cluster1GroupId";
+	rename -uid "5C52BC7E-41CC-6224-A461-9887FF907557";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1GroupId";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode groupParts -n "leftFinger4_cluster1GroupParts";
+	rename -uid "C9415C47-42B8-8D68-DAAE-1681BA193E3A";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "cv[0:18]";
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1GroupParts";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode objectSet -n "leftFinger4_tweakSet1";
+	rename -uid "EB1C5C0F-4FA5-00C9-1647-5B90365BBA26";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+	setAttr -l on ".TSMGNodeId" -type "string" "tweakSet1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode groupId -n "leftFinger4_groupId2";
+	rename -uid "21FD6062-4688-E5FD-019E-0FA27D332518";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr -l on ".TSMGNodeId" -type "string" "groupId2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode groupParts -n "leftFinger4_groupParts2";
+	rename -uid "28F8BF84-499E-71FC-982F-5DBC710FF690";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "cv[*]";
+	setAttr -l on ".TSMGNodeId" -type "string" "groupParts2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode multiplyDivide -n "leftFinger4_multiplyDivide2";
+	rename -uid "AFC12692-4620-7B25-5A40-9B9B7F34C405";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode multiplyDivide -n "leftFinger4_multiplyDivide3";
+	rename -uid "5DC78ECE-43F5-24C2-4D4C-FCBCCC558EF4";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode multiplyDivide -n "leftFinger4_multiplyDivide4";
+	rename -uid "051EEA8A-41E7-713A-964A-F7B8BA749E30";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide4";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode multiplyDivide -n "leftFinger4_multiplyDivide5";
+	rename -uid "B4DFC679-4828-D728-F475-B580800BB01A";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide5";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode multiplyDivide -n "leftFinger4_multiplyDivide6";
+	rename -uid "730F1754-46B5-4AAB-7C2A-A0A5825056BF";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide6";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode multiplyDivide -n "leftFinger4_multiplyDivide7";
+	rename -uid "A45B1F5C-4108-BADE-727A-488B70302743";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr ".i2" -type "float3" 2 2 2 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide7";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode multiplyDivide -n "leftFinger4_multiplyDivide8";
+	rename -uid "91009217-463C-73B6-06C6-C486DBFD3301";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide8";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode plusMinusAverage -n "leftFinger4_plusMinusAverage2";
+	rename -uid "DD7EE489-48F6-22BA-6829-6CA406CA5EF4";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr -s 3 ".i1";
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode multiplyDivide -n "leftFinger4_multiplyDivide9";
+	rename -uid "EB2A7A9D-4386-A27F-FC0B-768AFE6FFCC5";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr ".i2" -type "float3" 2 2 2 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide9";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode multiplyDivide -n "leftFinger4_multiplyDivide10";
+	rename -uid "2E5F5068-4E73-307E-1BF3-3EB0B49E5759";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide10";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode plusMinusAverage -n "leftFinger4_plusMinusAverage3";
+	rename -uid "07E2F651-4A45-0CEE-F269-9DB66E435BDE";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr -s 3 ".i1";
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "9d77c2e8f5f0481ea78e9ddf449fc53a";
+createNode unitConversion -n "leftThumb1_unitConversion1";
+	rename -uid "74072191-4BD0-29BC-483B-B29719370D6A";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".cf" -0.02;
+	setAttr -l on ".TSMGNodeId" -type "string" "unitConversion1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode unitConversion -n "leftThumb1_unitConversion2";
+	rename -uid "8BF7FBDD-40E4-F577-CBA5-099F2BE16A30";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".cf" -0.02;
+	setAttr -l on ".TSMGNodeId" -type "string" "unitConversion2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode unitConversion -n "leftThumb1_unitConversion3";
+	rename -uid "F6F19387-45D5-3194-BDF0-D785D4FD38BD";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".cf" 0.017453292519943295;
+	setAttr -l on ".TSMGNodeId" -type "string" "unitConversion3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode distanceBetween -n "leftThumb1_distanceBetween1";
+	rename -uid "8AF8353C-4F0F-4C5E-B541-0DA12CDF451B";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" 54.630792769487748 90.792477421792711 7.2060725793130658 ;
+	setAttr ".p2" -type "double3" 55.099577081575774 93.225369292920547 4.9108452631860384 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode distanceBetween -n "leftThumb1_distanceBetween2";
+	rename -uid "25896570-46B0-734A-BFAF-1F9600B80EB0";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" 55.099577081575774 93.225369292920547 4.9108452631860384 ;
+	setAttr ".p2" -type "double3" 55.223787235820332 95.904249042926864 3.4962552285703503 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode distanceBetween -n "leftThumb1_distanceBetween3";
+	rename -uid "92CB012D-4332-383A-6CD3-3FA228661149";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" 55.223787235820332 95.904249042926864 3.4962552285703503 ;
+	setAttr ".p2" -type "double3" 54.573817093964003 98.057269033127582 0.10008228038179467 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode multiplyDivide -n "leftThumb1_multiplyDivide1";
+	rename -uid "37E10FD8-4776-9FFC-CA22-F3A6DCD13643";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i2" -type "float3" 7.3070002 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode cluster -n "leftThumb1_cluster1";
+	rename -uid "A01F6F1A-4481-BAF3-B0D6-5CBEF0E2EB78";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".gm[0]" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode tweak -n "leftThumb1_tweak1";
+	rename -uid "7620162F-40B1-C690-D3F3-D6866D98C7A0";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "tweak1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode objectSet -n "leftThumb1_cluster1Set";
+	rename -uid "19F0E6E2-4174-67F4-406F-178181D729D9";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1Set";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode groupId -n "leftThumb1_cluster1GroupId";
+	rename -uid "CB640F2E-4B7C-2B88-416A-33BA55967A94";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1GroupId";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode groupParts -n "leftThumb1_cluster1GroupParts";
+	rename -uid "5A101A0E-46CB-D58B-9EF7-B48307B9799D";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "cv[0:18]";
+	setAttr -l on ".TSMGNodeId" -type "string" "cluster1GroupParts";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode objectSet -n "leftThumb1_tweakSet1";
+	rename -uid "324D8DCD-4533-6D51-8900-B5B950F9CE4F";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+	setAttr -l on ".TSMGNodeId" -type "string" "tweakSet1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode groupId -n "leftThumb1_groupId2";
+	rename -uid "517C07AE-4731-B651-B5C0-32B041FB9CF6";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr -l on ".TSMGNodeId" -type "string" "groupId2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode groupParts -n "leftThumb1_groupParts2";
+	rename -uid "086B1B5C-495F-BD7B-DC5D-D9801D42E65C";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "cv[*]";
+	setAttr -l on ".TSMGNodeId" -type "string" "groupParts2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode multiplyDivide -n "leftThumb1_multiplyDivide2";
+	rename -uid "578D0B65-4D71-4A78-5B8F-369E916DC7C6";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode plusMinusAverage -n "leftThumb1_plusMinusAverage2";
+	rename -uid "B4092097-47F4-287B-5F88-AB93A0896086";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -s 4 ".i1[3]"  15.87936306;
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode plusMinusAverage -n "leftThumb1_plusMinusAverage3";
+	rename -uid "8E4A0FCB-4479-D306-C18B-7590982C4695";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -s 3 ".i1";
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode multiplyDivide -n "leftThumb1_multiplyDivide3";
+	rename -uid "3B3244B0-47EF-1E51-1A8B-20B64EB83317";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode multiplyDivide -n "leftThumb1_multiplyDivide4";
+	rename -uid "D0E485E5-43B4-B1C2-2BCB-8A8C0F8DAF06";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide4";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode multiplyDivide -n "leftThumb1_multiplyDivide5";
+	rename -uid "17A0AE31-44A2-7265-2B39-B99B7211C9B5";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide5";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode multiplyDivide -n "leftThumb1_multiplyDivide6";
+	rename -uid "1A71660D-4C3B-25E4-740D-419EC82D311E";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide6";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode plusMinusAverage -n "leftThumb1_plusMinusAverage4";
+	rename -uid "71891C24-4C70-2294-9437-F39B8A0F6BC2";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr -s 3 ".i1";
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage4";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode plusMinusAverage -n "leftThumb1_plusMinusAverage5";
+	rename -uid "B60908E1-4CF9-7A9E-4192-8C9A0841C4AE";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr -s 3 ".i1";
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage5";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode multiplyDivide -n "leftThumb1_multiplyDivide7";
+	rename -uid "2498B078-4689-CA06-30E4-31AFCC0F8B99";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr ".i2" -type "float3" 2 2 2 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide7";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode multiplyDivide -n "leftThumb1_multiplyDivide8";
+	rename -uid "EDD51B43-44A5-6AE3-7CCD-A7BE0E599CBC";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide8";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode multiplyDivide -n "leftThumb1_multiplyDivide9";
+	rename -uid "9CC80651-4EC2-C3DE-2979-CC8C6AB36902";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr ".i2" -type "float3" 2 2 2 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide9";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode multiplyDivide -n "leftThumb1_multiplyDivide10";
+	rename -uid "6C1F0C35-44E9-4F59-D01A-519BE71D3FD2";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide10";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "d0c601be31fb4d198ca5eea17607d083";
+createNode multiplyDivide -n "rightArm1_multiplyDivide1";
+	rename -uid "C245D988-435B-E786-55E9-E5B0016B8C28";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" -14 1.4210855e-014 0 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide3";
+	rename -uid "62538801-4361-F5DB-3C4E-88BDF42DBB04";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i1" -type "float3" 0 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide6";
+	rename -uid "2BA6935E-41ED-2155-7C93-5D9D7A41164F";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide6";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide8";
+	rename -uid "2616A64A-465B-9789-450B-ADA65F231DE0";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" -28 -7.7096715e-008 3.5527137e-015 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide8";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode animCurveUU -n "rightArm1_scale_slope4";
+	rename -uid "755F73C8-4FA8-A738-1668-058DBBBA5B30";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".tan" 2;
+	setAttr -s 3 ".ktv[0:2]"  -10 0.10000000149011612 0 1 10 2;
+	setAttr -s 3 ".kit[0:2]"  9 2 2;
+	setAttr -s 3 ".kot[0:2]"  10 2 2;
+	setAttr ".pre" 1;
+	setAttr ".pst" 1;
+	setAttr -l on ".TSMGNodeId" -type "string" "scale_slope4";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide9";
+	rename -uid "4A9E51F9-4536-6555-979B-F5A19B8493C0";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" -29.006411 -7.7096644e-008 2.5358211e-006 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide9";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode blendColors -n "rightArm1_blendColors3";
+	rename -uid "A278B966-4A60-EFD7-23D4-B6983B2D7587";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".c2" -type "float3" 0 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "blendColors3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide10";
+	rename -uid "5148754B-4E13-D956-BDDC-EEAFE574D3FF";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" -29.006411 -7.7096644e-008 2.5358211e-006 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide10";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide11";
+	rename -uid "C530148C-4098-B95F-7C46-C0BDC75A01BC";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i1" -type "float3" 1 0 0 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide11";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide12";
+	rename -uid "8DAF765C-471E-53F5-A53A-A7A8FAC851E4";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide12";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide13";
+	rename -uid "830D0A9E-48B4-4527-E4CC-18845DDAAE00";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide13";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide14";
+	rename -uid "9A62296C-4363-A8B0-F193-B8956E4F61BD";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" -1 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide14";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide15";
+	rename -uid "3255CB52-40EB-E5C4-51A1-B3A58008F22C";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide15";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide16";
+	rename -uid "BB828B99-4594-82A0-2B4C-EA9AE506E1BD";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide16";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide17";
+	rename -uid "B40A46B2-448A-9F9F-5838-36A04CE98BA9";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" -1 -1 -1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide17";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode hyperGraphInfo -n "rightArm1_nodeEditorPanel2Info";
+	rename -uid "56A54F8D-40EB-EA66-71EA-FB96D54AFBD0";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeEditorPanel2Info";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode hyperGraphInfo -n "rightArm1_nodeEditorPanel3Info";
+	rename -uid "32D4270F-486F-350E-E5A8-5EBC5318EF58";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeEditorPanel3Info";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode hyperGraphInfo -n "rightArm1_nodeEditorPanel4Info";
+	rename -uid "79027243-4D13-BD18-C4A1-A484AE836075";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeEditorPanel4Info";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode hyperGraphInfo -n "rightArm1_nodeEditorPanel5Info";
+	rename -uid "ABAAFFF5-403A-523C-7FE6-18866C188FE4";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeEditorPanel5Info";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode hyperGraphInfo -n "rightArm1_nodeEditorPanel6Info";
+	rename -uid "18796442-44F5-FD50-8944-128CCC9A97A5";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeEditorPanel6Info";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode hyperGraphInfo -n "rightArm1_nodeEditorPanel7Info";
+	rename -uid "76046FB3-4842-B90D-F557-2AA4DE178DA2";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeEditorPanel7Info";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode hyperGraphInfo -n "rightArm1_nodeEditorPanel8Info";
+	rename -uid "B33B4147-4B65-C702-CC47-0582989CF9CC";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeEditorPanel8Info";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode hyperGraphInfo -n "rightArm1_nodeEditorPanel9Info";
+	rename -uid "54CB74B1-44FC-FB6F-770E-48B95346D5E6";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeEditorPanel9Info";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode hyperGraphInfo -n "rightArm1_nodeEditorPanel10Info";
+	rename -uid "5062B9EE-4A17-250F-45F6-2092567288C3";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeEditorPanel10Info";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode hyperGraphInfo -n "rightArm1_nodeEditorPanel11Info";
+	rename -uid "A186E159-41E5-87A4-927B-F49F5537B839";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeEditorPanel11Info";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode plusMinusAverage -n "rightArm1_plusMinusAverage1";
+	rename -uid "069F13A0-4145-FBBA-A3F4-189C42B3E98F";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -s 2 ".i3[0:1]" -type "float3"  -29.0064105988 -7.7096644e-008
+		 2.5358211e-006 -28 -7.7096715e-008 3.5527137e-015;
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode hyperGraphInfo -n "rightArm1_nodeView1";
+	rename -uid "EB02BA19-4966-1ACD-63E6-AE8013D1CD67";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeView1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode hyperGraphInfo -n "rightArm1_nodeEditorPanel12Info";
+	rename -uid "B4489270-4578-CC21-32EF-3AB50C84D94C";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeEditorPanel12Info";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode plusMinusAverage -n "rightArm1_plusMinusAverage3";
+	rename -uid "F82444B8-4750-C13A-E563-E0B8E715A2A6";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -s 3 ".i1[0:2]"  29.0064105988 14 28;
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide18";
+	rename -uid "71309495-4C67-02B2-AAC9-1FB861325E80";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i2" -type "float3" 10 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide18";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide19";
+	rename -uid "639E5D74-4A86-9284-52DD-6B8E49A6C27D";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide19";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide20";
+	rename -uid "FCE09ACF-4766-A380-C7DF-9C86ECCD544E";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide20";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode condition -n "rightArm1_negetive";
+	rename -uid "0DCF9006-4D8D-C9A6-672A-698E88FD1A36";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ft" 1;
+	setAttr ".ct" -type "float3" -1 0 0 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "negetive";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode condition -n "rightArm1_oneEighty";
+	rename -uid "647A5EDB-4560-C30A-69E8-B0AC3B82D0D1";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ft" 1;
+	setAttr ".ct" -type "float3" 180 0 0 ;
+	setAttr ".cf" -type "float3" 0 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "oneEighty";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode condition -n "rightArm1_negetiveOneEighty";
+	rename -uid "113344CE-4D10-CC90-7F56-13BBDFB0F597";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ft" 1;
+	setAttr ".ct" -type "float3" -180 0 0 ;
+	setAttr ".cf" -type "float3" 0 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "negetiveOneEighty";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide21";
+	rename -uid "280F1A91-490A-2703-127A-D696A34B561A";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i1" -type "float3" -1 0 0 ;
+	setAttr ".i2" -type "float3" -1.5 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide21";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode unitConversion -n "rightArm1_unitConversion12";
+	rename -uid "4F65A4BA-47C8-1343-75AA-94ABBFD4D1F8";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i" -180;
+	setAttr ".cf" 0.017453292519943295;
+	setAttr -l on ".TSMGNodeId" -type "string" "unitConversion12";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide22";
+	rename -uid "8B60C16A-4405-424C-90C7-BB9C4EF3D830";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i1" -type "float3" -1 0 0 ;
+	setAttr ".i2" -type "float3" -1 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide22";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode condition -n "rightArm1_arrowLook";
+	rename -uid "DB23772C-4640-AC09-AC29-71A0B7AF5F2A";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".ft" 1;
+	setAttr ".ct" -type "float3" -3 0 0 ;
+	setAttr ".cf" -type "float3" -4 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "arrowLook";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide23";
+	rename -uid "B7DF8E55-4175-2555-62D1-43AEB0249FAF";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide23";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide24";
+	rename -uid "56289A0C-4E68-CF26-7AD2-5E898ECDB603";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide24";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode hyperGraphInfo -n "rightArm1_nodeEditorPanel1Info";
+	rename -uid "5252C68D-422E-8E9B-FAA9-8B89DC921021";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeEditorPanel1Info";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide25";
+	rename -uid "614EC479-4BE1-D656-630D-22AFD9C51897";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i2" -type "float3" -28 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide25";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide26";
+	rename -uid "934AAE05-4D79-D6B4-3778-40A048116194";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i2" -type "float3" -29.006411 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide26";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide32";
+	rename -uid "E61EAF51-467C-1D74-3D10-AD94BB24AB96";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide32";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide33";
+	rename -uid "5D3C157E-4409-B908-264C-838A43A76FBD";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i1" -type "float3" -28 -7.7096715e-008 3.5527137e-015 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide33";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide34";
+	rename -uid "85026188-4D77-092D-136D-5B90B7F49AF9";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i1" -type "float3" -29.006411 -7.7096644e-008 2.5358211e-006 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide34";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide35";
+	rename -uid "0FD05927-4417-02D0-B21D-A495FBF2117A";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i1" -type "float3" -28 -7.7096715e-008 3.5527137e-015 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide35";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide36";
+	rename -uid "B32CF4A4-4FA2-32C7-8936-B19232E3D292";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i1" -type "float3" -29.006411 -7.7096644e-008 2.5358211e-006 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide36";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode blendColors -n "rightArm1_blendColors4";
+	rename -uid "470A5330-4E1D-ED53-EA93-009EF5AE279F";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "blendColors4";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode blendColors -n "rightArm1_blendColors5";
+	rename -uid "9E7D3F91-41CD-E2B1-3CD9-4BA3AE5FA309";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "blendColors5";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode hyperGraphInfo -n "rightArm1_nodeView2";
+	rename -uid "137BE85E-41EE-5EA2-B3FA-4DB91A83ED05";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeView2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode plusMinusAverage -n "rightArm1_plusMinusAverage7";
+	rename -uid "42B00DBD-4E1B-0BB8-70DA-37A0A744742C";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -s 2 ".i1";
+	setAttr -s 2 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage7";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide37";
+	rename -uid "E6B12C1F-4062-1237-24AA-AB9C8CC3072A";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide37";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode hyperGraphInfo -n "rightArm1_nodeView3";
+	rename -uid "F274DC21-41D7-1D21-78CB-498E992F7E2B";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "nodeView3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide39";
+	rename -uid "495831FA-4141-2716-C63C-3D98D6804161";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide39";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode animCurveUU -n "rightArm1_pasted__arms_RightArm_multiplyDivide11_input1X1";
+	rename -uid "834866F8-4AB7-CA42-284D-E38E972E79BA";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".tan" 1;
+	setAttr -s 3 ".ktv[0:2]"  0.89934319257736206 1 1.5 1.5 3 3;
+	setAttr -s 3 ".kit[2]"  2;
+	setAttr -s 3 ".kot[2]"  2;
+	setAttr -s 3 ".kix[0:2]"  0.30609345436096191 1.4915778636932373 
+		1.5;
+	setAttr -s 3 ".kiy[0:2]"  0 1.4919474124908447 1.5;
+	setAttr -s 3 ".kox[0:2]"  0.30609345436096191 2.2436473369598389 
+		1;
+	setAttr -s 3 ".koy[0:2]"  0 2.2442035675048828 0;
+	setAttr ".pst" 1;
+	setAttr -l on ".TSMGNodeId" -type "string" "pasted__arms_RightArm_multiplyDivide11_input1X1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode distanceBetween -n "rightArm1_distanceBetween1";
+	rename -uid "B3246F59-494A-4DAD-E7DA-30825BCCEE30";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide40";
+	rename -uid "A2F383A2-4A19-B447-9CC3-2FB2D6B4C49C";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide40";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode animCurveUU -n "rightArm1_pasted__arms_RightArm_multiplyDivide11_input1X2";
+	rename -uid "663B103F-4844-AC98-43B8-2BA1A2D04C14";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".tan" 2;
+	setAttr -s 2 ".ktv[0:1]"  1 1 3 5;
+	setAttr -s 2 ".ktl[3:4]" no yes;
+	setAttr ".pst" 1;
+	setAttr -l on ".TSMGNodeId" -type "string" "pasted__arms_RightArm_multiplyDivide11_input1X2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode animCurveUU -n "rightArm1_pasted__arms_RightArm_multiplyDivide11_input1X";
+	rename -uid "F6A81B90-46ED-F041-CBB0-81AA51A65775";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".tan" 1;
+	setAttr -s 5 ".ktv[0:4]"  0.96112209558486938 0 1.0655899047851562 
+		0.069374027504430544 1.234656810760498 0.23354430009030053 1.5 0.5 3 2;
+	setAttr -s 5 ".kit[4]"  2;
+	setAttr -s 5 ".kot[3:4]"  2 2;
+	setAttr -s 5 ".ktl[3:4]" no yes;
+	setAttr -s 5 ".kwl[2:4]" no no yes;
+	setAttr -s 5 ".kix[0:4]"  0.24468967318534851 0.13085101544857025 
+		0.18670172989368439 0.54905027151107788 1.5;
+	setAttr -s 5 ".kiy[0:4]"  0 0.12201535701751709 0.18547263741493225 
+		0.58828926086425781 1.5;
+	setAttr -s 5 ".kox[0:4]"  0.11126142740249634 0.15727986395359039 
+		0.27595901489257813 1.5 1;
+	setAttr -s 5 ".koy[0:4]"  0 0.14665962755680084 0.27414232492446899 
+		1.5 0;
+	setAttr ".pst" 1;
+	setAttr -l on ".TSMGNodeId" -type "string" "pasted__arms_RightArm_multiplyDivide11_input1X";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode animCurveUU -n "rightArm1_pasted__arms_RightArm_multiplyDivide11_input1X3";
+	rename -uid "FAA02B7C-421A-3F11-A8AA-9AB81BCEFFF2";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".tan" 2;
+	setAttr -s 2 ".ktv[0:1]"  1 1 3 3;
+	setAttr -s 2 ".ktl[3:4]" no yes;
+	setAttr ".pst" 1;
+	setAttr -l on ".TSMGNodeId" -type "string" "pasted__arms_RightArm_multiplyDivide11_input1X3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode blendColors -n "rightArm1_blendColors7";
+	rename -uid "89546985-4FE4-0ECC-74E3-738086015F93";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "blendColors7";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide41";
+	rename -uid "8ED8F322-4130-4A53-83F8-E8AAC7E7DB3D";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide41";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode condition -n "rightArm1_condition1";
+	rename -uid "F5E163AB-42D6-4A2A-0F70-FCA0EC3F4536";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".st" 1;
+	setAttr ".ct" -type "float3" 0 -180 0 ;
+	setAttr ".cf" -type "float3" 0 0 0 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "condition1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode blendColors -n "rightArm1_blendColors8";
+	rename -uid "43CD6759-4666-5830-2C1E-108F98B1ACF3";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".c2" -type "float3" 1 0 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "blendColors8";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode plusMinusAverage -n "rightArm1_plusMinusAverage8";
+	rename -uid "4990CAAB-4DCB-FA7C-4EE3-5EB7E9089127";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr -s 3 ".i1";
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage8";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide42";
+	rename -uid "8E8774CC-42D4-EE27-A6C6-5B88BA18F868";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i1" -type "float3" -7 7 7 ;
+	setAttr ".i2" -type "float3" 2 2 2 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide42";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide43";
+	rename -uid "AA8E1847-4F3D-DF11-0292-5794E3331969";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide43";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide44";
+	rename -uid "DAA9F082-4C00-77E2-AB5B-4D933636E0F4";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr ".i2" -type "float3" 2 2 2 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide44";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode multiplyDivide -n "rightArm1_multiplyDivide45";
+	rename -uid "7E04A7EB-4801-EC8A-CDB7-D68A45D629B2";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide45";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode plusMinusAverage -n "rightArm1_plusMinusAverage9";
+	rename -uid "9E852E57-4039-2D34-BE8A-09A4F6C1A06D";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr -s 3 ".i1";
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage9";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "361570994b8a431899a892cf4958a1e1";
+createNode nodeGraphEditorBookmarkInfo -n "nodeView4";
+	rename -uid "AAFA62D8-4657-1B67-EB93-DCAEE7B61E0D";
+	setAttr ".nm" -type "string" "nodeView1";
+	setAttr ".vl" -type "double2" 127.04408841533174 -1162.8039544751748 ;
+	setAttr ".vh" -type "double2" 2157.428992818192 50.434238401616405 ;
+createNode nodeGraphEditorBookmarkInfo -n "nodeView5";
+	rename -uid "06835F14-4C00-EE3E-E883-008BBFE2D148";
+	setAttr ".nm" -type "string" "nodeView2";
+	setAttr ".vl" -type "double2" -4095.1082230070724 -3713.8774473664116 ;
+	setAttr ".vh" -type "double2" 554.92840644871978 -950.81220377673799 ;
+createNode nodeGraphEditorBookmarkInfo -n "nodeView6";
+	rename -uid "936E8A0E-42B4-46D1-7688-438AEC51CEBE";
+	setAttr ".nm" -type "string" "nodeView3";
+	setAttr ".vl" -type "double2" -2674.1625116735095 -3039.8149130796401 ;
+	setAttr ".vh" -type "double2" -294.79946996665245 -1625.9904969929569 ;
+createNode distanceBetween -n "rightFinger1_distanceBetween1";
+	rename -uid "671F9555-4903-A201-374B-6B868C53DE52";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" -63.676965945868645 86.07357995156606 -5.9176879818206078 ;
+	setAttr ".p2" -type "double3" -63.58342616666917 88.371293492999953 -5.5349719357375582 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "8d1b254d820241288a4eaeaae8bf2df5";
+createNode distanceBetween -n "rightFinger1_distanceBetween2";
+	rename -uid "498FCCD4-4C2B-C9F4-3213-DDB5D924BFA6";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" -63.58342616666917 88.371293492999953 -5.5349719357375582 ;
+	setAttr ".p2" -type "double3" -63.048091238420618 90.693072956419755 -5.1670182181986757 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "8d1b254d820241288a4eaeaae8bf2df5";
+createNode distanceBetween -n "rightFinger1_distanceBetween3";
+	rename -uid "DB1443E6-42A6-C626-957B-8E803B224022";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" -63.048091238420618 90.693072956419755 -5.1670182181986757 ;
+	setAttr ".p2" -type "double3" -62.201507240122488 93.434920595831557 -4.6947369140292921 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "8d1b254d820241288a4eaeaae8bf2df5";
+createNode distanceBetween -n "rightFinger1_distanceBetween4";
+	rename -uid "D30A793A-44A0-5A92-8100-C383C04534E4";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" -62.201507240122488 93.434920595831557 -4.6947369140292921 ;
+	setAttr ".p2" -type "double3" -56.476336553314418 99.342926226402056 -4.5640529744319975 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween4";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "8d1b254d820241288a4eaeaae8bf2df5";
+createNode plusMinusAverage -n "rightFinger1_plusMinusAverage1";
+	rename -uid "F0C242E9-490F-B672-3635-9D896FD81CFA";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -s 4 ".i1";
+	setAttr -s 4 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "8d1b254d820241288a4eaeaae8bf2df5";
+createNode multiplyDivide -n "rightFinger1_multiplyDivide1";
+	rename -uid "C65F8794-4A1A-5B7C-C50A-0089218AEEAB";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i2" -type "float3" 9 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "8d1b254d820241288a4eaeaae8bf2df5";
+createNode multiplyDivide -n "rightFinger1_multiplyDivide2";
+	rename -uid "EAE8E9ED-48EA-1B85-6EAE-ECB7B7CF22F9";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "8d1b254d820241288a4eaeaae8bf2df5";
+createNode multiplyDivide -n "rightFinger1_multiplyDivide3";
+	rename -uid "1028127E-4C7B-6E40-842A-10964549C254";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "8d1b254d820241288a4eaeaae8bf2df5";
+createNode multiplyDivide -n "rightFinger1_multiplyDivide4";
+	rename -uid "C1A86948-47EF-CAFD-D893-0FBE4005E032";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide4";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "8d1b254d820241288a4eaeaae8bf2df5";
+createNode multiplyDivide -n "rightFinger1_multiplyDivide5";
+	rename -uid "D29F7CB5-4AEA-550D-372C-4CAF6E330DCC";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide5";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "8d1b254d820241288a4eaeaae8bf2df5";
+createNode multiplyDivide -n "rightFinger1_multiplyDivide6";
+	rename -uid "D0F55DEB-4949-34B8-853C-618431335729";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide6";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "8d1b254d820241288a4eaeaae8bf2df5";
+createNode multiplyDivide -n "rightFinger1_multiplyDivide7";
+	rename -uid "0FF74589-4123-30B7-87D5-6E8199256049";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i1" -type "float3" -1 1 1 ;
+	setAttr ".i2" -type "float3" 2 2 2 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide7";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "8d1b254d820241288a4eaeaae8bf2df5";
+createNode multiplyDivide -n "rightFinger1_multiplyDivide8";
+	rename -uid "E04DFA35-4E5C-8596-C7CE-8186FA80C206";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide8";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "8d1b254d820241288a4eaeaae8bf2df5";
+createNode plusMinusAverage -n "rightFinger1_plusMinusAverage2";
+	rename -uid "E6A622DE-45C7-2399-5177-279BB29C9A9F";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr -s 3 ".i1";
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "8d1b254d820241288a4eaeaae8bf2df5";
+createNode multiplyDivide -n "rightFinger1_multiplyDivide9";
+	rename -uid "A7C76FD3-478C-937A-BB15-66AF37741111";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr ".i2" -type "float3" 2 2 2 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide9";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "8d1b254d820241288a4eaeaae8bf2df5";
+createNode multiplyDivide -n "rightFinger1_multiplyDivide10";
+	rename -uid "C434BB27-461D-91B3-DB3B-D9A4788DBCB4";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide10";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "8d1b254d820241288a4eaeaae8bf2df5";
+createNode plusMinusAverage -n "rightFinger1_plusMinusAverage3";
+	rename -uid "BBB37F80-4D3D-3D5D-FD12-C0AB3039709B";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr -s 3 ".i1";
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "8d1b254d820241288a4eaeaae8bf2df5";
+createNode distanceBetween -n "rightFinger2_distanceBetween1";
+	rename -uid "10FA3832-491E-3127-C634-88B8AB31019B";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" -63.320452805969985 83.828299979133135 -1.9986990006399949 ;
+	setAttr ".p2" -type "double3" -63.517082372676171 86.517983225665674 -1.9524043905965183 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "5938af8eb6814c1ba6a7b6d86d8dc613";
+createNode distanceBetween -n "rightFinger2_distanceBetween2";
+	rename -uid "ECD331AA-42FD-9D7F-3E2F-6BAF5F483414";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" -63.517082372676171 86.517983225665674 -1.9524043905965183 ;
+	setAttr ".p2" -type "double3" -63.306017417460083 88.831009317361961 -1.9737081788583244 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "5938af8eb6814c1ba6a7b6d86d8dc613";
+createNode distanceBetween -n "rightFinger2_distanceBetween3";
+	rename -uid "18A77747-402B-3D58-B488-86AAC56B2DA9";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" -63.306017417460083 88.831009317361961 -1.9737081788583244 ;
+	setAttr ".p2" -type "double3" -62.338181508106622 93.551288919580642 -2.1035305409904943 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "5938af8eb6814c1ba6a7b6d86d8dc613";
+createNode distanceBetween -n "rightFinger2_distanceBetween4";
+	rename -uid "04F8C2DE-4A7F-518D-49E6-388500889DDC";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" -62.338181508106622 93.551288919580642 -2.1035305409904943 ;
+	setAttr ".p2" -type "double3" -56.347957517750885 99.261131930150825 -3.6518597291669721 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween4";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "5938af8eb6814c1ba6a7b6d86d8dc613";
+createNode plusMinusAverage -n "rightFinger2_plusMinusAverage1";
+	rename -uid "A7F3830C-448E-9BA9-E7FD-93A1392011DE";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -s 4 ".i1";
+	setAttr -s 4 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "5938af8eb6814c1ba6a7b6d86d8dc613";
+createNode multiplyDivide -n "rightFinger2_multiplyDivide1";
+	rename -uid "3A0131B4-44E9-44E2-8525-4E8212CE75BF";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i2" -type "float3" 9 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "5938af8eb6814c1ba6a7b6d86d8dc613";
+createNode multiplyDivide -n "rightFinger2_multiplyDivide2";
+	rename -uid "C622146D-479B-3C49-1892-F7B917E946F9";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "5938af8eb6814c1ba6a7b6d86d8dc613";
+createNode multiplyDivide -n "rightFinger2_multiplyDivide3";
+	rename -uid "D0112846-4016-95A0-C4F2-1BA0F6A164B8";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "5938af8eb6814c1ba6a7b6d86d8dc613";
+createNode multiplyDivide -n "rightFinger2_multiplyDivide4";
+	rename -uid "5E785B80-43EE-DC95-C7A4-4895EB2911DE";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide4";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "5938af8eb6814c1ba6a7b6d86d8dc613";
+createNode multiplyDivide -n "rightFinger2_multiplyDivide5";
+	rename -uid "440F9091-4052-CB74-1E8E-3E8DFEFF9ADD";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide5";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "5938af8eb6814c1ba6a7b6d86d8dc613";
+createNode multiplyDivide -n "rightFinger2_multiplyDivide6";
+	rename -uid "D3F919EC-4446-9236-C84D-1797CAF6CFDF";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide6";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "5938af8eb6814c1ba6a7b6d86d8dc613";
+createNode multiplyDivide -n "rightFinger2_multiplyDivide7";
+	rename -uid "38C3DF94-4254-1DF6-65BE-3EBD20FF9733";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i1" -type "float3" -1 1 1 ;
+	setAttr ".i2" -type "float3" 2 2 2 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide7";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "5938af8eb6814c1ba6a7b6d86d8dc613";
+createNode multiplyDivide -n "rightFinger2_multiplyDivide8";
+	rename -uid "FCE6C47D-4846-79F4-CCB4-D986DE3A0002";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide8";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "5938af8eb6814c1ba6a7b6d86d8dc613";
+createNode plusMinusAverage -n "rightFinger2_plusMinusAverage2";
+	rename -uid "85B74189-45CB-FC8C-DDED-CDABD8900301";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr -s 3 ".i1";
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "5938af8eb6814c1ba6a7b6d86d8dc613";
+createNode multiplyDivide -n "rightFinger2_multiplyDivide9";
+	rename -uid "7B336BD2-4A36-9F5D-3A9D-92BA0E2F0D5E";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr ".i2" -type "float3" 2 2 2 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide9";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "5938af8eb6814c1ba6a7b6d86d8dc613";
+createNode multiplyDivide -n "rightFinger2_multiplyDivide10";
+	rename -uid "25957568-42BC-3B13-DA03-01B9EB3CA72D";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide10";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "5938af8eb6814c1ba6a7b6d86d8dc613";
+createNode plusMinusAverage -n "rightFinger2_plusMinusAverage3";
+	rename -uid "7C73B109-4FB7-46A7-40AA-65B06B4DCAF7";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr -s 3 ".i1";
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "5938af8eb6814c1ba6a7b6d86d8dc613";
+createNode distanceBetween -n "rightFinger3_distanceBetween1";
+	rename -uid "B5D55D60-4648-69F0-2038-4A81D59221E6";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" -63.343540913094103 83.225300374407055 1.1966301146187588 ;
+	setAttr ".p2" -type "double3" -63.16441524049818 85.990355884113626 1.0785574316345863 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "0c5a699a7f65458e906f0fc1133bea8d";
+createNode distanceBetween -n "rightFinger3_distanceBetween2";
+	rename -uid "FAFF5733-42E0-EA41-1A94-A9B6901B4FFB";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" -63.16441524049818 85.990355884113626 1.0785574316345863 ;
+	setAttr ".p2" -type "double3" -62.84341561664214 88.209052760379677 0.90159930522750487 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "0c5a699a7f65458e906f0fc1133bea8d";
+createNode distanceBetween -n "rightFinger3_distanceBetween3";
+	rename -uid "539102FC-40FC-08C5-8BBA-F7A98A68D78B";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" -62.84341561664214 88.209052760379677 0.90159930522750487 ;
+	setAttr ".p2" -type "double3" -61.804411406861895 93.499307561421276 0.3527604703773316 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "0c5a699a7f65458e906f0fc1133bea8d";
+createNode distanceBetween -n "rightFinger3_distanceBetween4";
+	rename -uid "B1F5454C-43E3-C1B1-3A80-AE927F73D368";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" -61.804411406861895 93.499307561421276 0.3527604703773316 ;
+	setAttr ".p2" -type "double3" -55.971953038692661 99.388419642784541 -2.6107828293703648 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween4";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "0c5a699a7f65458e906f0fc1133bea8d";
+createNode plusMinusAverage -n "rightFinger3_plusMinusAverage1";
+	rename -uid "45547C57-45F7-8E24-612F-109F561AD9A4";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -s 4 ".i1";
+	setAttr -s 4 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "0c5a699a7f65458e906f0fc1133bea8d";
+createNode multiplyDivide -n "rightFinger3_multiplyDivide1";
+	rename -uid "82E57564-4EBC-549E-5F6F-3BB765665EAC";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i2" -type "float3" 9 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "0c5a699a7f65458e906f0fc1133bea8d";
+createNode multiplyDivide -n "rightFinger3_multiplyDivide2";
+	rename -uid "07AD0273-4038-E48B-D03E-179553770B69";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "0c5a699a7f65458e906f0fc1133bea8d";
+createNode multiplyDivide -n "rightFinger3_multiplyDivide3";
+	rename -uid "2FF57CC4-4257-EB93-0806-16B137A76D5D";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "0c5a699a7f65458e906f0fc1133bea8d";
+createNode multiplyDivide -n "rightFinger3_multiplyDivide4";
+	rename -uid "4F9EB521-46F8-9C15-FD12-A799C51DEDCE";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide4";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "0c5a699a7f65458e906f0fc1133bea8d";
+createNode multiplyDivide -n "rightFinger3_multiplyDivide5";
+	rename -uid "D97636B9-41CC-57C9-AF32-FE9B71CF24CF";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide5";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "0c5a699a7f65458e906f0fc1133bea8d";
+createNode multiplyDivide -n "rightFinger3_multiplyDivide6";
+	rename -uid "4D86C71C-4D51-02AF-E889-70A331ACD580";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide6";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "0c5a699a7f65458e906f0fc1133bea8d";
+createNode multiplyDivide -n "rightFinger3_multiplyDivide7";
+	rename -uid "1855062A-44DC-2C6C-1071-9B95A85C59EE";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i1" -type "float3" -1 1 1 ;
+	setAttr ".i2" -type "float3" 2 2 2 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide7";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "0c5a699a7f65458e906f0fc1133bea8d";
+createNode multiplyDivide -n "rightFinger3_multiplyDivide8";
+	rename -uid "B9D6323A-41D6-1AC6-4B84-F4B9E81063BB";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide8";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "0c5a699a7f65458e906f0fc1133bea8d";
+createNode plusMinusAverage -n "rightFinger3_plusMinusAverage2";
+	rename -uid "5AA74265-4792-87A8-431E-DCB3FCE6CC9A";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr -s 3 ".i1";
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "0c5a699a7f65458e906f0fc1133bea8d";
+createNode multiplyDivide -n "rightFinger3_multiplyDivide9";
+	rename -uid "9C5F51B2-4EA8-2E1A-2D76-62876A2C0CC8";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr ".i2" -type "float3" 2 2 2 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide9";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "0c5a699a7f65458e906f0fc1133bea8d";
+createNode multiplyDivide -n "rightFinger3_multiplyDivide10";
+	rename -uid "11D43EDA-4C79-43C7-4D5A-9A97A9496B86";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide10";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "0c5a699a7f65458e906f0fc1133bea8d";
+createNode plusMinusAverage -n "rightFinger3_plusMinusAverage3";
+	rename -uid "E8A0F11F-42FB-1797-610D-058CE00E7CFB";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr -s 3 ".i1";
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "0c5a699a7f65458e906f0fc1133bea8d";
+createNode distanceBetween -n "rightFinger4_distanceBetween1";
+	rename -uid "959DA6D9-4FEB-115C-61B4-5DB20ADFB53C";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" -62.354620930479406 84.226565571229415 4.713434784458169 ;
+	setAttr ".p2" -type "double3" -62.053687540786228 86.831796124910937 4.3369247376887419 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "787c17d7f5e14a978057ea740bb46bc5";
+createNode distanceBetween -n "rightFinger4_distanceBetween2";
+	rename -uid "2141F60C-4995-ECC8-6638-B39FF9C6974C";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" -62.053687540786228 86.831796124910937 4.3369247376887419 ;
+	setAttr ".p2" -type "double3" -61.623224634559527 89.128357373114497 3.8128640329854893 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "787c17d7f5e14a978057ea740bb46bc5";
+createNode distanceBetween -n "rightFinger4_distanceBetween3";
+	rename -uid "408D3586-4FD8-5D95-017B-E2931ED0EF26";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" -61.623224634559527 89.128357373114497 3.8128640329854893 ;
+	setAttr ".p2" -type "double3" -60.571300355059456 93.564615101696432 2.5989305406711649 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "787c17d7f5e14a978057ea740bb46bc5";
+createNode distanceBetween -n "rightFinger4_distanceBetween4";
+	rename -uid "0FF16635-4A6A-B772-2F56-3D95E8701D0B";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" -60.571300355059456 93.564615101696432 2.5989305406711649 ;
+	setAttr ".p2" -type "double3" -55.380853160494993 99.421527097650397 -1.5567539172913407 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween4";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "787c17d7f5e14a978057ea740bb46bc5";
+createNode plusMinusAverage -n "rightFinger4_plusMinusAverage1";
+	rename -uid "58A48738-4614-EF61-CEC4-12B1B433CB7F";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -s 4 ".i1";
+	setAttr -s 4 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "787c17d7f5e14a978057ea740bb46bc5";
+createNode multiplyDivide -n "rightFinger4_multiplyDivide1";
+	rename -uid "ACDA0F3A-4BEB-AB17-D599-15A518609E92";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i2" -type "float3" 9 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "787c17d7f5e14a978057ea740bb46bc5";
+createNode multiplyDivide -n "rightFinger4_multiplyDivide2";
+	rename -uid "B1403CDE-43E9-B1F0-A40F-4B8B524090C8";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "787c17d7f5e14a978057ea740bb46bc5";
+createNode multiplyDivide -n "rightFinger4_multiplyDivide3";
+	rename -uid "C840E509-4458-BFAE-24FB-49BF03566BDF";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "787c17d7f5e14a978057ea740bb46bc5";
+createNode multiplyDivide -n "rightFinger4_multiplyDivide4";
+	rename -uid "F0088FA2-43E0-9562-22D9-42944202E450";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide4";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "787c17d7f5e14a978057ea740bb46bc5";
+createNode multiplyDivide -n "rightFinger4_multiplyDivide5";
+	rename -uid "B5F4335A-4C6A-C2AD-00CF-9DBE5536B39D";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide5";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "787c17d7f5e14a978057ea740bb46bc5";
+createNode multiplyDivide -n "rightFinger4_multiplyDivide6";
+	rename -uid "75CAC0F8-4032-4EFB-66E9-33AFA03ACA65";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide6";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "787c17d7f5e14a978057ea740bb46bc5";
+createNode multiplyDivide -n "rightFinger4_multiplyDivide7";
+	rename -uid "02953CFC-4999-60C5-A78C-D394BF920B57";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i1" -type "float3" -1 1 1 ;
+	setAttr ".i2" -type "float3" 2 2 2 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide7";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "787c17d7f5e14a978057ea740bb46bc5";
+createNode multiplyDivide -n "rightFinger4_multiplyDivide8";
+	rename -uid "4F02F79F-4E21-B7F7-EDF7-1EB363817E88";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide8";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "787c17d7f5e14a978057ea740bb46bc5";
+createNode plusMinusAverage -n "rightFinger4_plusMinusAverage2";
+	rename -uid "3D217E71-430E-7793-F59E-2BA9A4372DC2";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr -s 3 ".i1";
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "787c17d7f5e14a978057ea740bb46bc5";
+createNode multiplyDivide -n "rightFinger4_multiplyDivide9";
+	rename -uid "3CB1947D-4FB2-A132-5FC2-2EAC9416223F";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr ".i2" -type "float3" 2 2 2 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide9";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "787c17d7f5e14a978057ea740bb46bc5";
+createNode multiplyDivide -n "rightFinger4_multiplyDivide10";
+	rename -uid "A5A6A7EC-4B86-BCAD-1741-8BA9ED4A6928";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide10";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "787c17d7f5e14a978057ea740bb46bc5";
+createNode plusMinusAverage -n "rightFinger4_plusMinusAverage3";
+	rename -uid "DB281EF8-45A0-F032-9FC9-19B5CD779D00";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr -s 3 ".i1";
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "787c17d7f5e14a978057ea740bb46bc5";
+createNode distanceBetween -n "rightThumb1_distanceBetween1";
+	rename -uid "908857A5-4B81-030F-5779-95BB57F2FCE2";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" -54.630792769487748 90.792477421792711 7.2060725793130658 ;
+	setAttr ".p2" -type "double3" -55.09957708157576 93.225369292920533 4.9108452631860438 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "1fb3403a7d78496280e42d9bb63155a9";
+createNode distanceBetween -n "rightThumb1_distanceBetween2";
+	rename -uid "1B408083-42E2-7D1E-15CD-0197101E0CB8";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" -55.09957708157576 93.225369292920533 4.9108452631860438 ;
+	setAttr ".p2" -type "double3" -55.223787235820332 95.904249042926864 3.4962552285703503 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "1fb3403a7d78496280e42d9bb63155a9";
+createNode distanceBetween -n "rightThumb1_distanceBetween3";
+	rename -uid "061C8A1A-49E8-4235-2366-BBB6C4F8A156";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".p1" -type "double3" -55.223787235820332 95.904249042926864 3.4962552285703503 ;
+	setAttr ".p2" -type "double3" -54.573817093964003 98.057269033127582 0.10008228038179467 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "distanceBetween3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "1fb3403a7d78496280e42d9bb63155a9";
+createNode multiplyDivide -n "rightThumb1_multiplyDivide1";
+	rename -uid "A68F1CFE-433D-025B-1825-E486162F878C";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i2" -type "float3" 7.3070002 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide1";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "1fb3403a7d78496280e42d9bb63155a9";
+createNode multiplyDivide -n "rightThumb1_multiplyDivide2";
+	rename -uid "BD00E044-4FED-3D98-A2BF-DEA2A20B4BFB";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "1fb3403a7d78496280e42d9bb63155a9";
+createNode plusMinusAverage -n "rightThumb1_plusMinusAverage2";
+	rename -uid "250E1ADE-4B28-7D2E-2629-61AC77C9C6B5";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -s 4 ".i1[3]"  15.87936306;
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage2";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "1fb3403a7d78496280e42d9bb63155a9";
+createNode plusMinusAverage -n "rightThumb1_plusMinusAverage3";
+	rename -uid "A6CBEB3B-4A43-AC03-BCA6-CAA122E718E1";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -s 3 ".i1";
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "1fb3403a7d78496280e42d9bb63155a9";
+createNode multiplyDivide -n "rightThumb1_multiplyDivide3";
+	rename -uid "307534BE-4A7F-4480-00A5-7EBE41FDB84E";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide3";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "1fb3403a7d78496280e42d9bb63155a9";
+createNode multiplyDivide -n "rightThumb1_multiplyDivide4";
+	rename -uid "B671F073-4CD1-E9C4-66C6-72A8873E8667";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide4";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "1fb3403a7d78496280e42d9bb63155a9";
+createNode multiplyDivide -n "rightThumb1_multiplyDivide5";
+	rename -uid "9CA8291E-4351-AA0C-1EF8-278653B46A5E";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".i2" -type "float3" 0.5 1 1 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide5";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "1fb3403a7d78496280e42d9bb63155a9";
+createNode multiplyDivide -n "rightThumb1_multiplyDivide6";
+	rename -uid "D6A72F78-4253-B863-642B-6B83E851D278";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 2;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide6";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "1fb3403a7d78496280e42d9bb63155a9";
+createNode plusMinusAverage -n "rightThumb1_plusMinusAverage4";
+	rename -uid "F08E3EF9-4F7C-74A2-119A-99A1940B4236";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr -s 3 ".i1";
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage4";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "1fb3403a7d78496280e42d9bb63155a9";
+createNode plusMinusAverage -n "rightThumb1_plusMinusAverage5";
+	rename -uid "301966C9-40E6-84E4-C125-829A68A10B06";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr -s 3 ".i1";
+	setAttr -s 3 ".i1";
+	setAttr -l on ".TSMGNodeId" -type "string" "plusMinusAverage5";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "1fb3403a7d78496280e42d9bb63155a9";
+createNode multiplyDivide -n "rightThumb1_multiplyDivide7";
+	rename -uid "9FA5C5DC-4A09-8150-7219-A5B6699FAAFD";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i1" -type "float3" 1 1 1 ;
+	setAttr ".i2" -type "float3" 2 2 2 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide7";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "1fb3403a7d78496280e42d9bb63155a9";
+createNode multiplyDivide -n "rightThumb1_multiplyDivide8";
+	rename -uid "CF5BEC8D-4E11-BD29-7C13-61B9144E2F02";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide8";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "1fb3403a7d78496280e42d9bb63155a9";
+createNode multiplyDivide -n "rightThumb1_multiplyDivide9";
+	rename -uid "0A147A3F-4152-F915-2BA2-3CB99D658318";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i1" -type "float3" -1 1 1 ;
+	setAttr ".i2" -type "float3" 2 2 2 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide9";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "1fb3403a7d78496280e42d9bb63155a9";
+createNode multiplyDivide -n "rightThumb1_multiplyDivide10";
+	rename -uid "34F20A35-4BAB-2FB0-DFD8-A8B907FD6B41";
+	addAttr -ci true -sn "TSMGNodeId" -ln "TSMGNodeId" -dt "string";
+	addAttr -ci true -sn "TSMGBodyPartId" -ln "TSMGBodyPartId" -dt "string";
+	setAttr ".op" 3;
+	setAttr ".i2" -type "float3" 0.5 0.5 0.5 ;
+	setAttr -l on ".TSMGNodeId" -type "string" "multiplyDivide10";
+	setAttr -l on ".TSMGBodyPartId" -type "string" "1fb3403a7d78496280e42d9bb63155a9";
+createNode skinCluster -n "TSMGSkinCluster1";
+	rename -uid "106DCAEC-4A26-2526-0D03-87B6EA9171C9";
+	setAttr -s 398 ".wl";
+	setAttr -s 4 ".wl[0].w";
+	setAttr ".wl[0].w[3]" 0.041600906996595043;
+	setAttr ".wl[0].w[7]" 0.003879147635579343;
+	setAttr ".wl[0].w[11]" 0.60779322611924391;
+	setAttr ".wl[0].w[15]" 0.34672671924858173;
+	setAttr -s 4 ".wl[1].w";
+	setAttr ".wl[1].w[7]" 0.1431254127089033;
+	setAttr ".wl[1].w[10]" 0.24409462154597342;
+	setAttr ".wl[1].w[11]" 0.4659636112441326;
+	setAttr ".wl[1].w[19]" 0.14681635450099062;
+	setAttr -s 3 ".wl[2].w";
+	setAttr ".wl[2].w[11]" 0.27179479759870362;
+	setAttr ".wl[2].w[14]" 0.37246286869049072;
+	setAttr ".wl[2].w[15]" 0.35574233371080566;
+	setAttr -s 3 ".wl[3].w";
+	setAttr ".wl[3].w[3]" 0.11182621615353107;
+	setAttr ".wl[3].w[7]" 0.010427426546812057;
+	setAttr ".wl[3].w[11]" 0.87774635729965689;
+	setAttr -s 4 ".wl[4].w";
+	setAttr ".wl[4].w[3]" 0.35176080774288088;
+	setAttr ".wl[4].w[7]" 0.34154573082923889;
+	setAttr ".wl[4].w[11]" 0.2051997604099223;
+	setAttr ".wl[4].w[19]" 0.10149370101795793;
+	setAttr -s 3 ".wl[5].w";
+	setAttr ".wl[5].w[3]" 0.20659876274415534;
+	setAttr ".wl[5].w[6]" 0.15885090102197069;
+	setAttr ".wl[5].w[7]" 0.63455033623387402;
+	setAttr -s 3 ".wl[6].w";
+	setAttr ".wl[6].w[2]" 0.14231268886680662;
+	setAttr ".wl[6].w[3]" 0.4954919835958097;
+	setAttr ".wl[6].w[19]" 0.3621953275373837;
+	setAttr -s 2 ".wl[7].w";
+	setAttr ".wl[7].w[3]" 0.80646117415431784;
+	setAttr ".wl[7].w[19]" 0.19353882584568216;
+	setAttr -s 2 ".wl[8].w";
+	setAttr ".wl[8].w[15]" 0.42202864868015783;
+	setAttr ".wl[8].w[17]" 0.57797135131984212;
+	setAttr -s 2 ".wl[9].w";
+	setAttr ".wl[9].w[11]" 0.33747778153855146;
+	setAttr ".wl[9].w[19]" 0.66252221846144854;
+	setAttr -s 3 ".wl[10].w";
+	setAttr ".wl[10].w[3]" 0.22379682958126068;
+	setAttr ".wl[10].w[11]" 0.21371177809965486;
+	setAttr ".wl[10].w[19]" 0.5624913923190844;
+	setAttr -s 2 ".wl[11].w";
+	setAttr ".wl[11].w[3]" 0.38988840579986572;
+	setAttr ".wl[11].w[19]" 0.61011159420013428;
+	setAttr -s 3 ".wl[12].w[16:18]"  0.017291912666441707 0.54293085285016873 
+		0.43977723448338957;
+	setAttr -s 4 ".wl[13].w";
+	setAttr ".wl[13].w[15]" 0.36121082468634436;
+	setAttr ".wl[13].w[17]" 0.47425244312315218;
+	setAttr ".wl[13].w[18]" 0.080251670268683198;
+	setAttr ".wl[13].w[19]" 0.084285061921820267;
+	setAttr -s 3 ".wl[14].w";
+	setAttr ".wl[14].w[14]" 0.38218006779852576;
+	setAttr ".wl[14].w[15]" 0.49725960919326762;
+	setAttr ".wl[14].w[19]" 0.12056032300820661;
+	setAttr -s 3 ".wl[15].w";
+	setAttr ".wl[15].w[14]" 0.47268551588058472;
+	setAttr ".wl[15].w[15]" 0.46715781706202741;
+	setAttr ".wl[15].w[19]" 0.060156667057387869;
+	setAttr ".wl[16].w[14]"  1;
+	setAttr ".wl[17].w[14]"  1;
+	setAttr -s 2 ".wl[18].w[13:14]"  0.050133664160966873 0.94986633583903313;
+	setAttr -s 3 ".wl[19].w";
+	setAttr ".wl[19].w[15]" 0.10592811167380872;
+	setAttr ".wl[19].w[17]" 0.79024837838913409;
+	setAttr ".wl[19].w[18]" 0.10382350993705726;
+	setAttr ".wl[20].w[17]"  1;
+	setAttr -s 3 ".wl[21].w";
+	setAttr ".wl[21].w[15]" 0.08611940378453857;
+	setAttr ".wl[21].w[17]" 0.66723430806822592;
+	setAttr ".wl[21].w[18]" 0.2466462881472356;
+	setAttr ".wl[22].w[17]"  1;
+	setAttr ".wl[23].w[17]"  1;
+	setAttr -s 4 ".wl[24].w[15:18]"  0.021850626619450864 0.052031069018801314 
+		0.86583599306276493 0.060282311298982788;
+	setAttr -s 4 ".wl[25].w";
+	setAttr ".wl[25].w[10]" 0.28006909728056406;
+	setAttr ".wl[25].w[11]" 0.072;
+	setAttr ".wl[25].w[14]" 0.54793030023574829;
+	setAttr ".wl[25].w[19]" 0.10000060248368769;
+	setAttr ".wl[26].w[14]"  1;
+	setAttr -s 2 ".wl[27].w[13:14]"  0.32473566702590673 0.67526433297409327;
+	setAttr -s 2 ".wl[28].w[13:14]"  0.26558858319931122 0.73441141680068878;
+	setAttr -s 2 ".wl[29].w[13:14]"  0.2350892379996502 0.7649107620003498;
+	setAttr -s 2 ".wl[30].w[13:14]"  0.26334235923561433 0.73665764076438567;
+	setAttr ".wl[31].w[13]"  1;
+	setAttr ".wl[32].w[13]"  1;
+	setAttr ".wl[33].w[13]"  1;
+	setAttr ".wl[34].w[13]"  1;
+	setAttr ".wl[35].w[13]"  1;
+	setAttr -s 2 ".wl[36].w[12:13]"  0.23685583472251892 0.76314416527748108;
+	setAttr -s 2 ".wl[37].w[12:13]"  0.24325945973396301 0.75674054026603699;
+	setAttr -s 2 ".wl[38].w[12:13]"  0.030325155705213547 0.96967484429478645;
+	setAttr -s 2 ".wl[39].w[12:13]"  0.19841887056827545 0.80158112943172455;
+	setAttr -s 2 ".wl[40].w[12:13]"  0.044912725687026978 0.95508727431297302;
+	setAttr -s 2 ".wl[41].w[12:13]"  0.45581323323452949 0.54418676676547051;
+	setAttr -s 2 ".wl[42].w[12:13]"  0.46476747150752123 0.53523252849247882;
+	setAttr -s 2 ".wl[43].w[12:13]"  0.38777244091033936 0.61222755908966064;
+	setAttr -s 2 ".wl[44].w[12:13]"  0.38150405193663944 0.61849594806336061;
+	setAttr -s 2 ".wl[45].w[12:13]"  0.35526019334793091 0.64473980665206909;
+	setAttr -s 2 ".wl[46].w[12:13]"  0.54116637247226884 0.4588336275277311;
+	setAttr -s 2 ".wl[47].w[12:13]"  0.65392151019253453 0.34607848980746547;
+	setAttr -s 2 ".wl[48].w[12:13]"  0.68232393264770508 0.31767606735229492;
+	setAttr -s 2 ".wl[49].w[12:13]"  0.64517603907101762 0.35482396092898244;
+	setAttr -s 2 ".wl[50].w[12:13]"  0.62159055471420288 0.37840944528579712;
+	setAttr ".wl[51].w[12]"  1;
+	setAttr ".wl[52].w[12]"  1;
+	setAttr ".wl[53].w[12]"  1;
+	setAttr ".wl[54].w[12]"  1;
+	setAttr ".wl[55].w[12]"  1;
+	setAttr ".wl[56].w[12]"  1;
+	setAttr ".wl[57].w[12]"  1;
+	setAttr ".wl[58].w[12]"  1;
+	setAttr -s 3 ".wl[59].w[16:18]"  0.065216822665148055 0.83111291109080376 
+		0.10367026624404817;
+	setAttr ".wl[60].w[17]"  1;
+	setAttr ".wl[61].w[17]"  1;
+	setAttr -s 2 ".wl[62].w[16:17]"  0.23842045664787292 0.76157954335212708;
+	setAttr -s 2 ".wl[63].w[16:17]"  0.061778999865055084 0.93822100013494492;
+	setAttr -s 2 ".wl[64].w[16:17]"  0.14481134712696075 0.85518865287303925;
+	setAttr -s 2 ".wl[65].w[16:17]"  0.2050689309835434 0.7949310690164566;
+	setAttr -s 2 ".wl[66].w[16:17]"  0.2229703813791275 0.7770296186208725;
+	setAttr -s 2 ".wl[67].w[16:17]"  0.21968916058540344 0.78031083941459656;
+	setAttr -s 3 ".wl[68].w";
+	setAttr ".wl[68].w[10]" 0.067137432701003308;
+	setAttr ".wl[68].w[14]" 0.7093882598531589;
+	setAttr ".wl[68].w[15]" 0.22347430744583785;
+	setAttr -s 2 ".wl[69].w[14:15]"  0.81797609988859787 0.18202390011140218;
+	setAttr -s 4 ".wl[70].w";
+	setAttr ".wl[70].w[10]" 0.24948202893637866;
+	setAttr ".wl[70].w[11]" 0.20683558197845189;
+	setAttr ".wl[70].w[14]" 0.42045357886095341;
+	setAttr ".wl[70].w[15]" 0.12322881022421607;
+	setAttr -s 4 ".wl[71].w";
+	setAttr ".wl[71].w[7]" 0.056535589702561888;
+	setAttr ".wl[71].w[10]" 0.49024993260241961;
+	setAttr ".wl[71].w[11]" 0.2871322245608206;
+	setAttr ".wl[71].w[19]" 0.16608225313419789;
+	setAttr -s 4 ".wl[72].w";
+	setAttr ".wl[72].w[6]" 0.17568529387858578;
+	setAttr ".wl[72].w[7]" 0.20901718816353806;
+	setAttr ".wl[72].w[10]" 0.21471590587159781;
+	setAttr ".wl[72].w[11]" 0.40058161208627835;
+	setAttr -s 4 ".wl[73].w";
+	setAttr ".wl[73].w[3]" 0.08249756832459279;
+	setAttr ".wl[73].w[6]" 0.40779936484792267;
+	setAttr ".wl[73].w[7]" 0.2513432706673861;
+	setAttr ".wl[73].w[11]" 0.25835979616009846;
+	setAttr -s 3 ".wl[74].w";
+	setAttr ".wl[74].w[2]" 0.15110494196414948;
+	setAttr ".wl[74].w[3]" 0.34847334723584239;
+	setAttr ".wl[74].w[7]" 0.50042171080000819;
+	setAttr -s 3 ".wl[75].w";
+	setAttr ".wl[75].w[2]" 0.19661235809326172;
+	setAttr ".wl[75].w[3]" 0.4525068116953555;
+	setAttr ".wl[75].w[7]" 0.35088083021138283;
+	setAttr -s 3 ".wl[76].w";
+	setAttr ".wl[76].w[2]" 0.13586936010045556;
+	setAttr ".wl[76].w[3]" 0.74315231125903847;
+	setAttr ".wl[76].w[19]" 0.12097832864050595;
+	setAttr -s 2 ".wl[77].w";
+	setAttr ".wl[77].w[3]" 0.92269949811631269;
+	setAttr ".wl[77].w[19]" 0.077300501883687381;
+	setAttr -s 3 ".wl[78].w";
+	setAttr ".wl[78].w[10]" 0.28063320661173347;
+	setAttr ".wl[78].w[14]" 0.64156974661778776;
+	setAttr ".wl[78].w[15]" 0.0777970467704788;
+	setAttr ".wl[79].w[12]"  1;
+	setAttr ".wl[80].w[12]"  1;
+	setAttr -s 3 ".wl[81].w";
+	setAttr ".wl[81].w[7]" 0.024662692645961656;
+	setAttr ".wl[81].w[10]" 0.0066211044492426501;
+	setAttr ".wl[81].w[15]" 0.96871620290479565;
+	setAttr ".wl[82].w[12]"  1;
+	setAttr ".wl[83].w[12]"  1;
+	setAttr ".wl[84].w[12]"  1;
+	setAttr ".wl[85].w[12]"  1;
+	setAttr ".wl[86].w[12]"  1;
+	setAttr -s 2 ".wl[87].w";
+	setAttr ".wl[87].w[11]" 0.41630526947310836;
+	setAttr ".wl[87].w[15]" 0.58369473052689158;
+	setAttr -s 2 ".wl[88].w";
+	setAttr ".wl[88].w[3]" 0.96284413584259931;
+	setAttr ".wl[88].w[19]" 0.03715586415740068;
+	setAttr -s 3 ".wl[89].w";
+	setAttr ".wl[89].w[2]" 0.035911755292022701;
+	setAttr ".wl[89].w[3]" 0.63773855150896341;
+	setAttr ".wl[89].w[19]" 0.32634969319901386;
+	setAttr -s 4 ".wl[90].w";
+	setAttr ".wl[90].w[3]" 0.26496539925194695;
+	setAttr ".wl[90].w[7]" 0.56309998035430908;
+	setAttr ".wl[90].w[11]" 0.15113009375882144;
+	setAttr ".wl[90].w[19]" 0.020804526634922528;
+	setAttr -s 2 ".wl[91].w";
+	setAttr ".wl[91].w[7]" 0.13698500394821167;
+	setAttr ".wl[91].w[11]" 0.86301499605178833;
+	setAttr -s 2 ".wl[92].w";
+	setAttr ".wl[92].w[3]" 0.98440463900342345;
+	setAttr ".wl[92].w[19]" 0.015595360996576546;
+	setAttr -s 2 ".wl[93].w[14:15]"  0.66624993085861206 0.33375006914138794;
+	setAttr -s 2 ".wl[94].w[6:7]"  0.6 0.4;
+	setAttr ".wl[95].w[14]"  1;
+	setAttr ".wl[96].w[14]"  1;
+	setAttr ".wl[97].w[14]"  1;
+	setAttr -s 2 ".wl[98].w";
+	setAttr ".wl[98].w[14]" 0.96176091955723619;
+	setAttr ".wl[98].w[19]" 0.038239080442763806;
+	setAttr ".wl[99].w[12]"  1;
+	setAttr ".wl[100].w[12]"  1;
+	setAttr -s 2 ".wl[101].w[12:13]"  0.68571054935455322 0.31428945064544678;
+	setAttr -s 2 ".wl[102].w[12:13]"  0.3719189465045929 0.6280810534954071;
+	setAttr -s 2 ".wl[103].w[12:13]"  0.051728487014770508 0.94827151298522949;
+	setAttr -s 2 ".wl[104].w";
+	setAttr ".wl[104].w[13]" 0.93909990175507052;
+	setAttr ".wl[104].w[19]" 0.060900098244929479;
+	setAttr -s 2 ".wl[105].w[13:14]"  0.39663059250914623 0.60336940749085377;
+	setAttr -s 2 ".wl[106].w[13:14]"  0.069804832339286804 0.9301951676607132;
+	setAttr ".wl[107].w[12]"  1;
+	setAttr -s 2 ".wl[108].w[13:14]"  0.063667178153991699 0.9363328218460083;
+	setAttr -s 2 ".wl[109].w[13:14]"  0.3759745152121442 0.6240254847878558;
+	setAttr ".wl[110].w[14]"  1;
+	setAttr ".wl[111].w[14]"  1;
+	setAttr -s 4 ".wl[112].w";
+	setAttr ".wl[112].w[9]" 0.011271934024989605;
+	setAttr ".wl[112].w[10]" 0.83504716616628083;
+	setAttr ".wl[112].w[11]" 0.048238194369332424;
+	setAttr ".wl[112].w[19]" 0.10544270543939716;
+	setAttr -s 3 ".wl[113].w";
+	setAttr ".wl[113].w[9]" 0.059442731623589339;
+	setAttr ".wl[113].w[10]" 0.92739736788074079;
+	setAttr ".wl[113].w[19]" 0.013159900495669841;
+	setAttr -s 2 ".wl[114].w[9:10]"  0.18870376362393548 0.81129623637606452;
+	setAttr -s 4 ".wl[115].w";
+	setAttr ".wl[115].w[9]" 0.0065067731775343418;
+	setAttr ".wl[115].w[10]" 0.83942191342389971;
+	setAttr ".wl[115].w[11]" 0.092225723123054909;
+	setAttr ".wl[115].w[19]" 0.061845590275511064;
+	setAttr -s 4 ".wl[116].w";
+	setAttr ".wl[116].w[9]" 0.0048707532696425915;
+	setAttr ".wl[116].w[10]" 0.94946893677274113;
+	setAttr ".wl[116].w[11]" 0.011443590536486267;
+	setAttr ".wl[116].w[19]" 0.034216719421130026;
+	setAttr -s 3 ".wl[117].w";
+	setAttr ".wl[117].w[9]" 0.057855748426424942;
+	setAttr ".wl[117].w[10]" 0.91770275127888223;
+	setAttr ".wl[117].w[19]" 0.024441500294692831;
+	setAttr -s 2 ".wl[118].w[9:10]"  0.080215922905544995 0.91978407709445498;
+	setAttr -s 4 ".wl[119].w";
+	setAttr ".wl[119].w[6]" 0.056295681234646872;
+	setAttr ".wl[119].w[9]" 0.015341986902058125;
+	setAttr ".wl[119].w[10]" 0.84761664534972814;
+	setAttr ".wl[119].w[11]" 0.080745686513566894;
+	setAttr -s 4 ".wl[120].w";
+	setAttr ".wl[120].w[6]" 0.17767635679223862;
+	setAttr ".wl[120].w[10]" 0.63049619594982909;
+	setAttr ".wl[120].w[11]" 0.12824798578511518;
+	setAttr ".wl[120].w[19]" 0.063579461472817123;
+	setAttr -s 4 ".wl[121].w";
+	setAttr ".wl[121].w[9]" 0.0013078415067866445;
+	setAttr ".wl[121].w[10]" 0.97334558965048956;
+	setAttr ".wl[121].w[11]" 0.013624922182348341;
+	setAttr ".wl[121].w[19]" 0.011721646660375451;
+	setAttr -s 2 ".wl[122].w";
+	setAttr ".wl[122].w[10]" 0.8797213525450629;
+	setAttr ".wl[122].w[19]" 0.1202786474549371;
+	setAttr -s 3 ".wl[123].w";
+	setAttr ".wl[123].w[9]" 0.50236863118144626;
+	setAttr ".wl[123].w[10]" 0.49401248342403886;
+	setAttr ".wl[123].w[19]" 0.0036188853945149368;
+	setAttr -s 3 ".wl[124].w";
+	setAttr ".wl[124].w[9]" 0.55114769523699381;
+	setAttr ".wl[124].w[10]" 0.44789292526396196;
+	setAttr ".wl[124].w[19]" 0.00095937949904423281;
+	setAttr -s 2 ".wl[125].w[9:10]"  0.51419359684335397 0.48580640315664603;
+	setAttr -s 3 ".wl[126].w";
+	setAttr ".wl[126].w[9]" 0.492514839235216;
+	setAttr ".wl[126].w[10]" 0.50723518795621669;
+	setAttr ".wl[126].w[19]" 0.00024997280856731141;
+	setAttr -s 2 ".wl[127].w[9:10]"  0.059631294082438606 0.94036870591756139;
+	setAttr -s 2 ".wl[128].w[9:10]"  0.89572035590690768 0.10427964409309239;
+	setAttr -s 2 ".wl[129].w[9:10]"  0.99873100603940645 0.0012689939605935476;
+	setAttr -s 2 ".wl[130].w[9:10]"  0.99992246385527694 7.7536144723048864e-005;
+	setAttr -s 2 ".wl[131].w[9:10]"  0.90417086903839095 0.095829130961609096;
+	setAttr -s 3 ".wl[132].w[8:10]"  0.2447995576346893 0.70272813755912078 
+		0.052472304806189973;
+	setAttr -s 3 ".wl[133].w[8:10]"  0.23310220699607165 0.73248702816729172 
+		0.034410764836636687;
+	setAttr -s 3 ".wl[134].w[8:10]"  0.2369662365510902 0.73426164514766756 
+		0.02877211830124227;
+	setAttr -s 3 ".wl[135].w[8:10]"  0.20629775554655758 0.74426690636887205 
+		0.049435338084570374;
+	setAttr -s 2 ".wl[136].w[9:10]"  0.9977412595578623 0.0022587404421377452;
+	setAttr -s 3 ".wl[137].w[8:10]"  0.2295681923484541 0.7403814379998479 
+		0.03005036965169796;
+	setAttr -s 3 ".wl[138].w[8:10]"  0.48767468871120428 0.47590266681925902 
+		0.036422644469536775;
+	setAttr -s 3 ".wl[139].w[8:10]"  0.48131753674902711 0.48421678634016668 
+		0.034465676910806167;
+	setAttr -s 3 ".wl[140].w[8:10]"  0.47477319915142546 0.49307711134806476 
+		0.03214968950050983;
+	setAttr -s 3 ".wl[141].w[8:10]"  0.46064281348441394 0.50863811610244725 
+		0.030719070413138792;
+	setAttr -s 3 ".wl[142].w[8:10]"  0.48368282442901278 0.47819871824444976 
+		0.038118457326537493;
+	setAttr -s 3 ".wl[143].w[8:10]"  0.73253433398967749 0.24512547263651491 
+		0.022340193373807694;
+	setAttr -s 3 ".wl[144].w[8:10]"  0.77254573596805021 0.20041252588002201 
+		0.027041738151927876;
+	setAttr -s 3 ".wl[145].w[8:10]"  0.73429757380780658 0.2399832906876796 
+		0.025719135504513935;
+	setAttr -s 3 ".wl[146].w[8:10]"  0.77318942562404513 0.19900455215991966 
+		0.027806022216035182;
+	setAttr -s 3 ".wl[147].w[8:10]"  0.72450052095112405 0.24940606979868157 
+		0.026093409250194426;
+	setAttr ".wl[148].w[8]"  1;
+	setAttr ".wl[149].w[8]"  1;
+	setAttr ".wl[150].w[8]"  1;
+	setAttr ".wl[151].w[8]"  1;
+	setAttr ".wl[152].w[8]"  1;
+	setAttr ".wl[153].w[8]"  1;
+	setAttr ".wl[154].w[8]"  1;
+	setAttr ".wl[155].w[8]"  1;
+	setAttr ".wl[156].w[8]"  1;
+	setAttr ".wl[157].w[8]"  1;
+	setAttr ".wl[158].w[8]"  1;
+	setAttr -s 3 ".wl[159].w[8:10]"  0.74551885702768483 0.22907711878750242 
+		0.025404024184812822;
+	setAttr -s 3 ".wl[160].w[8:10]"  0.48306676750659228 0.48541795405205623 
+		0.031515278441351595;
+	setAttr -s 3 ".wl[161].w[8:10]"  0.23740029910153415 0.73996609694619342 
+		0.022633603952272398;
+	setAttr -s 2 ".wl[162].w[9:10]"  0.9998033505852022 0.00019664941479777086;
+	setAttr -s 2 ".wl[163].w[9:10]"  0.55710680345016128 0.44289319654983872;
+	setAttr -s 2 ".wl[164].w[9:10]"  0.41569075106000708 0.58430924893999292;
+	setAttr -s 3 ".wl[165].w";
+	setAttr ".wl[165].w[9]" 0.16198116277707153;
+	setAttr ".wl[165].w[10]" 0.8288774874941387;
+	setAttr ".wl[165].w[19]" 0.0091413497287897716;
+	setAttr -s 4 ".wl[166].w";
+	setAttr ".wl[166].w[9]" 0.0012590405531227589;
+	setAttr ".wl[166].w[10]" 0.95943423289977647;
+	setAttr ".wl[166].w[11]" 0.02886600543501824;
+	setAttr ".wl[166].w[19]" 0.010440721112082496;
+	setAttr ".wl[167].w[8]"  1;
+	setAttr ".wl[168].w[8]"  1;
+	setAttr ".wl[169].w[8]"  1;
+	setAttr ".wl[170].w[8]"  1;
+	setAttr ".wl[171].w[8]"  1;
+	setAttr ".wl[172].w[8]"  1;
+	setAttr ".wl[173].w[8]"  1;
+	setAttr -s 3 ".wl[174].w";
+	setAttr ".wl[174].w[10]" 0.68388360629096734;
+	setAttr ".wl[174].w[11]" 0.20167528593226627;
+	setAttr ".wl[174].w[19]" 0.11444110777676642;
+	setAttr -s 3 ".wl[175].w";
+	setAttr ".wl[175].w[10]" 0.74753933156344488;
+	setAttr ".wl[175].w[11]" 0.054104308775037899;
+	setAttr ".wl[175].w[19]" 0.19835635966151721;
+	setAttr -s 2 ".wl[176].w";
+	setAttr ".wl[176].w[10]" 0.6575382110704231;
+	setAttr ".wl[176].w[19]" 0.3424617889295769;
+	setAttr -s 2 ".wl[177].w[10:11]"  0.65 0.35;
+	setAttr -s 2 ".wl[178].w";
+	setAttr ".wl[178].w[6]" 0.91954777928451092;
+	setAttr ".wl[178].w[19]" 0.080452220715489076;
+	setAttr -s 3 ".wl[179].w";
+	setAttr ".wl[179].w[5]" 0.11134940282005172;
+	setAttr ".wl[179].w[6]" 0.88246044002090107;
+	setAttr ".wl[179].w[19]" 0.0061901571590472493;
+	setAttr -s 3 ".wl[180].w";
+	setAttr ".wl[180].w[5]" 0.067783883352283927;
+	setAttr ".wl[180].w[6]" 0.92874576965839539;
+	setAttr ".wl[180].w[19]" 0.003470346989320694;
+	setAttr -s 3 ".wl[181].w";
+	setAttr ".wl[181].w[6]" 0.89889636867389833;
+	setAttr ".wl[181].w[7]" 0.028493183726522448;
+	setAttr ".wl[181].w[19]" 0.072610447599579242;
+	setAttr ".wl[182].w[6]"  1;
+	setAttr -s 3 ".wl[183].w";
+	setAttr ".wl[183].w[5]" 0.13071940471394675;
+	setAttr ".wl[183].w[6]" 0.86108416482005701;
+	setAttr ".wl[183].w[19]" 0.0081964304659962739;
+	setAttr -s 2 ".wl[184].w[5:6]"  0.15516543084940521 0.84483456915059485;
+	setAttr -s 2 ".wl[185].w";
+	setAttr ".wl[185].w[6]" 0.94629667046255805;
+	setAttr ".wl[185].w[19]" 0.053703329537441946;
+	setAttr -s 3 ".wl[186].w";
+	setAttr ".wl[186].w[2]" 0.19611641764640808;
+	setAttr ".wl[186].w[6]" 0.59099042415618896;
+	setAttr ".wl[186].w[7]" 0.21289315819740295;
+	setAttr ".wl[187].w[6]"  1;
+	setAttr -s 3 ".wl[188].w";
+	setAttr ".wl[188].w[2]" 0.2096859395836882;
+	setAttr ".wl[188].w[6]" 0.72597257951937744;
+	setAttr ".wl[188].w[7]" 0.06434148089693438;
+	setAttr -s 3 ".wl[189].w";
+	setAttr ".wl[189].w[5]" 0.40326138115716786;
+	setAttr ".wl[189].w[6]" 0.59305387085279293;
+	setAttr ".wl[189].w[19]" 0.003684747990039261;
+	setAttr -s 3 ".wl[190].w";
+	setAttr ".wl[190].w[5]" 0.48790447934320857;
+	setAttr ".wl[190].w[6]" 0.50986051614432237;
+	setAttr ".wl[190].w[19]" 0.0022350045124690521;
+	setAttr -s 3 ".wl[191].w";
+	setAttr ".wl[191].w[5]" 0.31242231070021198;
+	setAttr ".wl[191].w[6]" 0.68430384819741352;
+	setAttr ".wl[191].w[19]" 0.0032738411023744973;
+	setAttr -s 2 ".wl[192].w[5:6]"  0.66964803171277931 0.33035196828722063;
+	setAttr -s 3 ".wl[193].w";
+	setAttr ".wl[193].w[5]" 0.165;
+	setAttr ".wl[193].w[6]" 0.83030842734551091;
+	setAttr ".wl[193].w[19]" 0.0046915726544890573;
+	setAttr -s 3 ".wl[194].w";
+	setAttr ".wl[194].w[5]" 0.78334702049902949;
+	setAttr ".wl[194].w[6]" 0.21540888057019594;
+	setAttr ".wl[194].w[19]" 0.0012440989307745953;
+	setAttr -s 3 ".wl[195].w";
+	setAttr ".wl[195].w[5]" 0.85239223468724579;
+	setAttr ".wl[195].w[6]" 0.1469242801737187;
+	setAttr ".wl[195].w[19]" 0.00068348513903548902;
+	setAttr -s 4 ".wl[196].w";
+	setAttr ".wl[196].w[4]" 0.016186158222452791;
+	setAttr ".wl[196].w[5]" 0.8979373574256897;
+	setAttr ".wl[196].w[6]" 0.085440656058592343;
+	setAttr ".wl[196].w[19]" 0.00043582829326516137;
+	setAttr -s 2 ".wl[197].w[5:6]"  0.89074048522305294 0.10925951477694711;
+	setAttr -s 2 ".wl[198].w[5:6]"  0.66772624796047308 0.33227375203952692;
+	setAttr -s 4 ".wl[199].w";
+	setAttr ".wl[199].w[4]" 0.22767186514042737;
+	setAttr ".wl[199].w[5]" 0.73309612274169922;
+	setAttr ".wl[199].w[6]" 0.03901482394769288;
+	setAttr ".wl[199].w[19]" 0.00021718817018057113;
+	setAttr -s 4 ".wl[200].w";
+	setAttr ".wl[200].w[4]" 0.2487407372247237;
+	setAttr ".wl[200].w[5]" 0.72909394176501163;
+	setAttr ".wl[200].w[6]" 0.022055229826463844;
+	setAttr ".wl[200].w[19]" 0.00011009118380089777;
+	setAttr -s 4 ".wl[201].w";
+	setAttr ".wl[201].w[4]" 0.016633797877868079;
+	setAttr ".wl[201].w[5]" 0.9777711033821106;
+	setAttr ".wl[201].w[6]" 0.0055657134256966627;
+	setAttr ".wl[201].w[19]" 2.9385314324614775e-005;
+	setAttr -s 3 ".wl[202].w[4:6]"  0.27659324013812969 0.70006636024089131 
+		0.023340399620979051;
+	setAttr -s 3 ".wl[203].w[4:6]"  0.012535063453776179 0.95831280946731567 
+		0.029152127078908147;
+	setAttr -s 3 ".wl[204].w[4:6]"  0.028599887443836319 0.96700179576873779 
+		0.004398316787425886;
+	setAttr -s 4 ".wl[205].w";
+	setAttr ".wl[205].w[4]" 0.44316685069602751;
+	setAttr ".wl[205].w[5]" 0.53387144440758794;
+	setAttr ".wl[205].w[6]" 0.022846258804989653;
+	setAttr ".wl[205].w[19]" 0.00011544609139491069;
+	setAttr -s 4 ".wl[206].w";
+	setAttr ".wl[206].w[4]" 0.47273816522857198;
+	setAttr ".wl[206].w[5]" 0.50960295087341334;
+	setAttr ".wl[206].w[6]" 0.017585679077089141;
+	setAttr ".wl[206].w[19]" 7.3204820925543146e-005;
+	setAttr -s 4 ".wl[207].w";
+	setAttr ".wl[207].w[4]" 0.21903659403324127;
+	setAttr ".wl[207].w[5]" 0.76510668981317509;
+	setAttr ".wl[207].w[6]" 0.015791420785393171;
+	setAttr ".wl[207].w[19]" 6.5295368190443348e-005;
+	setAttr -s 4 ".wl[208].w";
+	setAttr ".wl[208].w[4]" 0.43949587348361113;
+	setAttr ".wl[208].w[5]" 0.54414520631293228;
+	setAttr ".wl[208].w[6]" 0.016338305045529494;
+	setAttr ".wl[208].w[19]" 2.0615157927172945e-005;
+	setAttr -s 4 ".wl[209].w";
+	setAttr ".wl[209].w[4]" 0.21497330069541931;
+	setAttr ".wl[209].w[5]" 0.77181154334662216;
+	setAttr ".wl[209].w[6]" 0.01319699948818596;
+	setAttr ".wl[209].w[19]" 1.8156469772545591e-005;
+	setAttr -s 4 ".wl[210].w";
+	setAttr ".wl[210].w[4]" 0.63654554210170966;
+	setAttr ".wl[210].w[5]" 0.34976358098999349;
+	setAttr ".wl[210].w[6]" 0.013627539404960776;
+	setAttr ".wl[210].w[19]" 6.3337503336091672e-005;
+	setAttr -s 4 ".wl[211].w";
+	setAttr ".wl[211].w[4]" 0.64637139272925526;
+	setAttr ".wl[211].w[5]" 0.34135384207161606;
+	setAttr ".wl[211].w[6]" 0.012227186562352188;
+	setAttr ".wl[211].w[19]" 4.757863677640195e-005;
+	setAttr -s 4 ".wl[212].w";
+	setAttr ".wl[212].w[4]" 0.60978197130217882;
+	setAttr ".wl[212].w[5]" 0.37874523503204205;
+	setAttr ".wl[212].w[6]" 0.011425566379038715;
+	setAttr ".wl[212].w[19]" 4.7227286740447738e-005;
+	setAttr -s 4 ".wl[213].w";
+	setAttr ".wl[213].w[4]" 0.62861137087390195;
+	setAttr ".wl[213].w[5]" 0.36000588263828465;
+	setAttr ".wl[213].w[6]" 0.011362016045064465;
+	setAttr ".wl[213].w[19]" 2.0730442748861933e-005;
+	setAttr -s 4 ".wl[214].w";
+	setAttr ".wl[214].w[4]" 0.60276338489295866;
+	setAttr ".wl[214].w[5]" 0.38697326040561431;
+	setAttr ".wl[214].w[6]" 0.010248587276328455;
+	setAttr ".wl[214].w[19]" 1.4767425098538567e-005;
+	setAttr ".wl[215].w[4]"  1;
+	setAttr ".wl[216].w[4]"  1;
+	setAttr ".wl[217].w[4]"  1;
+	setAttr ".wl[218].w[4]"  1;
+	setAttr ".wl[219].w[4]"  1;
+	setAttr ".wl[220].w[4]"  1;
+	setAttr ".wl[221].w[4]"  1;
+	setAttr ".wl[222].w[4]"  1;
+	setAttr ".wl[223].w[4]"  1;
+	setAttr ".wl[224].w[4]"  1;
+	setAttr ".wl[225].w[4]"  1;
+	setAttr -s 4 ".wl[226].w";
+	setAttr ".wl[226].w[4]" 0.59434014962968851;
+	setAttr ".wl[226].w[5]" 0.39481438838642641;
+	setAttr ".wl[226].w[6]" 0.01081653277878933;
+	setAttr ".wl[226].w[19]" 2.892920509578456e-005;
+	setAttr -s 4 ".wl[227].w";
+	setAttr ".wl[227].w[4]" 0.21115224063396454;
+	setAttr ".wl[227].w[5]" 0.77382933757278838;
+	setAttr ".wl[227].w[6]" 0.014989110752217186;
+	setAttr ".wl[227].w[19]" 2.9311041029878027e-005;
+	setAttr -s 3 ".wl[228].w[4:6]"  0.061938310128338808 0.9227176308631897 
+		0.015344059008471493;
+	setAttr -s 3 ".wl[229].w[4:6]"  0.02130550425629427 0.9205814003944397 
+		0.058113095349266036;
+	setAttr -s 2 ".wl[230].w[5:6]"  0.6554299721008654 0.3445700278991346;
+	setAttr -s 3 ".wl[231].w";
+	setAttr ".wl[231].w[5]" 0.16138478520927235;
+	setAttr ".wl[231].w[6]" 0.83183251038719319;
+	setAttr ".wl[231].w[19]" 0.0067827044035344564;
+	setAttr ".wl[232].w[6]"  1;
+	setAttr ".wl[233].w[4]"  1;
+	setAttr ".wl[234].w[4]"  1;
+	setAttr ".wl[235].w[4]"  1;
+	setAttr ".wl[236].w[4]"  1;
+	setAttr ".wl[237].w[4]"  1;
+	setAttr ".wl[238].w[4]"  1;
+	setAttr ".wl[239].w[4]"  1;
+	setAttr -s 4 ".wl[240].w";
+	setAttr ".wl[240].w[2]" 0.050208633635243645;
+	setAttr ".wl[240].w[6]" 0.5;
+	setAttr ".wl[240].w[7]" 0.35578259978311261;
+	setAttr ".wl[240].w[19]" 0.094008766581643768;
+	setAttr -s 3 ".wl[241].w";
+	setAttr ".wl[241].w[6]" 0.68671626061355062;
+	setAttr ".wl[241].w[7]" 0.03230088637193318;
+	setAttr ".wl[241].w[19]" 0.2809828530145162;
+	setAttr -s 3 ".wl[242].w";
+	setAttr ".wl[242].w[6]" 0.65807655603344972;
+	setAttr ".wl[242].w[10]" 0.25543377570440151;
+	setAttr ".wl[242].w[19]" 0.086489668262148767;
+	setAttr -s 2 ".wl[243].w";
+	setAttr ".wl[243].w[2]" 0.87808665356591842;
+	setAttr ".wl[243].w[19]" 0.12191334643408164;
+	setAttr ".wl[244].w[2]"  1;
+	setAttr -s 2 ".wl[245].w";
+	setAttr ".wl[245].w[2]" 0.95765659615013887;
+	setAttr ".wl[245].w[19]" 0.042343403849861079;
+	setAttr -s 2 ".wl[246].w";
+	setAttr ".wl[246].w[2]" 0.92269201276630375;
+	setAttr ".wl[246].w[19]" 0.077307987233696251;
+	setAttr -s 2 ".wl[247].w";
+	setAttr ".wl[247].w[2]" 0.87787273137951405;
+	setAttr ".wl[247].w[19]" 0.12212726862048602;
+	setAttr ".wl[248].w[2]"  1;
+	setAttr ".wl[249].w[2]"  1;
+	setAttr -s 2 ".wl[250].w";
+	setAttr ".wl[250].w[2]" 0.95469790795691556;
+	setAttr ".wl[250].w[19]" 0.045302092043084434;
+	setAttr -s 3 ".wl[251].w";
+	setAttr ".wl[251].w[2]" 0.39399747632882975;
+	setAttr ".wl[251].w[3]" 0.49066629169939707;
+	setAttr ".wl[251].w[19]" 0.11533623197177323;
+	setAttr ".wl[252].w[2]"  1;
+	setAttr -s 3 ".wl[253].w";
+	setAttr ".wl[253].w[2]" 0.45628134744807308;
+	setAttr ".wl[253].w[3]" 0.46153181228021289;
+	setAttr ".wl[253].w[19]" 0.082186840271714079;
+	setAttr -s 3 ".wl[254].w";
+	setAttr ".wl[254].w[1]" 0.34560516412615905;
+	setAttr ".wl[254].w[2]" 0.63910936834218068;
+	setAttr ".wl[254].w[19]" 0.015285467531660268;
+	setAttr -s 3 ".wl[255].w";
+	setAttr ".wl[255].w[1]" 0.30066160116315088;
+	setAttr ".wl[255].w[2]" 0.66786079433928358;
+	setAttr ".wl[255].w[19]" 0.031477604497565537;
+	setAttr -s 3 ".wl[256].w";
+	setAttr ".wl[256].w[1]" 0.41612081966753872;
+	setAttr ".wl[256].w[2]" 0.57691119785807121;
+	setAttr ".wl[256].w[19]" 0.0069679824743900109;
+	setAttr -s 3 ".wl[257].w";
+	setAttr ".wl[257].w[1]" 0.29956500875533737;
+	setAttr ".wl[257].w[2]" 0.69294005402601466;
+	setAttr ".wl[257].w[19]" 0.0074949372186479965;
+	setAttr -s 3 ".wl[258].w";
+	setAttr ".wl[258].w[1]" 0.76125341653823853;
+	setAttr ".wl[258].w[2]" 0.23207673357083944;
+	setAttr ".wl[258].w[19]" 0.0066698498909220083;
+	setAttr -s 3 ".wl[259].w";
+	setAttr ".wl[259].w[1]" 0.62388718209037564;
+	setAttr ".wl[259].w[2]" 0.36198305476665116;
+	setAttr ".wl[259].w[19]" 0.014129763142973206;
+	setAttr -s 4 ".wl[260].w";
+	setAttr ".wl[260].w[0]" 0.011687020474852658;
+	setAttr ".wl[260].w[1]" 0.8446999788284304;
+	setAttr ".wl[260].w[2]" 0.14132131498715991;
+	setAttr ".wl[260].w[19]" 0.0022916857095569565;
+	setAttr -s 3 ".wl[261].w";
+	setAttr ".wl[261].w[1]" 0.61380912531363629;
+	setAttr ".wl[261].w[2]" 0.37649909241897628;
+	setAttr ".wl[261].w[19]" 0.0096917822673874277;
+	setAttr -s 4 ".wl[262].w";
+	setAttr ".wl[262].w[0]" 0.083968558799368237;
+	setAttr ".wl[262].w[1]" 0.83465242385864258;
+	setAttr ".wl[262].w[2]" 0.078905552975018389;
+	setAttr ".wl[262].w[19]" 0.0024734643669708234;
+	setAttr -s 4 ".wl[263].w";
+	setAttr ".wl[263].w[0]" 0.055520297587202533;
+	setAttr ".wl[263].w[1]" 0.89665901660919212;
+	setAttr ".wl[263].w[2]" 0.046129247376160733;
+	setAttr ".wl[263].w[19]" 0.0016914384274445693;
+	setAttr -s 4 ".wl[264].w";
+	setAttr ".wl[264].w[0]" 0.037964767324598588;
+	setAttr ".wl[264].w[1]" 0.92350000143051147;
+	setAttr ".wl[264].w[2]" 0.037616746647604414;
+	setAttr ".wl[264].w[19]" 0.00091848459728549603;
+	setAttr -s 4 ".wl[265].w";
+	setAttr ".wl[265].w[0]" 0.05448617618527464;
+	setAttr ".wl[265].w[1]" 0.89656507968902588;
+	setAttr ".wl[265].w[2]" 0.04753142745508198;
+	setAttr ".wl[265].w[19]" 0.0014173166706175078;
+	setAttr -s 4 ".wl[266].w";
+	setAttr ".wl[266].w[0]" 0.011672740974505845;
+	setAttr ".wl[266].w[1]" 0.84469997882843018;
+	setAttr ".wl[266].w[2]" 0.14139776446051652;
+	setAttr ".wl[266].w[19]" 0.0022295157365473939;
+	setAttr -s 4 ".wl[267].w";
+	setAttr ".wl[267].w[0]" 0.076296597962623697;
+	setAttr ".wl[267].w[1]" 0.8552282452583313;
+	setAttr ".wl[267].w[2]" 0.06684512422024308;
+	setAttr ".wl[267].w[19]" 0.0016300325588018971;
+	setAttr -s 3 ".wl[268].w";
+	setAttr ".wl[268].w[0]" 0.35366438220700203;
+	setAttr ".wl[268].w[1]" 0.64519782039771323;
+	setAttr ".wl[268].w[19]" 0.0011377973952847453;
+	setAttr -s 3 ".wl[269].w";
+	setAttr ".wl[269].w[0]" 0.47048637349724703;
+	setAttr ".wl[269].w[1]" 0.52817148022436555;
+	setAttr ".wl[269].w[19]" 0.0013421462783873572;
+	setAttr -s 3 ".wl[270].w";
+	setAttr ".wl[270].w[0]" 0.30099999904632568;
+	setAttr ".wl[270].w[1]" 0.69805698834272256;
+	setAttr ".wl[270].w[19]" 0.00094301261095175448;
+	setAttr -s 3 ".wl[271].w";
+	setAttr ".wl[271].w[0]" 0.42210466099987021;
+	setAttr ".wl[271].w[1]" 0.57660357131102835;
+	setAttr ".wl[271].w[19]" 0.0012917676891014418;
+	setAttr -s 3 ".wl[272].w";
+	setAttr ".wl[272].w[0]" 0.30081427097320557;
+	setAttr ".wl[272].w[1]" 0.69717769437522359;
+	setAttr ".wl[272].w[19]" 0.0020080346515708447;
+	setAttr -s 3 ".wl[273].w";
+	setAttr ".wl[273].w[0]" 0.68547861878786387;
+	setAttr ".wl[273].w[1]" 0.31370740414868936;
+	setAttr ".wl[273].w[19]" 0.00081397706344676912;
+	setAttr -s 3 ".wl[274].w";
+	setAttr ".wl[274].w[0]" 0.71677122401686444;
+	setAttr ".wl[274].w[1]" 0.28234823728874342;
+	setAttr ".wl[274].w[19]" 0.00088053869439219667;
+	setAttr -s 3 ".wl[275].w";
+	setAttr ".wl[275].w[0]" 0.67176449870982968;
+	setAttr ".wl[275].w[1]" 0.32744451131818197;
+	setAttr ".wl[275].w[19]" 0.00079098997198834287;
+	setAttr -s 3 ".wl[276].w";
+	setAttr ".wl[276].w[0]" 0.71147722837789429;
+	setAttr ".wl[276].w[1]" 0.28760088292062108;
+	setAttr ".wl[276].w[19]" 0.00092188870148457447;
+	setAttr -s 3 ".wl[277].w";
+	setAttr ".wl[277].w[0]" 0.70747791278148786;
+	setAttr ".wl[277].w[1]" 0.29149913518295062;
+	setAttr ".wl[277].w[19]" 0.0010229520355615751;
+	setAttr -s 2 ".wl[278].w";
+	setAttr ".wl[278].w[0]" 0.99973228406857528;
+	setAttr ".wl[278].w[19]" 0.00026771593142468274;
+	setAttr -s 2 ".wl[279].w";
+	setAttr ".wl[279].w[0]" 0.999736819512696;
+	setAttr ".wl[279].w[19]" 0.00026318048730400787;
+	setAttr -s 2 ".wl[280].w";
+	setAttr ".wl[280].w[0]" 0.99974114130425329;
+	setAttr ".wl[280].w[19]" 0.0002588586957466673;
+	setAttr -s 2 ".wl[281].w";
+	setAttr ".wl[281].w[0]" 0.99971126977357561;
+	setAttr ".wl[281].w[19]" 0.00028873022642439292;
+	setAttr -s 2 ".wl[282].w";
+	setAttr ".wl[282].w[0]" 0.99968641009179526;
+	setAttr ".wl[282].w[19]" 0.0003135899082047431;
+	setAttr ".wl[283].w[0]"  1;
+	setAttr ".wl[284].w[0]"  1;
+	setAttr ".wl[285].w[0]"  1;
+	setAttr ".wl[286].w[0]"  1;
+	setAttr ".wl[287].w[0]"  1;
+	setAttr -s 2 ".wl[288].w";
+	setAttr ".wl[288].w[0]" 0.99962691982089102;
+	setAttr ".wl[288].w[19]" 0.00037308017910898705;
+	setAttr -s 3 ".wl[289].w";
+	setAttr ".wl[289].w[0]" 0.69471522847865175;
+	setAttr ".wl[289].w[1]" 0.30430400275494424;
+	setAttr ".wl[289].w[19]" 0.00098076876640407207;
+	setAttr -s 3 ".wl[290].w";
+	setAttr ".wl[290].w[0]" 0.35920000076293945;
+	setAttr ".wl[290].w[1]" 0.63922303295276561;
+	setAttr ".wl[290].w[19]" 0.0015769662842949339;
+	setAttr -s 4 ".wl[291].w";
+	setAttr ".wl[291].w[0]" 0.085656248930367274;
+	setAttr ".wl[291].w[1]" 0.84469997882843018;
+	setAttr ".wl[291].w[2]" 0.068308751365637355;
+	setAttr ".wl[291].w[19]" 0.0013350208755651405;
+	setAttr -s 4 ".wl[292].w";
+	setAttr ".wl[292].w[0]" 0.019418921204359479;
+	setAttr ".wl[292].w[1]" 0.79610002040863037;
+	setAttr ".wl[292].w[2]" 0.18210497260125214;
+	setAttr ".wl[292].w[19]" 0.0023760857857579865;
+	setAttr -s 3 ".wl[293].w";
+	setAttr ".wl[293].w[1]" 0.4123735105568519;
+	setAttr ".wl[293].w[2]" 0.58264519581999397;
+	setAttr ".wl[293].w[19]" 0.0049812936231541372;
+	setAttr -s 3 ".wl[294].w";
+	setAttr ".wl[294].w[1]" 0.36696448922157288;
+	setAttr ".wl[294].w[2]" 0.62658075111590028;
+	setAttr ".wl[294].w[19]" 0.0064547596625268433;
+	setAttr ".wl[295].w[2]"  1;
+	setAttr ".wl[296].w[2]"  1;
+	setAttr -s 2 ".wl[297].w";
+	setAttr ".wl[297].w[2]" 0.90965491527819908;
+	setAttr ".wl[297].w[19]" 0.090345084721800917;
+	setAttr ".wl[298].w[0]"  1;
+	setAttr ".wl[299].w[0]"  1;
+	setAttr ".wl[300].w[0]"  1;
+	setAttr ".wl[301].w[0]"  1;
+	setAttr ".wl[302].w[0]"  1;
+	setAttr ".wl[303].w[0]"  1;
+	setAttr ".wl[304].w[0]"  1;
+	setAttr -s 3 ".wl[305].w";
+	setAttr ".wl[305].w[2]" 0.42675952503589953;
+	setAttr ".wl[305].w[3]" 0.38583640988080031;
+	setAttr ".wl[305].w[19]" 0.18740406508330021;
+	setAttr -s 4 ".wl[306].w";
+	setAttr ".wl[306].w[2]" 0.46756147626587585;
+	setAttr ".wl[306].w[3]" 0.22381371587345755;
+	setAttr ".wl[306].w[6]" 0.17741874465352447;
+	setAttr ".wl[306].w[7]" 0.13120606320714215;
+	setAttr -s 3 ".wl[307].w";
+	setAttr ".wl[307].w[2]" 0.56954323162389475;
+	setAttr ".wl[307].w[3]" 0.18017310992424496;
+	setAttr ".wl[307].w[6]" 0.25028365845186029;
+	setAttr -s 3 ".wl[308].w";
+	setAttr ".wl[308].w[2]" 0.41119835249792502;
+	setAttr ".wl[308].w[3]" 0.3122666894827118;
+	setAttr ".wl[308].w[19]" 0.27653495801936323;
+	setAttr -s 3 ".wl[309].w";
+	setAttr ".wl[309].w[3]" 0.35824601242856507;
+	setAttr ".wl[309].w[7]" 0.57645633926077355;
+	setAttr ".wl[309].w[11]" 0.065297648310661316;
+	setAttr -s 2 ".wl[310].w";
+	setAttr ".wl[310].w[3]" 0.82811072902787386;
+	setAttr ".wl[310].w[19]" 0.17188927097212614;
+	setAttr -s 2 ".wl[311].w";
+	setAttr ".wl[311].w[3]" 0.95079255666299411;
+	setAttr ".wl[311].w[19]" 0.04920744333700592;
+	setAttr -s 3 ".wl[312].w";
+	setAttr ".wl[312].w[3]" 0.2149486120771259;
+	setAttr ".wl[312].w[7]" 0.36105851825041096;
+	setAttr ".wl[312].w[11]" 0.42399286967246308;
+	setAttr -s 3 ".wl[313].w";
+	setAttr ".wl[313].w[3]" 0.77950768917599655;
+	setAttr ".wl[313].w[7]" 0.11181596915397789;
+	setAttr ".wl[313].w[19]" 0.10867634167002567;
+	setAttr -s 3 ".wl[314].w[16:18]"  0.0046023986477534227 0.49917030475733493 
+		0.4962272965949116;
+	setAttr -s 2 ".wl[315].w[18:19]"  0.68701744079589844 0.31298255920410156;
+	setAttr -s 2 ".wl[316].w[17:18]"  0.28209752383922021 0.71790247616077973;
+	setAttr -s 2 ".wl[317].w";
+	setAttr ".wl[317].w[3]" 0.93215890314119776;
+	setAttr ".wl[317].w[19]" 0.067841096858802227;
+	setAttr -s 3 ".wl[318].w";
+	setAttr ".wl[318].w[11]" 0.37471708297117456;
+	setAttr ".wl[318].w[18]" 0.19612114345105611;
+	setAttr ".wl[318].w[19]" 0.42916177357776947;
+	setAttr -s 4 ".wl[319].w";
+	setAttr ".wl[319].w[7]" 0.024237558571165625;
+	setAttr ".wl[319].w[11]" 0.15115866020487631;
+	setAttr ".wl[319].w[15]" 0.13349940441623842;
+	setAttr ".wl[319].w[18]" 0.69110437680771974;
+	setAttr -s 2 ".wl[320].w";
+	setAttr ".wl[320].w[3]" 0.37988014977220186;
+	setAttr ".wl[320].w[19]" 0.62011985022779814;
+	setAttr ".wl[321].w[19]"  1;
+	setAttr ".wl[322].w[19]"  1;
+	setAttr -s 2 ".wl[323].w";
+	setAttr ".wl[323].w[3]" 0.14725127845130889;
+	setAttr ".wl[323].w[19]" 0.85274872154869108;
+	setAttr ".wl[324].w[19]"  1;
+	setAttr ".wl[325].w[19]"  1;
+	setAttr ".wl[326].w[19]"  1;
+	setAttr ".wl[327].w[19]"  1;
+	setAttr ".wl[328].w[19]"  1;
+	setAttr ".wl[329].w[19]"  1;
+	setAttr ".wl[330].w[19]"  1;
+	setAttr ".wl[331].w[19]"  1;
+	setAttr ".wl[332].w[19]"  1;
+	setAttr ".wl[333].w[19]"  1;
+	setAttr -s 2 ".wl[334].w[18:19]"  0.64839917421340942 0.35160082578659058;
+	setAttr -s 3 ".wl[335].w";
+	setAttr ".wl[335].w[7]" 0.13721013069152832;
+	setAttr ".wl[335].w[11]" 0.64427365910993661;
+	setAttr ".wl[335].w[15]" 0.21851621019853507;
+	setAttr -s 4 ".wl[336].w";
+	setAttr ".wl[336].w[7]" 0.048247696950566431;
+	setAttr ".wl[336].w[11]" 0.22175811941682336;
+	setAttr ".wl[336].w[14]" 0.078352130949497223;
+	setAttr ".wl[336].w[15]" 0.65164205268311304;
+	setAttr -s 4 ".wl[337].w";
+	setAttr ".wl[337].w[7]" 0.059521883726119995;
+	setAttr ".wl[337].w[11]" 0.43547162073511991;
+	setAttr ".wl[337].w[18]" 0.14890597760677338;
+	setAttr ".wl[337].w[19]" 0.35610051793198677;
+	setAttr -s 3 ".wl[338].w";
+	setAttr ".wl[338].w[7]" 0.034227511569400133;
+	setAttr ".wl[338].w[15]" 0.72819074846147602;
+	setAttr ".wl[338].w[18]" 0.23758173996912393;
+	setAttr ".wl[339].w[19]"  1;
+	setAttr -s 3 ".wl[340].w";
+	setAttr ".wl[340].w[15]" 0.07675085807426249;
+	setAttr ".wl[340].w[18]" 0.36007939846808418;
+	setAttr ".wl[340].w[19]" 0.56316974345765336;
+	setAttr -s 2 ".wl[341].w[18:19]"  0.73297804594039917 0.26702195405960083;
+	setAttr -s 2 ".wl[342].w";
+	setAttr ".wl[342].w[15]" 0.84323167550394484;
+	setAttr ".wl[342].w[19]" 0.15676832449605518;
+	setAttr -s 2 ".wl[343].w[16:17]"  0.31777050493894227 0.68222949506105779;
+	setAttr -s 2 ".wl[344].w[16:17]"  0.28584754467010498 0.71415245532989502;
+	setAttr -s 2 ".wl[345].w[16:17]"  0.68569821119308472 0.31430178880691528;
+	setAttr -s 2 ".wl[346].w[16:17]"  0.24646289646625519 0.75353710353374481;
+	setAttr -s 2 ".wl[347].w[16:17]"  0.76092416101938121 0.23907583898061882;
+	setAttr -s 2 ".wl[348].w[16:17]"  0.66653610359299242 0.33346389640700758;
+	setAttr -s 2 ".wl[349].w[16:17]"  0.6648026450733453 0.33519735492665464;
+	setAttr ".wl[350].w[16]"  1;
+	setAttr -s 2 ".wl[351].w[16:17]"  0.76807227711148629 0.23192772288851371;
+	setAttr ".wl[352].w[16]"  1;
+	setAttr ".wl[353].w[16]"  1;
+	setAttr ".wl[354].w[16]"  1;
+	setAttr ".wl[355].w[16]"  1;
+	setAttr ".wl[356].w[16]"  1;
+	setAttr ".wl[357].w[16]"  1;
+	setAttr ".wl[358].w[16]"  1;
+	setAttr ".wl[359].w[16]"  1;
+	setAttr ".wl[360].w[16]"  1;
+	setAttr ".wl[361].w[16]"  1;
+	setAttr ".wl[362].w[16]"  1;
+	setAttr ".wl[363].w[16]"  1;
+	setAttr ".wl[364].w[16]"  1;
+	setAttr -s 2 ".wl[365].w[16:17]"  0.80505549907684326 0.19494450092315674;
+	setAttr ".wl[366].w[16]"  1;
+	setAttr ".wl[367].w[16]"  1;
+	setAttr ".wl[368].w[16]"  1;
+	setAttr ".wl[369].w[16]"  1;
+	setAttr ".wl[370].w[16]"  1;
+	setAttr ".wl[371].w[16]"  1;
+	setAttr ".wl[372].w[16]"  1;
+	setAttr ".wl[373].w[19]"  1;
+	setAttr -s 4 ".wl[374].w";
+	setAttr ".wl[374].w[3]" 0.029071272227520734;
+	setAttr ".wl[374].w[7]" 0.0027108004384111301;
+	setAttr ".wl[374].w[11]" 0.67407626213529526;
+	setAttr ".wl[374].w[15]" 0.29414166519877283;
+	setAttr ".wl[375].w[19]"  1;
+	setAttr -s 2 ".wl[376].w";
+	setAttr ".wl[376].w[3]" 0.17171597480773926;
+	setAttr ".wl[376].w[19]" 0.82828402519226074;
+	setAttr -s 2 ".wl[377].w";
+	setAttr ".wl[377].w[3]" 0.083831124007701874;
+	setAttr ".wl[377].w[19]" 0.91616887599229813;
+	setAttr ".wl[378].w[19]"  1;
+	setAttr -s 2 ".wl[379].w";
+	setAttr ".wl[379].w[3]" 0.73918549650664167;
+	setAttr ".wl[379].w[19]" 0.26081450349335839;
+	setAttr -s 2 ".wl[380].w";
+	setAttr ".wl[380].w[15]" 0.66648966073989868;
+	setAttr ".wl[380].w[19]" 0.33351033926010132;
+	setAttr -s 4 ".wl[381].w";
+	setAttr ".wl[381].w[11]" 0.043067043488046512;
+	setAttr ".wl[381].w[15]" 0.34076870703020085;
+	setAttr ".wl[381].w[17]" 0.29861377058046951;
+	setAttr ".wl[381].w[18]" 0.31755047890128302;
+	setAttr -s 2 ".wl[382].w[18:19]"  0.31069999933242798 0.68930000066757202;
+	setAttr -s 3 ".wl[383].w";
+	setAttr ".wl[383].w[3]" 0.088357493832836947;
+	setAttr ".wl[383].w[18]" 0.040919948369264603;
+	setAttr ".wl[383].w[19]" 0.87072255779789842;
+	setAttr -s 2 ".wl[384].w[18:19]"  0.23299998044967651 0.76700001955032349;
+	setAttr -s 3 ".wl[385].w";
+	setAttr ".wl[385].w[15]" 0.32666632604174528;
+	setAttr ".wl[385].w[18]" 0.45585432889630811;
+	setAttr ".wl[385].w[19]" 0.21747934506194661;
+	setAttr -s 2 ".wl[386].w";
+	setAttr ".wl[386].w[3]" 0.81196566718536556;
+	setAttr ".wl[386].w[19]" 0.18803433281463439;
+	setAttr -s 3 ".wl[387].w";
+	setAttr ".wl[387].w[3]" 0.23215036901792799;
+	setAttr ".wl[387].w[11]" 0.30230391025543213;
+	setAttr ".wl[387].w[19]" 0.46554572072663991;
+	setAttr -s 2 ".wl[388].w[18:19]"  0.40115410089492798 0.59884589910507202;
+	setAttr -s 2 ".wl[389].w[18:19]"  0.2653849720954895 0.7346150279045105;
+	setAttr -s 2 ".wl[390].w[18:19]"  0.63373970985412598 0.36626029014587402;
+	setAttr ".wl[391].w[19]"  1;
+	setAttr ".wl[392].w[19]"  1;
+	setAttr -s 2 ".wl[393].w";
+	setAttr ".wl[393].w[3]" 0.13260208517419331;
+	setAttr ".wl[393].w[19]" 0.86739791482580675;
+	setAttr -s 2 ".wl[394].w";
+	setAttr ".wl[394].w[3]" 0.68674237289816009;
+	setAttr ".wl[394].w[19]" 0.31325762710183991;
+	setAttr -s 2 ".wl[395].w";
+	setAttr ".wl[395].w[3]" 0.82428271440318734;
+	setAttr ".wl[395].w[19]" 0.17571728559681271;
+	setAttr ".wl[396].w[19]"  1;
+	setAttr ".wl[397].w[19]"  1;
+	setAttr -s 50 ".pm";
+	setAttr ".pm[0]" -type "matrix" 0.040124367710641713 0.99245005735461611 -0.1159004692511675 0
+		 -0.98561600015785489 0.020254098626553918 -0.16778221515302824 0 -0.16416800951663044 0.12096551221586029 0.97898733878722954 0
+		 83.640250724112178 -64.22371512477028 27.615147753137553 1;
+	setAttr ".pm[1]" -type "matrix" 0.22204403834005582 0.96833677968337739 -0.11410664375953886 0
+		 -0.96301821717371516 0.19948224693785921 -0.18111528524169929 0 -0.15261834237469279 0.15010234598116542 0.97681980288165271 0
+		 72.551046884804506 -78.367862053762764 28.667353581996316 1;
+	setAttr ".pm[2]" -type "matrix" 0.29110488917727784 0.95049723400569774 -0.10868740333913005 0
+		 -0.94280692148265988 0.26573797269611271 -0.20124223878636793 0 -0.1623978211106118 0.16105383576580232 0.9734929941625915 0
+		 69.221511928611321 -83.195461572964632 30.133866402484699 1;
+	setAttr ".pm[3]" -type "matrix" 0.69581968103496539 0.70508829133690942 -0.1366948166683597 0
+		 -0.71804087918089188 0.67872485639176428 -0.15410991253358988 0 -0.015882925093658459 0.20538517652346883 0.97855232969672712 0
+		 31.96244508994123 -106.30992815208089 27.495916813827304 1;
+	setAttr ".pm[4]" -type "matrix" -0.072899791098664263 0.98530943029206253 -0.15443751822436858 0
+		 -0.99719157234777933 -0.074674675852003145 -0.0057149650009120897 0 -0.017163580521980394 0.15358717187294424 0.98798602831200788 0
+		 90.871875515355597 -55.823413624985875 12.232816072097455 1;
+	setAttr ".pm[5]" -type "matrix" 0.09086919983220608 0.98381392138507007 -0.15444402419901393 0
+		 -0.99582059905807152 0.091194301713086526 -0.0049933782838786122 0 0.0091718598701663687 0.15425228498791693 0.98798892178127595 0
+		 82.725284340901311 -70.077774111420212 12.170804734366856 1;
+	setAttr ".pm[6]" -type "matrix" 0.20078632650249861 0.96737262524146983 -0.15451554945395946 0
+		 -0.97926476196497192 0.2025344286688972 -0.004509010695300384 0 0.026932825015563735 0.15221698044958828 0.98798006751122802 0
+		 79.151480229466117 -78.931414083609454 12.132288375882995 1;
+	setAttr ".pm[7]" -type "matrix" 0.7114982111128052 0.67589622367292146 -0.19218374126851151 0
+		 -0.67819552228703639 0.73209569982603118 0.06392745768484652 0 0.18390521779735403 0.084853881000917009 0.97927457321529088 0
+		 27.898580297288806 -110.44414507296706 8.0598228551079316 1;
+	setAttr ".pm[8]" -type "matrix" 0.06458782239813686 0.90576446600610816 -0.41883068812890989 0
+		 -0.99700345346248986 0.076476286647397237 0.011640075794171161 0 0.042573782798051241 0.4168238353324995 0.90798973745134881 0
+		 81.607111477664716 -64.237874391683405 24.474942161203138 1;
+	setAttr ".pm[9]" -type "matrix" 0.14274447314621655 0.89676594905713447 -0.41884943356517251 0
+		 -0.98662644170507985 0.16256864956312989 0.01181942078078177 0 0.078691040878755392 0.41156076925634832 0.90797877359250023 0
+		 77.98788581045882 -71.066924737568243 24.460716091649857 1;
+	setAttr ".pm[10]" -type "matrix" 0.19172707698823888 0.88757525945685856 -0.41886857932964583 0
+		 -0.97620883532438363 0.21650390881132978 0.011931777069078428 0 0.10127703483098559 0.40661556324064302 0.90796847189004193 0
+		 79.389544459709782 -75.24246994557582 24.452017723129401 1;
+	setAttr ".pm[11]" -type "matrix" 0.6626005546691438 0.61438137118764091 -0.42836437257285642 0
+		 -0.66903673979329303 0.74261475805561361 0.030218569204451845 0 0.33667543088099622 0.26656866255356565 0.90310066016225399 0
+		 30.286443555678204 -107.49947957547542 23.330814404745041 1;
+	setAttr ".pm[12]" -type "matrix" 0.11358365382143033 0.73089036477180036 -0.67297698940477757 0
+		 -0.98331263817580838 0.17958491417590708 0.029077726942864042 0 0.14210914533662181 0.6584440244122326 0.73909164352434542 0
+		 77.71820129329204 -63.80374515480927 36.030447732764692 1;
+	setAttr ".pm[13]" -type "matrix" 0.17976366307237923 0.71570416126997194 -0.67487226864025607 0
+		 -0.95905653303776772 0.28013880306797739 0.041627124008484499 0 0.21885061543522516 0.63975761391052388 0.73675952899649444 0
+		 73.567069186780117 -71.51161845165575 35.068484315940083 1;
+	setAttr ".pm[14]" -type "matrix" 0.22295459038322898 0.70345615018213048 -0.67486346426368526 0
+		 -0.94026161767127459 0.33790343024742853 0.041585600407100104 0 0.25729232588875306 0.62527651211120761 0.73676993861096063 0
+		 73.801882009036817 -75.850108375629361 35.071603001803901 1;
+	setAttr ".pm[15]" -type "matrix" 0.58577600128562557 0.4953248744262273 -0.64149804761391505 0
+		 -0.66099092433972895 0.74999459856642692 -0.0244765206206859 0 0.46899624119851263 0.43836214582902389 0.76673408352951178 0
+		 34.006064119082893 -101.31470045409142 39.153818523851541 1;
+	setAttr ".pm[16]" -type "matrix" -0.13880060082335163 -0.014926847909010783 -0.99020784809179219 0
+		 -0.72034589200883292 0.68767156671052787 0.090606910353939113 0 0.6795853066959846 0.72586844920370341 -0.10620172020045315 0
+		 71.4650279208782 -66.850600387350894 46.634711189067048 1;
+	setAttr ".pm[17]" -type "matrix" -0.040966708632082342 -0.039546244645317231 -0.99837759556107153 0
+		 -0.88354198452104948 0.46801676922561353 0.017716244303577839 0 0.46655684581030354 0.88283429830182258 -0.054113874094072534 0
+		 85.366565513048982 -45.787517423209572 53.624324727718403 1;
+	setAttr ".pm[18]" -type "matrix" 0.15956760670747769 -0.070480060376859124 -0.98466783230636801 0
+		 -0.52856619851566267 0.83632674862637013 -0.14551750176093978 0 0.83376012897976148 0.5436820124128795 0.096197280119205558 0
+		 43.038099932092685 -78.215964001483428 67.996503354637966 1;
+	setAttr ".pm[19]" -type "matrix" 0.43120554026209318 0.89382755392781188 -0.12302067259895993 0
+		 -0.85953178967411881 0.44841086498815369 0.24521989866277552 0 0.27434810840769863 1.3877787807814454e-017 0.96163044638422157 0
+		 64.856753257117475 -94.29651480938945 -14.596545876671652 1;
+	setAttr ".pm[20]" -type "matrix" 0.43120554026209318 0.89382755392781188 -0.12302067259895993 0
+		 -0.85953178967411881 0.44841086498815369 0.24521989866277552 0 0.27434810840769863 1.3877787807814454e-017 0.96163044638422157 0
+		 79.359958556494931 -94.29651480938945 -14.596545876671652 1;
+	setAttr ".pm[21]" -type "matrix" 0.43120554026209318 0.89382755392781188 -0.12302067259895993 0
+		 -0.85953178967411881 0.44841086498815369 0.24521989866277552 0 0.27434810840769863 1.3877787807814454e-017 0.96163044638422157 0
+		 93.863163855872372 -94.29651480938945 -14.596545876671648 1;
+	setAttr ".pm[22]" -type "matrix" 0.44670451003390083 0.89382755392781199 0.039081767549547473 0
+		 -0.89042623787153674 0.44841086498815375 -0.077902574222661211 0 -0.087156156554279635 0 0.99619466188827066 0
+		 106.88648800457572 -94.296514809389478 19.886000772903962 1;
+	setAttr ".pm[23]" -type "matrix" 0.44670451003390083 0.89382755392781199 0.039081767549547473 0
+		 -0.89042623787153674 0.44841086498815375 -0.077902574222661211 0 -0.087156156554279635 0 0.99619466188827066 0
+		 120.88648800457574 -94.296514809389478 19.886000772903962 1;
+	setAttr ".pm[24]" -type "matrix" 0.44841086498815363 0.89382755392781188 0 0 -0.89382755392781188 0.44841086498815363 0 0
+		 0 0 1 0 136.15966144118056 -94.296514809389464 9.2743261424491017 1;
+	setAttr ".pm[25]" -type "matrix" -0.040124367710653357 -0.99245005735461556 -0.11590046925116695 0
+		 -0.98561600015785455 0.020254098626565457 0.16778221515302866 0 -0.16416800951662938 0.12096551221586169 -0.97898733878722977 0
+		 83.640250724111411 -64.22371512477126 -27.61514775313756 1;
+	setAttr ".pm[26]" -type "matrix" -0.22204403834004946 -0.96833677968337883 -0.11410664375953833 0
+		 -0.96301821717371638 0.19948224693785288 0.18111528524169976 0 -0.15261834237469429 0.15010234598116395 -0.97681980288165315 0
+		 72.551046884805046 -78.367862053762295 -28.667353581996316 1;
+	setAttr ".pm[27]" -type "matrix" -0.29110488917727734 -0.95049723400569774 -0.10868740333912913 0
+		 -0.94280692148265954 0.2657379726961121 0.20124223878636976 0 -0.16239782111061388 0.1610538357658019 -0.97349299416259127 0
+		 69.221511928611307 -83.195461572964589 -30.133866402484806 1;
+	setAttr ".pm[28]" -type "matrix" -0.69581968103496494 -0.70508829133690987 -0.13669481666835948 0
+		 -0.71804087918089232 0.67872485639176383 0.15410991253359063 0 -0.015882925093659347 0.20538517652346916 -0.97855232969672734 0
+		 31.96244508994128 -106.30992815208087 -27.495916813827353 1;
+	setAttr ".pm[29]" -type "matrix" 0.072899791098670938 -0.98530943029206042 -0.15443751822437632 0
+		 -0.99719157234777855 -0.07467467585201 0.0057149650009119951 0 -0.017163580521981917 0.15358717187295173 -0.98798602831200699 0
+		 90.871875515355967 -55.823413624985179 -12.232816072097936 1;
+	setAttr ".pm[30]" -type "matrix" -0.090869199832209008 -0.98381392138506818 -0.15444402419902167 0
+		 -0.99582059905807097 0.091194301713089634 0.0049933782838785168 0 0.0091718598701676507 0.15425228498792448 -0.98798892178127506 0
+		 82.725284340901084 -70.077774111420354 -12.170804734367341 1;
+	setAttr ".pm[31]" -type "matrix" -0.20078632650249476 -0.96737262524146872 -0.15451554945396695 0
+		 -0.97926476196497214 0.20253442866889337 0.0045090106953018082 0 0.026932825015563277 0.15221698044959589 -0.98798006751122669 0
+		 79.151480229466387 -78.931414083609084 -12.132288375883588 1;
+	setAttr ".pm[32]" -type "matrix" -0.71149821111280509 -0.67589622367291935 -0.19218374126851651 0
+		 -0.67819552228703561 0.73209569982603162 -0.063927457684840885 0 0.18390521779735391 0.084853881000924281 -0.97927457321528999 0
+		 27.898580297288746 -110.44414507296693 -8.0598228551087612 1;
+	setAttr ".pm[33]" -type "matrix" -0.064587822398136568 -0.90576446600610805 -0.41883068812890983 0
+		 -0.99700345346248942 0.076476286647397237 -0.011640075794172193 0 0.042573782798052184 0.41682383533249928 -0.90798973745134859 0
+		 81.607111477664674 -64.237874391683391 -24.474942161203057 1;
+	setAttr ".pm[34]" -type "matrix" -0.14274447314621727 -0.89676594905713414 -0.41884943356517201 0
+		 -0.9866264417050794 0.1625686495631298 -0.011819420780780274 0 0.078691040878753948 0.41156076925634799 -0.90797877359250023 0
+		 77.987885810458735 -71.066924737568229 -24.46071609164996 1;
+	setAttr ".pm[35]" -type "matrix" -0.19172707698823899 -0.88757525945685845 -0.41886857932964572 0
+		 -0.97620883532438329 0.21650390881132972 -0.011931777069078475 0 0.10127703483098559 0.40661556324064285 -0.90796847189004193 0
+		 79.389544459709725 -75.242469945575792 -24.452017723129401 1;
+	setAttr ".pm[36]" -type "matrix" -0.6626005546691438 -0.61438137118764091 -0.42836437257285637 0
+		 -0.66903673979329281 0.74261475805561339 -0.030218569204451859 0 0.33667543088099611 0.26656866255356554 -0.90310066016225399 0
+		 30.286443555678183 -107.49947957547538 -23.330814404745023 1;
+	setAttr ".pm[37]" -type "matrix" -0.11358365382142949 -0.73089036477179958 -0.67297698940477846 0
+		 -0.98331263817580861 0.17958491417590691 -0.029077726942864555 0 0.14210914533662258 0.65844402441223382 -0.73909164352434431 0
+		 77.718201293292097 -63.803745154809263 -36.030447732764735 1;
+	setAttr ".pm[38]" -type "matrix" -0.17976366307238217 -0.7157041612699705 -0.6748722686402574 0
+		 -0.95905653303776672 0.28013880306798244 -0.041627124008484999 0 0.21885061543522949 0.63975761391052399 -0.73675952899649333 0
+		 73.567069186779833 -71.511618451656105 -35.068484315940111 1;
+	setAttr ".pm[39]" -type "matrix" -0.22295459038322787 -0.70345615018213004 -0.67486346426368626 0
+		 -0.94026161767127459 0.33790343024742825 -0.041585600407100611 0 0.25729232588875384 0.62527651211120849 -0.73676993861095941 0
+		 73.80188200903693 -75.850108375629347 -35.071603001803929 1;
+	setAttr ".pm[40]" -type "matrix" -0.58577600128562557 -0.49532487442622697 -0.64149804761391549 0
+		 -0.66099092433972906 0.74999459856642681 0.024476520620686705 0 0.46899624119851274 0.43836214582902455 -0.76673408352951133 0
+		 34.0060641190829 -101.31470045409137 -39.153818523851626 1;
+	setAttr ".pm[41]" -type "matrix" 0.13880060082335033 0.014926847909010093 -0.99020784809179219 0
+		 -0.72034589200883292 0.68767156671052776 -0.090606910353938697 0 0.67958530669598449 0.7258684492037033 0.10620172020045181 0
+		 71.465027920878128 -66.850600387350951 -46.634711189067104 1;
+	setAttr ".pm[42]" -type "matrix" 0.040966708632086929 0.039546244645317308 -0.99837759556107142 0
+		 -0.88354198452105104 0.46801676922561025 -0.017716244303582089 0 0.46655684581030016 0.88283429830182414 0.054113874094074775 0
+		 85.36656551304938 -45.787517423209273 -53.624324727718054 1;
+	setAttr ".pm[43]" -type "matrix" -0.15956760670747755 0.070480060376858181 -0.98466783230636823 0
+		 -0.52856619851566278 0.83632674862637002 0.14551750176093883 0 0.83376012897976126 0.5436820124128795 -0.096197280119205836 0
+		 43.038099932092685 -78.215964001483471 -67.996503354637909 1;
+	setAttr ".pm[44]" -type "matrix" 0.43120552950728208 0.89382755392781188 -0.12302071029614749 0
+		 0.85953176823630961 -0.44841086498815363 -0.24521997380543528 0 -0.27434819247610692 1.1102230246251563e-016 -0.9616304223999429 0
+		 -64.856751981046443 94.29651480938945 14.596554082450609 1;
+	setAttr ".pm[45]" -type "matrix" 0.43120552950728208 0.89382755392781188 -0.12302071029614749 0
+		 0.85953176823630961 -0.44841086498815363 -0.24521997380543528 0 -0.27434819247610692 1.1102230246251563e-016 -0.9616304223999429 0
+		 -79.359957280423913 94.296514809389478 14.596554082450613 1;
+	setAttr ".pm[46]" -type "matrix" 0.43120552950728208 0.89382755392781188 -0.12302071029614749 0
+		 0.85953176823630961 -0.44841086498815363 -0.24521997380543528 0 -0.27434819247610692 1.1102230246251563e-016 -0.9616304223999429 0
+		 -93.86316257980134 94.296514809389464 14.596554082450607 1;
+	setAttr ".pm[47]" -type "matrix" 0.44670451003390077 0.89382755392781199 0.039081767549546668 0
+		 0.89042623787153674 -0.44841086498815369 0.077902574222659338 0 0.087156156554277595 1.2490009027033009e-016 -0.99619466188827066 0
+		 -106.88648800457575 94.296514809389478 -19.886000772903703 1;
+	setAttr ".pm[48]" -type "matrix" 0.44670451003390077 0.89382755392781199 0.039081767549546668 0
+		 0.89042623787153674 -0.44841086498815369 0.077902574222659338 0 0.087156156554277595 1.2490009027033009e-016 -0.99619466188827066 0
+		 -120.88648800457577 94.296514809389478 -19.886000772903703 1;
+	setAttr ".pm[49]" -type "matrix" 0.44841086498815363 0.89382755392781188 1.0946230529074031e-016 0
+		 0.89382755392781188 -0.44841086498815363 -5.4914493051063839e-017 0 0 1.224646799147353e-016 -1 0
+		 -136.15966144118056 94.296514809389464 -9.274326142449091 1;
+	setAttr ".gm" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr -s 20 ".ma";
+	setAttr -s 50 ".dpf[0:49]"  4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+		4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4;
+	setAttr -s 20 ".lw";
+	setAttr -s 20 ".lw";
+	setAttr ".mmi" yes;
+	setAttr ".mi" 4;
+	setAttr ".bm" 2;
+	setAttr ".ucm" yes;
+	setAttr ".hmf" 0.2;
+	setAttr -s 20 ".ifcl";
+	setAttr -s 20 ".ifcl";
+createNode tweak -n "tweak1";
+	rename -uid "EC590015-451F-307F-5AB1-B4838B201A2C";
+createNode objectSet -n "TSMGSkinCluster1Set";
+	rename -uid "3494D09E-4420-8840-AB16-71B505F38711";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "TSMGSkinCluster1GroupId";
+	rename -uid "954C6892-47D1-B105-6EC5-2B93CF4089B1";
+	setAttr ".ihi" 0;
+createNode groupParts -n "TSMGSkinCluster1GroupParts";
+	rename -uid "81444E0D-4089-C2C7-5314-6E98490E47B6";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode objectSet -n "tweakSet1";
+	rename -uid "19319A9F-421D-40F1-B42A-4BA7B201DBE8";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "groupId2";
+	rename -uid "251E49D0-46C2-A0DC-8975-80B93673BF0D";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts2";
+	rename -uid "F9B9379B-4CC6-4368-DDE0-B5BBF26E437B";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode dagPose -n "bindPose1";
+	rename -uid "9513334B-4E6F-ADBD-6A23-AE9CEA1150D4";
+	setAttr -s 22 ".wm";
+	setAttr ".wm[0]" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".wm[1]" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr -s 53 ".xm";
+	setAttr ".xm[0]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+		 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[1]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+		 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[2]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+		 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[3]" -type "matrix" "xform" 1 1 1 0 0 0 0 23.229351612660363 163.98683890065604
+		 -9.2743261424491035 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 -0.52516146803237873 0.85100260428160668 1
+		 1 1 yes;
+	setAttr ".xm[4]" -type "matrix" "xform" 1 1 1 0 1.3877787807814454e-017 0 0 14.000000000000014
+		 -1.4210854715202004e-014 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0.043619594861308265 0 0.99904821252236642 1
+		 1 1 yes;
+	setAttr ".xm[5]" -type "matrix" "xform" 1 1 1 0 0 0 0 14.000000000000043 0 0 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[6]" -type "matrix" "xform" 1 1 1 0 0 0 0 13.999999999999986 2.8421709430404007e-014
+		 -3.5527136788005009e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 -0.18157644297864642 0 0.98337683283430177 1
+		 1 1 yes;
+	setAttr ".xm[7]" -type "matrix" "xform" 1 1 1 0 0 0 0 14.503205299377441 0 1.7763568394002505e-015 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[8]" -type "matrix" "xform" 1 1 1 0 0 0 0 14.503205299377441 0 -1.7763568394002505e-015 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[9]" -type "matrix" "xform" 1 1 1 2.2204460492503131e-016 0 0 0 2.5691200015619415
+		 0.73003842649873718 -1.5723727824080012 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.12068210877122612 0.15943724858946653 0.13471583899575082 0.97049844673158625 1
+		 1 1 yes;
+	setAttr ".xm[10]" -type "matrix" "xform" 1 1 1 1.6653345369377351e-016 -1.3891571655685913e-016
+		 -4.9644847357958621e-016 0 8.2279516415696037 -1.4210854715202004e-014 3.5527136788005009e-015 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -1.7347234759768071e-018 0.02752938546099238 -0.24122032616460337 0.97007983546777343 1
+		 1 1 yes;
+	setAttr ".xm[11]" -type "matrix" "xform" 1 1 1 0 0 0 0 2.9081751278405648 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 -0.0105537917590867 -0.034741926091690432 0.99934059061510427 1
+		 1 1 yes;
+	setAttr ".xm[12]" -type "matrix" "xform" 1 1 1 0 0 0 0 2.4109403353072594 0
+		 7.1054273576010019e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -1.0842021724855044e-019 -0.0068133468241715804 -0.091587573377910458 0.9957737166182884 1
+		 1 1 yes;
+	setAttr ".xm[13]" -type "matrix" "xform" 1 1 1 -5.5511151231257827e-016 0 0 0 2.8343255393561435
+		 0.57861225603225819 -0.69944429851040724 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.081782016754352635 0.052935341166178825 0.16463454853625112 0.98153197442542628 1
+		 1 1 yes;
+	setAttr ".xm[14]" -type "matrix" "xform" 1 1 1 -3.0814879110195757e-033 -2.7755575615628907e-017
+		 2.2204460492503126e-016 0 8.4191694326073474 -4.2632564145606011e-014 5.3290705182007514e-015 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 3.4694469519536142e-018 0.039300854029719667 -0.30410993889884658 0.95182592312642689 1
+		 1 1 yes;
+	setAttr ".xm[15]" -type "matrix" "xform" 1 1 1 0 0 0 0 4.8202281809334977 1.4210854715202004e-014
+		 3.5527136788005009e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -1.6940658945086007e-021 0.0002448500669073763 -0.056282951579455544 0.99841482832034778 1
+		 1 1 yes;
+	setAttr ".xm[16]" -type "matrix" "xform" 1 1 1 0 0 0 0 2.3227337272236923 0
+		 -1.7763568394002505e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 3.3881317890172014e-021 0.00036081092350067484 -0.082938526392797127 0.9965545999368367 1
+		 1 1 yes;
+	setAttr ".xm[17]" -type "matrix" "xform" 1 1 1 -2.55351295663786e-015 0 0 0 2.8483999675454541
+		 0.29960628557418545 0.37915674926832743 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.18870424028398777 -0.010593883295997121 0.15269887883926256 0.97003171687155987 1
+		 1 1 yes;
+	setAttr ".xm[18]" -type "matrix" "xform" 1 1 1 7.3725747729014302e-017 5.4436593292668669e-017
+		 9.2739053931522898e-019 0 8.8023747144032427 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+		 0 0 0 0 1 4.3368086899420177e-019 0.010586222732133336 -0.30456553509558965 0.95243255232074187 1
+		 1 1 yes;
+	setAttr ".xm[19]" -type "matrix" "xform" 1 1 1 0 0 0 0 5.4191834878074161 -1.4210854715202004e-014
+		 -7.1054273576010019e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 2.1175823681357508e-022 5.7220234381305526e-005 -0.027467872269421028 0.99962268517617969 1
+		 1 1 yes;
+	setAttr ".xm[20]" -type "matrix" "xform" 1 1 1 0 0 0 0 2.2487709455989346 2.8421709430404007e-014
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -8.4703294725430034e-022 9.0327490007039248e-005 -0.043360604597425523 0.99905948261847266 1
+		 1 1 yes;
+	setAttr ".xm[21]" -type "matrix" "xform" 1 1 1 -5.3290705182007514e-015 0 0 0 2.8542283535218829
+		 -0.21388933020831757 1.4735791538089771 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.30005408800493527 -0.069659378975160252 0.14299360292587043 0.940567884160734 1
+		 1 1 yes;
+	setAttr ".xm[22]" -type "matrix" "xform" 1 1 1 5.1000870193718129e-016 7.1499125528280094e-017
+		 9.0661351002944289e-017 0 8.8608054668897331 -2.8421709430404007e-014 1.4210854715202004e-014 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 -0.039922753047612267 -0.24903550915329684 0.96767116778886075 1
+		 1 1 yes;
+	setAttr ".xm[23]" -type "matrix" "xform" 1 1 1 0 0 0 0 4.7181099868450644 1.4210854715202004e-014
+		 -7.1054273576010019e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 -2.1852268715536185e-005 -0.030399293734028741 0.99953783443296973 1
+		 1 1 yes;
+	setAttr ".xm[24]" -type "matrix" "xform" 1 1 1 0 0 0 0 2.394604665200788 -1.4210854715202004e-014
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0.0064520967185492002 -0.051698373488815237 0.99864190209831749 1
+		 1 1 yes;
+	setAttr ".xm[25]" -type "matrix" "xform" 1 1 1 -1.2490009027033011e-016 2.7755575615628907e-017
+		 -1.1102230246251565e-016 0 4.1334029829920595 -1.5469885422669876 2.8315821815470379 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.56166904727807843 -0.30911067375301049 0.16887092979924459 0.74863948718354023 1
+		 1 1 yes;
+	setAttr ".xm[26]" -type "matrix" "xform" 1 1 1 0 0 0 0 4.0733213668352235 2.8421709430404007e-014
+		 2.8421709430404007e-014 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -6.9388939039072284e-018 -0.11116053317576714 -0.25081537777097823 0.96163141698765253 1
+		 1 1 yes;
+	setAttr ".xm[27]" -type "matrix" "xform" 1 1 1 0 0 0 0 3.0319778764769296 -3.5527136788005009e-014
+		 -7.1054273576010019e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 8.6736173798840355e-019 -0.044980378174763823 0.13554761390088341 0.98974926620080528 1
+		 1 1 yes;
+	setAttr ".xm[28]" -type "matrix" "xform" 1 1 1 0 0 0 0 -23.229351612660363 163.98683890065604
+		 -9.2743261424491035 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.85100260428160668 0.52516146803237873 3.215686554306888e-017 5.2108880769976563e-017 1
+		 1 1 yes;
+	setAttr ".xm[29]" -type "matrix" "xform" 1 1 1 0 2.0816681711721685e-016 0 0 -14.000000000000014
+		 1.4210854715202004e-014 -1.7763568394002505e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+		0 0.043619594861307245 0 0.99904821252236642 1 1 1 yes;
+	setAttr ".xm[30]" -type "matrix" "xform" 1 1 1 0 0 0 0 -14.000000000000014 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[31]" -type "matrix" "xform" 1 1 1 0 0 0 0 -13.999999999999972 -2.8421709430404007e-014
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 -0.18157648596341472 0 0.98337682489734213 1
+		 1 1 yes;
+	setAttr ".xm[32]" -type "matrix" "xform" 1 1 1 0 2.7755575615628914e-017 0 0 -14.503205299377441
+		 1.4210854715202004e-014 -3.5527136788005009e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+		0 0 0 1 1 1 1 yes;
+	setAttr ".xm[33]" -type "matrix" "xform" 1 1 1 0 3.1415925661670125 0 0 -14.503205299377441
+		 0 -5.3290705182007514e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 -0.999999999999999 0 4.3711390346371703e-008 1
+		 1 1 yes;
+	setAttr ".xm[34]" -type "matrix" "xform" 1 1 1 -5.5511151231257827e-016 0 0 0 -2.5691198641006281
+		 -0.73003842649873718 1.5723755428287767 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.15943729101130408 0.12068211465984288 -0.97049843976236128 0.13471583372056753 1
+		 1 1 yes;
+	setAttr ".xm[35]" -type "matrix" "xform" 1 1 1 2.2724877535296173e-016 1.5101147439445661e-017
+		 6.6045086609772446e-016 0 8.2279516415695895 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+		 0 0 0 0 1 0 -0.027529385460993011 -0.2412203261646034 0.97007983546777343 1 1 1 yes;
+	setAttr ".xm[36]" -type "matrix" "xform" 1 1 1 0 0 0 0 2.9081751278405648 0
+		 -1.0658141036401503e-014 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0.010553791759087444 -0.034741926091693409 0.99934059061510416 1
+		 1 1 yes;
+	setAttr ".xm[37]" -type "matrix" "xform" 1 1 1 0 0 0 0 2.4109403353072594 0
+		 7.1054273576010019e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0.0068133468241715883 -0.091587573377901368 0.99577371661828928 1
+		 1 1 yes;
+	setAttr ".xm[38]" -type "matrix" "xform" 1 1 1 -5.5511151231257827e-016 0 0 0 -2.8343254782086547
+		 -0.57861225603225819 0.69944708211620465 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.05293538407030754 0.081782023950761507 -0.98153197211154763 0.1646345449614452 1
+		 1 1 yes;
+	setAttr ".xm[39]" -type "matrix" "xform" 1 1 1 4.5102810375396972e-017 -3.6357896920586309e-017
+		 3.32385146246434e-016 0 8.4191694326073545 1.4210854715202004e-014 -1.7763568394002505e-015 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 -0.039300854029717232 -0.30410993889884885 0.95182592312642622 1
+		 1 1 yes;
+	setAttr ".xm[40]" -type "matrix" "xform" 1 1 1 0 0 0 0 4.8202281809334977 -2.8421709430404007e-014
+		 5.3290705182007514e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1.6940658945086007e-021 -0.00024485006690660858 -0.056282951579452081 0.99841482832034789 1
+		 1 1 yes;
+	setAttr ".xm[41]" -type "matrix" "xform" 1 1 1 0 0 0 0 2.3227337272237065 2.8421709430404007e-014
+		 -1.7763568394002505e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 -0.0003608109235006737 -0.082938526392802137 0.99655459993683626 1
+		 1 1 yes;
+	setAttr ".xm[42]" -type "matrix" "xform" 1 1 1 4.1078251911130792e-015 0 0 0 -2.8484000006922514
+		 -0.29960628557417124 -0.3791539644321027 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.010593840894561238 0.18870424695866805 -0.97003171733463223 0.15269887059073756 1
+		 1 1 yes;
+	setAttr ".xm[43]" -type "matrix" "xform" 1 1 1 -2.3765711620882262e-016 -1.5313035095611788e-016
+		 2.249553257266445e-016 0 8.8023747144032711 0 2.8421709430404007e-014 0 0 0 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -4.3368086899420177e-019 -0.010586222732133336 -0.30456553509558965 0.95243255232074187 1
+		 1 1 yes;
+	setAttr ".xm[44]" -type "matrix" "xform" 1 1 1 0 0 0 0 5.4191834878074019 0
+		 -3.5527136788005009e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 -5.7220234382095747e-005 -0.027467872269421028 0.99962268517617969 1
+		 1 1 yes;
+	setAttr ".xm[45]" -type "matrix" "xform" 1 1 1 0 0 0 0 2.2487709455989631 0
+		 3.5527136788005009e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 8.4703294725430034e-022 -9.0327490005757044e-005 -0.043360604597425516 0.99905948261847266 1
+		 1 1 yes;
+	setAttr ".xm[46]" -type "matrix" "xform" 1 1 1 2.7755575615628914e-015 0 0 0 -2.8542284823461301
+		 0.21388933020831757 -1.4735763684632133 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.069659337861629422 0.30005409425538482 -0.94056788720564144 0.14299358981008858 1
+		 1 1 yes;
+	setAttr ".xm[47]" -type "matrix" "xform" 1 1 1 3.8857805861880484e-016 -9.1417646221095404e-017
+		 1.8079997070286119e-016 0 8.8608054668897296 1.4210854715202004e-014 1.4210854715202004e-014 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 3.4694469519536142e-018 0.039922753047613044 -0.24903550915329684 0.96767116778886064 1
+		 1 1 yes;
+	setAttr ".xm[48]" -type "matrix" "xform" 1 1 1 0 0 0 0 4.7181099868450929 -4.2632564145606011e-014
+		 -7.1054273576010019e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 2.1852268715536347e-005 -0.030399293734026004 0.99953783443296973 1
+		 1 1 yes;
+	setAttr ".xm[49]" -type "matrix" "xform" 1 1 1 0 0 0 0 2.394604665200788 2.8421709430404007e-014
+		 2.8421709430404007e-014 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 -0.006452096718549202 -0.051698373488817922 0.99864190209831738 1
+		 1 1 yes;
+	setAttr ".xm[50]" -type "matrix" "xform" 1 1 1 -8.8817841970012504e-016 -9.8607613152626432e-032
+		 -2.2204460492503126e-016 0 -4.1334032305367145 1.5469885422669591 -2.8315792843722605 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.30911064102893693 -0.56166905465966099 0.74863950069519736 -0.16887090524790876 1
+		 1 1 yes;
+	setAttr ".xm[51]" -type "matrix" "xform" 1 1 1 0 0 0 0 4.0733213668352164 2.8421709430404007e-014
+		 1.4210854715202004e-014 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -6.9388939039072284e-018 0.11116053317576922 -0.25081537777097995 0.96163141698765198 1
+		 1 1 yes;
+	setAttr ".xm[52]" -type "matrix" "xform" 1 1 1 0 0 0 0 3.0319778764769296 -7.1054273576010019e-015
+		 -1.4210854715202004e-014 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1.7347234759768071e-018 0.044980378174760895 0.13554761390088524 0.98974926620080517 1
+		 1 1 yes;
+	setAttr -s 43 ".m";
+	setAttr -s 48 ".p";
+	setAttr -s 53 ".g[0:52]" yes yes yes yes yes yes yes yes no no no no 
+		no no no no no no no no no no no no no no no no yes yes yes yes yes yes yes yes yes 
+		no yes yes yes no yes yes yes no yes yes yes no yes yes no;
+	setAttr ".bp" yes;
+createNode script -n "MakeTSMGControlsMenu";
+	rename -uid "70265A7D-4DA5-9DB1-5E56-C3875D5F6F4B";
+	setAttr ".b" -type "string" (
+		"def TSMGCreateControlsMenu():\n    import pymel.core as pa\n    import maya.mel as mel\n\n    while(pa.menu('TSMGControlsMenu', exists=True)):\n        pa.deleteUI('TSMGControlsMenu')\n\n    fkikSwitchCode='''def TSMG_FKIKSwitch():\n    import pymel.core as pa\n    import maya.mel as mel\n    import re\n    from maya.OpenMaya import MGlobal\n    \n    def saferHasAttr(node, attr):\n        try:\n            return node.hasAttr(attr)\n        except KeyError:\n            return False\n    \n    def bodyPartTransforms(bodyPartId):\n        return [node for node in pa.ls(type='transform') if saferHasAttr(node, 'TSMGBodyPartId') and node.TSMGBodyPartId.get() == bodyPartId]\n    \n    def nodeWithFKIKTag(nodes, tag):\n        for node in nodes:\n            if node.hasAttr('IKFKTag') and node.IKFKTag.get() == tag:\n                return node\n        return None\n        \n    def nodeWithId(nodes, id):\n        for node in nodes:\n            if node.hasAttr('TSMGNodeId') and node.TSMGNodeId.get() == id:\n                return node\n        return None\n"
+		+ "       \n    def transferRotation(source, target):\n        target.setRotation(source.getRotation(space='world'), space='world')\n        \n    def transferPosition(source, target):\n        target.setTranslation(source.getTranslation(space='world'), space='world')\n    \n    def transferPositionAndRotation(source, target):\n        transferRotation(source, target)\n        transferPosition(source, target)\n\n    def armIKToFKTransfer(bodyPartId, bodyPartNodes):\n        outNodes=[nodeWithFKIKTag(bodyPartNodes, tag) for tag in ['upperArmOut', 'lowerArmOut', 'handOut']]\n        inFKNodes=[nodeWithFKIKTag(bodyPartNodes, tag) for tag in ['upperArmInFK', 'lowerArmInFK', 'handInFK']]\n\n        stretchNode=nodeWithId(bodyPartNodes, 'stretchValues')\n        inFKNodes[0].stretch.set(stretchNode.UpperArmStretch.get())\n        inFKNodes[1].stretch.set(stretchNode.LowerArmStretch.get())\n            \n        [transferRotation(source, target) for source, target in zip(outNodes, inFKNodes)] \n        \n    def armFKToIKTransfer(bodyPartId, bodyPartNodes):\n"
+		+ "        upperArmOut, handOut=[nodeWithFKIKTag(bodyPartNodes, tag) for tag in ['upperArmOut', 'handOut']]\n        upperArmInIK, handInIK=[nodeWithFKIKTag(bodyPartNodes, tag) for tag in ['upperArmInIK', 'handInIK']]\n    \n        stretchNode=nodeWithId(bodyPartNodes, 'stretchValues')\n        handInIK.UpperArmStretch.set(stretchNode.UpperArmStretch.get())\n        handInIK.LowerArmStretch.set(stretchNode.LowerArmStretch.get())\n\n        transferRotation(upperArmOut, upperArmInIK)\n        transferRotation(handOut, handInIK)\n        transferPosition(handOut, handInIK)\n        \n    def legIKToFKTransfer(bodyPartId, bodyPartNodes):\n        outNodes=[nodeWithFKIKTag(bodyPartNodes, tag) for tag in ['upperLegOut', 'lowerLegOut', 'footOut', 'toeOut']]\n        inFKNodes=[nodeWithFKIKTag(bodyPartNodes, tag) for tag in ['upperLegInFK', 'lowerLegInFK', 'footInFK', 'toeInFK']]\n\n        stretchNode=nodeWithId(bodyPartNodes, 'stretchValues')\n        inFKNodes[0].stretch.set(stretchNode.UpperLegStretch.get())\n        inFKNodes[1].stretch.set(stretchNode.LowerLegStretch.get())\n"
+		+ "        inFKNodes[2].stretch.set(stretchNode.FootStretch.get())\n            \n        [transferRotation(source, target) for source, target in zip(outNodes, inFKNodes)] \n    \n    def legFKToIKTransfer(bodyPartId, bodyPartNodes):\n        upperLegOut, footIKOut, toeIKOut=[nodeWithFKIKTag(bodyPartNodes, tag) for tag in ['upperLegOut', 'footIKOut', 'toeIKOut']]\n        upperLegInIK, footInIK, toeInIK=[nodeWithFKIKTag(bodyPartNodes, tag) for tag in ['upperLegInIK', 'footInIK', 'toeInIK']]\n\n        stretchNode=nodeWithId(bodyPartNodes, 'stretchValues')\n        footInIK.UpperLegStretch.set(stretchNode.UpperLegStretch.get())\n        footInIK.LowerLegStretch.set(stretchNode.LowerLegStretch.get())\n        footInIK.FootStretch.set(stretchNode.FootStretch.get())\n    \n        transferRotation(footIKOut, footInIK)\n        transferPosition(footIKOut, footInIK)\n        transferRotation(toeIKOut, toeInIK)\n        transferRotation(upperLegOut, upperLegInIK)\n        \n    def numberOfTailControls(bodyPartNodes):\n        return len([node for node in bodyPartNodes if re.match(r'TailFKControl\\d+$', node.TSMGNodeId.get())])\n"
+		+ "        \n    def tailIKToFKTransfer(bodyPartId, bodyPartNodes):\n        for suffix in range(1, numberOfTailControls(bodyPartNodes)+1):\n            source=nodeWithId(bodyPartNodes, 'TailIKControl' + str(suffix))\n            target=nodeWithId(bodyPartNodes, 'TailFKControl' + str(suffix))\n            \n            transferRotation(source, target)\n            transferPosition(source, target)\n            \n    def tailFKToIKTransfer(bodyPartId, bodyPartNodes):\n        for suffix in range(1, numberOfTailControls(bodyPartNodes)+1):\n            source=nodeWithId(bodyPartNodes, 'TailFKControl' + str(suffix))\n            target=nodeWithId(bodyPartNodes, 'TailIKControl' + str(suffix))\n            \n            transferRotation(source, target)\n            transferPosition(source, target)\n      \n    def spineIKToFKTransfer(bodyPartId, bodyPartNodes):\n        transferPositionAndRotation(nodeWithId(bodyPartNodes, 'hipsIKControl'),\n                                    nodeWithId(bodyPartNodes, 'lowerSpineControl'))\n        transferPositionAndRotation(nodeWithId(bodyPartNodes, 'middleSpineIKControl'),\n"
+		+ "                                    nodeWithId(bodyPartNodes, 'middleSpineControl'))\n        transferPositionAndRotation(nodeWithId(bodyPartNodes, 'torsoIKControl'),\n                                    nodeWithId(bodyPartNodes, 'torsoControl'))\n        nodeWithId(bodyPartNodes, 'hipsControl').t.set(0,0,0)\n        nodeWithId(bodyPartNodes, 'hipsControl').r.set(0,0,0)\n\n    def spineFKToIKTransfer(bodyPartId, bodyPartNodes):\n        transferPositionAndRotation(nodeWithId(bodyPartNodes, 'torsoControl'),\n                                    nodeWithId(bodyPartNodes, 'torsoIKControl'))\n        transferPositionAndRotation(nodeWithId(bodyPartNodes, 'hipsControl'),\n                                    nodeWithId(bodyPartNodes, 'hipsIKControl'))\n        transferPositionAndRotation(nodeWithId(bodyPartNodes, 'middleSpineControl'),\n                                    nodeWithId(bodyPartNodes, 'middleSpineIKControl'))\n\n    def bodyPartFKIKSwitch(bodyPartId):\n        bodyPartNodes=bodyPartTransforms(bodyPartId)\n        connectsToUpperBodyNode=nodeWithId(bodyPartNodes, 'AttributesConnectToUpperBody')\n"
+		+ "        bodyPartType=connectsToUpperBodyNode.bodyPartType.get()\n            \n        switchFunctions={'arm': {'FKtoIK': armFKToIKTransfer, 'IKtoFK': armIKToFKTransfer},\n                         'leg': {'FKtoIK': legFKToIKTransfer, 'IKtoFK': legIKToFKTransfer},\n                         'tail': {'FKtoIK': tailFKToIKTransfer, 'IKtoFK': tailIKToFKTransfer},\n                         'spine': {'FKtoIK': spineFKToIKTransfer, 'IKtoFK': spineIKToFKTransfer}}\n        \n        if bodyPartType not in switchFunctions:\n            MGlobal.displayWarning('Cannot switch body part of type \"' + bodyPartType + '\"')\n            return\n        \n        FKIKSwitchAttr=connectsToUpperBodyNode.FKIKSwitch.inputs(p=True)[0]\n        FKIKValue=FKIKSwitchAttr.get()\n        \n        if FKIKValue != 0.0 and FKIKValue != 1.0:\n            MGlobal.displayWarning('Cannot switch ' + FKIKSwitchAttr.name() + '. It must be either 0 or 1.')\n            return\n        \n        if FKIKValue == 0.0:\n            switchType='FKtoIK'\n        else:\n            switchType='IKtoFK'\n"
+		+ "            \n        switchFunctions[bodyPartType][switchType](bodyPartId, bodyPartNodes)\n        FKIKSwitchAttr.set(1.0-FKIKValue)\n    \n    def selectedBodyParts():\n        return set([node.TSMGBodyPartId.get() for node in pa.ls(sl=True, type='transform') if node.hasAttr('TSMGBodyPartId')])\n    \n    for bodyPartId in selectedBodyParts():\n        bodyPartFKIKSwitch(bodyPartId)\n\nTSMG_FKIKSwitch()\n'''\n    prepForExportCode='''def TSMG_prepForExport():\n    import pymel.core as pa\n    import maya.cmds as cmds\n    import maya.OpenMaya as om\n    import traceback\n    \n    def twoEquallySpacedButtons(label1, command1, label2, command2):\n        \"\"\" Given the labels for two buttons, and corresponding commands, creates a\n        form layout, and puts the buttons into it so that they stretch across it, \n        evenly distributed.\"\"\"\n        buttonFormLayout = pa.formLayout()\n        button1 = pa.button(label=label1, command=command1)\n        button2 = pa.button(label=label2, command=command2)\n    \n        buttonFormLayout.attachForm(button1, \"left\", 2)\n"
+		+ "        buttonFormLayout.attachForm(button1, \"top\", 2)\n        buttonFormLayout.attachForm(button1, \"bottom\", 2)\n        buttonFormLayout.attachPosition(button1, \"right\", 2, 50)\n        buttonFormLayout.attachForm(button2, \"right\", 2)\n        buttonFormLayout.attachForm(button2, \"top\", 2)\n        buttonFormLayout.attachForm(button2, \"bottom\", 2)\n        buttonFormLayout.attachPosition(button2, \"left\", 2, 50)\n    \n        pa.setParent('..')\n    \n    def isTSMGNode(node):\n        \"\"\" Safe function for determining if a node is a TSMG node. Handles degenerate nodes that can\n        cause PyMel to throw an exception.\"\"\"\n        try:\n            return node.hasAttr('TSMGNodeId')\n        except KeyError:\n            return False\n    \n    def allTSMGNodes():\n        \"\"\" Returns a list of all TSMGNodes in the scene\"\"\"\n        return [node for node in pa.ls() if isTSMGNode(node)]\n    \n    def allRootJoints():\n        \"\"\" Returns a list of all root joints in the scene\"\"\"\n        return [node for node in pa.ls(type='joint')\n"
+		+ "                if node.hasAttr('TSMGNodeId') and node.TSMGNodeId.get() == 'TSMGWorldJoint']\n    \n    def importAllTSMGReferences():\n        \"\"\" Imports all files from which TSMG root joints are referenced\"\"\"\n        for rootJoint in allRootJoints():\n            if rootJoint.isReferenced():\n                rootJoint.referenceFile().importContents()\n    \n    def allJointDescendentsOfJoint(joint):\n        \"\"\" Gets all descendents of a joint that are joints\"\"\"\n        return [node for node in joint.listRelatives(ad=True) if node.type()==u'joint']\n    \n    def allNonJointDescendentsOfJoint(joint):\n        \"\"\" Gets all descendents of a joint that are not joints\"\"\"\n        return [node for node in joint.listRelatives(ad=True) if node.type()!=u'joint']\n    \n    def allHierarchyJoints():\n        \"\"\" Gets all joints in the scene that are descendents of a root joint\"\"\"\n        result=[]\n    \n        for rootJoint in allRootJoints():\n            result=result+allJointDescendentsOfJoint(rootJoint)\n    \n        return result\n"
+		+ "    \n    def allHierarchyNonJoints():\n        \"\"\" Gets all nodes in the scene that are descendents of a root joint, but not joints\"\"\"\n        result=[]\n    \n        for rootJoint in allRootJoints():\n            result=result+allNonJointDescendentsOfJoint(rootJoint)\n    \n        return result\n    \n    def allHierarchyNodes():\n        \"\"\" Gets all nodes in the scene that are descendents of a root joint, but not joints\"\"\"\n        result=[]\n    \n        for rootJoint in allRootJoints():\n            result=result+rootJoint.listRelatives(ad=True)\n    \n        return result\n    \n    def cleanHierarchies():\n        \"\"\" Delete all nodes under a root joint that are not joints\"\"\"\n        pa.delete(allHierarchyNonJoints())\n    \n    def cleanScene():\n        \"\"\" Delete all TSMG nodes in scene that are not part of a TSMG joint hierarchy\"\"\"\n        hierarchyNodes=allHierarchyNodes()+allRootJoints()\n        toBeDeleted=[]\n    \n        for node in allTSMGNodes():\n            if node not in hierarchyNodes:\n                toBeDeleted.append(node)\n"
+		+ "                node.nodeState.set(2)\n    \n        pa.delete(toBeDeleted)\n    \n    def moveRootJointsToWorld():\n        for rootJoint in allRootJoints():\n            pa.parent(rootJoint, w=True)\n    \n    def bakeKeyframes(additionalNodes=[]):\n        \"\"\" Bakes the keyframes of all of our joints, and any additional nodes passed in.\"\"\"\n        # This function is documented in the manual, so its signature should not change.\n        startTime=pa.playbackOptions(ast=True, q=True)\n        endTime=pa.playbackOptions(aet=True, q=True)\n    \n        # The format of the time parameter to bakeResults changed between\n        # Maya 2011 and 2012, hence the following:\n        if pa.about(api=True) >= 201200:\n            timeParam = (startTime, endTime)\n        else:\n            timeParam = str(startTime) + \":\" + str(endTime)\n    \n        pa.bakeResults(allRootJoints()+allHierarchyJoints()+additionalNodes, simulation=True, \n                       sampleBy=1, time=timeParam,\n                       disableImplicitControl=True, preserveOutsideKeys=True, hierarchy=True,\n"
+		+ "                       sparseAnimCurveBake=False, removeBakedAttributeFromLayer=False, \n                       bakeOnOverrideLayer=False, controlPoints=False, shape=True)\n    \n    def wiggleRootJoints():\n        for rootJoint in allRootJoints():\n            rootJoint.translate.set(rootJoint.translate.get())\n    \n    def prepCharactersForExport(additionalNodes=[]):\n        \"\"\" This function prepares the entire scene for export. AdditionalNodes is an optional list of nodes\n        that are not our joints, but that should also have their keyframes baked.\"\"\"\n        # This function is documented in the manual,\n        # so its signature should not change in any\n        # way that would break it.\n        try:\n            importAllTSMGReferences()\n            bakeKeyframes(additionalNodes=additionalNodes)\n            moveRootJointsToWorld()\n            cleanHierarchies()\n            cleanScene()\n            # a bunch of hoodoo done to avoid evaluation errors. I think the\n            # important bit is setting the current time, but I'm leaving the\n"
+		+ "            # other stuff in just in case.\n            wiggleRootJoints()\n            pa.currentTime(pa.currentTime())\n            pa.refresh()\n            pa.select(None)\n        except:\n            raise\n        finally:\n            pa.select(None)\n    \n    def displayBakePrompt():\n        \"\"\" Prompts user to confirm baking, returns button user pressed in dialog \"\"\"\n        def promptDialogUI():\n            def bakeButton(ignored=True):\n                pa.layoutDialog(dismiss=\"Bake\")\n            def cancelButton(ignored=True):\n                pa.layoutDialog(dismiss=\"Cancel\")\n                \n            formLayout = pa.setParent(q=True)\n            pa.formLayout(formLayout, e=True, width=350)\n    \n            columnLayout = pa.columnLayout(adjustableColumn=True)\n            pa.text(label=\"Are you sure you want to bake?\", font=\"boldLabelFont\", align=\"center\")\n            pa.text(label=\"Warning: Baking is not undoable.  We strongly recommend that you save before you \" \\\n                          \"proceed, and use 'Save As' after baking to avoid overwriting this version of your file.\",\n"
+		+ "                    wordWrap=True,\n                    align='left')\n            \n            pa.separator(style='none', height=8)\n            twoEquallySpacedButtons(\"Bake\", bakeButton, \"Cancel\", cancelButton)\n            \n            pa.formLayout(formLayout, e=True, attachForm=[(columnLayout, \"left\", 8),\n                                                          (columnLayout, \"right\", 8),\n                                                          (columnLayout, \"top\", 8),\n                                                          (columnLayout, \"bottom\", 8)])\n            \n        dismissString = pa.layoutDialog(ui=promptDialogUI)\n    \n        return dismissString\n    \n    def shouldWeBake():\n        \"\"\" Displays a dialog making sure the user wants to bake. If baking should proceed, returns True \"\"\"\n        dismissString = displayBakePrompt()\n    \n        return (dismissString == \"Bake\")\n    \n    def closeBakingReassuranceProgressWindow():\n        \"\"\" Closes the 'Baking...' window \"\"\"\n        if pa.window(\"TSMGBakingReassuranceWindow\", exists=True):\n"
+		+ "            pa.deleteUI(\"TSMGBakingReassuranceWindow\")\n    \n    def showBakingReassuranceProgressWindow():\n        \"\"\" Displays a 'Baking...' window \"\"\"\n        closeBakingReassuranceProgressWindow()\n        \n        theWindow = pa.window('TSMGBakingReassuranceWindow', title='Baking...', sizeable=False)\n        pa.columnLayout(adjustableColumn=True, columnOffset=[\"both\", 8])\n        pa.separator(style='none', height=8)\n        pa.text(label='TSMG is baking your scene... Please stand by...')\n        pa.separator(style='none', height=8)\n        pa.showWindow(theWindow)\n        pa.refresh()\n    \n    def bakeAction(ignored=None):\n        \"\"\" Prepares the scene for export.\"\"\"\n        if not shouldWeBake():\n            return\n    \n        showBakingReassuranceProgressWindow()\n        try:\n            prepCharactersForExport()\n        except Exception as e:\n            traceback.print_exc()\n            om.MGlobal.displayError(\"An unexpected error occurred during scene baking. Your scene file is likely \" \\\n                                    \"in a bad state now, so we recommend you restore to a previous saved version. \" \\\n"
+		+ "                                    \"Printing details to the script editor.\")\n            return\n        finally:\n            closeBakingReassuranceProgressWindow()\n\n    bakeAction()\nTSMG_prepForExport()'''\n\n    mainWindow = mel.eval(\"$tempVar = $gMainWindow\")\n    pa.menu('TSMGControlsMenu', label='TSMG Controls', tearOff=True, parent=mainWindow)\n    pa.menuItem('TSMGControlsFKIKSwitchMenuItem', label='FK/IK Switch', command=fkikSwitchCode)\n    pa.menuItem('TSMGControlsBakeMenuItem', label='Bake Rig...', command=prepForExportCode)\n\nTSMGCreateControlsMenu()");
+	setAttr ".a" -type "string" "\ndef TSMGDeleteControlsMenu():\n    import pymel.core as pa\n    while(pa.menu('TSMGControlsMenu', exists=True)):\n        pa.deleteUI('TSMGControlsMenu')\nTSMGDeleteControlsMenu()";
+	setAttr ".st" 2;
+	setAttr ".stp" 1;
+createNode shapeEditorManager -n "shapeEditorManager";
+	rename -uid "C8A290C1-4F6B-C43A-958A-17B3D80D35C6";
+createNode poseInterpolatorManager -n "poseInterpolatorManager";
+	rename -uid "AA37964E-4A4A-9484-312A-3D855F10F7EB";
+createNode mentalrayItemsList -s -n "mentalrayItemsList";
+	rename -uid "99E5D7FD-402B-B56C-FD04-DB999A60FC8B";
+createNode mentalrayGlobals -s -n "mentalrayGlobals";
+	rename -uid "C7C49535-4E59-988B-61E6-148D774A7F87";
+createNode mentalrayOptions -s -n "miDefaultOptions";
+	rename -uid "CCCC1D0F-4FCD-ADBF-1057-019D45A3C419";
+	addAttr -ci true -m -sn "stringOptions" -ln "stringOptions" -at "compound" -nc 
+		3;
+	addAttr -ci true -sn "name" -ln "name" -dt "string" -p "stringOptions";
+	addAttr -ci true -sn "value" -ln "value" -dt "string" -p "stringOptions";
+	addAttr -ci true -sn "type" -ln "type" -dt "string" -p "stringOptions";
+	setAttr -s 81 ".stringOptions";
+	setAttr ".stringOptions[0].name" -type "string" "rast motion factor";
+	setAttr ".stringOptions[0].value" -type "string" "1.0";
+	setAttr ".stringOptions[0].type" -type "string" "scalar";
+	setAttr ".stringOptions[1].name" -type "string" "rast transparency depth";
+	setAttr ".stringOptions[1].value" -type "string" "8";
+	setAttr ".stringOptions[1].type" -type "string" "integer";
+	setAttr ".stringOptions[2].name" -type "string" "rast useopacity";
+	setAttr ".stringOptions[2].value" -type "string" "true";
+	setAttr ".stringOptions[2].type" -type "string" "boolean";
+	setAttr ".stringOptions[3].name" -type "string" "importon";
+	setAttr ".stringOptions[3].value" -type "string" "false";
+	setAttr ".stringOptions[3].type" -type "string" "boolean";
+	setAttr ".stringOptions[4].name" -type "string" "importon density";
+	setAttr ".stringOptions[4].value" -type "string" "1.0";
+	setAttr ".stringOptions[4].type" -type "string" "scalar";
+	setAttr ".stringOptions[5].name" -type "string" "importon merge";
+	setAttr ".stringOptions[5].value" -type "string" "0.0";
+	setAttr ".stringOptions[5].type" -type "string" "scalar";
+	setAttr ".stringOptions[6].name" -type "string" "importon trace depth";
+	setAttr ".stringOptions[6].value" -type "string" "0";
+	setAttr ".stringOptions[6].type" -type "string" "integer";
+	setAttr ".stringOptions[7].name" -type "string" "importon traverse";
+	setAttr ".stringOptions[7].value" -type "string" "true";
+	setAttr ".stringOptions[7].type" -type "string" "boolean";
+	setAttr ".stringOptions[8].name" -type "string" "shadowmap pixel samples";
+	setAttr ".stringOptions[8].value" -type "string" "3";
+	setAttr ".stringOptions[8].type" -type "string" "integer";
+	setAttr ".stringOptions[9].name" -type "string" "ambient occlusion";
+	setAttr ".stringOptions[9].value" -type "string" "false";
+	setAttr ".stringOptions[9].type" -type "string" "boolean";
+	setAttr ".stringOptions[10].name" -type "string" "ambient occlusion rays";
+	setAttr ".stringOptions[10].value" -type "string" "64";
+	setAttr ".stringOptions[10].type" -type "string" "integer";
+	setAttr ".stringOptions[11].name" -type "string" "ambient occlusion cache";
+	setAttr ".stringOptions[11].value" -type "string" "false";
+	setAttr ".stringOptions[11].type" -type "string" "boolean";
+	setAttr ".stringOptions[12].name" -type "string" "ambient occlusion cache density";
+	setAttr ".stringOptions[12].value" -type "string" "1.0";
+	setAttr ".stringOptions[12].type" -type "string" "scalar";
+	setAttr ".stringOptions[13].name" -type "string" "ambient occlusion cache points";
+	setAttr ".stringOptions[13].value" -type "string" "64";
+	setAttr ".stringOptions[13].type" -type "string" "integer";
+	setAttr ".stringOptions[14].name" -type "string" "irradiance particles";
+	setAttr ".stringOptions[14].value" -type "string" "false";
+	setAttr ".stringOptions[14].type" -type "string" "boolean";
+	setAttr ".stringOptions[15].name" -type "string" "irradiance particles rays";
+	setAttr ".stringOptions[15].value" -type "string" "256";
+	setAttr ".stringOptions[15].type" -type "string" "integer";
+	setAttr ".stringOptions[16].name" -type "string" "irradiance particles interpolate";
+	setAttr ".stringOptions[16].value" -type "string" "1";
+	setAttr ".stringOptions[16].type" -type "string" "integer";
+	setAttr ".stringOptions[17].name" -type "string" "irradiance particles interppoints";
+	setAttr ".stringOptions[17].value" -type "string" "64";
+	setAttr ".stringOptions[17].type" -type "string" "integer";
+	setAttr ".stringOptions[18].name" -type "string" "irradiance particles indirect passes";
+	setAttr ".stringOptions[18].value" -type "string" "0";
+	setAttr ".stringOptions[18].type" -type "string" "integer";
+	setAttr ".stringOptions[19].name" -type "string" "irradiance particles scale";
+	setAttr ".stringOptions[19].value" -type "string" "1.0";
+	setAttr ".stringOptions[19].type" -type "string" "scalar";
+	setAttr ".stringOptions[20].name" -type "string" "irradiance particles env";
+	setAttr ".stringOptions[20].value" -type "string" "true";
+	setAttr ".stringOptions[20].type" -type "string" "boolean";
+	setAttr ".stringOptions[21].name" -type "string" "irradiance particles env rays";
+	setAttr ".stringOptions[21].value" -type "string" "256";
+	setAttr ".stringOptions[21].type" -type "string" "integer";
+	setAttr ".stringOptions[22].name" -type "string" "irradiance particles env scale";
+	setAttr ".stringOptions[22].value" -type "string" "1";
+	setAttr ".stringOptions[22].type" -type "string" "integer";
+	setAttr ".stringOptions[23].name" -type "string" "irradiance particles rebuild";
+	setAttr ".stringOptions[23].value" -type "string" "true";
+	setAttr ".stringOptions[23].type" -type "string" "boolean";
+	setAttr ".stringOptions[24].name" -type "string" "irradiance particles file";
+	setAttr ".stringOptions[24].value" -type "string" "";
+	setAttr ".stringOptions[24].type" -type "string" "string";
+	setAttr ".stringOptions[25].name" -type "string" "geom displace motion factor";
+	setAttr ".stringOptions[25].value" -type "string" "1.0";
+	setAttr ".stringOptions[25].type" -type "string" "scalar";
+	setAttr ".stringOptions[26].name" -type "string" "contrast all buffers";
+	setAttr ".stringOptions[26].value" -type "string" "false";
+	setAttr ".stringOptions[26].type" -type "string" "boolean";
+	setAttr ".stringOptions[27].name" -type "string" "finalgather normal tolerance";
+	setAttr ".stringOptions[27].value" -type "string" "25.842";
+	setAttr ".stringOptions[27].type" -type "string" "scalar";
+	setAttr ".stringOptions[28].name" -type "string" "trace camera clip";
+	setAttr ".stringOptions[28].value" -type "string" "false";
+	setAttr ".stringOptions[28].type" -type "string" "boolean";
+	setAttr ".stringOptions[29].name" -type "string" "unified sampling";
+	setAttr ".stringOptions[29].value" -type "string" "true";
+	setAttr ".stringOptions[29].type" -type "string" "boolean";
+	setAttr ".stringOptions[30].name" -type "string" "samples quality";
+	setAttr ".stringOptions[30].value" -type "string" "0.25 0.25 0.25 0.25";
+	setAttr ".stringOptions[30].type" -type "string" "color";
+	setAttr ".stringOptions[31].name" -type "string" "samples min";
+	setAttr ".stringOptions[31].value" -type "string" "1.0";
+	setAttr ".stringOptions[31].type" -type "string" "scalar";
+	setAttr ".stringOptions[32].name" -type "string" "samples max";
+	setAttr ".stringOptions[32].value" -type "string" "100.0";
+	setAttr ".stringOptions[32].type" -type "string" "scalar";
+	setAttr ".stringOptions[33].name" -type "string" "samples error cutoff";
+	setAttr ".stringOptions[33].value" -type "string" "0.0 0.0 0.0 0.0";
+	setAttr ".stringOptions[33].type" -type "string" "color";
+	setAttr ".stringOptions[34].name" -type "string" "samples per object";
+	setAttr ".stringOptions[34].value" -type "string" "false";
+	setAttr ".stringOptions[34].type" -type "string" "boolean";
+	setAttr ".stringOptions[35].name" -type "string" "progressive";
+	setAttr ".stringOptions[35].value" -type "string" "false";
+	setAttr ".stringOptions[35].type" -type "string" "boolean";
+	setAttr ".stringOptions[36].name" -type "string" "progressive max time";
+	setAttr ".stringOptions[36].value" -type "string" "0";
+	setAttr ".stringOptions[36].type" -type "string" "integer";
+	setAttr ".stringOptions[37].name" -type "string" "progressive subsampling size";
+	setAttr ".stringOptions[37].value" -type "string" "4";
+	setAttr ".stringOptions[37].type" -type "string" "integer";
+	setAttr ".stringOptions[38].name" -type "string" "iray";
+	setAttr ".stringOptions[38].value" -type "string" "false";
+	setAttr ".stringOptions[38].type" -type "string" "boolean";
+	setAttr ".stringOptions[39].name" -type "string" "light relative scale";
+	setAttr ".stringOptions[39].value" -type "string" "0.31831";
+	setAttr ".stringOptions[39].type" -type "string" "scalar";
+	setAttr ".stringOptions[40].name" -type "string" "trace camera motion vectors";
+	setAttr ".stringOptions[40].value" -type "string" "false";
+	setAttr ".stringOptions[40].type" -type "string" "boolean";
+	setAttr ".stringOptions[41].name" -type "string" "ray differentials";
+	setAttr ".stringOptions[41].value" -type "string" "true";
+	setAttr ".stringOptions[41].type" -type "string" "boolean";
+	setAttr ".stringOptions[42].name" -type "string" "environment lighting mode";
+	setAttr ".stringOptions[42].value" -type "string" "off";
+	setAttr ".stringOptions[42].type" -type "string" "string";
+	setAttr ".stringOptions[43].name" -type "string" "environment lighting quality";
+	setAttr ".stringOptions[43].value" -type "string" "0.2";
+	setAttr ".stringOptions[43].type" -type "string" "scalar";
+	setAttr ".stringOptions[44].name" -type "string" "environment lighting shadow";
+	setAttr ".stringOptions[44].value" -type "string" "transparent";
+	setAttr ".stringOptions[44].type" -type "string" "string";
+	setAttr ".stringOptions[45].name" -type "string" "environment lighting resolution";
+	setAttr ".stringOptions[45].value" -type "string" "512";
+	setAttr ".stringOptions[45].type" -type "string" "integer";
+	setAttr ".stringOptions[46].name" -type "string" "environment lighting shader samples";
+	setAttr ".stringOptions[46].value" -type "string" "2";
+	setAttr ".stringOptions[46].type" -type "string" "integer";
+	setAttr ".stringOptions[47].name" -type "string" "environment lighting scale";
+	setAttr ".stringOptions[47].value" -type "string" "1 1 1";
+	setAttr ".stringOptions[47].type" -type "string" "color";
+	setAttr ".stringOptions[48].name" -type "string" "environment lighting caustic photons";
+	setAttr ".stringOptions[48].value" -type "string" "0";
+	setAttr ".stringOptions[48].type" -type "string" "integer";
+	setAttr ".stringOptions[49].name" -type "string" "environment lighting globillum photons";
+	setAttr ".stringOptions[49].value" -type "string" "0";
+	setAttr ".stringOptions[49].type" -type "string" "integer";
+	setAttr ".stringOptions[50].name" -type "string" "light importance sampling";
+	setAttr ".stringOptions[50].value" -type "string" "all";
+	setAttr ".stringOptions[50].type" -type "string" "string";
+	setAttr ".stringOptions[51].name" -type "string" "light importance sampling quality";
+	setAttr ".stringOptions[51].value" -type "string" "1.0";
+	setAttr ".stringOptions[51].type" -type "string" "scalar";
+	setAttr ".stringOptions[52].name" -type "string" "light importance sampling samples";
+	setAttr ".stringOptions[52].value" -type "string" "4";
+	setAttr ".stringOptions[52].type" -type "string" "integer";
+	setAttr ".stringOptions[53].name" -type "string" "light importance sampling resolution";
+	setAttr ".stringOptions[53].value" -type "string" "1.0";
+	setAttr ".stringOptions[53].type" -type "string" "scalar";
+	setAttr ".stringOptions[54].name" -type "string" "light importance sampling precomputed";
+	setAttr ".stringOptions[54].value" -type "string" "false";
+	setAttr ".stringOptions[54].type" -type "string" "boolean";
+	setAttr ".stringOptions[55].name" -type "string" "mila quality";
+	setAttr ".stringOptions[55].value" -type "string" "1.0";
+	setAttr ".stringOptions[55].type" -type "string" "scalar";
+	setAttr ".stringOptions[56].name" -type "string" "mila glossy quality";
+	setAttr ".stringOptions[56].value" -type "string" "1.0";
+	setAttr ".stringOptions[56].type" -type "string" "scalar";
+	setAttr ".stringOptions[57].name" -type "string" "mila scatter quality";
+	setAttr ".stringOptions[57].value" -type "string" "1.0";
+	setAttr ".stringOptions[57].type" -type "string" "scalar";
+	setAttr ".stringOptions[58].name" -type "string" "mila scatter scale";
+	setAttr ".stringOptions[58].value" -type "string" "1.0";
+	setAttr ".stringOptions[58].type" -type "string" "scalar";
+	setAttr ".stringOptions[59].name" -type "string" "mila diffuse quality";
+	setAttr ".stringOptions[59].value" -type "string" "1.0";
+	setAttr ".stringOptions[59].type" -type "string" "scalar";
+	setAttr ".stringOptions[60].name" -type "string" "mila diffuse detail";
+	setAttr ".stringOptions[60].value" -type "string" "false";
+	setAttr ".stringOptions[60].type" -type "string" "boolean";
+	setAttr ".stringOptions[61].name" -type "string" "mila diffuse detail distance";
+	setAttr ".stringOptions[61].value" -type "string" "10.0";
+	setAttr ".stringOptions[61].type" -type "string" "scalar";
+	setAttr ".stringOptions[62].name" -type "string" "mila use max distance inside";
+	setAttr ".stringOptions[62].value" -type "string" "true";
+	setAttr ".stringOptions[62].type" -type "string" "boolean";
+	setAttr ".stringOptions[63].name" -type "string" "mila clamp output";
+	setAttr ".stringOptions[63].value" -type "string" "false";
+	setAttr ".stringOptions[63].type" -type "string" "boolean";
+	setAttr ".stringOptions[64].name" -type "string" "mila clamp level";
+	setAttr ".stringOptions[64].value" -type "string" "1.0";
+	setAttr ".stringOptions[64].type" -type "string" "scalar";
+	setAttr ".stringOptions[65].name" -type "string" "gi gpu";
+	setAttr ".stringOptions[65].value" -type "string" "off";
+	setAttr ".stringOptions[65].type" -type "string" "string";
+	setAttr ".stringOptions[66].name" -type "string" "gi gpu rays";
+	setAttr ".stringOptions[66].value" -type "string" "34";
+	setAttr ".stringOptions[66].type" -type "string" "integer";
+	setAttr ".stringOptions[67].name" -type "string" "gi gpu passes";
+	setAttr ".stringOptions[67].value" -type "string" "4";
+	setAttr ".stringOptions[67].type" -type "string" "integer";
+	setAttr ".stringOptions[68].name" -type "string" "gi gpu presample density";
+	setAttr ".stringOptions[68].value" -type "string" "1.0";
+	setAttr ".stringOptions[68].type" -type "string" "scalar";
+	setAttr ".stringOptions[69].name" -type "string" "gi gpu presample depth";
+	setAttr ".stringOptions[69].value" -type "string" "2";
+	setAttr ".stringOptions[69].type" -type "string" "integer";
+	setAttr ".stringOptions[70].name" -type "string" "gi gpu filter";
+	setAttr ".stringOptions[70].value" -type "string" "1.0";
+	setAttr ".stringOptions[70].type" -type "string" "integer";
+	setAttr ".stringOptions[71].name" -type "string" "gi gpu depth";
+	setAttr ".stringOptions[71].value" -type "string" "3";
+	setAttr ".stringOptions[71].type" -type "string" "integer";
+	setAttr ".stringOptions[72].name" -type "string" "gi gpu devices";
+	setAttr ".stringOptions[72].value" -type "string" "0";
+	setAttr ".stringOptions[72].type" -type "string" "integer";
+	setAttr ".stringOptions[73].name" -type "string" "shutter shape function";
+	setAttr ".stringOptions[73].value" -type "string" "none";
+	setAttr ".stringOptions[73].type" -type "string" "string";
+	setAttr ".stringOptions[74].name" -type "string" "shutter full open";
+	setAttr ".stringOptions[74].value" -type "string" "0.2";
+	setAttr ".stringOptions[74].type" -type "string" "scalar";
+	setAttr ".stringOptions[75].name" -type "string" "shutter full close";
+	setAttr ".stringOptions[75].value" -type "string" "0.8";
+	setAttr ".stringOptions[75].type" -type "string" "scalar";
+	setAttr ".stringOptions[76].name" -type "string" "gi";
+	setAttr ".stringOptions[76].value" -type "string" "off";
+	setAttr ".stringOptions[76].type" -type "string" "boolean";
+	setAttr ".stringOptions[77].name" -type "string" "gi rays";
+	setAttr ".stringOptions[77].value" -type "string" "100";
+	setAttr ".stringOptions[77].type" -type "string" "integer";
+	setAttr ".stringOptions[78].name" -type "string" "gi depth";
+	setAttr ".stringOptions[78].value" -type "string" "0";
+	setAttr ".stringOptions[78].type" -type "string" "integer";
+	setAttr ".stringOptions[79].name" -type "string" "gi freeze";
+	setAttr ".stringOptions[79].value" -type "string" "off";
+	setAttr ".stringOptions[79].type" -type "string" "boolean";
+	setAttr ".stringOptions[80].name" -type "string" "gi filter";
+	setAttr ".stringOptions[80].value" -type "string" "1.0";
+	setAttr ".stringOptions[80].type" -type "string" "scalar";
+createNode mentalrayFramebuffer -s -n "miDefaultFramebuffer";
+	rename -uid "93B6F722-49BC-A626-5E58-4A8BCB16B4EB";
+select -ne :time1;
+	setAttr ".o" 1;
+	setAttr ".unw" 1;
+select -ne :hardwareRenderingGlobals;
+	setAttr ".otfna" -type "stringArray" 22 "NURBS Curves" "NURBS Surfaces" "Polygons" "Subdiv Surface" "Particles" "Particle Instance" "Fluids" "Strokes" "Image Planes" "UI" "Lights" "Cameras" "Locators" "Joints" "IK Handles" "Deformers" "Motion Trails" "Components" "Hair Systems" "Follicles" "Misc. UI" "Ornaments"  ;
+	setAttr ".otfva" -type "Int32Array" 22 0 1 1 1 1 1
+		 1 1 1 0 0 0 0 0 0 0 0 0
+		 0 0 0 0 ;
+	setAttr ".fprt" yes;
+select -ne :renderPartition;
+	setAttr -s 3 ".st";
+select -ne :renderGlobalsList1;
+select -ne :defaultShaderList1;
+	setAttr -s 5 ".s";
+select -ne :postProcessList1;
+	setAttr -s 2 ".p";
+select -ne :defaultRenderUtilityList1;
+	setAttr -s 272 ".u";
+select -ne :defaultRenderingList1;
+select -ne :initialShadingGroup;
+	setAttr ".ro" yes;
+select -ne :initialParticleSE;
+	setAttr ".ro" yes;
+select -ne :defaultResolution;
+	setAttr ".pa" 1;
+select -ne :hardwareRenderGlobals;
+	setAttr ".ctrs" 256;
+	setAttr ".btrs" 512;
+connectAttr "leftFinger1_MetaCarpel_aimConstraint1.crx" "leftFinger1_MetaCarpel.rx"
+		;
+connectAttr "leftFinger1_MetaCarpel_aimConstraint1.cry" "leftFinger1_MetaCarpel.ry"
+		;
+connectAttr "leftFinger1_MetaCarpel_aimConstraint1.crz" "leftFinger1_MetaCarpel.rz"
+		;
+connectAttr "leftArm1_HiResHand.s" "leftFinger1_MetaCarpel.is";
+connectAttr "leftFinger1_MetaCarpel.s" "leftFinger1_Joint1.is";
+connectAttr "leftFinger1_Joint1_orientConstraint1.crx" "leftFinger1_Joint1.rx";
+connectAttr "leftFinger1_Joint1_orientConstraint1.cry" "leftFinger1_Joint1.ry";
+connectAttr "leftFinger1_Joint1_orientConstraint1.crz" "leftFinger1_Joint1.rz";
+connectAttr "leftFinger1_Joint1_pointConstraint1.ctx" "leftFinger1_Joint1.tx";
+connectAttr "leftFinger1_Joint1_pointConstraint1.cty" "leftFinger1_Joint1.ty";
+connectAttr "leftFinger1_Joint1_pointConstraint1.ctz" "leftFinger1_Joint1.tz";
+connectAttr "leftFinger1_Joint1.s" "leftFinger1_Joint2.is";
+connectAttr "leftFinger1_unitConversion2.o" "leftFinger1_Joint2.rz";
+connectAttr "leftFinger1_unitConversion3.o" "leftFinger1_Joint2.ry";
+connectAttr "leftFinger1_Joint2.s" "leftFinger1_Joint3.is";
+connectAttr "leftFinger1_unitConversion1.o" "leftFinger1_Joint3.rz";
+connectAttr "leftFinger1_Joint1.ro" "leftFinger1_Joint1_orientConstraint1.cro";
+connectAttr "leftFinger1_Joint1.pim" "leftFinger1_Joint1_orientConstraint1.cpim"
+		;
+connectAttr "leftFinger1_Joint1.jo" "leftFinger1_Joint1_orientConstraint1.cjo";
+connectAttr "leftFinger1_Control.r" "leftFinger1_Joint1_orientConstraint1.tg[0].tr"
+		;
+connectAttr "leftFinger1_Control.ro" "leftFinger1_Joint1_orientConstraint1.tg[0].tro"
+		;
+connectAttr "leftFinger1_Control.pm" "leftFinger1_Joint1_orientConstraint1.tg[0].tpm"
+		;
+connectAttr "leftFinger1_Joint1_orientConstraint1.w0" "leftFinger1_Joint1_orientConstraint1.tg[0].tw"
+		;
+connectAttr "leftFinger1_Joint1.pim" "leftFinger1_Joint1_pointConstraint1.cpim";
+connectAttr "leftFinger1_Joint1.rp" "leftFinger1_Joint1_pointConstraint1.crp";
+connectAttr "leftFinger1_Joint1.rpt" "leftFinger1_Joint1_pointConstraint1.crt";
+connectAttr "leftFinger1_Control.t" "leftFinger1_Joint1_pointConstraint1.tg[0].tt"
+		;
+connectAttr "leftFinger1_Control.rp" "leftFinger1_Joint1_pointConstraint1.tg[0].trp"
+		;
+connectAttr "leftFinger1_Control.rpt" "leftFinger1_Joint1_pointConstraint1.tg[0].trt"
+		;
+connectAttr "leftFinger1_Control.pm" "leftFinger1_Joint1_pointConstraint1.tg[0].tpm"
+		;
+connectAttr "leftFinger1_Joint1_pointConstraint1.w0" "leftFinger1_Joint1_pointConstraint1.tg[0].tw"
+		;
+connectAttr "leftFinger1_MetaCarpel.pim" "leftFinger1_MetaCarpel_aimConstraint1.cpim"
+		;
+connectAttr "leftFinger1_MetaCarpel.t" "leftFinger1_MetaCarpel_aimConstraint1.ct"
+		;
+connectAttr "leftFinger1_MetaCarpel.rp" "leftFinger1_MetaCarpel_aimConstraint1.crp"
+		;
+connectAttr "leftFinger1_MetaCarpel.rpt" "leftFinger1_MetaCarpel_aimConstraint1.crt"
+		;
+connectAttr "leftFinger1_MetaCarpel.ro" "leftFinger1_MetaCarpel_aimConstraint1.cro"
+		;
+connectAttr "leftFinger1_MetaCarpel.jo" "leftFinger1_MetaCarpel_aimConstraint1.cjo"
+		;
+connectAttr "leftFinger1_Control.t" "leftFinger1_MetaCarpel_aimConstraint1.tg[0].tt"
+		;
+connectAttr "leftFinger1_Control.rp" "leftFinger1_MetaCarpel_aimConstraint1.tg[0].trp"
+		;
+connectAttr "leftFinger1_Control.rpt" "leftFinger1_MetaCarpel_aimConstraint1.tg[0].trt"
+		;
+connectAttr "leftFinger1_Control.pm" "leftFinger1_MetaCarpel_aimConstraint1.tg[0].tpm"
+		;
+connectAttr "leftFinger1_MetaCarpel_aimConstraint1.w0" "leftFinger1_MetaCarpel_aimConstraint1.tg[0].tw"
+		;
+connectAttr "leftFinger1_upVector.wm" "leftFinger1_MetaCarpel_aimConstraint1.wum"
+		;
+connectAttr "leftFinger2_MetaCarpel_aimConstraint1.crx" "leftFinger2_MetaCarpel.rx"
+		;
+connectAttr "leftFinger2_MetaCarpel_aimConstraint1.cry" "leftFinger2_MetaCarpel.ry"
+		;
+connectAttr "leftFinger2_MetaCarpel_aimConstraint1.crz" "leftFinger2_MetaCarpel.rz"
+		;
+connectAttr "leftArm1_HiResHand.s" "leftFinger2_MetaCarpel.is";
+connectAttr "leftFinger2_MetaCarpel.s" "leftFinger2_Joint1.is";
+connectAttr "leftFinger2_Joint1_orientConstraint1.crx" "leftFinger2_Joint1.rx";
+connectAttr "leftFinger2_Joint1_orientConstraint1.cry" "leftFinger2_Joint1.ry";
+connectAttr "leftFinger2_Joint1_orientConstraint1.crz" "leftFinger2_Joint1.rz";
+connectAttr "leftFinger2_Joint1_pointConstraint1.ctx" "leftFinger2_Joint1.tx";
+connectAttr "leftFinger2_Joint1_pointConstraint1.cty" "leftFinger2_Joint1.ty";
+connectAttr "leftFinger2_Joint1_pointConstraint1.ctz" "leftFinger2_Joint1.tz";
+connectAttr "leftFinger2_Joint1.s" "leftFinger2_Joint2.is";
+connectAttr "leftFinger2_unitConversion2.o" "leftFinger2_Joint2.rz";
+connectAttr "leftFinger2_unitConversion3.o" "leftFinger2_Joint2.ry";
+connectAttr "leftFinger2_Joint2.s" "leftFinger2_Joint3.is";
+connectAttr "leftFinger2_unitConversion1.o" "leftFinger2_Joint3.rz";
+connectAttr "leftFinger2_Joint1.ro" "leftFinger2_Joint1_orientConstraint1.cro";
+connectAttr "leftFinger2_Joint1.pim" "leftFinger2_Joint1_orientConstraint1.cpim"
+		;
+connectAttr "leftFinger2_Joint1.jo" "leftFinger2_Joint1_orientConstraint1.cjo";
+connectAttr "leftFinger2_Control.r" "leftFinger2_Joint1_orientConstraint1.tg[0].tr"
+		;
+connectAttr "leftFinger2_Control.ro" "leftFinger2_Joint1_orientConstraint1.tg[0].tro"
+		;
+connectAttr "leftFinger2_Control.pm" "leftFinger2_Joint1_orientConstraint1.tg[0].tpm"
+		;
+connectAttr "leftFinger2_Joint1_orientConstraint1.w0" "leftFinger2_Joint1_orientConstraint1.tg[0].tw"
+		;
+connectAttr "leftFinger2_Joint1.pim" "leftFinger2_Joint1_pointConstraint1.cpim";
+connectAttr "leftFinger2_Joint1.rp" "leftFinger2_Joint1_pointConstraint1.crp";
+connectAttr "leftFinger2_Joint1.rpt" "leftFinger2_Joint1_pointConstraint1.crt";
+connectAttr "leftFinger2_Control.t" "leftFinger2_Joint1_pointConstraint1.tg[0].tt"
+		;
+connectAttr "leftFinger2_Control.rp" "leftFinger2_Joint1_pointConstraint1.tg[0].trp"
+		;
+connectAttr "leftFinger2_Control.rpt" "leftFinger2_Joint1_pointConstraint1.tg[0].trt"
+		;
+connectAttr "leftFinger2_Control.pm" "leftFinger2_Joint1_pointConstraint1.tg[0].tpm"
+		;
+connectAttr "leftFinger2_Joint1_pointConstraint1.w0" "leftFinger2_Joint1_pointConstraint1.tg[0].tw"
+		;
+connectAttr "leftFinger2_MetaCarpel.pim" "leftFinger2_MetaCarpel_aimConstraint1.cpim"
+		;
+connectAttr "leftFinger2_MetaCarpel.t" "leftFinger2_MetaCarpel_aimConstraint1.ct"
+		;
+connectAttr "leftFinger2_MetaCarpel.rp" "leftFinger2_MetaCarpel_aimConstraint1.crp"
+		;
+connectAttr "leftFinger2_MetaCarpel.rpt" "leftFinger2_MetaCarpel_aimConstraint1.crt"
+		;
+connectAttr "leftFinger2_MetaCarpel.ro" "leftFinger2_MetaCarpel_aimConstraint1.cro"
+		;
+connectAttr "leftFinger2_MetaCarpel.jo" "leftFinger2_MetaCarpel_aimConstraint1.cjo"
+		;
+connectAttr "leftFinger2_Control.t" "leftFinger2_MetaCarpel_aimConstraint1.tg[0].tt"
+		;
+connectAttr "leftFinger2_Control.rp" "leftFinger2_MetaCarpel_aimConstraint1.tg[0].trp"
+		;
+connectAttr "leftFinger2_Control.rpt" "leftFinger2_MetaCarpel_aimConstraint1.tg[0].trt"
+		;
+connectAttr "leftFinger2_Control.pm" "leftFinger2_MetaCarpel_aimConstraint1.tg[0].tpm"
+		;
+connectAttr "leftFinger2_MetaCarpel_aimConstraint1.w0" "leftFinger2_MetaCarpel_aimConstraint1.tg[0].tw"
+		;
+connectAttr "leftFinger2_upVector.wm" "leftFinger2_MetaCarpel_aimConstraint1.wum"
+		;
+connectAttr "leftFinger3_MetaCarpel_aimConstraint1.crx" "leftFinger3_MetaCarpel.rx"
+		;
+connectAttr "leftFinger3_MetaCarpel_aimConstraint1.cry" "leftFinger3_MetaCarpel.ry"
+		;
+connectAttr "leftFinger3_MetaCarpel_aimConstraint1.crz" "leftFinger3_MetaCarpel.rz"
+		;
+connectAttr "leftArm1_HiResHand.s" "leftFinger3_MetaCarpel.is";
+connectAttr "leftFinger3_MetaCarpel.s" "leftFinger3_Joint1.is";
+connectAttr "leftFinger3_Joint1_orientConstraint1.crx" "leftFinger3_Joint1.rx";
+connectAttr "leftFinger3_Joint1_orientConstraint1.cry" "leftFinger3_Joint1.ry";
+connectAttr "leftFinger3_Joint1_orientConstraint1.crz" "leftFinger3_Joint1.rz";
+connectAttr "leftFinger3_Joint1_pointConstraint1.ctx" "leftFinger3_Joint1.tx";
+connectAttr "leftFinger3_Joint1_pointConstraint1.cty" "leftFinger3_Joint1.ty";
+connectAttr "leftFinger3_Joint1_pointConstraint1.ctz" "leftFinger3_Joint1.tz";
+connectAttr "leftFinger3_Joint1.s" "leftFinger3_Joint2.is";
+connectAttr "leftFinger3_unitConversion2.o" "leftFinger3_Joint2.rz";
+connectAttr "leftFinger3_unitConversion3.o" "leftFinger3_Joint2.ry";
+connectAttr "leftFinger3_Joint2.s" "leftFinger3_Joint3.is";
+connectAttr "leftFinger3_unitConversion1.o" "leftFinger3_Joint3.rz";
+connectAttr "leftFinger3_Joint1.ro" "leftFinger3_Joint1_orientConstraint1.cro";
+connectAttr "leftFinger3_Joint1.pim" "leftFinger3_Joint1_orientConstraint1.cpim"
+		;
+connectAttr "leftFinger3_Joint1.jo" "leftFinger3_Joint1_orientConstraint1.cjo";
+connectAttr "leftFinger3_Control.r" "leftFinger3_Joint1_orientConstraint1.tg[0].tr"
+		;
+connectAttr "leftFinger3_Control.ro" "leftFinger3_Joint1_orientConstraint1.tg[0].tro"
+		;
+connectAttr "leftFinger3_Control.pm" "leftFinger3_Joint1_orientConstraint1.tg[0].tpm"
+		;
+connectAttr "leftFinger3_Joint1_orientConstraint1.w0" "leftFinger3_Joint1_orientConstraint1.tg[0].tw"
+		;
+connectAttr "leftFinger3_Joint1.pim" "leftFinger3_Joint1_pointConstraint1.cpim";
+connectAttr "leftFinger3_Joint1.rp" "leftFinger3_Joint1_pointConstraint1.crp";
+connectAttr "leftFinger3_Joint1.rpt" "leftFinger3_Joint1_pointConstraint1.crt";
+connectAttr "leftFinger3_Control.t" "leftFinger3_Joint1_pointConstraint1.tg[0].tt"
+		;
+connectAttr "leftFinger3_Control.rp" "leftFinger3_Joint1_pointConstraint1.tg[0].trp"
+		;
+connectAttr "leftFinger3_Control.rpt" "leftFinger3_Joint1_pointConstraint1.tg[0].trt"
+		;
+connectAttr "leftFinger3_Control.pm" "leftFinger3_Joint1_pointConstraint1.tg[0].tpm"
+		;
+connectAttr "leftFinger3_Joint1_pointConstraint1.w0" "leftFinger3_Joint1_pointConstraint1.tg[0].tw"
+		;
+connectAttr "leftFinger3_MetaCarpel.pim" "leftFinger3_MetaCarpel_aimConstraint1.cpim"
+		;
+connectAttr "leftFinger3_MetaCarpel.t" "leftFinger3_MetaCarpel_aimConstraint1.ct"
+		;
+connectAttr "leftFinger3_MetaCarpel.rp" "leftFinger3_MetaCarpel_aimConstraint1.crp"
+		;
+connectAttr "leftFinger3_MetaCarpel.rpt" "leftFinger3_MetaCarpel_aimConstraint1.crt"
+		;
+connectAttr "leftFinger3_MetaCarpel.ro" "leftFinger3_MetaCarpel_aimConstraint1.cro"
+		;
+connectAttr "leftFinger3_MetaCarpel.jo" "leftFinger3_MetaCarpel_aimConstraint1.cjo"
+		;
+connectAttr "leftFinger3_Control.t" "leftFinger3_MetaCarpel_aimConstraint1.tg[0].tt"
+		;
+connectAttr "leftFinger3_Control.rp" "leftFinger3_MetaCarpel_aimConstraint1.tg[0].trp"
+		;
+connectAttr "leftFinger3_Control.rpt" "leftFinger3_MetaCarpel_aimConstraint1.tg[0].trt"
+		;
+connectAttr "leftFinger3_Control.pm" "leftFinger3_MetaCarpel_aimConstraint1.tg[0].tpm"
+		;
+connectAttr "leftFinger3_MetaCarpel_aimConstraint1.w0" "leftFinger3_MetaCarpel_aimConstraint1.tg[0].tw"
+		;
+connectAttr "leftFinger3_upVector.wm" "leftFinger3_MetaCarpel_aimConstraint1.wum"
+		;
+connectAttr "leftFinger4_MetaCarpel_aimConstraint1.crx" "leftFinger4_MetaCarpel.rx"
+		;
+connectAttr "leftFinger4_MetaCarpel_aimConstraint1.cry" "leftFinger4_MetaCarpel.ry"
+		;
+connectAttr "leftFinger4_MetaCarpel_aimConstraint1.crz" "leftFinger4_MetaCarpel.rz"
+		;
+connectAttr "leftArm1_HiResHand.s" "leftFinger4_MetaCarpel.is";
+connectAttr "leftFinger4_MetaCarpel.s" "leftFinger4_Joint1.is";
+connectAttr "leftFinger4_Joint1_orientConstraint1.crx" "leftFinger4_Joint1.rx";
+connectAttr "leftFinger4_Joint1_orientConstraint1.cry" "leftFinger4_Joint1.ry";
+connectAttr "leftFinger4_Joint1_orientConstraint1.crz" "leftFinger4_Joint1.rz";
+connectAttr "leftFinger4_Joint1_pointConstraint1.ctx" "leftFinger4_Joint1.tx";
+connectAttr "leftFinger4_Joint1_pointConstraint1.cty" "leftFinger4_Joint1.ty";
+connectAttr "leftFinger4_Joint1_pointConstraint1.ctz" "leftFinger4_Joint1.tz";
+connectAttr "leftFinger4_Joint1.s" "leftFinger4_Joint2.is";
+connectAttr "leftFinger4_unitConversion2.o" "leftFinger4_Joint2.rz";
+connectAttr "leftFinger4_unitConversion3.o" "leftFinger4_Joint2.ry";
+connectAttr "leftFinger4_Joint2.s" "leftFinger4_Joint3.is";
+connectAttr "leftFinger4_unitConversion1.o" "leftFinger4_Joint3.rz";
+connectAttr "leftFinger4_Joint1.ro" "leftFinger4_Joint1_orientConstraint1.cro";
+connectAttr "leftFinger4_Joint1.pim" "leftFinger4_Joint1_orientConstraint1.cpim"
+		;
+connectAttr "leftFinger4_Joint1.jo" "leftFinger4_Joint1_orientConstraint1.cjo";
+connectAttr "leftFinger4_Control.r" "leftFinger4_Joint1_orientConstraint1.tg[0].tr"
+		;
+connectAttr "leftFinger4_Control.ro" "leftFinger4_Joint1_orientConstraint1.tg[0].tro"
+		;
+connectAttr "leftFinger4_Control.pm" "leftFinger4_Joint1_orientConstraint1.tg[0].tpm"
+		;
+connectAttr "leftFinger4_Joint1_orientConstraint1.w0" "leftFinger4_Joint1_orientConstraint1.tg[0].tw"
+		;
+connectAttr "leftFinger4_Joint1.pim" "leftFinger4_Joint1_pointConstraint1.cpim";
+connectAttr "leftFinger4_Joint1.rp" "leftFinger4_Joint1_pointConstraint1.crp";
+connectAttr "leftFinger4_Joint1.rpt" "leftFinger4_Joint1_pointConstraint1.crt";
+connectAttr "leftFinger4_Control.t" "leftFinger4_Joint1_pointConstraint1.tg[0].tt"
+		;
+connectAttr "leftFinger4_Control.rp" "leftFinger4_Joint1_pointConstraint1.tg[0].trp"
+		;
+connectAttr "leftFinger4_Control.rpt" "leftFinger4_Joint1_pointConstraint1.tg[0].trt"
+		;
+connectAttr "leftFinger4_Control.pm" "leftFinger4_Joint1_pointConstraint1.tg[0].tpm"
+		;
+connectAttr "leftFinger4_Joint1_pointConstraint1.w0" "leftFinger4_Joint1_pointConstraint1.tg[0].tw"
+		;
+connectAttr "leftFinger4_MetaCarpel.pim" "leftFinger4_MetaCarpel_aimConstraint1.cpim"
+		;
+connectAttr "leftFinger4_MetaCarpel.t" "leftFinger4_MetaCarpel_aimConstraint1.ct"
+		;
+connectAttr "leftFinger4_MetaCarpel.rp" "leftFinger4_MetaCarpel_aimConstraint1.crp"
+		;
+connectAttr "leftFinger4_MetaCarpel.rpt" "leftFinger4_MetaCarpel_aimConstraint1.crt"
+		;
+connectAttr "leftFinger4_MetaCarpel.ro" "leftFinger4_MetaCarpel_aimConstraint1.cro"
+		;
+connectAttr "leftFinger4_MetaCarpel.jo" "leftFinger4_MetaCarpel_aimConstraint1.cjo"
+		;
+connectAttr "leftFinger4_Control.t" "leftFinger4_MetaCarpel_aimConstraint1.tg[0].tt"
+		;
+connectAttr "leftFinger4_Control.rp" "leftFinger4_MetaCarpel_aimConstraint1.tg[0].trp"
+		;
+connectAttr "leftFinger4_Control.rpt" "leftFinger4_MetaCarpel_aimConstraint1.tg[0].trt"
+		;
+connectAttr "leftFinger4_Control.pm" "leftFinger4_MetaCarpel_aimConstraint1.tg[0].tpm"
+		;
+connectAttr "leftFinger4_MetaCarpel_aimConstraint1.w0" "leftFinger4_MetaCarpel_aimConstraint1.tg[0].tw"
+		;
+connectAttr "leftFinger4_upVector.wm" "leftFinger4_MetaCarpel_aimConstraint1.wum"
+		;
+connectAttr "leftThumb1_Joint1_orientConstraint1.crx" "leftThumb1_Joint1.rx";
+connectAttr "leftThumb1_Joint1_orientConstraint1.cry" "leftThumb1_Joint1.ry";
+connectAttr "leftThumb1_Joint1_orientConstraint1.crz" "leftThumb1_Joint1.rz";
+connectAttr "leftThumb1_Joint1_pointConstraint1.ctx" "leftThumb1_Joint1.tx";
+connectAttr "leftThumb1_Joint1_pointConstraint1.cty" "leftThumb1_Joint1.ty";
+connectAttr "leftThumb1_Joint1_pointConstraint1.ctz" "leftThumb1_Joint1.tz";
+connectAttr "leftArm1_HiResHand.s" "leftThumb1_Joint1.is";
+connectAttr "leftThumb1_Joint1.s" "leftThumb1_Joint2.is";
+connectAttr "leftThumb1_unitConversion2.o" "leftThumb1_Joint2.rz";
+connectAttr "leftThumb1_unitConversion3.o" "leftThumb1_Joint2.ry";
+connectAttr "leftThumb1_Joint2.s" "leftThumb1_Joint3.is";
+connectAttr "leftThumb1_unitConversion1.o" "leftThumb1_Joint3.rz";
+connectAttr "leftThumb1_Joint1.ro" "leftThumb1_Joint1_orientConstraint1.cro";
+connectAttr "leftThumb1_Joint1.pim" "leftThumb1_Joint1_orientConstraint1.cpim";
+connectAttr "leftThumb1_Joint1.jo" "leftThumb1_Joint1_orientConstraint1.cjo";
+connectAttr "leftThumb1_Control.r" "leftThumb1_Joint1_orientConstraint1.tg[0].tr"
+		;
+connectAttr "leftThumb1_Control.ro" "leftThumb1_Joint1_orientConstraint1.tg[0].tro"
+		;
+connectAttr "leftThumb1_Control.pm" "leftThumb1_Joint1_orientConstraint1.tg[0].tpm"
+		;
+connectAttr "leftThumb1_Joint1_orientConstraint1.w0" "leftThumb1_Joint1_orientConstraint1.tg[0].tw"
+		;
+connectAttr "leftThumb1_Joint1.pim" "leftThumb1_Joint1_pointConstraint1.cpim";
+connectAttr "leftThumb1_Joint1.rp" "leftThumb1_Joint1_pointConstraint1.crp";
+connectAttr "leftThumb1_Joint1.rpt" "leftThumb1_Joint1_pointConstraint1.crt";
+connectAttr "leftThumb1_Control.t" "leftThumb1_Joint1_pointConstraint1.tg[0].tt"
+		;
+connectAttr "leftThumb1_Control.rp" "leftThumb1_Joint1_pointConstraint1.tg[0].trp"
+		;
+connectAttr "leftThumb1_Control.rpt" "leftThumb1_Joint1_pointConstraint1.tg[0].trt"
+		;
+connectAttr "leftThumb1_Control.pm" "leftThumb1_Joint1_pointConstraint1.tg[0].tpm"
+		;
+connectAttr "leftThumb1_Joint1_pointConstraint1.w0" "leftThumb1_Joint1_pointConstraint1.tg[0].tw"
+		;
+connectAttr "leftFinger1_ParentConstrain_parentConstraint1.ctx" "leftFinger1_ParentConstrain.tx"
+		;
+connectAttr "leftFinger1_ParentConstrain_parentConstraint1.cty" "leftFinger1_ParentConstrain.ty"
+		;
+connectAttr "leftFinger1_ParentConstrain_parentConstraint1.ctz" "leftFinger1_ParentConstrain.tz"
+		;
+connectAttr "leftFinger1_ParentConstrain_parentConstraint1.crx" "leftFinger1_ParentConstrain.rx"
+		;
+connectAttr "leftFinger1_ParentConstrain_parentConstraint1.cry" "leftFinger1_ParentConstrain.ry"
+		;
+connectAttr "leftFinger1_ParentConstrain_parentConstraint1.crz" "leftFinger1_ParentConstrain.rz"
+		;
+connectAttr "leftFinger1_cluster1.og[0]" "leftFinger1_ControlShape.cr";
+connectAttr "leftFinger1_tweak1.pl[0].cp[0]" "leftFinger1_ControlShape.twl";
+connectAttr "leftFinger1_cluster1GroupId.id" "leftFinger1_ControlShape.iog.og[0].gid"
+		;
+connectAttr "leftFinger1_cluster1Set.mwc" "leftFinger1_ControlShape.iog.og[0].gco"
+		;
+connectAttr "leftFinger1_groupId2.id" "leftFinger1_ControlShape.iog.og[1].gid";
+connectAttr "leftFinger1_tweakSet1.mwc" "leftFinger1_ControlShape.iog.og[1].gco"
+		;
+connectAttr "leftFinger1_ParentConstrain.ro" "leftFinger1_ParentConstrain_parentConstraint1.cro"
+		;
+connectAttr "leftFinger1_ParentConstrain.pim" "leftFinger1_ParentConstrain_parentConstraint1.cpim"
+		;
+connectAttr "leftFinger1_ParentConstrain.rp" "leftFinger1_ParentConstrain_parentConstraint1.crp"
+		;
+connectAttr "leftFinger1_ParentConstrain.rpt" "leftFinger1_ParentConstrain_parentConstraint1.crt"
+		;
+connectAttr "leftArm1_HiResHand.t" "leftFinger1_ParentConstrain_parentConstraint1.tg[0].tt"
+		;
+connectAttr "leftArm1_HiResHand.rp" "leftFinger1_ParentConstrain_parentConstraint1.tg[0].trp"
+		;
+connectAttr "leftArm1_HiResHand.rpt" "leftFinger1_ParentConstrain_parentConstraint1.tg[0].trt"
+		;
+connectAttr "leftArm1_HiResHand.r" "leftFinger1_ParentConstrain_parentConstraint1.tg[0].tr"
+		;
+connectAttr "leftArm1_HiResHand.ro" "leftFinger1_ParentConstrain_parentConstraint1.tg[0].tro"
+		;
+connectAttr "leftArm1_HiResHand.s" "leftFinger1_ParentConstrain_parentConstraint1.tg[0].ts"
+		;
+connectAttr "leftArm1_HiResHand.pm" "leftFinger1_ParentConstrain_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "leftArm1_HiResHand.jo" "leftFinger1_ParentConstrain_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "leftArm1_HiResHand.ssc" "leftFinger1_ParentConstrain_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "leftArm1_HiResHand.is" "leftFinger1_ParentConstrain_parentConstraint1.tg[0].tis"
+		;
+connectAttr "leftFinger1_ParentConstrain_parentConstraint1.w0" "leftFinger1_ParentConstrain_parentConstraint1.tg[0].tw"
+		;
+connectAttr "leftFinger1_multiplyDivide1.ox" "leftFinger1_controlScale.sx";
+connectAttr "leftFinger1_multiplyDivide1.ox" "leftFinger1_controlScale.sy";
+connectAttr "leftFinger1_multiplyDivide1.ox" "leftFinger1_controlScale.sz";
+connectAttr "leftFinger2_ParentConstrain_parentConstraint1.ctx" "leftFinger2_ParentConstrain.tx"
+		;
+connectAttr "leftFinger2_ParentConstrain_parentConstraint1.cty" "leftFinger2_ParentConstrain.ty"
+		;
+connectAttr "leftFinger2_ParentConstrain_parentConstraint1.ctz" "leftFinger2_ParentConstrain.tz"
+		;
+connectAttr "leftFinger2_ParentConstrain_parentConstraint1.crx" "leftFinger2_ParentConstrain.rx"
+		;
+connectAttr "leftFinger2_ParentConstrain_parentConstraint1.cry" "leftFinger2_ParentConstrain.ry"
+		;
+connectAttr "leftFinger2_ParentConstrain_parentConstraint1.crz" "leftFinger2_ParentConstrain.rz"
+		;
+connectAttr "leftFinger2_cluster1.og[0]" "leftFinger2_ControlShape.cr";
+connectAttr "leftFinger2_tweak1.pl[0].cp[0]" "leftFinger2_ControlShape.twl";
+connectAttr "leftFinger2_cluster1GroupId.id" "leftFinger2_ControlShape.iog.og[0].gid"
+		;
+connectAttr "leftFinger2_cluster1Set.mwc" "leftFinger2_ControlShape.iog.og[0].gco"
+		;
+connectAttr "leftFinger2_groupId2.id" "leftFinger2_ControlShape.iog.og[1].gid";
+connectAttr "leftFinger2_tweakSet1.mwc" "leftFinger2_ControlShape.iog.og[1].gco"
+		;
+connectAttr "leftFinger2_ParentConstrain.ro" "leftFinger2_ParentConstrain_parentConstraint1.cro"
+		;
+connectAttr "leftFinger2_ParentConstrain.pim" "leftFinger2_ParentConstrain_parentConstraint1.cpim"
+		;
+connectAttr "leftFinger2_ParentConstrain.rp" "leftFinger2_ParentConstrain_parentConstraint1.crp"
+		;
+connectAttr "leftFinger2_ParentConstrain.rpt" "leftFinger2_ParentConstrain_parentConstraint1.crt"
+		;
+connectAttr "leftArm1_HiResHand.t" "leftFinger2_ParentConstrain_parentConstraint1.tg[0].tt"
+		;
+connectAttr "leftArm1_HiResHand.rp" "leftFinger2_ParentConstrain_parentConstraint1.tg[0].trp"
+		;
+connectAttr "leftArm1_HiResHand.rpt" "leftFinger2_ParentConstrain_parentConstraint1.tg[0].trt"
+		;
+connectAttr "leftArm1_HiResHand.r" "leftFinger2_ParentConstrain_parentConstraint1.tg[0].tr"
+		;
+connectAttr "leftArm1_HiResHand.ro" "leftFinger2_ParentConstrain_parentConstraint1.tg[0].tro"
+		;
+connectAttr "leftArm1_HiResHand.s" "leftFinger2_ParentConstrain_parentConstraint1.tg[0].ts"
+		;
+connectAttr "leftArm1_HiResHand.pm" "leftFinger2_ParentConstrain_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "leftArm1_HiResHand.jo" "leftFinger2_ParentConstrain_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "leftArm1_HiResHand.ssc" "leftFinger2_ParentConstrain_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "leftArm1_HiResHand.is" "leftFinger2_ParentConstrain_parentConstraint1.tg[0].tis"
+		;
+connectAttr "leftFinger2_ParentConstrain_parentConstraint1.w0" "leftFinger2_ParentConstrain_parentConstraint1.tg[0].tw"
+		;
+connectAttr "leftFinger2_multiplyDivide1.ox" "leftFinger2_controlScale.sx";
+connectAttr "leftFinger2_multiplyDivide1.ox" "leftFinger2_controlScale.sy";
+connectAttr "leftFinger2_multiplyDivide1.ox" "leftFinger2_controlScale.sz";
+connectAttr "leftFinger3_ParentConstrain_parentConstraint1.ctx" "leftFinger3_ParentConstrain.tx"
+		;
+connectAttr "leftFinger3_ParentConstrain_parentConstraint1.cty" "leftFinger3_ParentConstrain.ty"
+		;
+connectAttr "leftFinger3_ParentConstrain_parentConstraint1.ctz" "leftFinger3_ParentConstrain.tz"
+		;
+connectAttr "leftFinger3_ParentConstrain_parentConstraint1.crx" "leftFinger3_ParentConstrain.rx"
+		;
+connectAttr "leftFinger3_ParentConstrain_parentConstraint1.cry" "leftFinger3_ParentConstrain.ry"
+		;
+connectAttr "leftFinger3_ParentConstrain_parentConstraint1.crz" "leftFinger3_ParentConstrain.rz"
+		;
+connectAttr "leftFinger3_cluster1.og[0]" "leftFinger3_ControlShape.cr";
+connectAttr "leftFinger3_tweak1.pl[0].cp[0]" "leftFinger3_ControlShape.twl";
+connectAttr "leftFinger3_cluster1GroupId.id" "leftFinger3_ControlShape.iog.og[0].gid"
+		;
+connectAttr "leftFinger3_cluster1Set.mwc" "leftFinger3_ControlShape.iog.og[0].gco"
+		;
+connectAttr "leftFinger3_groupId2.id" "leftFinger3_ControlShape.iog.og[1].gid";
+connectAttr "leftFinger3_tweakSet1.mwc" "leftFinger3_ControlShape.iog.og[1].gco"
+		;
+connectAttr "leftFinger3_ParentConstrain.ro" "leftFinger3_ParentConstrain_parentConstraint1.cro"
+		;
+connectAttr "leftFinger3_ParentConstrain.pim" "leftFinger3_ParentConstrain_parentConstraint1.cpim"
+		;
+connectAttr "leftFinger3_ParentConstrain.rp" "leftFinger3_ParentConstrain_parentConstraint1.crp"
+		;
+connectAttr "leftFinger3_ParentConstrain.rpt" "leftFinger3_ParentConstrain_parentConstraint1.crt"
+		;
+connectAttr "leftArm1_HiResHand.t" "leftFinger3_ParentConstrain_parentConstraint1.tg[0].tt"
+		;
+connectAttr "leftArm1_HiResHand.rp" "leftFinger3_ParentConstrain_parentConstraint1.tg[0].trp"
+		;
+connectAttr "leftArm1_HiResHand.rpt" "leftFinger3_ParentConstrain_parentConstraint1.tg[0].trt"
+		;
+connectAttr "leftArm1_HiResHand.r" "leftFinger3_ParentConstrain_parentConstraint1.tg[0].tr"
+		;
+connectAttr "leftArm1_HiResHand.ro" "leftFinger3_ParentConstrain_parentConstraint1.tg[0].tro"
+		;
+connectAttr "leftArm1_HiResHand.s" "leftFinger3_ParentConstrain_parentConstraint1.tg[0].ts"
+		;
+connectAttr "leftArm1_HiResHand.pm" "leftFinger3_ParentConstrain_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "leftArm1_HiResHand.jo" "leftFinger3_ParentConstrain_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "leftArm1_HiResHand.ssc" "leftFinger3_ParentConstrain_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "leftArm1_HiResHand.is" "leftFinger3_ParentConstrain_parentConstraint1.tg[0].tis"
+		;
+connectAttr "leftFinger3_ParentConstrain_parentConstraint1.w0" "leftFinger3_ParentConstrain_parentConstraint1.tg[0].tw"
+		;
+connectAttr "leftFinger3_multiplyDivide1.ox" "leftFinger3_controlScale.sx";
+connectAttr "leftFinger3_multiplyDivide1.ox" "leftFinger3_controlScale.sy";
+connectAttr "leftFinger3_multiplyDivide1.ox" "leftFinger3_controlScale.sz";
+connectAttr "leftFinger4_ParentConstrain_parentConstraint1.ctx" "leftFinger4_ParentConstrain.tx"
+		;
+connectAttr "leftFinger4_ParentConstrain_parentConstraint1.cty" "leftFinger4_ParentConstrain.ty"
+		;
+connectAttr "leftFinger4_ParentConstrain_parentConstraint1.ctz" "leftFinger4_ParentConstrain.tz"
+		;
+connectAttr "leftFinger4_ParentConstrain_parentConstraint1.crx" "leftFinger4_ParentConstrain.rx"
+		;
+connectAttr "leftFinger4_ParentConstrain_parentConstraint1.cry" "leftFinger4_ParentConstrain.ry"
+		;
+connectAttr "leftFinger4_ParentConstrain_parentConstraint1.crz" "leftFinger4_ParentConstrain.rz"
+		;
+connectAttr "leftFinger4_cluster1.og[0]" "leftFinger4_ControlShape.cr";
+connectAttr "leftFinger4_tweak1.pl[0].cp[0]" "leftFinger4_ControlShape.twl";
+connectAttr "leftFinger4_cluster1GroupId.id" "leftFinger4_ControlShape.iog.og[0].gid"
+		;
+connectAttr "leftFinger4_cluster1Set.mwc" "leftFinger4_ControlShape.iog.og[0].gco"
+		;
+connectAttr "leftFinger4_groupId2.id" "leftFinger4_ControlShape.iog.og[1].gid";
+connectAttr "leftFinger4_tweakSet1.mwc" "leftFinger4_ControlShape.iog.og[1].gco"
+		;
+connectAttr "leftFinger4_ParentConstrain.ro" "leftFinger4_ParentConstrain_parentConstraint1.cro"
+		;
+connectAttr "leftFinger4_ParentConstrain.pim" "leftFinger4_ParentConstrain_parentConstraint1.cpim"
+		;
+connectAttr "leftFinger4_ParentConstrain.rp" "leftFinger4_ParentConstrain_parentConstraint1.crp"
+		;
+connectAttr "leftFinger4_ParentConstrain.rpt" "leftFinger4_ParentConstrain_parentConstraint1.crt"
+		;
+connectAttr "leftArm1_HiResHand.t" "leftFinger4_ParentConstrain_parentConstraint1.tg[0].tt"
+		;
+connectAttr "leftArm1_HiResHand.rp" "leftFinger4_ParentConstrain_parentConstraint1.tg[0].trp"
+		;
+connectAttr "leftArm1_HiResHand.rpt" "leftFinger4_ParentConstrain_parentConstraint1.tg[0].trt"
+		;
+connectAttr "leftArm1_HiResHand.r" "leftFinger4_ParentConstrain_parentConstraint1.tg[0].tr"
+		;
+connectAttr "leftArm1_HiResHand.ro" "leftFinger4_ParentConstrain_parentConstraint1.tg[0].tro"
+		;
+connectAttr "leftArm1_HiResHand.s" "leftFinger4_ParentConstrain_parentConstraint1.tg[0].ts"
+		;
+connectAttr "leftArm1_HiResHand.pm" "leftFinger4_ParentConstrain_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "leftArm1_HiResHand.jo" "leftFinger4_ParentConstrain_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "leftArm1_HiResHand.ssc" "leftFinger4_ParentConstrain_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "leftArm1_HiResHand.is" "leftFinger4_ParentConstrain_parentConstraint1.tg[0].tis"
+		;
+connectAttr "leftFinger4_ParentConstrain_parentConstraint1.w0" "leftFinger4_ParentConstrain_parentConstraint1.tg[0].tw"
+		;
+connectAttr "leftFinger4_multiplyDivide1.ox" "leftFinger4_controlScale.sx";
+connectAttr "leftFinger4_multiplyDivide1.ox" "leftFinger4_controlScale.sy";
+connectAttr "leftFinger4_multiplyDivide1.ox" "leftFinger4_controlScale.sz";
+connectAttr "leftThumb1_ParentConstrain_parentConstraint1.ctx" "leftThumb1_ParentConstrain.tx"
+		;
+connectAttr "leftThumb1_ParentConstrain_parentConstraint1.cty" "leftThumb1_ParentConstrain.ty"
+		;
+connectAttr "leftThumb1_ParentConstrain_parentConstraint1.ctz" "leftThumb1_ParentConstrain.tz"
+		;
+connectAttr "leftThumb1_ParentConstrain_parentConstraint1.crx" "leftThumb1_ParentConstrain.rx"
+		;
+connectAttr "leftThumb1_ParentConstrain_parentConstraint1.cry" "leftThumb1_ParentConstrain.ry"
+		;
+connectAttr "leftThumb1_ParentConstrain_parentConstraint1.crz" "leftThumb1_ParentConstrain.rz"
+		;
+connectAttr "leftThumb1_cluster1.og[0]" "leftThumb1_ControlShape.cr";
+connectAttr "leftThumb1_tweak1.pl[0].cp[0]" "leftThumb1_ControlShape.twl";
+connectAttr "leftThumb1_cluster1GroupId.id" "leftThumb1_ControlShape.iog.og[0].gid"
+		;
+connectAttr "leftThumb1_cluster1Set.mwc" "leftThumb1_ControlShape.iog.og[0].gco"
+		;
+connectAttr "leftThumb1_groupId2.id" "leftThumb1_ControlShape.iog.og[1].gid";
+connectAttr "leftThumb1_tweakSet1.mwc" "leftThumb1_ControlShape.iog.og[1].gco";
+connectAttr "leftThumb1_ParentConstrain.ro" "leftThumb1_ParentConstrain_parentConstraint1.cro"
+		;
+connectAttr "leftThumb1_ParentConstrain.pim" "leftThumb1_ParentConstrain_parentConstraint1.cpim"
+		;
+connectAttr "leftThumb1_ParentConstrain.rp" "leftThumb1_ParentConstrain_parentConstraint1.crp"
+		;
+connectAttr "leftThumb1_ParentConstrain.rpt" "leftThumb1_ParentConstrain_parentConstraint1.crt"
+		;
+connectAttr "leftArm1_HiResHand.t" "leftThumb1_ParentConstrain_parentConstraint1.tg[0].tt"
+		;
+connectAttr "leftArm1_HiResHand.rp" "leftThumb1_ParentConstrain_parentConstraint1.tg[0].trp"
+		;
+connectAttr "leftArm1_HiResHand.rpt" "leftThumb1_ParentConstrain_parentConstraint1.tg[0].trt"
+		;
+connectAttr "leftArm1_HiResHand.r" "leftThumb1_ParentConstrain_parentConstraint1.tg[0].tr"
+		;
+connectAttr "leftArm1_HiResHand.ro" "leftThumb1_ParentConstrain_parentConstraint1.tg[0].tro"
+		;
+connectAttr "leftArm1_HiResHand.s" "leftThumb1_ParentConstrain_parentConstraint1.tg[0].ts"
+		;
+connectAttr "leftArm1_HiResHand.pm" "leftThumb1_ParentConstrain_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "leftArm1_HiResHand.jo" "leftThumb1_ParentConstrain_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "leftArm1_HiResHand.ssc" "leftThumb1_ParentConstrain_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "leftArm1_HiResHand.is" "leftThumb1_ParentConstrain_parentConstraint1.tg[0].tis"
+		;
+connectAttr "leftThumb1_ParentConstrain_parentConstraint1.w0" "leftThumb1_ParentConstrain_parentConstraint1.tg[0].tw"
+		;
+connectAttr "leftThumb1_multiplyDivide1.ox" "leftThumb1_controlScale.sx";
+connectAttr "leftThumb1_multiplyDivide1.ox" "leftThumb1_controlScale.sy";
+connectAttr "leftThumb1_multiplyDivide1.ox" "leftThumb1_controlScale.sz";
+connectAttr "TSMGSkinCluster1GroupId.id" "l_handShape.iog.og[0].gid";
+connectAttr "TSMGSkinCluster1Set.mwc" "l_handShape.iog.og[0].gco";
+connectAttr "groupId2.id" "l_handShape.iog.og[1].gid";
+connectAttr "tweakSet1.mwc" "l_handShape.iog.og[1].gco";
+connectAttr "TSMGSkinCluster1.og[0]" "l_handShape.i";
+connectAttr "tweak1.vl[0].vt[0]" "l_handShape.twl";
+relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "Plane005SG.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "Plane005SG.message" ":defaultLightSet.message";
+connectAttr "layerManager.dli[0]" "defaultLayer.id";
+connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
+connectAttr "MaterialFBXASC032FBXASC03546.oc" "Plane005SG.ss";
+connectAttr "l_handShape.iog" "Plane005SG.dsm" -na;
+connectAttr "Plane005SG.msg" "materialInfo1.sg";
+connectAttr "MaterialFBXASC032FBXASC03546.msg" "materialInfo1.m";
+connectAttr "leftArm1_plusMinusAverage1.o3x" "leftArm1_multiplyDivide3.i2x";
+connectAttr "leftArm1_multiplyDivide32.ox" "leftArm1_blendColors3.c1r";
+connectAttr "leftArm1_blendColors3.op" "leftArm1_multiplyDivide10.i1";
+connectAttr "leftArm1_multiplyDivide21.ox" "leftArm1_multiplyDivide13.i2x";
+connectAttr "leftArm1_plusMinusAverage3.o1" "leftArm1_multiplyDivide18.i1x";
+connectAttr "leftArm1_multiplyDivide24.ox" "leftArm1_multiplyDivide19.i1x";
+connectAttr "leftArm1_plusMinusAverage8.o1" "leftArm1_multiplyDivide23.i2x";
+connectAttr "leftArm1_multiplyDivide41.o" "leftArm1_multiplyDivide24.i1";
+connectAttr "leftArm1_multiplyDivide12.ox" "leftArm1_multiplyDivide32.i2x";
+connectAttr "leftArm1_multiplyDivide35.o" "leftArm1_blendColors4.c1";
+connectAttr "leftArm1_multiplyDivide39.o" "leftArm1_blendColors4.c2";
+connectAttr "leftArm1_multiplyDivide36.o" "leftArm1_blendColors5.c1";
+connectAttr "leftArm1_multiplyDivide40.o" "leftArm1_blendColors5.c2";
+connectAttr "leftArm1_multiplyDivide33.ox" "leftArm1_plusMinusAverage7.i1[0]";
+connectAttr "leftArm1_multiplyDivide34.ox" "leftArm1_plusMinusAverage7.i1[1]";
+connectAttr "leftArm1_distanceBetween1.d" "leftArm1_multiplyDivide37.i2x";
+connectAttr "leftArm1_blendColors8.opr" "leftArm1_multiplyDivide39.i1x";
+connectAttr "leftArm1_multiplyDivide33.o" "leftArm1_multiplyDivide39.i2";
+connectAttr "leftArm1_multiplyDivide37.ox" "leftArm1_pasted__arms_RightArm_multiplyDivide11_input1X1.i"
+		;
+connectAttr "leftArm1_plusMinusAverage7.o1" "leftArm1_distanceBetween1.p1x";
+connectAttr "leftArm1_blendColors8.opr" "leftArm1_multiplyDivide40.i1x";
+connectAttr "leftArm1_multiplyDivide34.o" "leftArm1_multiplyDivide40.i2";
+connectAttr "leftArm1_multiplyDivide37.ox" "leftArm1_pasted__arms_RightArm_multiplyDivide11_input1X3.i"
+		;
+connectAttr "leftArm1_pasted__arms_RightArm_multiplyDivide11_input1X1.o" "leftArm1_blendColors7.c1r"
+		;
+connectAttr "leftArm1_pasted__arms_RightArm_multiplyDivide11_input1X3.o" "leftArm1_blendColors7.c2r"
+		;
+connectAttr "leftArm1_multiplyDivide23.o" "leftArm1_multiplyDivide41.i1";
+connectAttr "leftArm1_plusMinusAverage9.o1" "leftArm1_multiplyDivide41.i2x";
+connectAttr "leftArm1_blendColors7.opr" "leftArm1_blendColors8.c1r";
+connectAttr "leftArm1_multiplyDivide43.ox" "leftArm1_plusMinusAverage8.i1[0]";
+connectAttr "leftArm1_multiplyDivide43.oy" "leftArm1_plusMinusAverage8.i1[1]";
+connectAttr "leftArm1_multiplyDivide43.oz" "leftArm1_plusMinusAverage8.i1[2]";
+connectAttr "leftArm1_multiplyDivide42.o" "leftArm1_multiplyDivide43.i1";
+connectAttr "leftArm1_multiplyDivide44.o" "leftArm1_multiplyDivide45.i1";
+connectAttr "leftArm1_multiplyDivide45.ox" "leftArm1_plusMinusAverage9.i1[0]";
+connectAttr "leftArm1_multiplyDivide45.oy" "leftArm1_plusMinusAverage9.i1[1]";
+connectAttr "leftArm1_multiplyDivide45.oz" "leftArm1_plusMinusAverage9.i1[2]";
+connectAttr "nodeView1.msg" "MayaNodeEditorBookmarks.b";
+connectAttr "leftFinger1_Control.EndJoint" "leftFinger1_unitConversion1.i";
+connectAttr "leftFinger1_Control.MiddleJoint" "leftFinger1_unitConversion2.i";
+connectAttr "leftFinger1_Control.SideToSide" "leftFinger1_unitConversion3.i";
+connectAttr "leftFinger1_distanceBetween1.d" "leftFinger1_plusMinusAverage1.i1[0]"
+		;
+connectAttr "leftFinger1_distanceBetween2.d" "leftFinger1_plusMinusAverage1.i1[1]"
+		;
+connectAttr "leftFinger1_distanceBetween3.d" "leftFinger1_plusMinusAverage1.i1[2]"
+		;
+connectAttr "leftFinger1_distanceBetween4.d" "leftFinger1_plusMinusAverage1.i1[3]"
+		;
+connectAttr "leftFinger1_plusMinusAverage1.o1" "leftFinger1_multiplyDivide1.i1x"
+		;
+connectAttr "leftFinger1_cluster1GroupParts.og" "leftFinger1_cluster1.ip[0].ig";
+connectAttr "leftFinger1_cluster1GroupId.id" "leftFinger1_cluster1.ip[0].gi";
+connectAttr "leftFinger1_cluster1Handle.wm" "leftFinger1_cluster1.ma";
+connectAttr "leftFinger1_cluster1HandleShape.x" "leftFinger1_cluster1.x";
+connectAttr "leftFinger1_groupParts2.og" "leftFinger1_tweak1.ip[0].ig";
+connectAttr "leftFinger1_groupId2.id" "leftFinger1_tweak1.ip[0].gi";
+connectAttr "leftFinger1_cluster1GroupId.msg" "leftFinger1_cluster1Set.gn" -na;
+connectAttr "leftFinger1_ControlShape.iog.og[0]" "leftFinger1_cluster1Set.dsm" -na
+		;
+connectAttr "leftFinger1_cluster1.msg" "leftFinger1_cluster1Set.ub[0]";
+connectAttr "leftFinger1_tweak1.og[0]" "leftFinger1_cluster1GroupParts.ig";
+connectAttr "leftFinger1_cluster1GroupId.id" "leftFinger1_cluster1GroupParts.gi"
+		;
+connectAttr "leftFinger1_groupId2.msg" "leftFinger1_tweakSet1.gn" -na;
+connectAttr "leftFinger1_ControlShape.iog.og[1]" "leftFinger1_tweakSet1.dsm" -na
+		;
+connectAttr "leftFinger1_tweak1.msg" "leftFinger1_tweakSet1.ub[0]";
+connectAttr "leftFinger1_ControlShapeOrig.ws" "leftFinger1_groupParts2.ig";
+connectAttr "leftFinger1_groupId2.id" "leftFinger1_groupParts2.gi";
+connectAttr "leftFinger1_multiplyDivide6.o" "leftFinger1_multiplyDivide2.i1";
+connectAttr "leftFinger1_plusMinusAverage2.o1" "leftFinger1_multiplyDivide3.i2x"
+		;
+connectAttr "leftFinger1_multiplyDivide3.ox" "leftFinger1_multiplyDivide4.i1x";
+connectAttr "leftFinger1_multiplyDivide1.ox" "leftFinger1_multiplyDivide4.i2x";
+connectAttr "leftFinger1_multiplyDivide1.ox" "leftFinger1_multiplyDivide5.i1x";
+connectAttr "leftFinger1_plusMinusAverage3.o1" "leftFinger1_multiplyDivide6.i1x"
+		;
+connectAttr "leftFinger1_multiplyDivide4.o" "leftFinger1_multiplyDivide6.i2";
+connectAttr "leftFinger1_multiplyDivide7.o" "leftFinger1_multiplyDivide8.i1";
+connectAttr "leftFinger1_multiplyDivide8.ox" "leftFinger1_plusMinusAverage2.i1[0]"
+		;
+connectAttr "leftFinger1_multiplyDivide8.oy" "leftFinger1_plusMinusAverage2.i1[1]"
+		;
+connectAttr "leftFinger1_multiplyDivide8.oz" "leftFinger1_plusMinusAverage2.i1[2]"
+		;
+connectAttr "leftFinger1_multiplyDivide9.o" "leftFinger1_multiplyDivide10.i1";
+connectAttr "leftFinger1_multiplyDivide10.ox" "leftFinger1_plusMinusAverage3.i1[0]"
+		;
+connectAttr "leftFinger1_multiplyDivide10.oy" "leftFinger1_plusMinusAverage3.i1[1]"
+		;
+connectAttr "leftFinger1_multiplyDivide10.oz" "leftFinger1_plusMinusAverage3.i1[2]"
+		;
+connectAttr "leftFinger2_Control.EndJoint" "leftFinger2_unitConversion1.i";
+connectAttr "leftFinger2_Control.MiddleJoint" "leftFinger2_unitConversion2.i";
+connectAttr "leftFinger2_Control.SideToSide" "leftFinger2_unitConversion3.i";
+connectAttr "leftFinger2_distanceBetween1.d" "leftFinger2_plusMinusAverage1.i1[0]"
+		;
+connectAttr "leftFinger2_distanceBetween2.d" "leftFinger2_plusMinusAverage1.i1[1]"
+		;
+connectAttr "leftFinger2_distanceBetween3.d" "leftFinger2_plusMinusAverage1.i1[2]"
+		;
+connectAttr "leftFinger2_distanceBetween4.d" "leftFinger2_plusMinusAverage1.i1[3]"
+		;
+connectAttr "leftFinger2_plusMinusAverage1.o1" "leftFinger2_multiplyDivide1.i1x"
+		;
+connectAttr "leftFinger2_cluster1GroupParts.og" "leftFinger2_cluster1.ip[0].ig";
+connectAttr "leftFinger2_cluster1GroupId.id" "leftFinger2_cluster1.ip[0].gi";
+connectAttr "leftFinger2_cluster1Handle.wm" "leftFinger2_cluster1.ma";
+connectAttr "leftFinger2_cluster1HandleShape.x" "leftFinger2_cluster1.x";
+connectAttr "leftFinger2_groupParts2.og" "leftFinger2_tweak1.ip[0].ig";
+connectAttr "leftFinger2_groupId2.id" "leftFinger2_tweak1.ip[0].gi";
+connectAttr "leftFinger2_cluster1GroupId.msg" "leftFinger2_cluster1Set.gn" -na;
+connectAttr "leftFinger2_ControlShape.iog.og[0]" "leftFinger2_cluster1Set.dsm" -na
+		;
+connectAttr "leftFinger2_cluster1.msg" "leftFinger2_cluster1Set.ub[0]";
+connectAttr "leftFinger2_tweak1.og[0]" "leftFinger2_cluster1GroupParts.ig";
+connectAttr "leftFinger2_cluster1GroupId.id" "leftFinger2_cluster1GroupParts.gi"
+		;
+connectAttr "leftFinger2_groupId2.msg" "leftFinger2_tweakSet1.gn" -na;
+connectAttr "leftFinger2_ControlShape.iog.og[1]" "leftFinger2_tweakSet1.dsm" -na
+		;
+connectAttr "leftFinger2_tweak1.msg" "leftFinger2_tweakSet1.ub[0]";
+connectAttr "leftFinger2_ControlShapeOrig.ws" "leftFinger2_groupParts2.ig";
+connectAttr "leftFinger2_groupId2.id" "leftFinger2_groupParts2.gi";
+connectAttr "leftFinger2_multiplyDivide6.o" "leftFinger2_multiplyDivide2.i1";
+connectAttr "leftFinger2_plusMinusAverage2.o1" "leftFinger2_multiplyDivide3.i2x"
+		;
+connectAttr "leftFinger2_multiplyDivide3.ox" "leftFinger2_multiplyDivide4.i1x";
+connectAttr "leftFinger2_multiplyDivide1.ox" "leftFinger2_multiplyDivide4.i2x";
+connectAttr "leftFinger2_multiplyDivide1.ox" "leftFinger2_multiplyDivide5.i1x";
+connectAttr "leftFinger2_plusMinusAverage3.o1" "leftFinger2_multiplyDivide6.i1x"
+		;
+connectAttr "leftFinger2_multiplyDivide4.o" "leftFinger2_multiplyDivide6.i2";
+connectAttr "leftFinger2_multiplyDivide7.o" "leftFinger2_multiplyDivide8.i1";
+connectAttr "leftFinger2_multiplyDivide8.ox" "leftFinger2_plusMinusAverage2.i1[0]"
+		;
+connectAttr "leftFinger2_multiplyDivide8.oy" "leftFinger2_plusMinusAverage2.i1[1]"
+		;
+connectAttr "leftFinger2_multiplyDivide8.oz" "leftFinger2_plusMinusAverage2.i1[2]"
+		;
+connectAttr "leftFinger2_multiplyDivide9.o" "leftFinger2_multiplyDivide10.i1";
+connectAttr "leftFinger2_multiplyDivide10.ox" "leftFinger2_plusMinusAverage3.i1[0]"
+		;
+connectAttr "leftFinger2_multiplyDivide10.oy" "leftFinger2_plusMinusAverage3.i1[1]"
+		;
+connectAttr "leftFinger2_multiplyDivide10.oz" "leftFinger2_plusMinusAverage3.i1[2]"
+		;
+connectAttr "leftFinger3_Control.EndJoint" "leftFinger3_unitConversion1.i";
+connectAttr "leftFinger3_Control.MiddleJoint" "leftFinger3_unitConversion2.i";
+connectAttr "leftFinger3_Control.SideToSide" "leftFinger3_unitConversion3.i";
+connectAttr "leftFinger3_distanceBetween1.d" "leftFinger3_plusMinusAverage1.i1[0]"
+		;
+connectAttr "leftFinger3_distanceBetween2.d" "leftFinger3_plusMinusAverage1.i1[1]"
+		;
+connectAttr "leftFinger3_distanceBetween3.d" "leftFinger3_plusMinusAverage1.i1[2]"
+		;
+connectAttr "leftFinger3_distanceBetween4.d" "leftFinger3_plusMinusAverage1.i1[3]"
+		;
+connectAttr "leftFinger3_plusMinusAverage1.o1" "leftFinger3_multiplyDivide1.i1x"
+		;
+connectAttr "leftFinger3_cluster1GroupParts.og" "leftFinger3_cluster1.ip[0].ig";
+connectAttr "leftFinger3_cluster1GroupId.id" "leftFinger3_cluster1.ip[0].gi";
+connectAttr "leftFinger3_cluster1Handle.wm" "leftFinger3_cluster1.ma";
+connectAttr "leftFinger3_cluster1HandleShape.x" "leftFinger3_cluster1.x";
+connectAttr "leftFinger3_groupParts2.og" "leftFinger3_tweak1.ip[0].ig";
+connectAttr "leftFinger3_groupId2.id" "leftFinger3_tweak1.ip[0].gi";
+connectAttr "leftFinger3_cluster1GroupId.msg" "leftFinger3_cluster1Set.gn" -na;
+connectAttr "leftFinger3_ControlShape.iog.og[0]" "leftFinger3_cluster1Set.dsm" -na
+		;
+connectAttr "leftFinger3_cluster1.msg" "leftFinger3_cluster1Set.ub[0]";
+connectAttr "leftFinger3_tweak1.og[0]" "leftFinger3_cluster1GroupParts.ig";
+connectAttr "leftFinger3_cluster1GroupId.id" "leftFinger3_cluster1GroupParts.gi"
+		;
+connectAttr "leftFinger3_groupId2.msg" "leftFinger3_tweakSet1.gn" -na;
+connectAttr "leftFinger3_ControlShape.iog.og[1]" "leftFinger3_tweakSet1.dsm" -na
+		;
+connectAttr "leftFinger3_tweak1.msg" "leftFinger3_tweakSet1.ub[0]";
+connectAttr "leftFinger3_ControlShapeOrig.ws" "leftFinger3_groupParts2.ig";
+connectAttr "leftFinger3_groupId2.id" "leftFinger3_groupParts2.gi";
+connectAttr "leftFinger3_multiplyDivide6.o" "leftFinger3_multiplyDivide2.i1";
+connectAttr "leftFinger3_plusMinusAverage2.o1" "leftFinger3_multiplyDivide3.i2x"
+		;
+connectAttr "leftFinger3_multiplyDivide3.ox" "leftFinger3_multiplyDivide4.i1x";
+connectAttr "leftFinger3_multiplyDivide1.ox" "leftFinger3_multiplyDivide4.i2x";
+connectAttr "leftFinger3_multiplyDivide1.ox" "leftFinger3_multiplyDivide5.i1x";
+connectAttr "leftFinger3_plusMinusAverage3.o1" "leftFinger3_multiplyDivide6.i1x"
+		;
+connectAttr "leftFinger3_multiplyDivide4.o" "leftFinger3_multiplyDivide6.i2";
+connectAttr "leftFinger3_multiplyDivide7.o" "leftFinger3_multiplyDivide8.i1";
+connectAttr "leftFinger3_multiplyDivide8.ox" "leftFinger3_plusMinusAverage2.i1[0]"
+		;
+connectAttr "leftFinger3_multiplyDivide8.oy" "leftFinger3_plusMinusAverage2.i1[1]"
+		;
+connectAttr "leftFinger3_multiplyDivide8.oz" "leftFinger3_plusMinusAverage2.i1[2]"
+		;
+connectAttr "leftFinger3_multiplyDivide9.o" "leftFinger3_multiplyDivide10.i1";
+connectAttr "leftFinger3_multiplyDivide10.ox" "leftFinger3_plusMinusAverage3.i1[0]"
+		;
+connectAttr "leftFinger3_multiplyDivide10.oy" "leftFinger3_plusMinusAverage3.i1[1]"
+		;
+connectAttr "leftFinger3_multiplyDivide10.oz" "leftFinger3_plusMinusAverage3.i1[2]"
+		;
+connectAttr "leftFinger4_Control.EndJoint" "leftFinger4_unitConversion1.i";
+connectAttr "leftFinger4_Control.MiddleJoint" "leftFinger4_unitConversion2.i";
+connectAttr "leftFinger4_Control.SideToSide" "leftFinger4_unitConversion3.i";
+connectAttr "leftFinger4_distanceBetween1.d" "leftFinger4_plusMinusAverage1.i1[0]"
+		;
+connectAttr "leftFinger4_distanceBetween2.d" "leftFinger4_plusMinusAverage1.i1[1]"
+		;
+connectAttr "leftFinger4_distanceBetween3.d" "leftFinger4_plusMinusAverage1.i1[2]"
+		;
+connectAttr "leftFinger4_distanceBetween4.d" "leftFinger4_plusMinusAverage1.i1[3]"
+		;
+connectAttr "leftFinger4_plusMinusAverage1.o1" "leftFinger4_multiplyDivide1.i1x"
+		;
+connectAttr "leftFinger4_cluster1GroupParts.og" "leftFinger4_cluster1.ip[0].ig";
+connectAttr "leftFinger4_cluster1GroupId.id" "leftFinger4_cluster1.ip[0].gi";
+connectAttr "leftFinger4_cluster1Handle.wm" "leftFinger4_cluster1.ma";
+connectAttr "leftFinger4_cluster1HandleShape.x" "leftFinger4_cluster1.x";
+connectAttr "leftFinger4_groupParts2.og" "leftFinger4_tweak1.ip[0].ig";
+connectAttr "leftFinger4_groupId2.id" "leftFinger4_tweak1.ip[0].gi";
+connectAttr "leftFinger4_cluster1GroupId.msg" "leftFinger4_cluster1Set.gn" -na;
+connectAttr "leftFinger4_ControlShape.iog.og[0]" "leftFinger4_cluster1Set.dsm" -na
+		;
+connectAttr "leftFinger4_cluster1.msg" "leftFinger4_cluster1Set.ub[0]";
+connectAttr "leftFinger4_tweak1.og[0]" "leftFinger4_cluster1GroupParts.ig";
+connectAttr "leftFinger4_cluster1GroupId.id" "leftFinger4_cluster1GroupParts.gi"
+		;
+connectAttr "leftFinger4_groupId2.msg" "leftFinger4_tweakSet1.gn" -na;
+connectAttr "leftFinger4_ControlShape.iog.og[1]" "leftFinger4_tweakSet1.dsm" -na
+		;
+connectAttr "leftFinger4_tweak1.msg" "leftFinger4_tweakSet1.ub[0]";
+connectAttr "leftFinger4_ControlShapeOrig.ws" "leftFinger4_groupParts2.ig";
+connectAttr "leftFinger4_groupId2.id" "leftFinger4_groupParts2.gi";
+connectAttr "leftFinger4_multiplyDivide6.o" "leftFinger4_multiplyDivide2.i1";
+connectAttr "leftFinger4_plusMinusAverage2.o1" "leftFinger4_multiplyDivide3.i2x"
+		;
+connectAttr "leftFinger4_multiplyDivide3.ox" "leftFinger4_multiplyDivide4.i1x";
+connectAttr "leftFinger4_multiplyDivide1.ox" "leftFinger4_multiplyDivide4.i2x";
+connectAttr "leftFinger4_multiplyDivide1.ox" "leftFinger4_multiplyDivide5.i1x";
+connectAttr "leftFinger4_plusMinusAverage3.o1" "leftFinger4_multiplyDivide6.i1x"
+		;
+connectAttr "leftFinger4_multiplyDivide4.o" "leftFinger4_multiplyDivide6.i2";
+connectAttr "leftFinger4_multiplyDivide7.o" "leftFinger4_multiplyDivide8.i1";
+connectAttr "leftFinger4_multiplyDivide8.ox" "leftFinger4_plusMinusAverage2.i1[0]"
+		;
+connectAttr "leftFinger4_multiplyDivide8.oy" "leftFinger4_plusMinusAverage2.i1[1]"
+		;
+connectAttr "leftFinger4_multiplyDivide8.oz" "leftFinger4_plusMinusAverage2.i1[2]"
+		;
+connectAttr "leftFinger4_multiplyDivide9.o" "leftFinger4_multiplyDivide10.i1";
+connectAttr "leftFinger4_multiplyDivide10.ox" "leftFinger4_plusMinusAverage3.i1[0]"
+		;
+connectAttr "leftFinger4_multiplyDivide10.oy" "leftFinger4_plusMinusAverage3.i1[1]"
+		;
+connectAttr "leftFinger4_multiplyDivide10.oz" "leftFinger4_plusMinusAverage3.i1[2]"
+		;
+connectAttr "leftThumb1_Control.EndJoint" "leftThumb1_unitConversion1.i";
+connectAttr "leftThumb1_Control.MiddleJoint" "leftThumb1_unitConversion2.i";
+connectAttr "leftThumb1_Control.SideToSide" "leftThumb1_unitConversion3.i";
+connectAttr "leftThumb1_plusMinusAverage3.o1" "leftThumb1_multiplyDivide1.i1x";
+connectAttr "leftThumb1_cluster1GroupParts.og" "leftThumb1_cluster1.ip[0].ig";
+connectAttr "leftThumb1_cluster1GroupId.id" "leftThumb1_cluster1.ip[0].gi";
+connectAttr "leftThumb1_cluster1Handle.wm" "leftThumb1_cluster1.ma";
+connectAttr "leftThumb1_cluster1HandleShape.x" "leftThumb1_cluster1.x";
+connectAttr "leftThumb1_groupParts2.og" "leftThumb1_tweak1.ip[0].ig";
+connectAttr "leftThumb1_groupId2.id" "leftThumb1_tweak1.ip[0].gi";
+connectAttr "leftThumb1_cluster1GroupId.msg" "leftThumb1_cluster1Set.gn" -na;
+connectAttr "leftThumb1_ControlShape.iog.og[0]" "leftThumb1_cluster1Set.dsm" -na
+		;
+connectAttr "leftThumb1_cluster1.msg" "leftThumb1_cluster1Set.ub[0]";
+connectAttr "leftThumb1_tweak1.og[0]" "leftThumb1_cluster1GroupParts.ig";
+connectAttr "leftThumb1_cluster1GroupId.id" "leftThumb1_cluster1GroupParts.gi";
+connectAttr "leftThumb1_groupId2.msg" "leftThumb1_tweakSet1.gn" -na;
+connectAttr "leftThumb1_ControlShape.iog.og[1]" "leftThumb1_tweakSet1.dsm" -na;
+connectAttr "leftThumb1_tweak1.msg" "leftThumb1_tweakSet1.ub[0]";
+connectAttr "leftThumb1_ControlShapeOrig.ws" "leftThumb1_groupParts2.ig";
+connectAttr "leftThumb1_groupId2.id" "leftThumb1_groupParts2.gi";
+connectAttr "leftThumb1_multiplyDivide6.ox" "leftThumb1_multiplyDivide2.i1x";
+connectAttr "leftThumb1_distanceBetween1.d" "leftThumb1_plusMinusAverage2.i1[0]"
+		;
+connectAttr "leftThumb1_distanceBetween2.d" "leftThumb1_plusMinusAverage2.i1[1]"
+		;
+connectAttr "leftThumb1_distanceBetween3.d" "leftThumb1_plusMinusAverage2.i1[2]"
+		;
+connectAttr "leftThumb1_distanceBetween1.d" "leftThumb1_plusMinusAverage3.i1[0]"
+		;
+connectAttr "leftThumb1_distanceBetween2.d" "leftThumb1_plusMinusAverage3.i1[1]"
+		;
+connectAttr "leftThumb1_distanceBetween3.d" "leftThumb1_plusMinusAverage3.i1[2]"
+		;
+connectAttr "leftThumb1_plusMinusAverage4.o1" "leftThumb1_multiplyDivide3.i2x";
+connectAttr "leftThumb1_multiplyDivide1.ox" "leftThumb1_multiplyDivide4.i1x";
+connectAttr "leftThumb1_multiplyDivide3.ox" "leftThumb1_multiplyDivide4.i2x";
+connectAttr "leftThumb1_multiplyDivide1.ox" "leftThumb1_multiplyDivide5.i1x";
+connectAttr "leftThumb1_multiplyDivide4.o" "leftThumb1_multiplyDivide6.i1";
+connectAttr "leftThumb1_plusMinusAverage5.o1" "leftThumb1_multiplyDivide6.i2x";
+connectAttr "leftThumb1_multiplyDivide10.ox" "leftThumb1_plusMinusAverage4.i1[0]"
+		;
+connectAttr "leftThumb1_multiplyDivide10.oy" "leftThumb1_plusMinusAverage4.i1[1]"
+		;
+connectAttr "leftThumb1_multiplyDivide10.oz" "leftThumb1_plusMinusAverage4.i1[2]"
+		;
+connectAttr "leftThumb1_multiplyDivide8.ox" "leftThumb1_plusMinusAverage5.i1[0]"
+		;
+connectAttr "leftThumb1_multiplyDivide8.oy" "leftThumb1_plusMinusAverage5.i1[1]"
+		;
+connectAttr "leftThumb1_multiplyDivide8.oz" "leftThumb1_plusMinusAverage5.i1[2]"
+		;
+connectAttr "leftThumb1_multiplyDivide7.o" "leftThumb1_multiplyDivide8.i1";
+connectAttr "leftThumb1_multiplyDivide9.o" "leftThumb1_multiplyDivide10.i1";
+connectAttr "rightArm1_plusMinusAverage1.o3x" "rightArm1_multiplyDivide3.i2x";
+connectAttr "rightArm1_multiplyDivide32.ox" "rightArm1_blendColors3.c1r";
+connectAttr "rightArm1_blendColors3.op" "rightArm1_multiplyDivide10.i1";
+connectAttr "rightArm1_multiplyDivide21.ox" "rightArm1_multiplyDivide13.i2x";
+connectAttr "rightArm1_plusMinusAverage3.o1" "rightArm1_multiplyDivide18.i1x";
+connectAttr "rightArm1_multiplyDivide24.ox" "rightArm1_multiplyDivide19.i1x";
+connectAttr "rightArm1_plusMinusAverage8.o1" "rightArm1_multiplyDivide23.i2x";
+connectAttr "rightArm1_multiplyDivide41.o" "rightArm1_multiplyDivide24.i1";
+connectAttr "rightArm1_multiplyDivide12.ox" "rightArm1_multiplyDivide32.i2x";
+connectAttr "rightArm1_multiplyDivide35.o" "rightArm1_blendColors4.c1";
+connectAttr "rightArm1_multiplyDivide39.o" "rightArm1_blendColors4.c2";
+connectAttr "rightArm1_multiplyDivide36.o" "rightArm1_blendColors5.c1";
+connectAttr "rightArm1_multiplyDivide40.o" "rightArm1_blendColors5.c2";
+connectAttr "rightArm1_multiplyDivide33.ox" "rightArm1_plusMinusAverage7.i1[0]";
+connectAttr "rightArm1_multiplyDivide34.ox" "rightArm1_plusMinusAverage7.i1[1]";
+connectAttr "rightArm1_distanceBetween1.d" "rightArm1_multiplyDivide37.i2x";
+connectAttr "rightArm1_blendColors8.opr" "rightArm1_multiplyDivide39.i1x";
+connectAttr "rightArm1_multiplyDivide33.o" "rightArm1_multiplyDivide39.i2";
+connectAttr "rightArm1_multiplyDivide37.ox" "rightArm1_pasted__arms_RightArm_multiplyDivide11_input1X1.i"
+		;
+connectAttr "rightArm1_plusMinusAverage7.o1" "rightArm1_distanceBetween1.p1x";
+connectAttr "rightArm1_blendColors8.opr" "rightArm1_multiplyDivide40.i1x";
+connectAttr "rightArm1_multiplyDivide34.o" "rightArm1_multiplyDivide40.i2";
+connectAttr "rightArm1_multiplyDivide37.ox" "rightArm1_pasted__arms_RightArm_multiplyDivide11_input1X3.i"
+		;
+connectAttr "rightArm1_pasted__arms_RightArm_multiplyDivide11_input1X1.o" "rightArm1_blendColors7.c1r"
+		;
+connectAttr "rightArm1_pasted__arms_RightArm_multiplyDivide11_input1X3.o" "rightArm1_blendColors7.c2r"
+		;
+connectAttr "rightArm1_multiplyDivide23.o" "rightArm1_multiplyDivide41.i1";
+connectAttr "rightArm1_plusMinusAverage9.o1" "rightArm1_multiplyDivide41.i2x";
+connectAttr "rightArm1_blendColors7.opr" "rightArm1_blendColors8.c1r";
+connectAttr "rightArm1_multiplyDivide43.ox" "rightArm1_plusMinusAverage8.i1[0]";
+connectAttr "rightArm1_multiplyDivide43.oy" "rightArm1_plusMinusAverage8.i1[1]";
+connectAttr "rightArm1_multiplyDivide43.oz" "rightArm1_plusMinusAverage8.i1[2]";
+connectAttr "rightArm1_multiplyDivide42.o" "rightArm1_multiplyDivide43.i1";
+connectAttr "rightArm1_multiplyDivide44.o" "rightArm1_multiplyDivide45.i1";
+connectAttr "rightArm1_multiplyDivide45.ox" "rightArm1_plusMinusAverage9.i1[0]";
+connectAttr "rightArm1_multiplyDivide45.oy" "rightArm1_plusMinusAverage9.i1[1]";
+connectAttr "rightArm1_multiplyDivide45.oz" "rightArm1_plusMinusAverage9.i1[2]";
+connectAttr "rightFinger1_distanceBetween1.d" "rightFinger1_plusMinusAverage1.i1[0]"
+		;
+connectAttr "rightFinger1_distanceBetween2.d" "rightFinger1_plusMinusAverage1.i1[1]"
+		;
+connectAttr "rightFinger1_distanceBetween3.d" "rightFinger1_plusMinusAverage1.i1[2]"
+		;
+connectAttr "rightFinger1_distanceBetween4.d" "rightFinger1_plusMinusAverage1.i1[3]"
+		;
+connectAttr "rightFinger1_plusMinusAverage1.o1" "rightFinger1_multiplyDivide1.i1x"
+		;
+connectAttr "rightFinger1_multiplyDivide6.o" "rightFinger1_multiplyDivide2.i1";
+connectAttr "rightFinger1_plusMinusAverage2.o1" "rightFinger1_multiplyDivide3.i2x"
+		;
+connectAttr "rightFinger1_multiplyDivide3.ox" "rightFinger1_multiplyDivide4.i1x"
+		;
+connectAttr "rightFinger1_multiplyDivide1.ox" "rightFinger1_multiplyDivide4.i2x"
+		;
+connectAttr "rightFinger1_multiplyDivide1.ox" "rightFinger1_multiplyDivide5.i1x"
+		;
+connectAttr "rightFinger1_plusMinusAverage3.o1" "rightFinger1_multiplyDivide6.i1x"
+		;
+connectAttr "rightFinger1_multiplyDivide4.o" "rightFinger1_multiplyDivide6.i2";
+connectAttr "rightFinger1_multiplyDivide7.o" "rightFinger1_multiplyDivide8.i1";
+connectAttr "rightFinger1_multiplyDivide8.ox" "rightFinger1_plusMinusAverage2.i1[0]"
+		;
+connectAttr "rightFinger1_multiplyDivide8.oy" "rightFinger1_plusMinusAverage2.i1[1]"
+		;
+connectAttr "rightFinger1_multiplyDivide8.oz" "rightFinger1_plusMinusAverage2.i1[2]"
+		;
+connectAttr "rightFinger1_multiplyDivide9.o" "rightFinger1_multiplyDivide10.i1";
+connectAttr "rightFinger1_multiplyDivide10.ox" "rightFinger1_plusMinusAverage3.i1[0]"
+		;
+connectAttr "rightFinger1_multiplyDivide10.oy" "rightFinger1_plusMinusAverage3.i1[1]"
+		;
+connectAttr "rightFinger1_multiplyDivide10.oz" "rightFinger1_plusMinusAverage3.i1[2]"
+		;
+connectAttr "rightFinger2_distanceBetween1.d" "rightFinger2_plusMinusAverage1.i1[0]"
+		;
+connectAttr "rightFinger2_distanceBetween2.d" "rightFinger2_plusMinusAverage1.i1[1]"
+		;
+connectAttr "rightFinger2_distanceBetween3.d" "rightFinger2_plusMinusAverage1.i1[2]"
+		;
+connectAttr "rightFinger2_distanceBetween4.d" "rightFinger2_plusMinusAverage1.i1[3]"
+		;
+connectAttr "rightFinger2_plusMinusAverage1.o1" "rightFinger2_multiplyDivide1.i1x"
+		;
+connectAttr "rightFinger2_multiplyDivide6.o" "rightFinger2_multiplyDivide2.i1";
+connectAttr "rightFinger2_plusMinusAverage2.o1" "rightFinger2_multiplyDivide3.i2x"
+		;
+connectAttr "rightFinger2_multiplyDivide3.ox" "rightFinger2_multiplyDivide4.i1x"
+		;
+connectAttr "rightFinger2_multiplyDivide1.ox" "rightFinger2_multiplyDivide4.i2x"
+		;
+connectAttr "rightFinger2_multiplyDivide1.ox" "rightFinger2_multiplyDivide5.i1x"
+		;
+connectAttr "rightFinger2_plusMinusAverage3.o1" "rightFinger2_multiplyDivide6.i1x"
+		;
+connectAttr "rightFinger2_multiplyDivide4.o" "rightFinger2_multiplyDivide6.i2";
+connectAttr "rightFinger2_multiplyDivide7.o" "rightFinger2_multiplyDivide8.i1";
+connectAttr "rightFinger2_multiplyDivide8.ox" "rightFinger2_plusMinusAverage2.i1[0]"
+		;
+connectAttr "rightFinger2_multiplyDivide8.oy" "rightFinger2_plusMinusAverage2.i1[1]"
+		;
+connectAttr "rightFinger2_multiplyDivide8.oz" "rightFinger2_plusMinusAverage2.i1[2]"
+		;
+connectAttr "rightFinger2_multiplyDivide9.o" "rightFinger2_multiplyDivide10.i1";
+connectAttr "rightFinger2_multiplyDivide10.ox" "rightFinger2_plusMinusAverage3.i1[0]"
+		;
+connectAttr "rightFinger2_multiplyDivide10.oy" "rightFinger2_plusMinusAverage3.i1[1]"
+		;
+connectAttr "rightFinger2_multiplyDivide10.oz" "rightFinger2_plusMinusAverage3.i1[2]"
+		;
+connectAttr "rightFinger3_distanceBetween1.d" "rightFinger3_plusMinusAverage1.i1[0]"
+		;
+connectAttr "rightFinger3_distanceBetween2.d" "rightFinger3_plusMinusAverage1.i1[1]"
+		;
+connectAttr "rightFinger3_distanceBetween3.d" "rightFinger3_plusMinusAverage1.i1[2]"
+		;
+connectAttr "rightFinger3_distanceBetween4.d" "rightFinger3_plusMinusAverage1.i1[3]"
+		;
+connectAttr "rightFinger3_plusMinusAverage1.o1" "rightFinger3_multiplyDivide1.i1x"
+		;
+connectAttr "rightFinger3_multiplyDivide6.o" "rightFinger3_multiplyDivide2.i1";
+connectAttr "rightFinger3_plusMinusAverage2.o1" "rightFinger3_multiplyDivide3.i2x"
+		;
+connectAttr "rightFinger3_multiplyDivide3.ox" "rightFinger3_multiplyDivide4.i1x"
+		;
+connectAttr "rightFinger3_multiplyDivide1.ox" "rightFinger3_multiplyDivide4.i2x"
+		;
+connectAttr "rightFinger3_multiplyDivide1.ox" "rightFinger3_multiplyDivide5.i1x"
+		;
+connectAttr "rightFinger3_plusMinusAverage3.o1" "rightFinger3_multiplyDivide6.i1x"
+		;
+connectAttr "rightFinger3_multiplyDivide4.o" "rightFinger3_multiplyDivide6.i2";
+connectAttr "rightFinger3_multiplyDivide7.o" "rightFinger3_multiplyDivide8.i1";
+connectAttr "rightFinger3_multiplyDivide8.ox" "rightFinger3_plusMinusAverage2.i1[0]"
+		;
+connectAttr "rightFinger3_multiplyDivide8.oy" "rightFinger3_plusMinusAverage2.i1[1]"
+		;
+connectAttr "rightFinger3_multiplyDivide8.oz" "rightFinger3_plusMinusAverage2.i1[2]"
+		;
+connectAttr "rightFinger3_multiplyDivide9.o" "rightFinger3_multiplyDivide10.i1";
+connectAttr "rightFinger3_multiplyDivide10.ox" "rightFinger3_plusMinusAverage3.i1[0]"
+		;
+connectAttr "rightFinger3_multiplyDivide10.oy" "rightFinger3_plusMinusAverage3.i1[1]"
+		;
+connectAttr "rightFinger3_multiplyDivide10.oz" "rightFinger3_plusMinusAverage3.i1[2]"
+		;
+connectAttr "rightFinger4_distanceBetween1.d" "rightFinger4_plusMinusAverage1.i1[0]"
+		;
+connectAttr "rightFinger4_distanceBetween2.d" "rightFinger4_plusMinusAverage1.i1[1]"
+		;
+connectAttr "rightFinger4_distanceBetween3.d" "rightFinger4_plusMinusAverage1.i1[2]"
+		;
+connectAttr "rightFinger4_distanceBetween4.d" "rightFinger4_plusMinusAverage1.i1[3]"
+		;
+connectAttr "rightFinger4_plusMinusAverage1.o1" "rightFinger4_multiplyDivide1.i1x"
+		;
+connectAttr "rightFinger4_multiplyDivide6.o" "rightFinger4_multiplyDivide2.i1";
+connectAttr "rightFinger4_plusMinusAverage2.o1" "rightFinger4_multiplyDivide3.i2x"
+		;
+connectAttr "rightFinger4_multiplyDivide3.ox" "rightFinger4_multiplyDivide4.i1x"
+		;
+connectAttr "rightFinger4_multiplyDivide1.ox" "rightFinger4_multiplyDivide4.i2x"
+		;
+connectAttr "rightFinger4_multiplyDivide1.ox" "rightFinger4_multiplyDivide5.i1x"
+		;
+connectAttr "rightFinger4_plusMinusAverage3.o1" "rightFinger4_multiplyDivide6.i1x"
+		;
+connectAttr "rightFinger4_multiplyDivide4.o" "rightFinger4_multiplyDivide6.i2";
+connectAttr "rightFinger4_multiplyDivide7.o" "rightFinger4_multiplyDivide8.i1";
+connectAttr "rightFinger4_multiplyDivide8.ox" "rightFinger4_plusMinusAverage2.i1[0]"
+		;
+connectAttr "rightFinger4_multiplyDivide8.oy" "rightFinger4_plusMinusAverage2.i1[1]"
+		;
+connectAttr "rightFinger4_multiplyDivide8.oz" "rightFinger4_plusMinusAverage2.i1[2]"
+		;
+connectAttr "rightFinger4_multiplyDivide9.o" "rightFinger4_multiplyDivide10.i1";
+connectAttr "rightFinger4_multiplyDivide10.ox" "rightFinger4_plusMinusAverage3.i1[0]"
+		;
+connectAttr "rightFinger4_multiplyDivide10.oy" "rightFinger4_plusMinusAverage3.i1[1]"
+		;
+connectAttr "rightFinger4_multiplyDivide10.oz" "rightFinger4_plusMinusAverage3.i1[2]"
+		;
+connectAttr "rightThumb1_plusMinusAverage3.o1" "rightThumb1_multiplyDivide1.i1x"
+		;
+connectAttr "rightThumb1_multiplyDivide6.ox" "rightThumb1_multiplyDivide2.i1x";
+connectAttr "rightThumb1_distanceBetween1.d" "rightThumb1_plusMinusAverage2.i1[0]"
+		;
+connectAttr "rightThumb1_distanceBetween2.d" "rightThumb1_plusMinusAverage2.i1[1]"
+		;
+connectAttr "rightThumb1_distanceBetween3.d" "rightThumb1_plusMinusAverage2.i1[2]"
+		;
+connectAttr "rightThumb1_distanceBetween1.d" "rightThumb1_plusMinusAverage3.i1[0]"
+		;
+connectAttr "rightThumb1_distanceBetween2.d" "rightThumb1_plusMinusAverage3.i1[1]"
+		;
+connectAttr "rightThumb1_distanceBetween3.d" "rightThumb1_plusMinusAverage3.i1[2]"
+		;
+connectAttr "rightThumb1_plusMinusAverage4.o1" "rightThumb1_multiplyDivide3.i2x"
+		;
+connectAttr "rightThumb1_multiplyDivide1.ox" "rightThumb1_multiplyDivide4.i1x";
+connectAttr "rightThumb1_multiplyDivide3.ox" "rightThumb1_multiplyDivide4.i2x";
+connectAttr "rightThumb1_multiplyDivide1.ox" "rightThumb1_multiplyDivide5.i1x";
+connectAttr "rightThumb1_multiplyDivide4.o" "rightThumb1_multiplyDivide6.i1";
+connectAttr "rightThumb1_plusMinusAverage5.o1" "rightThumb1_multiplyDivide6.i2x"
+		;
+connectAttr "rightThumb1_multiplyDivide10.ox" "rightThumb1_plusMinusAverage4.i1[0]"
+		;
+connectAttr "rightThumb1_multiplyDivide10.oy" "rightThumb1_plusMinusAverage4.i1[1]"
+		;
+connectAttr "rightThumb1_multiplyDivide10.oz" "rightThumb1_plusMinusAverage4.i1[2]"
+		;
+connectAttr "rightThumb1_multiplyDivide8.ox" "rightThumb1_plusMinusAverage5.i1[0]"
+		;
+connectAttr "rightThumb1_multiplyDivide8.oy" "rightThumb1_plusMinusAverage5.i1[1]"
+		;
+connectAttr "rightThumb1_multiplyDivide8.oz" "rightThumb1_plusMinusAverage5.i1[2]"
+		;
+connectAttr "rightThumb1_multiplyDivide7.o" "rightThumb1_multiplyDivide8.i1";
+connectAttr "rightThumb1_multiplyDivide9.o" "rightThumb1_multiplyDivide10.i1";
+connectAttr "TSMGSkinCluster1GroupParts.og" "TSMGSkinCluster1.ip[0].ig";
+connectAttr "TSMGSkinCluster1GroupId.id" "TSMGSkinCluster1.ip[0].gi";
+connectAttr "bindPose1.msg" "TSMGSkinCluster1.bp";
+connectAttr "leftFinger1_Joint3.wm" "TSMGSkinCluster1.ma[0]";
+connectAttr "leftFinger1_Joint2.wm" "TSMGSkinCluster1.ma[1]";
+connectAttr "leftFinger1_Joint1.wm" "TSMGSkinCluster1.ma[2]";
+connectAttr "leftFinger1_MetaCarpel.wm" "TSMGSkinCluster1.ma[3]";
+connectAttr "leftFinger2_Joint3.wm" "TSMGSkinCluster1.ma[4]";
+connectAttr "leftFinger2_Joint2.wm" "TSMGSkinCluster1.ma[5]";
+connectAttr "leftFinger2_Joint1.wm" "TSMGSkinCluster1.ma[6]";
+connectAttr "leftFinger2_MetaCarpel.wm" "TSMGSkinCluster1.ma[7]";
+connectAttr "leftFinger3_Joint3.wm" "TSMGSkinCluster1.ma[8]";
+connectAttr "leftFinger3_Joint2.wm" "TSMGSkinCluster1.ma[9]";
+connectAttr "leftFinger3_Joint1.wm" "TSMGSkinCluster1.ma[10]";
+connectAttr "leftFinger3_MetaCarpel.wm" "TSMGSkinCluster1.ma[11]";
+connectAttr "leftFinger4_Joint3.wm" "TSMGSkinCluster1.ma[12]";
+connectAttr "leftFinger4_Joint2.wm" "TSMGSkinCluster1.ma[13]";
+connectAttr "leftFinger4_Joint1.wm" "TSMGSkinCluster1.ma[14]";
+connectAttr "leftFinger4_MetaCarpel.wm" "TSMGSkinCluster1.ma[15]";
+connectAttr "leftThumb1_Joint3.wm" "TSMGSkinCluster1.ma[16]";
+connectAttr "leftThumb1_Joint2.wm" "TSMGSkinCluster1.ma[17]";
+connectAttr "leftThumb1_Joint1.wm" "TSMGSkinCluster1.ma[18]";
+connectAttr "leftArm1_HiResHand.wm" "TSMGSkinCluster1.ma[19]";
+connectAttr "leftFinger1_Joint3.liw" "TSMGSkinCluster1.lw[0]";
+connectAttr "leftFinger1_Joint2.liw" "TSMGSkinCluster1.lw[1]";
+connectAttr "leftFinger1_Joint1.liw" "TSMGSkinCluster1.lw[2]";
+connectAttr "leftFinger1_MetaCarpel.liw" "TSMGSkinCluster1.lw[3]";
+connectAttr "leftFinger2_Joint3.liw" "TSMGSkinCluster1.lw[4]";
+connectAttr "leftFinger2_Joint2.liw" "TSMGSkinCluster1.lw[5]";
+connectAttr "leftFinger2_Joint1.liw" "TSMGSkinCluster1.lw[6]";
+connectAttr "leftFinger2_MetaCarpel.liw" "TSMGSkinCluster1.lw[7]";
+connectAttr "leftFinger3_Joint3.liw" "TSMGSkinCluster1.lw[8]";
+connectAttr "leftFinger3_Joint2.liw" "TSMGSkinCluster1.lw[9]";
+connectAttr "leftFinger3_Joint1.liw" "TSMGSkinCluster1.lw[10]";
+connectAttr "leftFinger3_MetaCarpel.liw" "TSMGSkinCluster1.lw[11]";
+connectAttr "leftFinger4_Joint3.liw" "TSMGSkinCluster1.lw[12]";
+connectAttr "leftFinger4_Joint2.liw" "TSMGSkinCluster1.lw[13]";
+connectAttr "leftFinger4_Joint1.liw" "TSMGSkinCluster1.lw[14]";
+connectAttr "leftFinger4_MetaCarpel.liw" "TSMGSkinCluster1.lw[15]";
+connectAttr "leftThumb1_Joint3.liw" "TSMGSkinCluster1.lw[16]";
+connectAttr "leftThumb1_Joint2.liw" "TSMGSkinCluster1.lw[17]";
+connectAttr "leftThumb1_Joint1.liw" "TSMGSkinCluster1.lw[18]";
+connectAttr "leftArm1_HiResHand.liw" "TSMGSkinCluster1.lw[19]";
+connectAttr "leftFinger1_Joint3.obcc" "TSMGSkinCluster1.ifcl[0]";
+connectAttr "leftFinger1_Joint2.obcc" "TSMGSkinCluster1.ifcl[1]";
+connectAttr "leftFinger1_Joint1.obcc" "TSMGSkinCluster1.ifcl[2]";
+connectAttr "leftFinger1_MetaCarpel.obcc" "TSMGSkinCluster1.ifcl[3]";
+connectAttr "leftFinger2_Joint3.obcc" "TSMGSkinCluster1.ifcl[4]";
+connectAttr "leftFinger2_Joint2.obcc" "TSMGSkinCluster1.ifcl[5]";
+connectAttr "leftFinger2_Joint1.obcc" "TSMGSkinCluster1.ifcl[6]";
+connectAttr "leftFinger2_MetaCarpel.obcc" "TSMGSkinCluster1.ifcl[7]";
+connectAttr "leftFinger3_Joint3.obcc" "TSMGSkinCluster1.ifcl[8]";
+connectAttr "leftFinger3_Joint2.obcc" "TSMGSkinCluster1.ifcl[9]";
+connectAttr "leftFinger3_Joint1.obcc" "TSMGSkinCluster1.ifcl[10]";
+connectAttr "leftFinger3_MetaCarpel.obcc" "TSMGSkinCluster1.ifcl[11]";
+connectAttr "leftFinger4_Joint3.obcc" "TSMGSkinCluster1.ifcl[12]";
+connectAttr "leftFinger4_Joint2.obcc" "TSMGSkinCluster1.ifcl[13]";
+connectAttr "leftFinger4_Joint1.obcc" "TSMGSkinCluster1.ifcl[14]";
+connectAttr "leftFinger4_MetaCarpel.obcc" "TSMGSkinCluster1.ifcl[15]";
+connectAttr "leftThumb1_Joint3.obcc" "TSMGSkinCluster1.ifcl[16]";
+connectAttr "leftThumb1_Joint2.obcc" "TSMGSkinCluster1.ifcl[17]";
+connectAttr "leftThumb1_Joint1.obcc" "TSMGSkinCluster1.ifcl[18]";
+connectAttr "leftArm1_HiResHand.obcc" "TSMGSkinCluster1.ifcl[19]";
+connectAttr "leftThumb1_Joint3.msg" "TSMGSkinCluster1.ptt";
+connectAttr "groupParts2.og" "tweak1.ip[0].ig";
+connectAttr "groupId2.id" "tweak1.ip[0].gi";
+connectAttr "TSMGSkinCluster1GroupId.msg" "TSMGSkinCluster1Set.gn" -na;
+connectAttr "l_handShape.iog.og[0]" "TSMGSkinCluster1Set.dsm" -na;
+connectAttr "TSMGSkinCluster1.msg" "TSMGSkinCluster1Set.ub[0]";
+connectAttr "tweak1.og[0]" "TSMGSkinCluster1GroupParts.ig";
+connectAttr "TSMGSkinCluster1GroupId.id" "TSMGSkinCluster1GroupParts.gi";
+connectAttr "groupId2.msg" "tweakSet1.gn" -na;
+connectAttr "l_handShape.iog.og[1]" "tweakSet1.dsm" -na;
+connectAttr "tweak1.msg" "tweakSet1.ub[0]";
+connectAttr "l_handShapeOrig.w" "groupParts2.ig";
+connectAttr "groupId2.id" "groupParts2.gi";
+connectAttr "TSMG_Rig.msg" "bindPose1.m[0]";
+connectAttr "TSMG_Cruft.msg" "bindPose1.m[1]";
+connectAttr "leftArm1_HiResHand.msg" "bindPose1.m[8]";
+connectAttr "leftFinger1_MetaCarpel.msg" "bindPose1.m[9]";
+connectAttr "leftFinger1_Joint1.msg" "bindPose1.m[10]";
+connectAttr "leftFinger1_Joint2.msg" "bindPose1.m[11]";
+connectAttr "leftFinger1_Joint3.msg" "bindPose1.m[12]";
+connectAttr "leftFinger2_MetaCarpel.msg" "bindPose1.m[13]";
+connectAttr "leftFinger2_Joint1.msg" "bindPose1.m[14]";
+connectAttr "leftFinger2_Joint2.msg" "bindPose1.m[15]";
+connectAttr "leftFinger2_Joint3.msg" "bindPose1.m[16]";
+connectAttr "leftFinger3_MetaCarpel.msg" "bindPose1.m[17]";
+connectAttr "leftFinger3_Joint1.msg" "bindPose1.m[18]";
+connectAttr "leftFinger3_Joint2.msg" "bindPose1.m[19]";
+connectAttr "leftFinger3_Joint3.msg" "bindPose1.m[20]";
+connectAttr "leftFinger4_MetaCarpel.msg" "bindPose1.m[21]";
+connectAttr "leftFinger4_Joint1.msg" "bindPose1.m[22]";
+connectAttr "leftFinger4_Joint2.msg" "bindPose1.m[23]";
+connectAttr "leftFinger4_Joint3.msg" "bindPose1.m[24]";
+connectAttr "leftThumb1_Joint1.msg" "bindPose1.m[25]";
+connectAttr "leftThumb1_Joint2.msg" "bindPose1.m[26]";
+connectAttr "leftThumb1_Joint3.msg" "bindPose1.m[27]";
+connectAttr "bindPose1.w" "bindPose1.p[0]";
+connectAttr "bindPose1.m[0]" "bindPose1.p[1]";
+connectAttr "bindPose1.m[1]" "bindPose1.p[2]";
+connectAttr "bindPose1.m[2]" "bindPose1.p[3]";
+connectAttr "bindPose1.m[3]" "bindPose1.p[4]";
+connectAttr "bindPose1.m[4]" "bindPose1.p[5]";
+connectAttr "bindPose1.m[5]" "bindPose1.p[6]";
+connectAttr "bindPose1.m[6]" "bindPose1.p[7]";
+connectAttr "bindPose1.m[7]" "bindPose1.p[8]";
+connectAttr "bindPose1.m[8]" "bindPose1.p[9]";
+connectAttr "bindPose1.m[9]" "bindPose1.p[10]";
+connectAttr "bindPose1.m[10]" "bindPose1.p[11]";
+connectAttr "bindPose1.m[11]" "bindPose1.p[12]";
+connectAttr "bindPose1.m[8]" "bindPose1.p[13]";
+connectAttr "bindPose1.m[13]" "bindPose1.p[14]";
+connectAttr "bindPose1.m[14]" "bindPose1.p[15]";
+connectAttr "bindPose1.m[15]" "bindPose1.p[16]";
+connectAttr "bindPose1.m[8]" "bindPose1.p[17]";
+connectAttr "bindPose1.m[17]" "bindPose1.p[18]";
+connectAttr "bindPose1.m[18]" "bindPose1.p[19]";
+connectAttr "bindPose1.m[19]" "bindPose1.p[20]";
+connectAttr "bindPose1.m[8]" "bindPose1.p[21]";
+connectAttr "bindPose1.m[21]" "bindPose1.p[22]";
+connectAttr "bindPose1.m[22]" "bindPose1.p[23]";
+connectAttr "bindPose1.m[23]" "bindPose1.p[24]";
+connectAttr "bindPose1.m[8]" "bindPose1.p[25]";
+connectAttr "bindPose1.m[25]" "bindPose1.p[26]";
+connectAttr "bindPose1.m[26]" "bindPose1.p[27]";
+connectAttr "bindPose1.m[2]" "bindPose1.p[28]";
+connectAttr "bindPose1.m[28]" "bindPose1.p[29]";
+connectAttr "bindPose1.m[29]" "bindPose1.p[30]";
+connectAttr "bindPose1.m[30]" "bindPose1.p[31]";
+connectAttr "bindPose1.m[31]" "bindPose1.p[32]";
+connectAttr "bindPose1.m[32]" "bindPose1.p[33]";
+connectAttr "bindPose1.m[33]" "bindPose1.p[34]";
+connectAttr "bindPose1.m[34]" "bindPose1.p[35]";
+connectAttr "bindPose1.m[35]" "bindPose1.p[36]";
+connectAttr "bindPose1.m[33]" "bindPose1.p[38]";
+connectAttr "bindPose1.m[38]" "bindPose1.p[39]";
+connectAttr "bindPose1.m[39]" "bindPose1.p[40]";
+connectAttr "bindPose1.m[33]" "bindPose1.p[42]";
+connectAttr "bindPose1.m[42]" "bindPose1.p[43]";
+connectAttr "bindPose1.m[43]" "bindPose1.p[44]";
+connectAttr "bindPose1.m[33]" "bindPose1.p[46]";
+connectAttr "bindPose1.m[46]" "bindPose1.p[47]";
+connectAttr "bindPose1.m[47]" "bindPose1.p[48]";
+connectAttr "bindPose1.m[33]" "bindPose1.p[50]";
+connectAttr "bindPose1.m[50]" "bindPose1.p[51]";
+connectAttr "leftArm1_HiResHand.bps" "bindPose1.wm[8]";
+connectAttr "leftFinger1_MetaCarpel.bps" "bindPose1.wm[9]";
+connectAttr "leftFinger1_Joint1.bps" "bindPose1.wm[10]";
+connectAttr "leftFinger1_Joint2.bps" "bindPose1.wm[11]";
+connectAttr "leftFinger1_Joint3.bps" "bindPose1.wm[12]";
+connectAttr "leftFinger2_MetaCarpel.bps" "bindPose1.wm[13]";
+connectAttr "leftFinger2_Joint1.bps" "bindPose1.wm[14]";
+connectAttr "leftFinger2_Joint2.bps" "bindPose1.wm[15]";
+connectAttr "leftFinger2_Joint3.bps" "bindPose1.wm[16]";
+connectAttr "leftFinger3_MetaCarpel.bps" "bindPose1.wm[17]";
+connectAttr "leftFinger3_Joint1.bps" "bindPose1.wm[18]";
+connectAttr "leftFinger3_Joint2.bps" "bindPose1.wm[19]";
+connectAttr "leftFinger3_Joint3.bps" "bindPose1.wm[20]";
+connectAttr "leftFinger4_MetaCarpel.bps" "bindPose1.wm[21]";
+connectAttr "leftFinger4_Joint1.bps" "bindPose1.wm[22]";
+connectAttr "leftFinger4_Joint2.bps" "bindPose1.wm[23]";
+connectAttr "leftFinger4_Joint3.bps" "bindPose1.wm[24]";
+connectAttr "leftThumb1_Joint1.bps" "bindPose1.wm[25]";
+connectAttr "leftThumb1_Joint2.bps" "bindPose1.wm[26]";
+connectAttr "leftThumb1_Joint3.bps" "bindPose1.wm[27]";
+connectAttr ":mentalrayGlobals.msg" ":mentalrayItemsList.glb";
+connectAttr ":miDefaultOptions.msg" ":mentalrayItemsList.opt" -na;
+connectAttr ":miDefaultFramebuffer.msg" ":mentalrayItemsList.fb" -na;
+connectAttr ":miDefaultOptions.msg" ":mentalrayGlobals.opt";
+connectAttr ":miDefaultFramebuffer.msg" ":mentalrayGlobals.fb";
+connectAttr "Plane005SG.pa" ":renderPartition.st" -na;
+connectAttr "MaterialFBXASC032FBXASC03546.msg" ":defaultShaderList1.s" -na;
+connectAttr "leftArm1_multiplyDivide1.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_plusMinusAverage1.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide3.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide6.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide8.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide9.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_blendColors3.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide10.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide11.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide12.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide13.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide14.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide15.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide16.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide17.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_plusMinusAverage3.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide18.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide19.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide20.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_negetive.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_oneEighty.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_negetiveOneEighty.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide21.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide22.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_arrowLook.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide23.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide24.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide25.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide26.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide32.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide33.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide34.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide35.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide36.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_blendColors4.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_blendColors5.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_plusMinusAverage7.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide37.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide39.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_distanceBetween1.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide40.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_blendColors7.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide41.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_condition1.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_blendColors8.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_plusMinusAverage8.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide42.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide43.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide44.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_multiplyDivide45.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftArm1_plusMinusAverage9.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftFinger1_distanceBetween1.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger1_distanceBetween2.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger1_distanceBetween3.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger1_distanceBetween4.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger1_plusMinusAverage1.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger1_multiplyDivide1.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger1_multiplyDivide2.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger1_multiplyDivide3.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger1_multiplyDivide4.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger1_multiplyDivide5.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger1_multiplyDivide6.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger1_multiplyDivide7.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger1_multiplyDivide8.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger1_plusMinusAverage2.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger1_multiplyDivide9.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger1_multiplyDivide10.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger1_plusMinusAverage3.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger2_distanceBetween1.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger2_distanceBetween2.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger2_distanceBetween3.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger2_distanceBetween4.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger2_plusMinusAverage1.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger2_multiplyDivide1.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger2_multiplyDivide2.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger2_multiplyDivide3.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger2_multiplyDivide4.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger2_multiplyDivide5.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger2_multiplyDivide6.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger2_multiplyDivide7.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger2_multiplyDivide8.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger2_plusMinusAverage2.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger2_multiplyDivide9.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger2_multiplyDivide10.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger2_plusMinusAverage3.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger3_distanceBetween1.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger3_distanceBetween2.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger3_distanceBetween3.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger3_distanceBetween4.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger3_plusMinusAverage1.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger3_multiplyDivide1.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger3_multiplyDivide2.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger3_multiplyDivide3.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger3_multiplyDivide4.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger3_multiplyDivide5.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger3_multiplyDivide6.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger3_multiplyDivide7.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger3_multiplyDivide8.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger3_plusMinusAverage2.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger3_multiplyDivide9.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger3_multiplyDivide10.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger3_plusMinusAverage3.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger4_distanceBetween1.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger4_distanceBetween2.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger4_distanceBetween3.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger4_distanceBetween4.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger4_plusMinusAverage1.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger4_multiplyDivide1.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger4_multiplyDivide2.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger4_multiplyDivide3.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger4_multiplyDivide4.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger4_multiplyDivide5.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger4_multiplyDivide6.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger4_multiplyDivide7.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger4_multiplyDivide8.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger4_plusMinusAverage2.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger4_multiplyDivide9.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger4_multiplyDivide10.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftFinger4_plusMinusAverage3.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftThumb1_distanceBetween1.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftThumb1_distanceBetween2.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftThumb1_distanceBetween3.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftThumb1_multiplyDivide1.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftThumb1_multiplyDivide2.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftThumb1_plusMinusAverage2.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftThumb1_plusMinusAverage3.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftThumb1_multiplyDivide3.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftThumb1_multiplyDivide4.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftThumb1_multiplyDivide5.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftThumb1_multiplyDivide6.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftThumb1_plusMinusAverage4.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftThumb1_plusMinusAverage5.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "leftThumb1_multiplyDivide7.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftThumb1_multiplyDivide8.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftThumb1_multiplyDivide9.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "leftThumb1_multiplyDivide10.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightArm1_multiplyDivide1.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_plusMinusAverage1.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightArm1_multiplyDivide3.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide6.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide8.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide9.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_blendColors3.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide10.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide11.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide12.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide13.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide14.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide15.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide16.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide17.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_plusMinusAverage3.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightArm1_multiplyDivide18.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide19.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide20.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_negetive.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_oneEighty.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_negetiveOneEighty.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightArm1_multiplyDivide21.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide22.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_arrowLook.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide23.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide24.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide25.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide26.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide32.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide33.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide34.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide35.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide36.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_blendColors4.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_blendColors5.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_plusMinusAverage7.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightArm1_multiplyDivide37.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide39.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_distanceBetween1.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide40.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_blendColors7.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide41.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_condition1.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_blendColors8.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_plusMinusAverage8.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightArm1_multiplyDivide42.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide43.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide44.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_multiplyDivide45.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "rightArm1_plusMinusAverage9.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger1_distanceBetween1.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger1_distanceBetween2.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger1_distanceBetween3.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger1_distanceBetween4.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger1_plusMinusAverage1.msg" ":defaultRenderUtilityList1.u" 
+		-na;
+connectAttr "rightFinger1_multiplyDivide1.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger1_multiplyDivide2.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger1_multiplyDivide3.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger1_multiplyDivide4.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger1_multiplyDivide5.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger1_multiplyDivide6.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger1_multiplyDivide7.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger1_multiplyDivide8.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger1_plusMinusAverage2.msg" ":defaultRenderUtilityList1.u" 
+		-na;
+connectAttr "rightFinger1_multiplyDivide9.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger1_multiplyDivide10.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger1_plusMinusAverage3.msg" ":defaultRenderUtilityList1.u" 
+		-na;
+connectAttr "rightFinger2_distanceBetween1.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger2_distanceBetween2.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger2_distanceBetween3.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger2_distanceBetween4.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger2_plusMinusAverage1.msg" ":defaultRenderUtilityList1.u" 
+		-na;
+connectAttr "rightFinger2_multiplyDivide1.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger2_multiplyDivide2.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger2_multiplyDivide3.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger2_multiplyDivide4.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger2_multiplyDivide5.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger2_multiplyDivide6.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger2_multiplyDivide7.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger2_multiplyDivide8.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger2_plusMinusAverage2.msg" ":defaultRenderUtilityList1.u" 
+		-na;
+connectAttr "rightFinger2_multiplyDivide9.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger2_multiplyDivide10.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger2_plusMinusAverage3.msg" ":defaultRenderUtilityList1.u" 
+		-na;
+connectAttr "rightFinger3_distanceBetween1.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger3_distanceBetween2.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger3_distanceBetween3.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger3_distanceBetween4.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger3_plusMinusAverage1.msg" ":defaultRenderUtilityList1.u" 
+		-na;
+connectAttr "rightFinger3_multiplyDivide1.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger3_multiplyDivide2.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger3_multiplyDivide3.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger3_multiplyDivide4.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger3_multiplyDivide5.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger3_multiplyDivide6.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger3_multiplyDivide7.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger3_multiplyDivide8.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger3_plusMinusAverage2.msg" ":defaultRenderUtilityList1.u" 
+		-na;
+connectAttr "rightFinger3_multiplyDivide9.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger3_multiplyDivide10.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger3_plusMinusAverage3.msg" ":defaultRenderUtilityList1.u" 
+		-na;
+connectAttr "rightFinger4_distanceBetween1.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger4_distanceBetween2.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger4_distanceBetween3.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger4_distanceBetween4.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger4_plusMinusAverage1.msg" ":defaultRenderUtilityList1.u" 
+		-na;
+connectAttr "rightFinger4_multiplyDivide1.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger4_multiplyDivide2.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger4_multiplyDivide3.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger4_multiplyDivide4.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger4_multiplyDivide5.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger4_multiplyDivide6.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger4_multiplyDivide7.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger4_multiplyDivide8.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger4_plusMinusAverage2.msg" ":defaultRenderUtilityList1.u" 
+		-na;
+connectAttr "rightFinger4_multiplyDivide9.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger4_multiplyDivide10.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightFinger4_plusMinusAverage3.msg" ":defaultRenderUtilityList1.u" 
+		-na;
+connectAttr "rightThumb1_distanceBetween1.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightThumb1_distanceBetween2.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightThumb1_distanceBetween3.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightThumb1_multiplyDivide1.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightThumb1_multiplyDivide2.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightThumb1_plusMinusAverage2.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightThumb1_plusMinusAverage3.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightThumb1_multiplyDivide3.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightThumb1_multiplyDivide4.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightThumb1_multiplyDivide5.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightThumb1_multiplyDivide6.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightThumb1_plusMinusAverage4.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightThumb1_plusMinusAverage5.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightThumb1_multiplyDivide7.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightThumb1_multiplyDivide8.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightThumb1_multiplyDivide9.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "rightThumb1_multiplyDivide10.msg" ":defaultRenderUtilityList1.u" -na
+		;
+connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
+// End of VR_Hands_v10.ma
