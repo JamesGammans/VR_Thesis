@@ -1,0 +1,1189 @@
+{
+  "metadata": {
+    "mayaSceneFile": "H:/Animation/The_Lunchbox/The_Lunchbox_Maya/scenes/Assets/Chars/Male_01/working/male01_walk_v02.mb", 
+    "angularUnit": "deg", 
+    "ctime": "1481575561", 
+    "endFrame": 83, 
+    "linearUnit": "cm", 
+    "version": "1.0.0", 
+    "user": "James", 
+    "startFrame": 0, 
+    "timeUnit": "ntsc", 
+    "mayaVersion": "2017"
+  }
+,
+  "objects": {
+    "rightArm1_UpperArmControl": {
+      "attrs": {
+        "rotateX": {
+          "curve": "CURVE1", 
+          "type": "doubleAngle", 
+          "value": 33.29583415863183
+        }, 
+        "rotateY": {
+          "curve": "CURVE2", 
+          "type": "doubleAngle", 
+          "value": 7.781884391201307
+        }, 
+        "rotateZ": {
+          "curve": "CURVE3", 
+          "type": "doubleAngle", 
+          "value": -71.68736834389905
+        }, 
+        "IKFKTag": {
+          "type": "string", 
+          "value": "upperArmInFK"
+        }, 
+        "stretch": {
+          "curve": "CURVE4", 
+          "type": "double", 
+          "value": 1.0
+        }
+      }
+    }, 
+    "rightLeg1_LegIKKneeControl": {
+      "attrs": {
+        "rotateX": {
+          "curve": "CURVE6", 
+          "type": "doubleAngle", 
+          "value": -0.7615890908768902
+        }, 
+        "rotateY": {
+          "curve": "CURVE7", 
+          "type": "doubleAngle", 
+          "value": 0.8668517972762569
+        }, 
+        "rotateZ": {
+          "curve": "CURVE8", 
+          "type": "doubleAngle", 
+          "value": -0.1807070415946943
+        }, 
+        "IKFKTag": {
+          "type": "string", 
+          "value": "upperLegInIK"
+        }
+      }
+    }, 
+    "spine1_hipsIKControl": {
+      "attrs": {
+        "translateX": {
+          "curve": "CURVE10", 
+          "type": "doubleLinear", 
+          "value": 2.956497185957474e-08
+        }, 
+        "translateY": {
+          "curve": "CURVE11", 
+          "type": "doubleLinear", 
+          "value": 1.4160685566366737e-06
+        }, 
+        "translateZ": {
+          "curve": "CURVE12", 
+          "type": "doubleLinear", 
+          "value": 1.5915512463493542e-08
+        }, 
+        "scaleX": {
+          "curve": "CURVE13", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "scaleY": {
+          "curve": "CURVE14", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "scaleZ": {
+          "curve": "CURVE15", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "rotateX": {
+          "curve": "CURVE16", 
+          "type": "doubleAngle", 
+          "value": -2.1909690374097814
+        }, 
+        "rotateY": {
+          "curve": "CURVE17", 
+          "type": "doubleAngle", 
+          "value": 4.856349455949104
+        }, 
+        "rotateZ": {
+          "curve": "CURVE18", 
+          "type": "doubleAngle", 
+          "value": -1.0445562845393432
+        }
+      }
+    }, 
+    "leftLeg1_LegIKControl": {
+      "attrs": {
+        "FootStretch": {
+          "curve": "CURVE20", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "HeelSwivel": {
+          "curve": "CURVE21", 
+          "type": "double", 
+          "value": 0.0
+        }, 
+        "LowerLegStretch": {
+          "curve": "CURVE22", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "translateX": {
+          "curve": "CURVE23", 
+          "type": "doubleLinear", 
+          "value": -2.682824850087779
+        }, 
+        "translateY": {
+          "curve": "CURVE24", 
+          "type": "doubleLinear", 
+          "value": 16.710742132193925
+        }, 
+        "translateZ": {
+          "curve": "CURVE25", 
+          "type": "doubleLinear", 
+          "value": -11.065689003332118
+        }, 
+        "AutoStretch": {
+          "curve": "CURVE26", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "scaleX": {
+          "curve": "CURVE27", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "scaleY": {
+          "curve": "CURVE28", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "scaleZ": {
+          "curve": "CURVE29", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "rotateX": {
+          "curve": "CURVE30", 
+          "type": "doubleAngle", 
+          "value": 38.67044233520748
+        }, 
+        "rotateY": {
+          "curve": "CURVE31", 
+          "type": "doubleAngle", 
+          "value": 9.393315057004267
+        }, 
+        "rotateZ": {
+          "curve": "CURVE32", 
+          "type": "doubleAngle", 
+          "value": -1.2817070300414612
+        }, 
+        "AntiIKPop": {
+          "curve": "CURVE33", 
+          "type": "double", 
+          "value": 0.0
+        }, 
+        "ToeSwivel": {
+          "curve": "CURVE34", 
+          "type": "double", 
+          "value": 0.08042041957378387
+        }, 
+        "UpperLegStretch": {
+          "curve": "CURVE35", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "IKFKTag": {
+          "type": "string", 
+          "value": "footInIK"
+        }, 
+        "HeelRaise": {
+          "curve": "CURVE36", 
+          "type": "double", 
+          "value": 0.0
+        }, 
+        "ToeRaise": {
+          "curve": "CURVE37", 
+          "type": "double", 
+          "value": 4.142191410064697
+        }
+      }
+    }, 
+    "leftLeg1_IKHeelControl": {
+      "attrs": {
+        "rotateX": {
+          "type": "doubleAngle", 
+          "value": 0.0
+        }, 
+        "rotateY": {
+          "type": "doubleAngle", 
+          "value": 0.0
+        }, 
+        "rotateZ": {
+          "type": "doubleAngle", 
+          "value": 0.0
+        }, 
+        "IKFKTag": {
+          "type": "string", 
+          "value": "toeInIK"
+        }
+      }
+    }, 
+    "leftArm1_HandControl": {
+      "attrs": {
+        "IKFKTag": {
+          "type": "string", 
+          "value": "handInFK"
+        }, 
+        "scaleX": {
+          "curve": "CURVE39", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "scaleY": {
+          "curve": "CURVE40", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "scaleZ": {
+          "curve": "CURVE41", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "rotateX": {
+          "curve": "CURVE42", 
+          "type": "doubleAngle", 
+          "value": -13.175146325527555
+        }, 
+        "rotateY": {
+          "curve": "CURVE43", 
+          "type": "doubleAngle", 
+          "value": -1.4133383720795756
+        }, 
+        "rotateZ": {
+          "curve": "CURVE44", 
+          "type": "doubleAngle", 
+          "value": -15.648735441533892
+        }
+      }
+    }, 
+    "rightFinger2_Control": {
+      "attrs": {
+        "translateX": {
+          "type": "doubleLinear", 
+          "value": -5.159563443157822e-08
+        }, 
+        "translateY": {
+          "type": "doubleLinear", 
+          "value": 4.599518348413767e-07
+        }, 
+        "translateZ": {
+          "type": "doubleLinear", 
+          "value": 2.489575326336535e-06
+        }, 
+        "SideToSide": {
+          "type": "double", 
+          "value": 0.0
+        }, 
+        "rotateX": {
+          "type": "doubleAngle", 
+          "value": 0.0
+        }, 
+        "rotateY": {
+          "type": "doubleAngle", 
+          "value": 0.0
+        }, 
+        "rotateZ": {
+          "type": "doubleAngle", 
+          "value": -7.904410930580845
+        }, 
+        "MiddleJoint": {
+          "type": "double", 
+          "value": 11.100000000000001
+        }, 
+        "EndJoint": {
+          "type": "double", 
+          "value": 3.5
+        }
+      }
+    }, 
+    "leftLeg1_LegIKKneeControl": {
+      "attrs": {
+        "rotateX": {
+          "curve": "CURVE46", 
+          "type": "doubleAngle", 
+          "value": -4.703869603828934
+        }, 
+        "rotateY": {
+          "curve": "CURVE47", 
+          "type": "doubleAngle", 
+          "value": -0.8359118856670947
+        }, 
+        "rotateZ": {
+          "curve": "CURVE48", 
+          "type": "doubleAngle", 
+          "value": 3.8289182493776703
+        }, 
+        "IKFKTag": {
+          "type": "string", 
+          "value": "upperLegInIK"
+        }
+      }
+    }, 
+    "rightArm1_HandControl": {
+      "attrs": {
+        "IKFKTag": {
+          "type": "string", 
+          "value": "handInFK"
+        }, 
+        "scaleX": {
+          "curve": "CURVE50", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "scaleY": {
+          "curve": "CURVE51", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "scaleZ": {
+          "curve": "CURVE52", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "rotateX": {
+          "curve": "CURVE53", 
+          "type": "doubleAngle", 
+          "value": 169.3823647848755
+        }, 
+        "rotateY": {
+          "curve": "CURVE54", 
+          "type": "doubleAngle", 
+          "value": -184.52777076591957
+        }, 
+        "rotateZ": {
+          "curve": "CURVE55", 
+          "type": "doubleAngle", 
+          "value": 170.73721792103788
+        }
+      }
+    }, 
+    "leftFinger1_Control": {
+      "attrs": {
+        "translateX": {
+          "type": "doubleLinear", 
+          "value": 2.3275674479350528e-05
+        }, 
+        "translateY": {
+          "type": "doubleLinear", 
+          "value": -5.614240663476266e-07
+        }, 
+        "translateZ": {
+          "type": "doubleLinear", 
+          "value": 3.1915880081001546e-06
+        }, 
+        "SideToSide": {
+          "type": "double", 
+          "value": 0.0
+        }, 
+        "rotateX": {
+          "type": "doubleAngle", 
+          "value": 0.0
+        }, 
+        "rotateY": {
+          "type": "doubleAngle", 
+          "value": -5.219290232281632e-12
+        }, 
+        "rotateZ": {
+          "type": "doubleAngle", 
+          "value": -9.405070139285314
+        }, 
+        "MiddleJoint": {
+          "type": "double", 
+          "value": 15.2
+        }, 
+        "EndJoint": {
+          "type": "double", 
+          "value": 7.6
+        }
+      }
+    }, 
+    "leftArm1_ClavicalControl": {
+      "attrs": {
+        "rotateX": {
+          "curve": "CURVE57", 
+          "type": "doubleAngle", 
+          "value": 6.95007382830748
+        }, 
+        "rotateY": {
+          "curve": "CURVE58", 
+          "type": "doubleAngle", 
+          "value": -3.256070167895544
+        }, 
+        "rotateZ": {
+          "curve": "CURVE59", 
+          "type": "doubleAngle", 
+          "value": -5.768371440594254
+        }, 
+        "stretch": {
+          "curve": "CURVE60", 
+          "type": "double", 
+          "value": 0.0
+        }
+      }
+    }, 
+    "rightThumb1_Control": {
+      "attrs": {
+        "translateX": {
+          "curve": "CURVE62", 
+          "type": "doubleLinear", 
+          "value": -1.9421666208424397
+        }, 
+        "translateY": {
+          "curve": "CURVE63", 
+          "type": "doubleLinear", 
+          "value": -0.1301775359139223
+        }, 
+        "translateZ": {
+          "curve": "CURVE64", 
+          "type": "doubleLinear", 
+          "value": -2.099
+        }, 
+        "SideToSide": {
+          "curve": "CURVE65", 
+          "type": "double", 
+          "value": 0.0
+        }, 
+        "rotateX": {
+          "curve": "CURVE66", 
+          "type": "doubleAngle", 
+          "value": -48.524
+        }, 
+        "rotateY": {
+          "curve": "CURVE67", 
+          "type": "doubleAngle", 
+          "value": 23.432000000000002
+        }, 
+        "rotateZ": {
+          "curve": "CURVE68", 
+          "type": "doubleAngle", 
+          "value": -45.995065232331385
+        }, 
+        "MiddleJoint": {
+          "curve": "CURVE69", 
+          "type": "double", 
+          "value": 22.0
+        }, 
+        "EndJoint": {
+          "curve": "CURVE70", 
+          "type": "double", 
+          "value": 4.4
+        }
+      }
+    }, 
+    "rightLeg1_IKHeelControl": {
+      "attrs": {
+        "rotateX": {
+          "type": "doubleAngle", 
+          "value": 0.0
+        }, 
+        "rotateY": {
+          "type": "doubleAngle", 
+          "value": 0.0
+        }, 
+        "rotateZ": {
+          "type": "doubleAngle", 
+          "value": 0.0
+        }, 
+        "IKFKTag": {
+          "type": "string", 
+          "value": "toeInIK"
+        }
+      }
+    }, 
+    "leftArm1_UpperArmControl": {
+      "attrs": {
+        "rotateX": {
+          "curve": "CURVE72", 
+          "type": "doubleAngle", 
+          "value": 27.631326412947068
+        }, 
+        "rotateY": {
+          "curve": "CURVE73", 
+          "type": "doubleAngle", 
+          "value": 6.355009789483314
+        }, 
+        "rotateZ": {
+          "curve": "CURVE74", 
+          "type": "doubleAngle", 
+          "value": -71.81150335270182
+        }, 
+        "IKFKTag": {
+          "type": "string", 
+          "value": "upperArmInFK"
+        }, 
+        "stretch": {
+          "curve": "CURVE75", 
+          "type": "double", 
+          "value": 1.0
+        }
+      }
+    }, 
+    "spine1_torsoIKControl": {
+      "attrs": {
+        "translateX": {
+          "curve": "CURVE77", 
+          "type": "doubleLinear", 
+          "value": -0.23495751619338867
+        }, 
+        "translateY": {
+          "curve": "CURVE78", 
+          "type": "doubleLinear", 
+          "value": 0.016759386211049332
+        }, 
+        "translateZ": {
+          "curve": "CURVE79", 
+          "type": "doubleLinear", 
+          "value": 0.7997817325500627
+        }, 
+        "scaleX": {
+          "curve": "CURVE80", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "scaleY": {
+          "curve": "CURVE81", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "scaleZ": {
+          "curve": "CURVE82", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "rotateX": {
+          "curve": "CURVE83", 
+          "type": "doubleAngle", 
+          "value": 9.090910112006515
+        }, 
+        "rotateY": {
+          "curve": "CURVE84", 
+          "type": "doubleAngle", 
+          "value": 7.175430096675748
+        }, 
+        "rotateZ": {
+          "curve": "CURVE85", 
+          "type": "doubleAngle", 
+          "value": 3.7163511636239877
+        }
+      }
+    }, 
+    "TSMG_root": {
+      "attrs": {
+        "translateX": {
+          "type": "doubleLinear", 
+          "value": 0.0
+        }, 
+        "translateY": {
+          "type": "doubleLinear", 
+          "value": 0.0
+        }, 
+        "translateZ": {
+          "type": "doubleLinear", 
+          "value": 0.0
+        }, 
+        "visibility": {
+          "type": "bool", 
+          "value": true
+        }, 
+        "rotateX": {
+          "type": "doubleAngle", 
+          "value": 0.0
+        }, 
+        "rotateY": {
+          "type": "doubleAngle", 
+          "value": 0.0
+        }, 
+        "rotateZ": {
+          "type": "doubleAngle", 
+          "value": 0.0
+        }
+      }
+    }, 
+    "spine1_middleSpineIKControl": {
+      "attrs": {
+        "translateX": {
+          "curve": "CURVE87", 
+          "type": "doubleLinear", 
+          "value": 0.30262011907800784
+        }, 
+        "translateY": {
+          "curve": "CURVE88", 
+          "type": "doubleLinear", 
+          "value": -0.0003035713463077627
+        }, 
+        "translateZ": {
+          "curve": "CURVE89", 
+          "type": "doubleLinear", 
+          "value": -0.7673341813226324
+        }, 
+        "scaleX": {
+          "curve": "CURVE90", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "scaleY": {
+          "curve": "CURVE91", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "scaleZ": {
+          "curve": "CURVE92", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "rotateX": {
+          "curve": "CURVE93", 
+          "type": "doubleAngle", 
+          "value": 1.1518160450866988
+        }, 
+        "rotateY": {
+          "curve": "CURVE94", 
+          "type": "doubleAngle", 
+          "value": 6.134707257251451
+        }, 
+        "rotateZ": {
+          "curve": "CURVE95", 
+          "type": "doubleAngle", 
+          "value": 0.31639824158563024
+        }
+      }
+    }, 
+    "head1_Control": {
+      "attrs": {
+        "translateX": {
+          "curve": "CURVE97", 
+          "type": "doubleLinear", 
+          "value": 6.852662070855331e-05
+        }, 
+        "translateY": {
+          "curve": "CURVE98", 
+          "type": "doubleLinear", 
+          "value": 9.896845534651533e-06
+        }, 
+        "translateZ": {
+          "curve": "CURVE99", 
+          "type": "doubleLinear", 
+          "value": 4.450873822037238e-05
+        }, 
+        "scaleX": {
+          "curve": "CURVE100", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "scaleY": {
+          "curve": "CURVE101", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "scaleZ": {
+          "curve": "CURVE102", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "rotateX": {
+          "curve": "CURVE103", 
+          "type": "doubleAngle", 
+          "value": 0.8720562563259465
+        }, 
+        "rotateY": {
+          "curve": "CURVE104", 
+          "type": "doubleAngle", 
+          "value": -1.9119326553710252
+        }, 
+        "rotateZ": {
+          "curve": "CURVE105", 
+          "type": "doubleAngle", 
+          "value": 0.9950882327971868
+        }
+      }
+    }, 
+    "rightArm1_LowerArmControl": {
+      "attrs": {
+        "stretch": {
+          "curve": "CURVE107", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "rotateY": {
+          "curve": "CURVE108", 
+          "type": "doubleAngle", 
+          "value": -17.10630008716055
+        }, 
+        "IKFKTag": {
+          "type": "string", 
+          "value": "lowerArmInFK"
+        }
+      }
+    }, 
+    "leftFinger3_Control": {
+      "attrs": {
+        "translateX": {
+          "type": "doubleLinear", 
+          "value": 2.300576329616888e-05
+        }, 
+        "translateY": {
+          "type": "doubleLinear", 
+          "value": -5.708712080831901e-07
+        }, 
+        "translateZ": {
+          "type": "doubleLinear", 
+          "value": 4.817480860452861e-06
+        }, 
+        "SideToSide": {
+          "type": "double", 
+          "value": 0.0
+        }, 
+        "rotateX": {
+          "type": "doubleAngle", 
+          "value": 0.0
+        }, 
+        "rotateY": {
+          "type": "doubleAngle", 
+          "value": -5.257456888459193e-12
+        }, 
+        "rotateZ": {
+          "type": "doubleAngle", 
+          "value": -5.247199431640789
+        }, 
+        "MiddleJoint": {
+          "type": "double", 
+          "value": 5.800000000000001
+        }, 
+        "EndJoint": {
+          "type": "double", 
+          "value": 3.5
+        }
+      }
+    }, 
+    "rightFinger1_Control": {
+      "attrs": {
+        "translateX": {
+          "type": "doubleLinear", 
+          "value": -1.4125613745363808e-07
+        }, 
+        "translateY": {
+          "type": "doubleLinear", 
+          "value": 4.528203660925101e-07
+        }, 
+        "translateZ": {
+          "type": "doubleLinear", 
+          "value": 2.553467819410571e-06
+        }, 
+        "SideToSide": {
+          "type": "double", 
+          "value": 0.0
+        }, 
+        "rotateX": {
+          "type": "doubleAngle", 
+          "value": 0.0
+        }, 
+        "rotateY": {
+          "type": "doubleAngle", 
+          "value": 6.3611093629270335e-15
+        }, 
+        "rotateZ": {
+          "type": "doubleAngle", 
+          "value": -9.405070139285314
+        }, 
+        "MiddleJoint": {
+          "type": "double", 
+          "value": 15.2
+        }, 
+        "EndJoint": {
+          "type": "double", 
+          "value": 7.6
+        }
+      }
+    }, 
+    "leftThumb1_Control": {
+      "attrs": {
+        "translateX": {
+          "curve": "CURVE110", 
+          "type": "doubleLinear", 
+          "value": -1.9421666208424397
+        }, 
+        "translateY": {
+          "curve": "CURVE111", 
+          "type": "doubleLinear", 
+          "value": -0.1301775359139223
+        }, 
+        "translateZ": {
+          "curve": "CURVE112", 
+          "type": "doubleLinear", 
+          "value": 2.0989569506697117
+        }, 
+        "SideToSide": {
+          "curve": "CURVE113", 
+          "type": "double", 
+          "value": 0.0
+        }, 
+        "rotateX": {
+          "curve": "CURVE114", 
+          "type": "doubleAngle", 
+          "value": 48.523508536577154
+        }, 
+        "rotateY": {
+          "curve": "CURVE115", 
+          "type": "doubleAngle", 
+          "value": -23.43190461735533
+        }, 
+        "rotateZ": {
+          "curve": "CURVE116", 
+          "type": "doubleAngle", 
+          "value": -45.995065232331385
+        }, 
+        "MiddleJoint": {
+          "curve": "CURVE117", 
+          "type": "double", 
+          "value": 22.0
+        }, 
+        "EndJoint": {
+          "curve": "CURVE118", 
+          "type": "double", 
+          "value": 4.4
+        }
+      }
+    }, 
+    "head1_neckControl": {
+      "attrs": {
+        "rotateX": {
+          "curve": "CURVE120", 
+          "type": "doubleAngle", 
+          "value": -1.2385338483201211
+        }, 
+        "rotateY": {
+          "curve": "CURVE121", 
+          "type": "doubleAngle", 
+          "value": 12.221517027679393
+        }, 
+        "rotateZ": {
+          "curve": "CURVE122", 
+          "type": "doubleAngle", 
+          "value": -0.21586906514059778
+        }
+      }
+    }, 
+    "rightArm1_ClavicalControl": {
+      "attrs": {
+        "rotateX": {
+          "curve": "CURVE124", 
+          "type": "doubleAngle", 
+          "value": 6.859100595146522
+        }, 
+        "rotateY": {
+          "curve": "CURVE125", 
+          "type": "doubleAngle", 
+          "value": 0.8354179857431171
+        }, 
+        "rotateZ": {
+          "curve": "CURVE126", 
+          "type": "doubleAngle", 
+          "value": -2.9725394925010957
+        }, 
+        "stretch": {
+          "curve": "CURVE127", 
+          "type": "double", 
+          "value": 0.0
+        }
+      }
+    }, 
+    "TSMG_upper_body": {
+      "attrs": {
+        "rightArm1_FKIKSwitch": {
+          "curve": "CURVE129", 
+          "type": "double", 
+          "value": 0.0
+        }, 
+        "translateX": {
+          "curve": "CURVE130", 
+          "type": "doubleLinear", 
+          "value": -0.45334959030151367
+        }, 
+        "translateY": {
+          "curve": "CURVE131", 
+          "type": "doubleLinear", 
+          "value": -3.0675080363395635
+        }, 
+        "translateZ": {
+          "curve": "CURVE132", 
+          "type": "doubleLinear", 
+          "value": 0.6342672832302707
+        }, 
+        "head1_RotationIsolationSwitch": {
+          "curve": "CURVE133", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "leftArm1_RotationIsolationSwitch": {
+          "curve": "CURVE134", 
+          "type": "double", 
+          "value": 0.0
+        }, 
+        "leftLeg1_RotationIsolationSwitch": {
+          "curve": "CURVE135", 
+          "type": "double", 
+          "value": 0.0
+        }, 
+        "visibility": {
+          "curve": "CURVE136", 
+          "type": "bool", 
+          "value": true
+        }, 
+        "spine1_FKIKSwitch": {
+          "curve": "CURVE137", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "rotateX": {
+          "curve": "CURVE138", 
+          "type": "doubleAngle", 
+          "value": 0.0
+        }, 
+        "rotateY": {
+          "curve": "CURVE139", 
+          "type": "doubleAngle", 
+          "value": 0.0
+        }, 
+        "rotateZ": {
+          "curve": "CURVE140", 
+          "type": "doubleAngle", 
+          "value": 0.0
+        }, 
+        "leftLeg1_FKIKSwitch": {
+          "curve": "CURVE141", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "rightLeg1_RotationIsolationSwitch": {
+          "curve": "CURVE142", 
+          "type": "double", 
+          "value": 0.0
+        }, 
+        "leftArm1_FKIKSwitch": {
+          "curve": "CURVE143", 
+          "type": "double", 
+          "value": 0.0
+        }, 
+        "rightLeg1_FKIKSwitch": {
+          "curve": "CURVE144", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "rightArm1_RotationIsolationSwitch": {
+          "curve": "CURVE145", 
+          "type": "double", 
+          "value": 0.0
+        }
+      }
+    }, 
+    "leftFinger2_Control": {
+      "attrs": {
+        "translateX": {
+          "type": "doubleLinear", 
+          "value": 2.3169968798697482e-05
+        }, 
+        "translateY": {
+          "type": "doubleLinear", 
+          "value": -5.654320460735107e-07
+        }, 
+        "translateZ": {
+          "type": "doubleLinear", 
+          "value": 3.908778811734237e-06
+        }, 
+        "SideToSide": {
+          "type": "double", 
+          "value": 0.0
+        }, 
+        "rotateX": {
+          "type": "doubleAngle", 
+          "value": 0.0
+        }, 
+        "rotateY": {
+          "type": "doubleAngle", 
+          "value": 0.0
+        }, 
+        "rotateZ": {
+          "type": "doubleAngle", 
+          "value": -7.904410930580845
+        }, 
+        "MiddleJoint": {
+          "type": "double", 
+          "value": 11.100000000000001
+        }, 
+        "EndJoint": {
+          "type": "double", 
+          "value": 3.5
+        }
+      }
+    }, 
+    "rightLeg1_LegIKControl": {
+      "attrs": {
+        "FootStretch": {
+          "curve": "CURVE147", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "HeelSwivel": {
+          "curve": "CURVE148", 
+          "type": "double", 
+          "value": 0.0
+        }, 
+        "LowerLegStretch": {
+          "curve": "CURVE149", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "translateX": {
+          "curve": "CURVE150", 
+          "type": "doubleLinear", 
+          "value": 11.278498624878045
+        }, 
+        "translateY": {
+          "curve": "CURVE151", 
+          "type": "doubleLinear", 
+          "value": -0.02167820986008806
+        }, 
+        "translateZ": {
+          "curve": "CURVE152", 
+          "type": "doubleLinear", 
+          "value": 2.642674103361852
+        }, 
+        "AutoStretch": {
+          "curve": "CURVE153", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "scaleX": {
+          "curve": "CURVE154", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "scaleY": {
+          "curve": "CURVE155", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "scaleZ": {
+          "curve": "CURVE156", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "rotateX": {
+          "curve": "CURVE157", 
+          "type": "doubleAngle", 
+          "value": -0.08285847733209926
+        }, 
+        "rotateY": {
+          "curve": "CURVE158", 
+          "type": "doubleAngle", 
+          "value": -4.540328629797592
+        }, 
+        "rotateZ": {
+          "curve": "CURVE159", 
+          "type": "doubleAngle", 
+          "value": 0.003857835234039828
+        }, 
+        "AntiIKPop": {
+          "curve": "CURVE160", 
+          "type": "double", 
+          "value": 0.0
+        }, 
+        "ToeSwivel": {
+          "curve": "CURVE161", 
+          "type": "double", 
+          "value": -0.1252383440732956
+        }, 
+        "UpperLegStretch": {
+          "curve": "CURVE162", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "IKFKTag": {
+          "type": "string", 
+          "value": "footInIK"
+        }, 
+        "HeelRaise": {
+          "curve": "CURVE163", 
+          "type": "double", 
+          "value": 0.0
+        }, 
+        "ToeRaise": {
+          "curve": "CURVE164", 
+          "type": "double", 
+          "value": 5.308927059173584
+        }
+      }
+    }, 
+    "leftArm1_LowerArmControl": {
+      "attrs": {
+        "stretch": {
+          "curve": "CURVE166", 
+          "type": "double", 
+          "value": 1.0
+        }, 
+        "rotateY": {
+          "curve": "CURVE167", 
+          "type": "doubleAngle", 
+          "value": -14.43627794796987
+        }, 
+        "IKFKTag": {
+          "type": "string", 
+          "value": "lowerArmInFK"
+        }
+      }
+    }, 
+    "rightFinger3_Control": {
+      "attrs": {
+        "translateX": {
+          "type": "doubleLinear", 
+          "value": 1.8428210069032502e-08
+        }, 
+        "translateY": {
+          "type": "doubleLinear", 
+          "value": 4.7622101106981063e-07
+        }, 
+        "translateZ": {
+          "type": "doubleLinear", 
+          "value": 2.418926605685101e-06
+        }, 
+        "SideToSide": {
+          "type": "double", 
+          "value": 0.0
+        }, 
+        "rotateX": {
+          "type": "doubleAngle", 
+          "value": 0.0
+        }, 
+        "rotateY": {
+          "type": "doubleAngle", 
+          "value": 9.54166404439055e-15
+        }, 
+        "rotateZ": {
+          "type": "doubleAngle", 
+          "value": -5.247199431640789
+        }, 
+        "MiddleJoint": {
+          "type": "double", 
+          "value": 5.800000000000001
+        }, 
+        "EndJoint": {
+          "type": "double", 
+          "value": 3.5
+        }
+      }
+    }
+  }
+}
